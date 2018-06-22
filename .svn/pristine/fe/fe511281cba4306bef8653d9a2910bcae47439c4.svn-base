@@ -1,0 +1,13 @@
+<?php
+namespace Home\Model;
+use Think\Model;
+class CartModel extends Model
+{
+	//添加到购物车
+	购物车显示的信息: 商品名称 价格 尺寸 材质 数量 总价格
+	通过 用户id 
+	public function addCart($goods_id,$goods_attr_ids,$goods_number)
+	{
+		
+	}
+}

@@ -1,0 +1,63 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class CommonController extends Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->header();
+	}
+    public function header(){
+    	//查询所有钻石分类
+    	$category = D('Category')->select();
+    	$this->assign('cate',$category);
+    	//查询所有钻石系列
+    	$series = D('Series')->select();
+    	$this->assign('series',$series);
+        
+    }
+
+    // 首页购物车悬浮框
+   public function index()
+    {
+    //调用Cart模型的getAllCart方法来获取购物车数据
+        $data = D('Cart') -> addAllCart();
+        // dump($data);die;
+        //遍历数组 唯美一跳数据,查询商品基本信息 查询商品属性信息
+        foreach($data as $k => &$v){
+            $goods = D('Goods') -> where(['id' => $v['goods_id']]) -> find();
+            $v['goods_name'] = $goods['goods_name'];
+            $v['goods_small_img'] = $goods['goods_small_img'];
+            $v['goods_price'] = $goods['goods_price'];
+            //查询商品的属性信息
+            // ..链表查询//
+            $attrs = D('GoodsAttr') -> alias('t1') -> field('t1.*,t2.attr_name') -> join('left join dia_attribute t2 on t1.attr_id = t2.id') -> where("t1.id in ({$v['goods_attr_ids']})") -> limit(2) -> select();
+
+            $v['goods_attr'] = $attrs;
+        }
+            
+        
+        // dump($data);die;
+        $this -> assign('data',$data);
+        $this -> display();
+    }
+    //点击X 删除购物车记录
+    public function delCart()
+    {
+        $id = I('post.id');
+        $res = D('Cart') -> where(['id' => $id]) -> delete();
+        if($res){
+            $return = array(
+                'code' => 10000,
+                'msg' => '删除成功'
+                );
+            $this -> ajaxReturn($return);
+        }else{
+            $return = array(
+                'code' => 10001,
+                'msg' => '删除失败'
+                );
+            $this -> ajaxReturn($return);
+
+        }
+    }
+}

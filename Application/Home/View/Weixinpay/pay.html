@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>正在支付</title>
+</head>
+<style>
+   
+/*    body{
+        width:100%;
+    height:100%
+  font-family: "华文细黑";
+  background:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526966451553&di=d31b6485352ebaf96396551bca280a0d&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F03%2F77%2F6b01dcb7feb4ca681655e79d9b11fe15.jpg") no-repeat;
+  background-size: 100%;
+}*/
+</style>
+<body style="text-align: center;">
+ <div id="Layer1" style="position:fixed; left:0px; top:0px; width:100%; height:100%">  
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526966451553&di=d31b6485352ebaf96396551bca280a0d&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F03%2F77%2F6b01dcb7feb4ca681655e79d9b11fe15.jpg" width="100%" height="100%"/>  
+
+<!--  <button onclick="getOrder()">购买</button> -->
+<div> {{$data}}  </div>
+<jquery/>
+<script>
+function onBridgeReady(){
+    var data={{$data}};
+    WeixinJSBridge.invoke(
+        'getBrandWCPayRequest', data, 
+        function(res){
+            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+              window.history.back();
+            window.location.href="http://www.12202.com.cn/vue/index.html#/recharge?amount="+data.product_id+"&msgtype=success"; 
+            // window.location.href='http://192.168.1.171/?code=061l1eNd25UAVC0S6WLd23RhNd2l1eNb&state=#/recharge';
+                // window.history.back();
+                            // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+            }else{
+                window.location.href="http://www.12202.com.cn/vue/index.html#/recharge?msgtype=error"; 
+                  // console.log("error");  
+                window.history.back();
+                // alert(res.err_code+res.err_desc+res.err_msg); // 显示错误信息
+            }
+        }
+    );
+}
+ if (typeof WeixinJSBridge == "undefined"){
+     if( document.addEventListener ){
+         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+     }else if (document.attachEvent){
+         document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+         document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+     }
+ }else{
+      onBridgeReady();
+ }
+</script>
+</body>
+</html>

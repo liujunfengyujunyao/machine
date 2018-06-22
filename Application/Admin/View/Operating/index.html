@@ -1,0 +1,244 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" /> 
+<!--/meta 作为公共模版分离出去-->
+
+<title>Diamond后台</title>
+<style>
+#datatable {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 12px;
+}
+td,th {
+        border: 1px solid #ccc;
+        padding: 4px 20px;
+}
+</style>
+
+</head>
+<body>
+<!--头部-->
+<include file="Common/header" />
+<!--头部-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="__MODULE__/Index/index" class="maincolor">首页</a> 
+        <span class="c-999 en">&gt;</span>
+        <span class="c-666">经营数据</span> 
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <div class="Hui-article">
+        <article class="cl pd-20">
+            <!-- <p>登录次数：18 </p>
+            <p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                    <tr>
+                        <th colspan="7" scope="col">信息统计</th>
+            </tr>
+                    <tr class="text-c">
+                        <th>统计</th>
+                        <th>资讯库</th>
+                        <th>图片库</th>
+                        <th>产品库</th>
+                        <th>用户</th>
+                        <th>管理员</th>
+            </tr>
+        </thead>
+                <tbody>
+                    <tr class="text-c">
+                        <td>总数</td>
+                        <td>92</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>8</td>
+                        <td>20</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>今日</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>昨日</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>本周</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>本月</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <label>月度报表({{$star|date="Y-m-d",###}}---{{$end|date="Y-m-d",###}})：</label>
+        <!-- <div id="container" style="min-width:700px;height:400px"></div> -->
+        <!-- <div id="container" style="min-width:400px;height:400px"></div> -->
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-hover table-sort">
+                    <thead>
+                        <tr class="text-c">
+                            <!-- <th width="25"><input type="checkbox" name="" value=""></th> -->
+                            <th>机台ID</th>
+                            <!-- <th>订单编号</th> -->
+                            <th>名称</th>
+                            <th>总运行次数</th>
+                            <th>抓取成功</th>
+                            <th>抓取失败</th>
+                            <th>收费游戏</th>
+                            <th>免费游戏</th>
+                            <th>收费成功抓取</th>
+                            <th>收费失败抓取</th>
+                            <th>免费成功抓取</th>
+                            <th>免费失败抓取</th>
+                            <th>收取游戏币</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <volist name='statistics' id="v">
+                        <tr class="text-c">
+                            <!-- <td><input type="checkbox" value="" name=""></td> -->
+                            <td>{{$v.equipment_id}}</td>
+                            <td>{{$v.name}}</td>
+                            <td>{{$v.run_count}}</td>
+                            <td>{{$v.success_number}}</td>
+                            <!-- <td class="text-l">{{$v.tag}}</td> -->
+                            <td>{{$v.fail_number}}</td>
+                            <td><font color="blue">{{$v.gold_game_times}}</font></td>
+                            
+                            <td><font color="red"><b>{{$v.silver_game_times}}</b></font></td>
+                            <!-- <td class="td-status"><span class="label label-success radius">{{$v.equipment_create_time|date="Y-m-d",###}}</span></td> -->
+                            <!-- <td class="text-l"><a href="__MODULE__/Goods/detail/id/{{$v.goods_id}}">{{$v.goods_name}}</a></td> -->
+                            <td>{{$v.gold_game_win_times}}</td>
+                            <td>{{$v.gold_game_lose_times}}</td>
+                            <td>{{$v.silver_game_win_times}}</td>
+                            <td>{{$v.silver_game_lose_times}}</td>
+                            <td>{{$v.income_count}}</td>
+                        </tr>
+                    </volist>
+                
+                    </tbody>
+                </table>
+            </div>
+        
+    
+</article>
+        <!-- <footer class="footer">
+            <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br> Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+</footer> -->
+</div>
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->dark-unica
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
+<script type="text/javascript" src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+<script type="text/javascript" src="https://img.hcharts.cn/highcharts/modules/data.js"></script>
+<script type="text/javascript" src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/modules/data.js"></script>
+
+
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/themes/dark-unica.js"></script> -->
+<script type="text/javascript">
+var chart = Highcharts.chart('container',{
+        chart: {
+                type: 'area'
+        },
+        title: {
+                text: '总体概况'
+        },
+        subtitle: {
+                text: '数据来源: <a href="https://www.goldenbrother.cn/index.php/admin">' +
+                'https://www.goldenbrother.cn</a>'
+        },
+        xAxis: {
+                allowDecimals: false
+        },
+        yAxis: {
+                title: {
+                        text: '浮动对比'
+                },
+                labels: {
+                        formatter: function () {
+                                return this.value  + '次';
+                        }
+                }
+        },
+        tooltip: {
+                pointFormat: '{series.name} 运行 <b>{point.y:,.0f}</b>次'
+        },
+        plotOptions: {
+                area: {
+                        pointStart: 1,
+                        marker: {
+                                enabled: false,
+                                symbol: 'circle',
+                                radius: 2,
+                                states: {
+                                        hover: {
+                                                enabled: true
+                                        }
+                                }
+                        }
+                }
+        },
+        series: [{
+            name:"运行总数",
+            data:{{$run_count}}
+        },{
+            name:"成功次数",
+            data:{{$success_number}}
+        },{
+            name:"失败次数",
+            data:{{$fail_number}}
+        }
+
+        // ,
+        //  {
+        //         name: '失败次数',
+        //         data: [13092, 14478,
+        //                      15915, 17385, 29055, 21205, 23044, 25393, 27935, 30062, 32049,
+        //                      33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000, 37000,
+        //                      35000, 33000, 31800, 29000, 27000, 25000, 24000, 23000, 22000,12121]
+        // }
+
+        ]
+});
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+<!--此乃百度统计代码，请自行删除-->
+
+
+<!--/此乃百度统计代码，请自行删除-->
+</body>
+</html>

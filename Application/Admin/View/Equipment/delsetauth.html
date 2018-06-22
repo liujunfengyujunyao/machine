@@ -1,0 +1,90 @@
+<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>编辑角色 - 管理员管理 - Diamond后台</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<article class="cl pd-20">
+<table class="table table-border table-bordered table-bg table-hover table-sort">
+	
+	<form action="__ACTION__" method="post">
+	<input type="hidden" name="manager_id" value="{{$manager.id}}">
+	<thead>
+	<tr class="text-c">
+			<th>管理员:{{$manager.nickname}}</th>	
+	</tr>
+	</thead>
+	<tbody>
+			<tr class="text-c">
+				<td>撤销分配
+					<volist name="equipment" id="vol">
+				<input type="checkbox" value="{{$vol.id}}" name="id[]" <if condition =" $vol['owner'] == $manager['id']">checked="checked"</if><in name="vol.id" value="$keyiyong"><!-- selected="selected" --></in> >{{$vol.name}}
+					</volist>
+				</td>
+			</tr>
+		<tr class="text-c">
+		<td>
+		<input type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 
+		</td>
+		</tr>
+	</tbody>
+	
+	</form>
+</table>
+	
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript">
+$(function(){
+	$(".permission-list dt input:checkbox").click(function(){
+		$(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+	});
+	$(".permission-list2 dd input:checkbox").click(function(){
+		var l =$(this).parent().parent().find("input:checked").length;
+		var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+		if($(this).prop("checked")){
+			$(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+			$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+		}
+		else{
+			if(l==0){
+				$(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+			}
+			if(l2==0){
+				$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+			}
+		}
+	});
+	
+	// $("#form-admin-role-add").validate({
+	// 	rules:{
+	// 		roleName:{
+	// 			required:true,
+	// 		},
+	// 	},
+	// 	onkeyup:false,
+	// 	focusCleanup:true,
+	// 	success:"valid",
+	// 	submitHandler:function(form){
+	// 		$(form).ajaxSubmit();
+	// 		var index = parent.layer.getFrameIndex(window.name);
+	// 		parent.layer.close(index);
+	// 	}
+	// });
+});
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

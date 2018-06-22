@@ -1,0 +1,86 @@
+[ 2017-10-12T09:16:30+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/1
+ERR: 1054:Unknown column 't2.series_conception' in 'field list'
+ [ SQL语句 ] : SELECT t1.*,t2.series_conception FROM dia_goods t1 left join dia_series as t2 on t2.id=t1.series_id  WHERE ( t1.id=1 ) LIMIT 1  
+
+[ 2017-10-12T09:16:43+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:16:45+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:18:09+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/1
+ERR: 1054:Unknown column 't2.series_conception' in 'field list'
+ [ SQL语句 ] : SELECT t1.*,t2.series_conception FROM dia_goods t1 left join dia_series as t2 on t2.id=t1.series_id  WHERE ( t1.id=1 ) LIMIT 1  
+
+[ 2017-10-12T09:18:48+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/2
+ERR: 1054:Unknown column 't2.series_conception' in 'field list'
+ [ SQL语句 ] : SELECT t1.*,t2.series_conception FROM dia_goods t1 left join dia_series as t2 on t2.id=t1.series_id  WHERE ( t1.id=2 ) LIMIT 1  
+
+[ 2017-10-12T09:21:13+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:21:14+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:21:22+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:21:28+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:24:21+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/1
+ERR: 1054:Unknown column 't2.series_conception' in 'field list'
+ [ SQL语句 ] : SELECT t1.*,t2.series_conception FROM dia_goods t1 left join dia_series as t2 on t2.id=t1.series_id  WHERE ( t1.id=1 ) LIMIT 1  
+
+[ 2017-10-12T09:24:25+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:24:26+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:24:26+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:24:27+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T09:24:28+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载控制器:Wish
+
+[ 2017-10-12T20:23:35+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/1
+ERR: 1054:Unknown column 't2.series_conception' in 'field list'
+ [ SQL语句 ] : SELECT t1.*,t2.series_conception FROM dia_goods t1 left join dia_series as t2 on t2.id=t1.series_id  WHERE ( t1.id=1 ) LIMIT 1  
+

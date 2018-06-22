@@ -1,0 +1,216 @@
+ <!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>商品列表 - 商品管理 </title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+
+<link rel="stylesheet" href="__PUBLIC__/Admin/zyupload/control/css/zyUpload.css">
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a>
+		<span class="c-gray en">&gt;</span>
+		商品管理
+		<span class="c-gray en">&gt;</span>
+		编辑商品
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<form class="form form-horizontal" id="form-article-add" action="__CONTROLLER__/edit" method="post" enctype="multipart/form-data">
+		<!-- 隐藏域为商品id -->
+		
+		<input type="hidden" name="goods_id" value="{{$goods.id}}">
+		<div class="row cl" align="center" >
+		<a href="__CONTROLLER__/index" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe67f;</i>&emsp;返回列表页&emsp;</a>
+				&emsp;&emsp;<span class="btn btn-default radius"><i class="Hui-iconfont">&#xe6df;</i>&emsp;这里是商品编辑</span>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{$goods.name}}" id="" name="name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品类型：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{$goods.type}}" id="" name="type">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>机台类型：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+		
+				<select name="type_id" class="select">
+					<option value="">==选择类型==</option>
+					<volist name="type" id="v">
+					<option value="{{$v.type_id}}" <if condition = " $v['type_id'] == $goods['type_id'] ">selected="selected"</if> >{{$v.type_name}}</option>
+					</volist>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次价格：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$goods.price}}"  id="price" name="price">
+			</div>
+		
+		</div>
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$goods.time_limit}}"  id="time_limit" name="time_limit">
+			</div>
+		
+		</div>
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>赔率：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$goods.equipment_odds}}"  id="equipment_odds" name="equipment_odds">
+			</div>
+		
+		</div>
+		  <div class="tab-pane fade in" id="pics">
+                <div class="well">
+                    <volist name="goodspics" id="vol">
+                    <div>
+                        <img src="{{$vol.pics_mid}}">[<a href="javascript:void(0);" pics_id="{{$vol.id}}" class="pics_sub">删除</a>]
+                    </div>
+                    </volist>
+                </div>
+                <div class="well">
+                        <div>[<a href="javascript:void(0);" class="add">+</a>]商品图片：<input type="file" name="goods_pics[]" value="" class="input-xlarge"></div>
+                </div>
+            </div>
+        <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">存放机台：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<dl class="permission-list">
+					<volist name="equipment" id="vol">
+					<dt>
+						<label>
+							<input type="checkbox" value="{{$vol.id}}" name="id[]"  <in name="vol.id" value="$keyiyong"><!--  checked="checked" --></in> >{{$vol.name}}
+							</label>
+					</dt>
+					
+					</volist>
+				</dl>
+				
+			</div>
+		</div>
+		   <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">现存放于：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<dl class="permission-list">
+					<volist name="equipment_setauth" id="v">
+					<dt>
+						<label>
+							 <input type="checkbox" value="{{$v.id}}" name="equipment_id[]" checked="checked" >{{$v.name}}
+							</label>
+					</dt>
+					
+					</volist>
+				</dl>
+				
+			</div>
+		</div>    
+		<div class="well">
+		<div class="row cl">  
+			<label class="form-label col-xs-4 col-sm-2">商品简介：</label>
+			<div class="formControls col-xs-8 col-sm-9"> 
+				<textarea id="" name='equipment_introduce' style="width:800px;height:400px;">{{$goods.brief}}</textarea>
+			</div>
+		</div>
+	
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button class="btn btn-primary radius" type="submit" id="addgood"><i class="Hui-iconfont">&#xe632;</i> 点击修改</button>
+				
+			</div>
+		</div>
+	</form>
+	</div>
+</section>
+
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>   
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.min.js"></script>  -->
+
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery/1.9.1/jquery.js"></script> -->
+
+
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/lib/laypage/1.2/laypage.js"></script> -->
+<!-- 引入zyupload上传组件 -->
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/zyupload/core/zyFile.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/Admin/zyupload/control/js/zyUpload.js"></script>  -->
+<!-- 引入zyupload上传组件 -->
+<script type="text/javascript">
+$(function(){
+
+	//实例化编辑器
+      // var ue=UE.getEditor('editor');
+     $('.add').click(function(){
+            var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]商品图片：<input type="file" name="equipment_pics[]" value="" class="input-xlarge"></div>';
+            $(this).parent().after(add_div);
+        });
+        // $('.sub').live('click',function(){
+        //     $(this).parent().remove();
+        // });
+      //ajax删除相册图片
+      //给前侧图片后面的 - 好绑定onclick事件,发送ajax请求
+      $('.pics_sub').click(function(){
+      	
+      	//ajax的毁掉函数中this关键字的指向会发生变化,这里先保存到另一个变量
+      	var _this = this;
+      	//发送ajax请求
+      	$.ajax({
+      		'url': '__CONTROLLER__/ajaxdel',
+      		'type':'post',
+      		'data':'id=' + $(this).attr('pics_id'),
+      		'dataType':'json',
+      		'success':function(response){
+      			
+      			//判断response中的code值
+      			if (response.code !=10000) {
+      				alert(response.msg);
+      				return;
+      			}else{
+      				//从页面移除当前图片的显示
+      				$(_this).parent().remove();
+      			}
+      		}
+      	});
+      });
+
+
+   
+   
+
+});
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+</body>
+</html>

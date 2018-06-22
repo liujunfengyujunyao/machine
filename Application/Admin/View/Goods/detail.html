@@ -1,0 +1,154 @@
+<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>商品展示 - 商品管理</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<style type="text/css">  
+            div img{  
+                cursor: pointer;  
+                transition: all 0.6s;  
+            }  
+            div img:hover{  
+                transform: scale(1.9);  
+            }  
+        </style>  
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a> <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 商品 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<!-- <div class="text-c">
+					<button type="submit" class="btn btn-success" id="" name=""> 下面就是商品详情啦</button>
+			</div> -->
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l">
+				<a href="__CONTROLLER__/edit/id/{{$goods.id}}" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6df;</i>&emsp;编&emsp;辑</a> 
+				<a href="__CONTROLLER__/index" class="btn btn-primary radius"> <i class="Hui-iconfont">&#xe67f;</i>&emsp;返回商品列表</a></span> 
+			<span class="r" >
+				<a href="__CONTROLLER__/add" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe600;</i>&emsp;添加商品</a>
+			</span>
+			 </div>
+			<table class="table table-border table-bordered table-bg" >
+				<thead>
+					<tr>
+						<td width="80">商品名称:</td>
+						<td>{{$goods.name}}</td>
+					</tr>
+					<tr>
+						<td>商品类型:</td>
+						<td>{{$goods.type}}</td>
+					</tr>
+					
+						<td>商品简介:</td>
+						<td>{{$goods.brief}}</td>
+					</tr>
+                    <tr>
+                        <td>娃娃照片:</td>
+                        
+                        <td>
+                        <volist name="goodspics" id="v">
+                        <img src="{{$v.pics_mid}}">
+                        <!--添加onclick事件-->
+                        </volist>
+                        </td>
+                    </tr>
+			</table>
+		
+		</article>
+
+	</div>
+
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+
+<!--/_footer /作为公共模版分离出去-->
+
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'x',
+            spacingRight: 20
+        },
+        title: {
+            text: '近期收入'
+        },
+        subtitle: {
+            text: document.ontouchstart === undefined ?
+                'Click and drag in the plot area to zoom in' :
+                'Pinch the chart to zoom in'
+        },
+        xAxis: {
+            type: 'datetime',
+            maxZoom: 14 * 24 * 3600000, // fourteen days
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Exchange rate'
+            }
+        },
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                lineWidth: 1,
+                marker: {
+                    enabled: false
+                },
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            }
+        },
+
+        series: [{
+            type: 'area',
+            name: '收入',
+            pointInterval: 24 * 3600 * 1000,
+            pointStart: Date.UTC(2017, 11, 01),
+            data: {{$data.zuijin60}}
+        }]
+    });
+});
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+<!-- 仿百度图片放大效果 -->
+
+<!-- 仿百度图片放大效果 -->
+</body>
+</html>

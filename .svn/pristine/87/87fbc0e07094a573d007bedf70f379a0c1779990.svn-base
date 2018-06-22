@@ -1,0 +1,79 @@
+<?php  
+namespace Admin\Model;
+use Think\Model;
+class GoodsModel extends Model{
+	//自动验证
+	//array(验证字段1,验证规则,错误提示,[验证条件,附加规则,验证时间]), 
+	protected $_validate=array(
+		array('goods_name','require','商品名称不能为空'),
+		array('goods_ori_price','require','商品原价不能为空'),
+		array('goods_ori_price','currency','商品原价格式不正确'),
+		array('goods_price','require','商品折扣价不能为空'),
+		array('goods_price','currency','商品折扣价格式不正确'),
+		array('goods_number','number','商品数量格式不正确'),
+	);
+
+	//自动完成
+	protected $_auto=array(
+		//商品添加时间自动完成
+		array('goods_create_time','time',1,'function')
+	);
+
+	//单文件上传
+	public function upload_One($file,&$data){
+		//判断文件有没有上传
+			if (!isset($file)||$file['error'] != 0) {
+				//将错误信息保存到 模型的  error属性中
+				$this-> error='图片上传失败';
+				return false;
+			}
+
+			// dump($file);die;
+			//使用Upload类上传文件
+			//自定义配置数组
+			$config=array(
+					'maxSize' =>  5*1014*1024, //上传的文件大小限制 (0-不做限制)
+					'exts'    =>  array('jpg','jpeg','png','gif'), //允许上传的文件后缀
+					'rootPath' =>  ROOT_PATH.UPLOAD_PATH, //保存根路径
+				);
+
+			//实例化上传类
+			$upload= new \Think\Upload($config);
+
+			//使用uploadOne方法实现上传
+			$upload_res=$upload->uploadOne($file);
+			// $error = $upload -> getError();
+			// echo $error;
+			// dump($upload_res);
+			//判断上传是否成功
+			if (!$upload_res) {
+				$error=$upload->getError();
+				$this-> error=$error;
+				return false;
+			}
+
+			// dump($upload_res);die;
+			//上传成功后保存到数据库目录
+			$data['goods_big_img']=UPLOAD_PATH.$upload_res['savepath'].$upload_res['savename'];
+
+			//生成缩略图
+			$img=new \Think\Image();
+
+			//打开原始图片
+			$img->open(ROOT_PATH.$data['goods_big_img']);
+
+			//生成缩略图
+			$img->thumb(100,100);
+
+			//缩略图数据库保存地址
+			$goods_small_img=UPLOAD_PATH.$upload_res['savepath'].'thumb_'.$upload_res['savename'];
+
+			//保存本地目录
+			$img->save(ROOT_PATH.$goods_small_img);
+
+			$data['goods_small_img']=$goods_small_img;
+
+			return true;
+	}
+}
+?>

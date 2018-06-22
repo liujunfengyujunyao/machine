@@ -1,0 +1,41 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class CartController extends CommonController
+{
+	public function index()
+	{
+		$data = D('Cart') -> select();
+		dump($data);die;
+		$this -> assign('data',$data);
+		$this -> display();
+	}
+
+	// 购物车添加方法
+	public function addCart()
+	{
+		// 从页面接收数据,调用add模型添加
+		$data = I('post.');
+		$data = explode(',', $data['cart']);
+		// dump($data);die;
+		$goods_id = $data[0];
+		$goods_attr_ids = $data[1] .',' . $data[2] ;
+		$goods_number = 1;
+		$res = D('Cart') -> addC($goods_id,$goods_attr_ids,$goods_number);
+		if($res){
+			$return = array(
+				'code' => 10000,
+				'msg' => 'OK'
+				);
+		$this -> ajaxReturn($return);
+		}else{
+			$return = array(
+				'code' => 10001,
+				'msg' => 'SORRY'
+				);
+		$this -> ajaxReturn($return);
+		}
+		
+	}
+
+}

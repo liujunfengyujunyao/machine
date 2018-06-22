@@ -1,0 +1,790 @@
+[ 2017-10-12T09:08:58+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0660s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('2','蒂芬尼Tiffany',NULL,'10000','蒂芙尼公司是一间于1837年开设的美国珠宝和银饰公司。1853年查尔斯蒂芙尼把握了公司的控制权，将公司名称简化为蒂芙尼公司(Tiffany Co)，时至今日，蒂芙尼是全球中出名的奢侈品公司之一。其蒂芙尼蓝色礼盒(Tiffany Blue Box)更变成美国时髦共同个性的标志。') [ RunTime:0.0010s ]
+
+[ 2017-10-12T09:19:52+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $think.session.user_info = '' " /
+
+[ 2017-10-12T09:22:25+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == NULL " /
+
+[ 2017-10-12T09:22:26+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == NULL " /
+
+[ 2017-10-12T09:22:27+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == NULL " /
+
+[ 2017-10-12T09:22:27+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == NULL " /
+
+[ 2017-10-12T09:23:46+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:01+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:02+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:02+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:02+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:02+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:03+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:03+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:24:03+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:26:02+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:26:02+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:26:13+08:00 ] 127.0.0.1 /index.php
+ERR: XML标签语法错误 : condition= " $Think.session.user_info == null  " /
+
+[ 2017-10-12T09:27:55+08:00 ] 127.0.0.1 /index.php/Home/Index/catalog_grid.html
+ERR: 非法操作:catalog_grid
+
+[ 2017-10-12T09:28:08+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('2','蒂芬尼Tiffany',NULL,'10000','蒂芙尼公司是一间于1837年开设的美国珠宝和银饰公司。1853年查尔斯蒂芙尼把握了公司的控制权，将公司名称简化为蒂芙尼公司(Tiffany Co)，时至今日，蒂芙尼是全球中出名的奢侈品公司之一。其蒂芙尼蓝色礼盒(Tiffany Blue Box)更变成美国时髦共同个性的标志。') [ RunTime:0.0010s ]
+
+[ 2017-10-12T09:29:06+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('2','蒂芬尼Tiffany',NULL,'10000','蒂芙尼公司是一间于1837年开设的美国珠宝和银饰公司。1853年查尔斯蒂芙尼把握了公司的控制权，将公司名称简化为蒂芙尼公司(Tiffany Co)，时至今日，蒂芙尼是全球中出名的奢侈品公司之一。其蒂芙尼蓝色礼盒(Tiffany Blue Box)更变成美国时髦共同个性的标志。') [ RunTime:0.0000s ]
+
+[ 2017-10-12T09:29:25+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('2','蒂芬尼Tiffany',NULL,'10000','蒂芙尼公司是一间于1837年开设的美国珠宝和银饰公司。1853年查尔斯蒂芙尼把握了公司的控制权，将公司名称简化为蒂芙尼公司(Tiffany Co)，时至今日，蒂芙尼是全球中出名的奢侈品公司之一。其蒂芙尼蓝色礼盒(Tiffany Blue Box)更变成美国时髦共同个性的标志。') [ RunTime:0.0000s ]
+
+[ 2017-10-12T09:30:15+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:17+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:17+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:17+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:18+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:37+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:37+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:38+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:38+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:38+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:38+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:39+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:30:39+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:31:21+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:34:16+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:43:23+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('0',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:47:28+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0140s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:48:20+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:48:26+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:50:29+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+ERR: 1048:Column 'goods_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1',NULL,NULL,NULL,NULL)
+
+[ 2017-10-12T09:51:05+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2017-10-12T09:52:44+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+
+[ 2017-10-12T09:55:54+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T09:59:34+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:00:12+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:00:47+08:00 ] 127.0.0.1 /index.php/Home/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载控制器:AddWish
+
+[ 2017-10-12T10:01:27+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:05:33+08:00 ] 127.0.0.1 /index.php/Home/Index/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+ERR: 非法操作:addWish
+
+[ 2017-10-12T10:05:38+08:00 ] 127.0.0.1 /index.php/Home/Index/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+ERR: 非法操作:addWish
+
+[ 2017-10-12T10:06:18+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:08:50+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:11:50+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0380s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0260s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:11:56+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:12:11+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:12:30+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:15:59+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1','宝格丽Bvlgari',NULL,'10000','宝格丽是继法国卡地亚和美国蒂芙尼以后的国际第三大珠宝品牌。这个品牌源自希腊，创始人索蒂里奥布尔加里是希腊伊庇鲁斯区域的一个银匠。1879年，索蒂里奥举家移民到意大利的那不勒斯，1884年他在罗马开了一家银器店，专门出售精美的银制雕刻品。宝格丽在首饰生产中以颜色为精华，首创性地用多种不一样颜色的宝石进行调配组合，再运用不一样原料的底座，以凸显宝石的耀眼颜色。') [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:16:34+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1','宝格丽Bvlgari',NULL,'10000','宝格丽是继法国卡地亚和美国蒂芙尼以后的国际第三大珠宝品牌。这个品牌源自希腊，创始人索蒂里奥布尔加里是希腊伊庇鲁斯区域的一个银匠。1879年，索蒂里奥举家移民到意大利的那不勒斯，1884年他在罗马开了一家银器店，专门出售精美的银制雕刻品。宝格丽在首饰生产中以颜色为精华，首创性地用多种不一样颜色的宝石进行调配组合，再运用不一样原料的底座，以凸显宝石的耀眼颜色。') [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:18:58+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:19:33+08:00 ] 127.0.0.1 /index.php/Home/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+ERR: 无法加载控制器:Home
+
+[ 2017-10-12T10:20:24+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:20:56+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:21:23+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:21:30+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:23:27+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:23:59+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1','宝格丽Bvlgari',NULL,'10000','宝格丽是继法国卡地亚和美国蒂芙尼以后的国际第三大珠宝品牌。这个品牌源自希腊，创始人索蒂里奥布尔加里是希腊伊庇鲁斯区域的一个银匠。1879年，索蒂里奥举家移民到意大利的那不勒斯，1884年他在罗马开了一家银器店，专门出售精美的银制雕刻品。宝格丽在首饰生产中以颜色为精华，首创性地用多种不一样颜色的宝石进行调配组合，再运用不一样原料的底座，以凸显宝石的耀眼颜色。') [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:24:05+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1','卡地亚Cartier',NULL,'10000','法国卡地亚公司，十大钻戒结婚戒指品牌，于1847年由Louis-Fran&ccedil;ois Cartier在巴黎RueMontorgueil 31号创办。卡地亚被英国国王爱德华七世称为皇帝的珠宝商，珠宝商的皇帝的出名品牌， 源于对生命对人对天地万物的爱，卡地亚创作出一系列珠宝首饰，并叙述着一个又一个传奇故事。') [ RunTime:0.0010s ]
+
+[ 2017-10-12T10:27:47+08:00 ] 127.0.0.1 /index.php/Home/Wish/index
+ERR: Think\Controller:assgin方法不存在！
+
+[ 2017-10-12T10:28:11+08:00 ] 127.0.0.1 /index.php/Home/Login/logout
+ERR: 非法操作:logout
+
+[ 2017-10-12T10:32:01+08:00 ] 127.0.0.1 /index.php/Home/Wish/index
+ERR: Think\Controller:assgin方法不存在！
+
+[ 2017-10-12T10:34:09+08:00 ] 127.0.0.1 /index.php/Home/Wish/product_page.html
+ERR: 非法操作:product_page
+
+[ 2017-10-12T10:35:44+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1','蒂芬尼Tiffany',NULL,'10000','蒂芙尼公司是一间于1837年开设的美国珠宝和银饰公司。1853年查尔斯蒂芙尼把握了公司的控制权，将公司名称简化为蒂芙尼公司(Tiffany Co)，时至今日，蒂芙尼是全球中出名的奢侈品公司之一。其蒂芙尼蓝色礼盒(Tiffany Blue Box)更变成美国时髦共同个性的标志。') [ RunTime:0.0000s ]
+
+[ 2017-10-12T10:58:07+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/1
+ERR: 1054:Unknown column 't2.series_conception' in 'field list'
+ [ SQL语句 ] : SELECT t1.*,t2.series_conception FROM dia_goods t1 left join dia_series as t2 on t2.id=t1.series_id  WHERE ( t1.id=1 ) LIMIT 1  
+
+[ 2017-10-12T11:13:14+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/1
+ERR: 1054:Unknown column 't2.series_conception' in 'field list'
+ [ SQL语句 ] : SELECT t1.*,t2.series_conception FROM dia_goods t1 left join dia_series as t2 on t2.id=t1.series_id  WHERE ( t1.id=1 ) LIMIT 1  
+
+[ 2017-10-12T11:55:16+08:00 ] 127.0.0.1 /index.php/Home/Login/yzm
+ERR: 非法操作:yzm
+
+[ 2017-10-12T15:09:29+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/1
+ERR: 模板不存在:./Application/Home/View/Index/detail.html
+
+[ 2017-10-12T16:18:31+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0120s ]
+SQL: SHOW COLUMNS FROM `dia_goods` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: price F:\PHPSTUDY\WWW\diamond\Application\Home\Model\WishModel.class.php 第 22 行.
+SQL: INSERT INTO `dia_wish` (`user_id`,`goods_name`,`goods_price`,`goods_number`,`goods_introduce`) VALUES ('1','宝格丽Bvlgari',NULL,'10000','宝格丽是继法国卡地亚和美国蒂芙尼以后的国际第三大珠宝品牌。这个品牌源自希腊，创始人索蒂里奥布尔加里是希腊伊庇鲁斯区域的一个银匠。1879年，索蒂里奥举家移民到意大利的那不勒斯，1884年他在罗马开了一家银器店，专门出售精美的银制雕刻品。宝格丽在首饰生产中以颜色为精华，首创性地用多种不一样颜色的宝石进行调配组合，再运用不一样原料的底座，以凸显宝石的耀眼颜色。') [ RunTime:0.0040s ]
+
+[ 2017-10-12T16:34:57+08:00 ] 127.0.0.1 /index.php/Home/Login/yzm
+ERR: 非法操作:yzm
+
+[ 2017-10-12T16:44:46+08:00 ] 127.0.0.1 /index.php/Home/Index/checkout.html
+ERR: 非法操作:checkout
+
+[ 2017-10-12T16:44:50+08:00 ] 127.0.0.1 /index.php/Home/Index/shopping_cart.html
+ERR: 非法操作:shopping_cart
+
+[ 2017-10-12T17:12:10+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/2
+ERR: 模板不存在:./Application/Home/View/Index/detail.html
+
+[ 2017-10-12T17:12:17+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0100s ]
+
+[ 2017-10-12T17:12:24+08:00 ] 127.0.0.1 /index.php/Home/Wish/addWish
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `dia_category` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `dia_category`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_series` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `dia_series`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `dia_wish` [ RunTime:0.0130s ]
+
+[ 2017-10-12T17:15:40+08:00 ] 127.0.0.1 /index.php/Home/Wish/product_page.html
+ERR: 非法操作:product_page
+
+[ 2017-10-12T17:23:40+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/2
+ERR: 模板不存在:./Application/Home/View/Index/detail.html
+
+[ 2017-10-12T17:25:34+08:00 ] 127.0.0.1 /index.php/Home/Wish/product_page.html
+ERR: 非法操作:product_page
+
+[ 2017-10-12T20:08:45+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/3
+ERR: 模板不存在:./Application/Home/View/Index/detail.html
+
+[ 2017-10-12T21:15:10+08:00 ] 127.0.0.1 /index.php/Home/List/product_page.html
+ERR: 非法操作:product_page
+
+[ 2017-10-12T21:15:12+08:00 ] 127.0.0.1 /index.php/Home/List/product_page.html
+ERR: 非法操作:product_page
+
+[ 2017-10-12T21:15:16+08:00 ] 127.0.0.1 /index.php/Home/List/product_page.html
+ERR: 非法操作:product_page
+

@@ -1,0 +1,88 @@
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class ManagerController extends CommonController{
+	public function add(){
+		if(IS_POST){
+			$data = I('post.');
+			$model = D("Manager");
+			$create = $model->create($data);
+			if(!$create){
+				$error = $model->getError();
+				$this->error($error);
+			}
+			$res = $model->add();
+			if($res){
+				$this->success("添加成功",U('Admin/Manager/index'));
+			}else{
+				$this->error("添加失败");
+			}
+		}else{
+			$role=D('Role')->where(['role'=>$role])->select();
+			$this->assign('role',$role);
+			$this->display();
+		}
+	}
+	public function edit(){
+		if(IS_POST){
+			$id = I('post.id');
+			$data = I('post.');
+			$model = D('Manager');
+			$create = $model->create();
+			if(!$create){
+				$error = $model->getError();
+				$this->error($error);
+			}
+			$res = $model->where(['id'=>$id])->save();
+			if($res !== false){
+				$this->success("修改成功",U('Admin/Manager/index'));
+			}else{
+				$this->error("修改失败");
+			}
+		}else{
+			$id = I('get.id');
+			$manager = D('Manager')->where(['id'=>$id])->find();
+			$this->assign('manager',$manager);
+			$role=D('Role')->where(['role'=>$role])->select();
+			$this->assign('role',$role);
+			$this->display();
+		}
+	}
+	public function index(){
+		$data=D('Manager')->alias('t1')->field('t1.*,t2.role_name')->join('left join dia_role as t2 on t2.role_id=t1.role_id')->select();
+		$this->assign('data',$data);
+		$this->display();
+	}
+	public function del(){
+		$id = I('get.id');
+		$model = D('Manager');
+		$res = $model->where(['id' => $id])->delete();
+		if($res !== false){
+			$this->success('删除成功',U('Admin/Manager/index'));
+		}else{
+			$this->error("删除失败");
+		}
+	}
+
+	// public function list2(){
+	// 	$data=D('Manager')->select();
+	// 	$this->assign('data',$data);
+	// 	$this->display();
+	}
+	public function delAll(){
+		$ids = I('post.ids');
+		$res = D('Manager')->where("id in ({$ids})")->delete();
+		if($res!=false){
+			$return=array(
+				'code'=>10000,
+				'msg'=>'success'
+				);
+		}else{
+			$return=array(
+				'code'=>10001,
+				'msg'=>'删除失败'
+				);
+		}
+		$this->ajaxReturn($return);
+	}
+}

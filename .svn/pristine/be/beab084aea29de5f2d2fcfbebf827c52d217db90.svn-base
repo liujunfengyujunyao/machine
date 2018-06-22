@@ -1,0 +1,65 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class CommonController extends Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->header();
+	}
+    public function header(){
+    	//查询所有钻石分类
+    	$category = D('Category')->select();
+    	$this->assign('cate',$category);
+    	//查询所有钻石系列
+    	$series = D('Series')->select();
+    	$this->assign('series',$series);
+        
+   
+        $user_id = session('user_info.id');
+        $data = D('Cart') -> where(['user_id' => $user_id]) -> select();
+        // dump($data);die;
+        //遍历数组 唯美一跳数据,查询商品基本信息 查询商品属性信息
+        foreach($data as $k => &$v){
+            $goods = D('Goods') -> where(['id' => $v['goods_id']]) -> find();
+            $v['goods_name'] = $goods['goods_name'];
+            $v['goods_small_img'] = $goods['goods_small_img'];
+            $v['goods_price'] = $goods['goods_price'];
+
+   
+        }     
+        // dump($data);die;
+        $this -> assign('cdata',$data);
+        // $this -> display();
+    }
+
+
+    //删除购车记录
+    public function delTopCart()
+    {
+        $data = I('post.'); 
+        // $data = json_decode($data);
+        $user_id = session('user_info.id');
+        $where = array(
+                'user_id' => $user_id,
+                'goods_id' => $data['goods_id'],
+                'goods_attr_ids' => $data['goods_attr_ids']
+            );
+       $res = D('Cart') -> where($where) -> delete();
+       if($res){
+            $return = array(
+                'code' => 10000,
+                'msg' => '删除成功'
+                );
+            $this -> ajaxReturn($return);
+            }else{
+                $return = array(
+                    'code' => 10001,
+                    'msg' => '删除失败'
+                    );
+            $this -> ajaxReturn($return);
+        }
+
+        
+
+    }
+}

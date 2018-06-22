@@ -1,0 +1,54 @@
+<?php
+namespace Home\Controller;
+use Think\controller; 
+class ListController extends CommonController{
+	public function index(){
+		//分页
+		$total = D('Goods')->count();
+		$pagesize = 3;
+		$page = new \Think\Page($total,$pagesize);
+		$page->setConfig('prev','&#8592;');
+		$page->setConfig('next','&#8594;');
+		$page->setConfig('first','首页');
+		$page->setConfig('last','尾页');
+		$page->rollPage = 3;
+		$page->lastSuffix = false;
+		$page_html = $page->show();
+		$this->assign('total',$total);
+		$this->assign('page_html',$page_html);
+		//查询列表要展示的数据
+		$get = I('get.');
+		if($get['cate_id']){
+			//根据分类查询
+			$goods = D('Goods')->where(['cate_id'=>$get['cate_id']])->limit($page->firstRow,$page->listRows)->select();
+			$cate = D('Category')->where(['id'=>$get['cate_id']])->find();
+			$name = $cate['cate_name'];
+			$this->assign('cate_id',$get['cate_id']);
+		}elseif($get['series_id']){
+			//根据系列查询
+			$goods = D('Goods')->where(['series_id'=>$get['series_id']])->limit($page->firstRow,$page->listRows)->select();
+			$series = D('Series')->where(['id'=>$get['series_id']])->find();
+			$name = $series['series_name'];
+			$this->assign('series_id',$get['series_id']);
+		}else{
+			//查询全部
+			$goods = D('Goods')->limit($page->firstRow,$page->listRows)->select();
+			$name = '全部商品';
+		}
+		$this->assign('name',$name);
+		$this->assign('goods',$goods);
+
+		//查询所有分类
+		$cate_all = D('Category')->select();
+		$this->assign('cate_all',$cate_all);
+		//判断是网格列表还是普通列表
+		if($get['list_sty']==2){
+			$this->display('grid');
+		}else{
+			$this->display();
+		}
+		
+	}
+	
+	
+}

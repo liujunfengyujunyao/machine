@@ -1,0 +1,283 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>商品展示 - 商品管理</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<style type="text/css">  
+            div img{  
+                cursor: pointer;  
+                transition: all 0.6s;  
+            }  
+            div img:hover{  
+                transform: scale(1.9);  
+            }  
+        </style>  
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a> <span class="c-gray en">&gt;</span> 机台管理 <span class="c-gray en">&gt;</span> 机台 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<!-- <div class="text-c">
+					<button type="submit" class="btn btn-success" id="" name=""> 下面就是商品详情啦</button>
+			</div> -->
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l">
+				<a href="__CONTROLLER__/edit/id/{{$equipment.id}}" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6df;</i>&emsp;编&emsp;辑</a> 
+				<a href="__CONTROLLER__/index" class="btn btn-primary radius"> <i class="Hui-iconfont">&#xe67f;</i>&emsp;返回机台列表</a></span> 
+			<span class="r" >
+				<a href="__CONTROLLER__/add" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe600;</i>&emsp;添加机台</a>
+			</span>
+			 </div>
+			<table class="table table-border table-bordered table-bg" >
+				<thead>
+					<tr>
+						<td width="80">机台名称:</td>
+						<td>{{$equipment.name}}</td>
+					</tr>
+					<tr>
+						<td>机台类型:</td>
+						<td>{{$equipment.type_name}}</td>
+					</tr>
+					<tr>
+						<td>单次价格:</td>
+						<td>{{$equipment.price}}币</td>
+					</tr>
+					<tr>
+						<td>游戏时间:</td>
+						<td>{{$equipment.time_limit}}秒</td>
+					</tr>
+					<tr>
+						<td>赔率:</td>
+						<td>{{$equipment.odds}}%</td>
+					</tr>
+					<tr>
+                        <td>视频推流地址1:</td>
+                        <td>{{$equipment.live_channel1}}</td>
+                    </tr>
+                    <tr>
+                        <td>视频推流地址2:</td>
+                        <td>{{$equipment.live_channel2}}</td>
+                    </tr>
+					<tr>
+						<td>机台简介:</td>
+						<td>{{$equipment.equipment_introduce}}</td>
+					</tr>
+                    <tr>
+                        <td>机台照片:</td>
+                        
+                        <td>
+                        <volist name="equipmentpics" id="v">
+                        <img src="{{$v.pics_mid}}">
+                        <!--添加onclick事件-->
+                        </volist>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td>娃娃照片:</td>
+                        
+                        <td>
+                        <volist name="goodspics" id="vol">
+                        <img src="{{$vol .pics_mid}}">
+                        <!--添加onclick事件-->
+                        </volist>
+                        </td>
+                    </tr>
+			</table>
+			<label>总体概况：</label>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                    <tr>
+                        <th colspan="7" scope="col">效益统计</th>
+            </tr>
+                    <tr class="text-c">
+                        <th>统计</th>
+                        <th>机台总体运行</th>
+                        <th>机台收费运行</th>
+                        <th>机台免费次数</th>
+                        <!-- <th></th> -->
+                        <th>收费金额</th>
+                        <!-- <th>线下收入</th> -->
+            </tr>
+        </thead>
+                <tbody>
+            <!--        <tr class="text-c">
+                        <td>总数</td>
+                        <td>92</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>8</td>
+                        <td>20元</td>
+                        <td>20游戏币</td>
+            </tr> -->
+                    <tr class="text-c">
+                        <td>今日</td>
+                        <td>{{$today.count}}</td>
+                        <td>{{$today.gold}}</td>
+                        <td>{{$today.silver}}</td>
+                    <!--    <td>0</td> -->
+                        <!-- <td>{{$total.today_realtime_online_income_count}}元</td> -->
+                        <td>{{$today.income}}游戏币</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>昨日</td>
+                        <td>{{$yesterday.run_count}}</td>
+                        <td>{{$yesterday.gold_game_times}}</td>
+                        <td>{{$yesterday.silver_game_times}}</td>
+                        <!-- <td>0</td> -->
+                        <!-- <td>{{$total.yesterday_realtime_online_income_count}}元</td> -->
+
+                        <td>{{$yesterday.income_count}}游戏币</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>本月</td>
+                        <td>{{$zhemonth.count}}</td>
+                        <td>{{$zhemonth.gold}}</td>
+                        <td>{{$zhemonth.silver}}</td>
+                    
+                        <!-- <td>{{$total.month_realtime_online_income_count}}元</td> -->
+                        <td>{{$zhemonth.income}}游戏币</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>上月</td>
+                        <td>{{$lastmonth.run_count}}</td>
+                        <td>{{$lastmonth.gold_game_times}}</td>
+                        <td>{{$lastmonth.silver_game_times}}</td>
+                        <!-- <td>{{$total.month_unfinish}}</td> -->
+                        <!-- <td>{{$total.month_online_income_count}}元</td> -->
+                        <td>{{$lastmonth.income_count}}游戏币</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--分割-->
+         <table class="table table-border table-bordered table-bg">
+                <thead>
+                    <tr>
+                        <th colspan="7" scope="col">机台信息</th>
+            </tr>
+                    <tr class="text-c">
+                        <th>统计</th>
+                        <th>当前运行模式</th>
+                        <!-- <th>存储礼物类型</th> -->
+                        <!-- <th>存储礼物剩余</th> -->
+                        <!-- <th>机台运行失败</th> -->
+                        <!-- <th>礼物存放位置</th> -->
+                        
+            </tr>
+        </thead>
+                <tbody>
+            <!--        <tr class="text-c">
+                        <td>总数</td>
+                        <td>92</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>8</td>
+                        <td>20元</td>
+                        <td>20游戏币</td>
+            </tr> -->
+                    <tr class="text-c">
+                        <td>当前</td>
+                        <td>  <if condition =" $isonline == 1">在线</if><if condition =" $isonline == 0">离线</if></td>
+                        <!-- <td>{{$total.today_realtime_online_free_game_count}}</td> -->
+                        <!-- <td>{{$total.giftremain}}</td> -->
+                        
+                    <!--    <td>0</td> -->
+                        <!-- <td>{{$total.today_realtime_online_income_count}}元</td> -->
+                        
+            </tr>
+                   
+        </tbody>
+    </table>
+ 			<div id="container" style="min-width:400px;height:400px"></div>
+		</article>
+
+	</div>
+
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+
+<!--/_footer /作为公共模版分离出去-->
+
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'areaspline'
+        },
+        title: {
+            text: '实际运行状态'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 150,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        xAxis: {
+            categories: {{$day}},
+            plotBands: [{ // visualize the weekend
+                from: 4.5,
+                to: 6.5,
+                // color: 'rgba(68, 170, 213, .2)'
+            }]
+        },
+        yAxis: {
+            title: {
+                text: '运行次数'
+            }
+        },
+        tooltip: {
+            shared: true,
+            valueSuffix: ' 单位'
+        },
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            areaspline: {
+                fillOpacity: 0.5
+            }
+        },
+        series: [{
+            name: '抓取失败',
+            data: {{$res.lose}}
+        }, {
+            name: '抓取成功',
+            data: {{$res.win}},
+            color:'red'
+        },
+        {
+            name: '运行次数',
+            data: {{$res.count}}
+        },
+        ]
+    });
+});
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+<!-- 仿百度图片放大效果 -->
+
+<!-- 仿百度图片放大效果 -->
+</body>
+</html>

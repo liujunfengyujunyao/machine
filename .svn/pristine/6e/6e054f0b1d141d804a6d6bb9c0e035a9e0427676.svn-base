@@ -1,0 +1,22 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class CommonController extends Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->header();
+		$this->footer();
+	}
+    public function header(){
+    	//查询所有钻石分类
+    	$category = D('Category')->select();
+    	$this->assign('cate',$category);
+    	//查询所有钻石系列
+    	$series = D('Series')->select();
+    	$this->assign('series',$series);
+        
+    }
+    public function footer(){
+        
+    }
+}

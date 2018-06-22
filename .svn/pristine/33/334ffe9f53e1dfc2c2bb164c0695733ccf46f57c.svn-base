@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+
+    <title>钻石商城</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/grid.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/normalize.css">
+
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="__PUBLIC__/Home/js/html5.js"></script>
+    <script src="__PUBLIC__/Home/js/main.js"></script>
+    <script src="__PUBLIC__/Home/js/radio.js"></script>
+    <script src="__PUBLIC__/Home/js/checkbox.js"></script>
+    <script src="__PUBLIC__/Home/js/selectBox.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.carouFredSel-5.2.2-packed.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.jqzoom-core.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.transit.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.easing.1.2.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.fx.js"></script>
+</head>
+<body>
+<!-- 头部导航栏 -->
+<include file="Common/header" />
+
+    <div id="slider_body">
+        <ul id="slider">
+        <volist name='goods3'  id="val">
+            <li>
+                <div class="slid_content">
+                    <h2 style="color:#6f566f;">{$val.goods_name}</h2>
+                    <p style="color:#6f566f;">{$val.goods_introduce}<br>
+                    
+                    </p>
+                    <a class="buy_now" href="__CONTROLLER__/detail/id/{$val.id}">立即购买</a>
+                </div><!-- .slid_content -->
+                <img src="__PUBLIC__/Home/img/content/slid-{$val.id}.png" alt="Slid 1" title="">
+            </li>
+        </volist>
+        </ul>
+    </div><!-- #slider_body -->
+    
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+
+    <div id="home_banners">
+        <div class="container_12">
+            <div class="grid_6">
+                <a href="#" class="banner banner1"><strong>包邮</strong> 只需满$500</a>
+            </div><!-- .grid_6 -->
+
+            <div class="grid_6">
+                <a href="#" class="banner banner2"><strong>疯狂折扣</strong> 最新活动款!</a>
+            </div><!-- .grid_6 -->
+        </div>
+    </div><!-- #home_banners -->
+
+    <section id="main" class="home">
+        <div class="container_12">
+            <div id="content">
+                <div class="grid_12">
+                    <h2 class="product-title">经典产品</h2>
+                </div><!-- .grid_12 -->
+
+                <div class="clear"></div>
+
+                <div class="products">
+                <volist name="goods" id="val">
+                    <article class="grid_3 article">
+                        <img class="sale" src="__PUBLIC__/Home/img/sale.png" alt="Sale">
+                        <div class="prev">
+                            <a href="__CONTROLLER__/detail/id/{$val.id}"><img src="__PUBLIC__/Home/img/content/product{$val.id}.png" alt="Product 1" title=""></a>
+                        </div><!-- .prev -->
+
+                        <h3 class="title">{$val.goods_name}<br> Emerald Ring</h3>
+                        <div class="cart">
+                            <div class="price">
+                                <div class="vert">
+                                    ${$val.goods_price}
+                                    <div class="price_old">${$val.goods_ori_price}</div>
+                                </div>
+                            </div>
+                            <a href="#" class="obn"></a>
+                            <a href="javascript:void(0);" class="like" goods_id="{$val.id}"></a>
+                            <a href="#" class="bay"><img src="__PUBLIC__/Home/img/bg_cart.png" alt="Buy" title=""></a>
+                        </div><!-- .cart -->
+                    </article><!-- .grid_3.article -->
+                </volist>
+                    <div class="clear"></div>
+                </div><!-- .products -->
+                <div class="clear"></div>
+            </div><!-- #content -->
+            <div class="clear"></div>
+            <div id="brands">
+                <div class="c_header">
+                    <div class="grid_10">
+                        <h2>系列美文</h2>
+                    </div><!-- .grid_10 -->
+
+                    <div class="grid_2">
+                        <a id="next_c1" class="next arows" href="#"><span>Next</span></a>
+                        <a id="prev_c1" class="prev arows" href="#"><span>Prev</span></a>
+                    </div><!-- .grid_2 -->
+                </div><!-- .c_header -->
+
+                <div class="brands_list">
+                    <ul id="listing">
+                    <volist name="series" id="val">
+                        <li>
+                            <div class="grid_2">
+                                <a href="__MODULE__/Blog/index/id/{$val.id}" target="_blank"><div><img src="__PUBLIC__/Home/img/content/brand{$val.id}.png" alt="Brand 1" title="">{$val.series_name}</div></a>
+
+                            </div><!-- .grid_2 -->
+                        </li>
+                    </volist>
+                    </ul><!-- #listing -->
+                </div><!-- .brands_list -->
+            </div><!-- #brands -->
+            <div id="content_bottom">
+                <div class="grid_6">
+                    <div class="bottom_block about_as">
+                        <h3>关于我们</h3>
+                        <p>Lorem ipsum, libero et luctus molestie, turpis mi sagittis nisl, a scelerisque leo nulla et lectus pendisse dictum posuere elit, in congue nisl varius lentesque a tellus eget quam varius aliquet.</p>
+                        <p>Pellentesque tristique, libero et luctus molestie, turpis a scelerisque leo nulla et lectus pendisse dictum posuere elit. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                        <p>In congue nisl varius quis lentesque a tellus eget quam varius aliquet. Vel lobortis gravida.  Many desktop publishing packages and web page .</p>
+                    </div><!-- .about_as -->
+                </div><!-- .grid_6 -->
+
+                <div class="grid_6">
+                    <div class="bottom_block news">
+                        <h3>活动公告</h3>
+                        <ul>
+                            <li>
+                                <time datetime="2012-03-03">3 january 2012</time>
+                                <a href="#">Fermentum parturient lacus tristique habitant nullam morbi et odio nibh mus dictum tellus erat.</a>
+                            </li>
+
+                            <li>
+                                <time datetime="2012-02-03">2 january 2012</time>
+                                <a href="#">Cras ac hendrerit dui. Duis lacus ligula, luctus ac tristique eget, posuere id erat. Many desktop publishing packages and web page editors now use.</a>
+                            </li>
+
+                            <li>
+                                <time datetime="2012-01-03">1 january 2012</time>
+                                <a href="#">Lorem ipsum, libero et luctus molestie, turpis mi sagittis nisl, a scelerisque leo nulla et lectus.</a>
+                            </li>
+                        </ul>
+                    </div><!-- .news -->
+                </div><!-- .grid_6 -->
+                <div class="clear"></div>
+            </div><!-- #content_bottom -->
+        </div><!-- .container_12 -->
+    </section><!-- #main.home -->
+
+    <!-- 底部导航栏 -->
+<include file="Common/footer" />
+
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack <--></-->
+<script type="text/javascript">
+$(function(){
+    $('.like').click(function(){
+
+        var id = $(this).attr('goods_id');
+
+        $.ajax({
+            'url':'__MODULE__/Wish/addWish',
+            'type':'post',
+            'data': 'id='+id,
+            'dataType':'json',
+            'success':function(response){
+                console.log(response);
+                alert(response.msg);
+            }
+        })
+    })
+
+
+})
+
+
+</script>>
+</html>

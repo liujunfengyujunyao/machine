@@ -1,0 +1,28 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class ReviewController extends CommonController
+{
+	// 评论 接收数据 存入数据库 将数据ajax返回到 detail页面 
+	public function review()
+	{
+		// 接受数据 
+		$data = I('post.');
+		// $data = json_decode($data);
+		$time = time();
+		// 调用模型 添加记录
+		$row = array(
+			'goods_id' => $data['goods_id'],
+			'user_name' => $data['user_name'],
+			'review_title' => $data['review_title'],
+			'review_user' => $data['review_user'],
+			'create_time' => $time
+		);
+		$res = D('Review') -> addReview($row);
+		if($res){
+
+		}else{
+
+		}
+	}
+}

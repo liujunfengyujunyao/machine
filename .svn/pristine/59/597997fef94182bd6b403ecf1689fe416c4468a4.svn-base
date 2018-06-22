@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    
+    <title>系列美文</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/grid.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/normalize.css">
+
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="__PUBLIC__/Home/js/html5.js"></script>
+    <script src="__PUBLIC__/Home/js/main.js"></script>
+    <script src="__PUBLIC__/Home/js/radio.js"></script>
+    <script src="__PUBLIC__/Home/js/checkbox.js"></script>
+    <script src="__PUBLIC__/Home/js/selectBox.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.carouFredSel-5.2.2-packed.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.jqzoom-core.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.transit.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.easing.1.2.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.fx.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/page.css">
+</head>
+<body>
+<include file="Common/header"/>
+ 
+    <div class="breadcrumbs">
+        <div class="container_12">
+            <div class="grid_12">
+                 <a href="index.html">主页</a><span></span><a href="#">文章</a><span></span><span class="current">{$series_name}</span>
+            </div><!-- .grid_12 -->
+        </div><!-- .container_12 -->
+    </div><!-- .breadcrumbs -->
+    
+    <section id="main">
+        <div class="container_12">
+            <div id="content" class="grid_9">
+                <header>
+                    <h1 class="page_title">{$series_name}</h1>
+                </header>
+              
+             <volist name="data" id="val">  
+              <article class="post">
+		    <h2><a href="__MODULE__/Blog/detail/id/{$val.id}">{$val.article_title}</a></h2>
+		    <div class="content_article">
+			<p>{$val.article_introduce}</p>
+                        <a href="#" class="more">学到更多</a>
+                    </div><!-- .content_article -->
+		    <div class="footer_article">
+			<div class="number_c"><strong>{$val.id}</strong> comments(S)</div>
+			作者:<strong><font color="blue">{$val.article_author}</font></strong>
+		    </div>
+                </article>
+              </volist> 
+	      
+                <div class="pagination">
+                <div class="technorati">
+                    {$page_html}
+                </div>
+		    <!-- <ul>
+			<li class="prev"><span>&#8592;</span></li>
+			<li class="curent"><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><span>...</span></li>
+			<li><a href="#">100</a></li>
+			<li class="next"><a href="#">&#8594;</a></li>
+		    </ul> -->
+                </div><!-- .pagination -->
+                <p class="pagination_info">显示1 到 12 (共 {$total}个产品)</p>
+                
+                <div class="clear"></div>
+            </div><!-- #content -->
+            
+            <div id="sidebar" class="grid_3">
+                <aside id="categories_nav">
+		    <header class="aside_title">
+                        <h3>文章分类</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			<volist name="series" id="val">
+			    <li><a href="__CONTROLLER__/index/id/{$val.id}">{$val.series_name}</a></li>
+			</volist>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside>
+		    <header class="aside_title">
+                        <h3>发布时间</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			    <li><a href="#">2012年六月期</a></li>
+			    <li><a href="#">2012年七月期</a></li>
+			    <li><a href="#">2012年八月期</a></li>
+			    <li><a href="#">2012年九月期</a></li>
+			    <li><a href="#">2012年十月期</a></li>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside id="tags">
+                    <header class="aside_title">
+                        <h3>标签</h3>
+                    </header>
+                    
+		    <a class="t1" href="#">真爱</a>
+		    <a class="t2" href="#">永恒</a>
+		    <a class="t3" href="#">浪漫</a>
+		    <a class="t4" href="#">魅力无限</a>
+		    <a class="t5" href="#">钻石</a>
+		    <a class="t6" href="#">青春</a>
+		    <a class="t7" href="#">梦幻</a>
+		    <a class="t8" href="#">婚礼</a>
+		    <a class="t9" href="#">复古</a>
+		    <a class="t10" href="#">时尚</a>
+		    <a class="t11" href="#">色彩</a>
+		    <a class="t12" href="#">迷恋</a>
+		    <a class="t13" href="#">幸福</a>
+		    <a class="t14" href="#">一生的爱</a>
+		    <a class="t15" href="#">体验</a>
+		    <a class="t16" href="#">热恋</a>
+                </aside><!-- #community_poll -->
+                
+                <aside id="community_poll">
+                    <header class="aside_title">
+                        <h3>用户调查</h3>
+                    </header>
+
+		    <h4>你多少岁了?</h4>
+
+		    <form action="#" class="poll">
+			<ul>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 18岁以下</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 18-24 岁</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 24-30 岁</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 30-40 年龄</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 超过40岁</li>
+			</ul>
+
+			<input class="vote" type="submit" name="" value="确定">
+		    </form>
+                </aside><!-- #community_poll -->
+                
+                <aside id="banners">
+                    <header class="aside_title">
+                        <h3>活动</h3>
+                    </header>
+
+                    <div class="list_carousel">
+			<ul id="list_banners">
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="__PUBLIC__/Home/img/home_ban1.png" alt="Banner 1" title="">
+				</div><!-- .prev -->
+
+				<h2>免费送货</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="__PUBLIC__/Home/img/home_ban2.png" alt="Banner 2" title="">
+				</div><!-- .prev -->
+
+				<h2>疯狂的折扣</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+			</ul>
+                    </div><!-- .list_carousel -->
+                    
+                    <div id="ban_pagination"></div>
+                </aside><!-- #banners -->
+                
+            </div><!-- .sidebar -->
+            <div class="clear"></div>
+        </div><!-- .container_12 -->
+    </section><!-- #main -->
+    <div class="clear"></div>
+        
+<include file ="Common/footer"/>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

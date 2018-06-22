@@ -1,0 +1,150 @@
+<!--_meta 作为公共模版分离出去-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<include file="Common/meta" />
+<link href="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>商品列表 - 商品管理 - Diamond后台</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a>
+		<span class="c-gray en">&gt;</span>
+		机台管理
+		<span class="c-gray en">&gt;</span>
+		添加机台
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<form class="form form-horizontal" id="tab" action="__SELF__" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="equipments_pid" value="{{$Think.session.manager_info.id}}">
+		<input type="hidden" name="equipment_user" value="{{$Think.session.manager_info.nickname}}">
+		<div class="row cl" align="center" >
+		<a href="__CONTROLLER__/index" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe67f;</i>&emsp;返回列表页&emsp;</a>
+				&emsp;&emsp;<span class="btn btn-default radius"><sup><font color="red" >*</font></sup>必填项</span>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>TAG：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value=""  required="required" placeholder="请填写机台码" name="tag"  maxlength='40'>
+			</div>
+		</div>
+	<!-- 	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>MAC：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value=""  required="required" onblur="checkform();" placeholder="请填写MAC" name="mac" id="mac"  maxlength='17' onkeyup="this.value=this.value.replace(/[^A-Za-z0-9]/g,'').replace(/..(?!$)/g,'$&-')">
+			</div>
+		</div> -->
+			<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>机台名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value=""  required="required" placeholder="请填写昵称" name="machine_nickname"  maxlength='40'>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>视频推流地址1：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value=""  required="required" placeholder="channel1" name="channel1"  maxlength='32'>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>视频推流地址2：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value=""  required="required" placeholder="channel2" name="channel2"  maxlength='32'>
+			</div>
+		</div>
+		<!-- <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'').replace(/....(?!$)/g,'$& ')" /> -->
+		<!-- <input type="text" id="mac" /> -->
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>机台类型：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select name="equipment_type" class="select">
+					<option value="">==选择类型==</option>
+					<volist name="type" id="v">
+					<option value="{{$v.type_id}}">{{$v.type_name}}</option>
+					</volist>
+				</select>
+				</span> </div>
+		</div>
+		   <div class="tab-pane fade in" id="pics">
+                <div class="well">
+                        <div>[<a href="javascript:void(0);" class="add">图片+</a>]：<input type="file" name="equipment_pics[]" value="" class="input-xlarge"></div>
+                </div>
+            </div>	
+		<!--机台相册图集-->
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">机台备注：</label>
+			<div class="formControls col-xs-8 col-sm-9"> 
+				<textarea id="" name='equipment_introduce' style="width:800px;height:400px;"></textarea>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button class="btn btn-primary radius" type="submit" id="addgood"><i class="Hui-iconfont">&#xe632;</i> 点击添加</button>
+				
+			</div>
+		</div>
+	</form>
+	</div>
+</section>
+
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>   
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	//实例化编辑器
+      // var ue=UE.getEditor('editor');
+	
+      $('.add').click(function(){
+      	var add_div = '<div>[<a href="javascript:void(0);" class="sub">图片-</a>]：<input type="file" name="equipment_pics[]" value="" class="input-xlarge"></div>';
+      	''
+      	$(this).parent().after(add_div);
+      	
+      });
+    //添加未来事件
+      $('.sub').live('click',function(){
+      	$(this).parent().remove();
+      });
+      
+});
+function checkform(){	var mac = document.getElementById( "mac" );	var cont = mac.value;	var len = cont.length;	if ( len <  17 )	{		 alert( "MAC识别码过短!" );return false;	}}	
+
+// window.onload=function(){
+// var t=document.getElementById("mac");
+// t.onkeydown=change;
+// t.onkeyup=change;
+// t.onkeypress=change;
+// }
+// function change(){
+// this.value=this.value.replace(/([A-Za-z0-9]{4})(?=[^\s])/,'$1 ');
+// }
+</script>
+
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

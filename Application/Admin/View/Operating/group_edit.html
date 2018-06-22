@@ -1,0 +1,261 @@
+<html>
+<head>
+<!--_meta 作为公共模版分离出去-->
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+<link href="__PUBLIC__/Admin/lib/table/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<link href="__PUBLIC__/Admin/lib/table/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+
+<title>经营策略 - 群组修改</title>
+
+<!-- <style type="text/css">  
+            div img{  
+                cursor: pointer;  
+                transition: all 0.6s;  
+            }  
+            div img:hover{  
+                transform: scale(1.9);  
+            }  
+        </style>   -->
+</head>
+<body>
+
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a> <span class="c-gray en">&gt;</span> 经营策略 <span class="c-gray en">&gt;</span> 群组策略 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+
+    <div class="Hui-article">
+            <!-- <div class="text-c">
+                    <button type="submit" class="btn btn-success" id="" name=""> 下面就是商品详情啦</button>
+            </div> -->
+        <form class="form form-horizontal" id="form-article-add" action="__CONTROLLER__/group_edit" method="post" enctype="multipart/form-data">
+            
+            <input type="hidden" name="group_id" value="{{$group_id}}">
+            <if condition =" $data.equipment_type1 "><!--娃娃机-->
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2">机台种类：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        娃娃机
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2">机台构成：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {{$data.type1_name}}
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次游戏时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type1_time_limit" id="type1_time_limit"">
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次游戏价格：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type1_equipment_price" id="type1_equipment_price">
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type1_equipment_odds" id="type1_equipment_odds">
+                        <span style="color:blue;">中奖概率,运行多少次可以抓取一个,0为永不中奖</span>
+                    </div>
+                </div>
+            </if>
+            <if condition =" $data.equipment_type2 "><!--推币机-->
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2">机台种类：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        彩票机
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2">机台构成：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {{$data.type2_name}}
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次游戏时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type2_time_limit" id="type2_time_limit">
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次游戏价格：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type2_equipment_price" id="type2_equipment_price">
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>出票率：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type2_equipment_odds" id="type2_equipment_odds">
+                        <span style="color:blue;">单次游戏出票数,0-255张之间,0为不出</span>
+                    </div>
+                </div>
+            </if>
+            <if condition = " $data.equipment_type3 "><!--彩票机-->
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2">机台种类：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        推币机
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2">机台构成：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        {{$data.type3_name}}
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次游戏时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type3_time_limit" id="type3_time_limit"">
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次游戏价格：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type3_equipment_price" id="type3_equipment_price">
+                    </div>
+                </div>
+                <div class="row cl from-group">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>返还率：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" name="type3_equipment_odds" id="type3_equipment_odds">
+                        <span style="color:blue;">返还比率,50%-100%之间</span>
+                    </div>
+                </div>
+            </if>
+            <div class="row cl from-group">
+                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                    <input type="button">
+                    <button class="btn btn-primary radius" type="submit" id=""><i class="Hui-iconfont">&#xe632;</i> 点击修改</button>
+                
+                </div>
+            </div>
+        </form>
+    </div>
+         
+</section>
+        
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+
+<!--/_footer /作为公共模版分离出去-->
+
+
+<!--请在下方写此页面业务相关的脚本-->
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/jquery.min.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/bootstrapValidator.min.js"></script>
+
+
+
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>   
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+$(function(){
+    
+var icon = {
+        valid: 'glyphicon glyphicon-ok',
+        validating: 'glyphicon glyphicon-refresh'
+    };
+     
+     
+        //保存三种类型的判定js
+        
+      $("#form-article-add").bootstrapValidator({
+        feedbackIcons: icon,
+        live: 'disabled',
+        fields: {
+            type1_equipment_price: {
+                validators: {
+                    notEmpty: { message: '请输入价格' },
+                   // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' } 
+                    between: { min: 0, max: 100, message:'单次价格应在0 - 100元之间'} 
+                }
+            },
+            type2_equipment_price: {
+                validators: {
+                    notEmpty: { message: '请输入价格' },
+                   // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' } 
+                    between: { min: 0, max: 100, message:'单次价格应在0 - 100元之间'} 
+                }
+            },
+            type3_equipment_price: {
+                validators: {
+                    notEmpty: { message: '请输入价格' },
+                   // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' } 
+                    between: { min: 0, max: 100, message:'单次价格应在0 - 100元之间'} 
+                }
+            },
+            type1_time_limit: {
+                validators: {
+                    notEmpty: { message: '请输入单次时长' },
+                    // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' },
+                    between: { min: 10, max: 120, message:'单次时长应在10秒 - 120秒之间'}
+                }
+            },
+              type2_time_limit: {
+                validators: {
+                    notEmpty: { message: '请输入单次时长' },
+                    // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' },
+                    between: { min: 10, max: 120, message:'单次时长应在10秒 - 120秒之间'}
+                }
+            },
+              type3_time_limit: {
+                validators: {
+                    notEmpty: { message: '请输入单次时长' },
+                    // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' },
+                    between: { min: 10, max: 120, message:'单次时长应在10秒 - 120秒之间'}
+                }
+            },
+             type1_equipment_odds: {
+                validators: {
+                    notEmpty: { message: '请输入赔率' },
+                    between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
+                }
+            },
+              type2_equipment_odds: {
+                validators: {
+                    notEmpty: { message: '请输入出票数量' },
+                    between: { min: 0, max: 255, message: '彩票出票应为0-255之间' }
+                }
+            },
+           type3_equipment_odds: {
+                validators: {
+                    notEmpty: { message: '请输入返还率' },
+                    between: { min :50, max: 100, message: '赔率百分比应为50%-100%之间'}
+                }
+           }
+           
+        }
+    });
+
+  });
+ 
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+<!-- 仿百度图片放大效果 -->
+
+<!-- 仿百度图片放大效果 -->
+</body>
+</html>

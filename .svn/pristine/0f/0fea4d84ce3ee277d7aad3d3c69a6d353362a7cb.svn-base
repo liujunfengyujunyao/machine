@@ -1,0 +1,87 @@
+
+    <footer>
+        <div class="footer_navigation">
+            <div class="container_12">
+                <div class="grid_3">
+                     <h3>联系我们</h3>
+                    <ul class="f_contact">
+                        <li>49 Archdale, 2B Charlestone</li>
+                        <li>+777 (100) 1234</li>
+                        <li>mail@example.com</li>
+                    </ul><!-- .f_contact -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_3">
+                    <h3>购物指南</h3>
+                    <nav class="f_menu">
+                        <ul>
+                            <li><a href="#">购买流程</a></li>
+                            <li><a href="#">支付方式</a></li>
+                            <li><a href="#">配送信息</a></li>
+                            <li><a href="#">退货流程</a></li>
+                        </ul>
+                    </nav><!-- .private -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_3">
+                    <h3>帮助中心</h3>
+                    <nav class="f_menu">
+                        <ul>
+                            <li><a href="#">在线客服</a></li>
+                            <li><a href="#">留言反馈</a></li>
+                            <li><a href="#">注册流程</a></li>
+                            <li><a href="#">网站地图</a></li>
+                        </ul>
+                    </nav><!-- .private -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_3">
+                    <h3>服务条款</h3>
+                    <nav class="f_menu">
+                        <ul>
+                            <li><a href="#">终身保养</a></li>
+                            <li><a href="#">注册协议</a></li>
+                            <li><a href="#">隐私声明</a></li>
+                            <li><a href="#">15天退换</a></li>
+                        </ul>
+                    </nav><!-- .private -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_12 newsletter-payments">
+                    <div class="newsletter">
+                        <div class="icon-mail">消息通知</div>
+                        <p>请我们将会发送最新的活动信息给您</p>
+                        <form>
+                            <input type="submit" value="">
+                            <input type="email" name="newsletter" value="" placeholder="输入你的邮箱地址">
+                        </form>
+                    </div><!-- .newsletter -->
+
+                    <div class="payments">
+                        <img src="__PUBLIC__/Home/img/payments.png" alt="Payments">
+                    </div><!-- .payments -->
+                </div><!-- .grid_12.newsletter-payments -->
+
+                <div class="clear"></div>
+            </div><!-- .container_12 -->
+        </div><!-- .footer_navigation -->
+
+        <div class="footer_info">
+            <div class="container_12">
+                <div class="grid_6">
+                    <p class="copyright">© Diamond Store Theme, 2013.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                </div><!-- .grid_6 -->
+
+                <div class="grid_6">
+                    <div class="soc">
+                        <a class="google" href="#"></a>
+                        <a class="twitter" href="#"></a>
+                        <a class="facebook" href="#"></a>
+                    </div><!-- .soc -->
+                </div><!-- .grid_6 -->
+
+                <div class="clear"></div>
+            </div><!-- .container_12 -->
+        </div><!-- .footer_info -->
+    </footer>
+

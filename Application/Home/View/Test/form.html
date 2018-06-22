@@ -1,0 +1,41 @@
+<!--_meta 作为公共模版分离出去-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<include file="Common/meta" />
+<link href="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+<!--/meta 作为公共模版分离出去-->
+
+
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+<
+
+<section class="Hui-article-box">
+	
+		
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<form class="form form-horizontal" id="tab" action="__SELF__" method="post" enctype="multipart/form-data">
+
+			<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>机台名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value=""  required="required" placeholder="请填写昵称" name="machine_nickname"  maxlength='32'>
+			</div>
+		</div>
+		
+	</form>
+	</div>
+</section>
+
+
+
+<!--请在下方写此页面业务相关的脚本-->
+
+
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

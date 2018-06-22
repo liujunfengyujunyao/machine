@@ -1,0 +1,1 @@
+{"msgtype":"game_result","userid":2,"roomid":4,"machineid":11,"result":1}

@@ -1,0 +1,160 @@
+
+    <div id="top">
+        <div class="container_12">
+            <div class="grid_3">
+                <div class="lang">
+                    <ul>
+                        <li class="current"><a href="#">中文</a></li>
+                        <li><a href="#">英文</a></li>
+                    </ul>
+                </div><!-- .lang -->
+
+                <div class="currency">
+                    <ul>
+                        <li class="current"><a href="#">￥</a></li>
+                        <li><a href="#">$</a></li>
+                    </ul>
+                </div><!-- .currency -->
+            </div><!-- .grid_3 -->
+
+            <div class="grid_9">
+                <nav>
+                <if condition= " $Think.session.user_info == null  " >
+
+                        <ul>
+                            <li class="current"><a href="#">个人账户</a></li>
+                            <li><a href="#">收藏夹</a></li>
+                            <li><a href="__MODULE__/Login/login">登录</a></li>
+                            <li><a href="__MODULE__/Login/register">注册</a></li>
+                        </ul>
+                <else />
+                         <ul>
+                            <li class="current"><a href="#">个人账户</a></li>
+                            <li><a href="__MODULE__/Wish/index">收藏夹</a></li>
+                            <li><a href="__MODULE__/Login/logout">退出</a></li>
+
+                </ul>
+
+                     </if>  
+                </nav>
+            </div><!-- .grid_9 -->
+        </div>
+    </div><!-- #top -->
+
+  
+    <header>
+        <div class="container_12">
+            <div class="grid_3">
+                <hgroup>
+                    <h1 id="site_logo"><a href="index.html" title=""><img src="__PUBLIC__/Home/img/logo.png" alt="Online Store Theme Logo"></a></h1>
+                    <h2 id="site_description">线上主题商店</h2>
+                </hgroup>
+            </div><!-- .grid_3 -->
+
+            <div class="grid_9">
+                <div class="top_header">
+                <if condition= " $Think.session.user_info == null  " >
+                    <div class="welcome">
+                        Welcome visitor you can <a href="__MODULE__/Login/login">登录</a> or <a href="__MODULE__/Login/register">注册</a>.
+                    </div><!-- .welcome -->
+                    <else />
+                    <div class="welcome">
+                        Welcome! {$Think.session.user_info.email}
+                    </div>
+                    
+                </if>  
+
+                    <ul id="cart_nav">
+                        <li>
+                            <a class="cart_li" href="#">
+                                <div class="cart_ico"></div>
+                                购物车
+                                <span>$0.00</span>
+                            </a>
+                            <ul class="cart_cont" >
+                                <li class="no_border recently">最近添加的项目</li>
+                                <!-- 需要循环 -->
+                                <volist name="cdata" id="cval">
+                                <li  goods_id="{$cval.goods_id}" goods_attr_ids="{$cval.goods_attr_ids}">
+                                    <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="{$cval.goods_small_img}" alt="Product 1" title=""></div></a>
+                                    <div class="cont_cart">
+                                        <h4>{$cval.goods_name} <br><a href="__MODULE__/Cart/index">详情请至购物车</a></h4>
+                                        <div class="price">{$cval.goods_number} x <span>{$cval.goods_price}</span></div>
+                                    </div>
+                                    <a title="close" class="close" href="#"  ></a>
+                                    <div class="clear"></div>
+                                </li>
+                                </volist>
+                                <li class="no_border">
+                                    <a href="__MODULE__/Cart/index" class="view_cart">查看购物车</a>
+                                    <a href="checkout.html" class="checkout">结账</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!-- .cart_nav -->
+
+                    <form class="search">
+                        <input type="submit" class="search_button" value="">
+                        <input type="text" name="search" class="search_form" value="" placeholder="搜索关键词...">
+                    </form><!-- .search -->
+                </div><!-- .top_header -->
+
+                <nav class="primary">
+                    <ul>
+
+                        <li class="curent"><a href="__MODULE__/Index/index">主页</a></li>
+                        <li><a href="__MODULE__/List/index">全部商品</a></li>
+                        <li><a href="__MODULE__/List/index">热销新品</a></li>
+
+                        <li class="parent">
+                            <a href="#">分类</a>
+                            <ul class="sub">
+                            <volist name="cate" id='val'>
+                                <li><a href="__MODULE__/List/index/cate_id/{$val.id}">{$val.cate_name}</a></li>
+                            </volist>
+                            </ul>
+                        </li>
+                        <li><a href="__MODULE__/List/index">限量款</a></li>
+                        <li class="parent">
+                            <a href="#">diamond系列</a>
+                            <ul class="sub">
+                            <volist name="series" id='val'>
+                                <li><a href="__MODULE__/List/index/series_id/{$val.id}">{$val.series_name}</a></li>
+                            </volist>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav><!-- .primary -->
+            </div><!-- .grid_9 -->
+        </div>
+
+    </header>
+<script type="text/javascript">
+    $(function(){
+        $('.close').click(function(){
+            var data = {
+             'goods_id':$(this).closest('li').attr('goods_id'),
+             'goods_attr_ids':$(this).closest('li').attr('goods_attr_ids')
+                };
+                var _this = this;
+            $.ajax({
+                'url':'__MODULE__/Common/delTopCart',
+                'type':'post',
+                'dataType':'json',
+                'data':data,
+                'success':function(response){
+                if(response.code != 10000){
+                        alert(response.msg);
+                        return;
+                    }else{
+                        // alert(response.msg);
+
+                        $(_this).closest('li').remove();
+                    }
+                }
+            })
+            // $('form').submit();
+        });
+    })
+</script>
+</header>

@@ -1,0 +1,33 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class BlogController extends CommonController
+{
+	public function index(){
+		$id=I('get.id');
+		// dump($id);die;
+		// dump(D('Blog'));die;
+		$data=D('Blog')->where(['series_id' => $id])->select();
+		// dump($data);die;
+		if ($data) {
+			echo "oo";
+		}else{
+			$this->error('无效参数');
+		}
+		$this -> assign('data',$data);
+		$this -> display();
+	}
+
+	//播客详情
+	public function detail(){
+		$id =I('get.id');
+		// dump($id);die;
+		$info = D('Blog') -> where( ['id' => $id] ) -> find();
+		// dump($info);die;
+		$this -> assign('data', $info);
+		 $this -> display();
+	}
+}
+
+
+

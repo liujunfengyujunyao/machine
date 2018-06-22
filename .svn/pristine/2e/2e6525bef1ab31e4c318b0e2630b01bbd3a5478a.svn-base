@@ -1,0 +1,40 @@
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class GoodsController extends Controller{
+	//商品列表页
+	public function index(){
+		//实例化Goods模型
+		$model=D('Goods');
+		$row_count=$model->count();
+
+		$data=$model->select();
+		//总记录数
+		$this->assign('row_count',$row_count);
+		//分配商品信息
+		$this->assign('data',$data);
+		$this->display();
+	}
+
+	//商品添加页
+	public function add(){
+		//判断是否是POST提交
+		if(IS_POST) {
+			$data=I('post.');
+			// dump($_FILES);
+			//实例化商品类
+			$model=D('Goods');
+
+			//上传单文件
+			$upload_res=$model->upload_One($_FILES['goods_big_img'],$data);
+			
+		}else{
+			$this->display();
+		}	
+	}
+
+	//商品编辑
+	public function edit(){
+
+	}
+}

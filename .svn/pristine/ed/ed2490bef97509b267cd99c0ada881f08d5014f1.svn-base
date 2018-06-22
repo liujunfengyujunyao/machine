@@ -1,0 +1,194 @@
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class GoodsController extends Controller{
+	//商品列表页
+	public function index(){
+		//实例化Goods模型
+		$model=D('Goods');
+		$row_count=$model->count();
+
+		$data=$model -> alias('t1') -> field('t1.*,t2.cate_name') -> join('left join dia_category t2 on t1.cate_id = t2.id')-> select();
+		// dump($data);die;
+		//总记录数
+		$this->assign('row_count',$row_count);
+		//分配商品信息
+		$this->assign('data',$data);
+		$this->display();
+	}
+
+	//商品添加页
+	public function add(){
+		//判断是否是POST提交
+		if(IS_POST) {
+			$data=I('post.');
+
+			//单独接收商品简介goods_introduce 防范xss攻击
+			$data['goods_introduce']=I('post.goods_introduce','','htmlspecialchars');
+			// dump($_FILES);
+			//实例化商品类
+			$model=D('Goods');
+
+			//上传单文件
+			$upload_res=$model->upload_One($_FILES['goods_big_img'],$data);
+
+			//判断上传返回结果
+			if (!$upload_res) {
+				$error=$model -> getError();
+				$this-> error($error);
+			}
+
+			// dump($data);
+			//创建数据集
+			$create=$model->create($data);
+
+			if (!$create) {
+				$error=$model->getError();
+				$this->error($error);
+			}
+
+			//添加商品数据
+			$res=$model->add();
+
+			//判断返回结果
+			if($res){
+				//接收相册文件
+				$files=$_FILES;
+				unset($files['goods_big_img']);
+				
+				//调用模型里的多文件上传
+				$model->upload_All($res,$files);
+
+				$this->success('添加成功',U('Admin/Goods/index'));
+			}else{
+				$this->error('添加失败');
+			}
+
+		}else{
+			$cate=D('Category')->select();
+
+			//分配分类数据到添加模版
+			$this->assign('cate',$cate);
+			$this->display();
+		}	
+	}
+
+	//商品编辑
+	public function edit(){
+		if (IS_POST) {
+			$info=I('post.');
+			//防范xss攻击
+			$info['goods_introduce']=I('post.goods_introduce','','htmlspecialchars');
+			// dump($_FILES);die;
+			// dump($info);die;
+
+			//实例化Goods模型类
+			$model=D('Goods');
+
+			//查询原来文件信息
+			//有新文件上传就删除旧文件
+			$goodsInfo=$model->where(['id'=>$info['id']])->find();
+			// dump($goodsInfo);die;
+
+			if (isset($_FILES['goods_big_img']) && $_FILES['goods_big_img']['error']==0) {
+				//上传单文件
+				$upload_res=$model->upload_One($_FILES['goods_big_img'],$info);
+
+				//判断上传返回结果
+				if (!$upload_res) {
+					$error=$model -> getError();
+					$this-> error($error);
+				}
+
+				//修改成功后删除旧文件数据
+				unlink(ROOT_PATH.$goodsInfo['goods_big_img']);
+				unlink(ROOT_PATH.$goodsInfo['goods_small_img']);
+			}
+
+			//创建数据集
+			$create=$model->create($info);
+
+			//判断是否创建成功
+			if (!$create) {
+				$error=$model->getError();
+				$this->error($error);
+			}
+
+			$res=$model->save();
+			// dump($res);die;
+
+			if ($res!==false) {
+				
+				$this->success('修改成功',U('Admin/Goods/index'));
+			}else{
+				$this->error('修改失败');
+			}
+
+		}else{
+			//接收id参数
+		$id=I('get.id');
+
+		// dump($id);die;
+		//根据id查询数据表
+		//查询商品goods表
+		$data=D('Goods')->where(['id'=>$id])->find();
+
+		// session('goods_origin_info',$data);
+
+		//查询分类表的数据
+		$cate_info=D('Category')->select();
+		// dump($cate_info);die;
+
+		//分配商品数据和分类数据
+		$this->assign('cate_info',$cate_info);
+		$this->assign('data',$data);
+		//展示修改模版
+		$this->display();
+		}
+	}
+
+	//商品删除
+	public function del(){
+		$id=I('get.id');
+		// dump($id);
+		$model=D('Goods');
+		//根据id查询数据库中的商品信息
+		$goods_info=$model->where(['id'=>$id])->find();
+		// dump($goods_info);die;
+		$pic_info=D('Goodspics')->where(['goods_id'=>$id])->find();
+		// dump($pic_info);die;
+
+		//返回受影响行数
+		if (isset($goods_info)) {
+			//删除商品表中的数据
+			$res=$model->where(['id'=>$goods_info['id']])->delete();
+			//删除商品相册中的数据
+			$pics_res=D('Goodspics')->where(['goods_id'=>$id])->delete();
+
+			//删除项目目录中的图片
+			unlink(ROOT_PATH.$goods_info['goods_big_img']);
+			unlink(ROOT_PATH.$goods_info['goods_small_img']);
+
+			//删除图片相册中的图片
+			$model->clear($pic_info);
+			
+			if ($res) {
+
+				$this->success('删除成功',U('Admin/Goods/index'));
+			}else{
+				$this->error('删除失败');
+			}
+		}else{
+			$this->error('无效参数');
+		}
+	}
+
+	//商品详情
+	public function detail(){
+		$id=I('get.id');
+		$data=D('Goods')->alias('t1')->field('t1.*,t2.cate_name')->join('left join dia_category t2 on t1.cate_id = t2.id')->where(['t1.id'=>$id])->find();
+		//分配数据到模版
+		$this->assign('data',$data);
+		$this->display();
+	}
+}

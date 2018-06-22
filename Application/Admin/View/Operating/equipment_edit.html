@@ -1,0 +1,252 @@
+<html>
+<head>
+<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+<link href="__PUBLIC__/Admin/lib/table/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<link href="__PUBLIC__/Admin/lib/table/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+<title>机台列表 - 机台管理 </title>
+</head>
+<body>
+
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a>
+		<span class="c-gray en">&gt;</span>
+		经营数据
+		<span class="c-gray en">&gt;</span>
+		经营策略
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<form class="form form-horizontal" id="form-article-add" action="__CONTROLLER__/equipment_edit" method="post" onsubmit="return submit_sure()" enctype="multipart/form-data">
+		<!-- 隐藏域为机台id -->
+		
+		<input type="hidden" name="id" id="id" value="{{$equipment.id}}">
+		<div class="row cl from-group" align="center" >
+		<a href="__CONTROLLER__/operating" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe67f;</i>&emsp;返回列表页&emsp;</a>
+				&emsp;&emsp;<span class="btn btn-default radius"><i class="Hui-iconfont">&#xe6df;</i>&emsp;经营策略更改</span>
+		</div>
+		<div class="row cl from-group">
+	
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>机台名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$equipment.name}}" id="" name="" disabled="disabled">
+			</div>
+		
+		</div>
+		<!--上传商品照片-->
+		<!--   <div class="tab-pane fade in" id="pics">
+                <div class="well">
+                        <div>[<a href="javascript:void(0);" class="add">图片+</a>]：<input type="file" name="goods_pics[]" value="" class="input-xlarge"></div>
+                </div>
+            </div>	 -->
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>单次价格：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$equipment.price}}"  id="price" name="price">
+			</div>
+		
+		</div>
+
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>游戏时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$equipment.time_limit}}"  id="time_limit" name="time_limit">
+			</div>
+		
+		</div>
+		<if condition = " $equipment.type_id == 1 "><!--娃娃机-->
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds1" name="odds1" style="display: inline;width:50%;"><span style="color:blue;">中奖概率，运行多少次可以抓取一个，0为永不中奖</span>
+			</div>
+		
+		</div>
+		</if>
+		<if condition = " $equipment.type_id == 2 "><!--彩票机-->
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>出票数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds2" name="odds2" style="display:inline;width:50%;"><span style="color:blue;">单次游戏出票数，0-255张之间，0为不出</span>
+			</div>
+		
+		</div>
+		</if>
+		<if condition = " $equipment.type_id == 3 "><!--推币机-->	
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>返还率：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds3" name="odds3" style="display:inline;width:50%;"><span style="color:blue;">返还比率，50%-100%之间</span>
+			</div>
+		
+		</div>
+		</if>
+
+
+
+
+
+		<div class="row cl from-group">
+		
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>机台类型：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="{{$equipment.type_name}}"  id="" name="" disabled="disabled">
+			</div>
+
+		</div>
+
+		
+	
+		<div class="row cl from-group">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button class="btn btn-primary radius" type="submit" id="addgood"><i class="Hui-iconfont">&#xe632;</i> 点击修改</button>
+				
+			</div>
+		</div>
+	</form>
+	</div>
+</section>
+
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/jquery.min.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/bootstrapValidator.min.js"></script>
+
+
+
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>   
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+
+
+<!-- 引入zyupload上传组件 -->
+<script type="text/javascript" src="__PUBLIC__/Admin/zyupload/core/zyFile.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/zyupload/control/css/zyUpload.css"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/zyupload/control/js/zyUpload.js"></script> 
+<!-- 引入zyupload上传组件 -->
+<script type="text/javascript">
+$(function(){
+	
+	//实例化编辑器
+      var ue=UE.getEditor('editor');
+      var icon = {
+        valid: 'glyphicon glyphicon-ok',
+        validating: 'glyphicon glyphicon-refresh'
+    };
+      //异步删除图片
+     
+
+      $("#form-article-add").bootstrapValidator({
+        feedbackIcons: icon,
+        live: 'disabled',
+        fields: {
+            equipment_price: {
+                validators: {
+                    notEmpty: { message: '请输入价格' },
+                   // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' } 
+                  	between: { min: 0, max: 100, message:'单次价格应在0 - 100元之间'} 
+                }
+            },
+            time_limit: {
+                validators: {
+                    notEmpty: { message: '请输入单次时长' },
+                    // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' },
+                    between: { min: 10, max: 120, message:'单次时长应在10秒 - 120秒之间'}
+                }
+            },
+             equipment_odds1: {
+                validators: {
+                    notEmpty: { message: '请输入赔率' },
+                    between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
+                }
+            },
+              equipment_odds2: {
+                validators: {
+                    notEmpty: { message: '请输入出票数量' },
+                    between: { min: 0, max: 255, message: '彩票出票应为0-255之间' }
+                }
+            },
+           equipment_odds3: {
+           		validators: {
+           			notEmpty: { message: '请输入返还率' },
+           			between: { min :50, max: 100, message: '赔率百分比应为50%-100%之间'}
+           		}
+           }
+           
+        }
+    });
+
+      $('.add').click(function(){
+      	var add_div = '<div>[<a href="javascript:void(0);" class="sub">图片-</a>]：<input type="file" name="equipment_pics[]" value="" class="input-xlarge"></div>';
+      	$(this).parent().after(add_div);
+
+      });
+      //添加未来事件
+      $('.sub').click(function(){
+      	$(this).parent().remove();
+      });
+
+      // 添加修改提示
+      // $('#addgood').click(function(){
+      // 	var equipment_price = $("input[name='equipment_price']").val();
+      // 	var time_limit = $("input[name='time_limit']").val();
+      // 	var equipment_odds1 = $("input[name='equipment_odds1']").val();
+      // 	var id = $("input[name='id']").val();
+      // 	if(confirm("此次修改将同时修改{{$equipment_name}}")){
+      // 		$.ajax({
+      // 			url:'{{:U("Admin/Operating/equipment_edit")}}',
+      // 			data:{ equipment_price:equipment_price,time_limit:time_limit,equipment_odds1:equipment_odds1,id:id},
+      // 			type:'post',
+      // 			dataType:'json',
+      // 			success:function(response){
+      // 				if (response.code != 10000) {
+      // 					alert(response.msg);
+      // 					return;
+      // 				}else{
+      // 					alert('修改完成');
+      // 					window.location.href='__CONTROLLER__/operating';
+      // 				}
+      // 			}
+      // 		})
+      // 	}
+      // })
+
+});
+function submit_sure(){
+	var gnl=confirm("此次修改将同时修改{{$equipment_name}}");
+	if (gnl==true) {
+		return true;
+	}else{
+		return false;
+	}
+}
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+</body>
+</html>

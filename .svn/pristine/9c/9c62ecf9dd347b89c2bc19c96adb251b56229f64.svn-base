@@ -1,0 +1,35 @@
+<?php
+namespace Home\Controller;
+use Think\controller; 
+class ListController extends CommonController{
+	public function index(){
+		//查询列表要展示的数据
+		$get = I('get.');
+		if($get['cate_id']){
+			//根据分类查询
+			$goods = D('Goods')->where(['cate_id'=>$get['cate_id']])->select();
+			$cate = D('Category')->where(['id'=>$get['cate_id']])->find();
+			$name = $cate['cate_name'];
+			$this->assign('cate_id',$get['cate_id']);
+		}elseif($get['series_id']){
+			//根据系列查询
+			$goods = D('Goods')->where(['series_id'=>$get['series_id']])->select();
+			$series = D('Series')->where(['id'=>$get['series_id']])->find();
+			$name = $series['series_name'];
+			$this->assign('series_id',$get['series_id']);
+		}else{
+			//查询全部
+			$goods = D('Goods')->select();
+			$name = '全部商品';
+		}
+		$this->assign('name',$name);
+		$this->assign('goods',$goods);
+		if($get['list_sty']==2){
+			$this->display('grid');
+		}else{
+			$this->display();
+		}
+	}
+	
+	
+}

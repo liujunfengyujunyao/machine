@@ -1,0 +1,69 @@
+<?php 
+namespace Admin\Controller;
+use Think\Controller;
+class CommonController extends Controller{
+	public function __construct(){
+		parent::__construct();
+		if(!session('?manager_info')){
+			$this->redirect("Admin/Login/login");
+		}
+		$this->getnav();
+		$this->checkauth();
+	}
+	public function getnav(){
+		//获取当前管理员的角色ID
+		if(session('?top')&&session('?second')){
+			return true;
+		}
+		$role_id = session('manager_info.role_id');
+		//判断是否是超级管理员
+		if($role_id==1){
+			//超级管理员 直接查询权限表
+			//分别查询顶级和二级权限表，用于在页面两次便利输出
+			$top = D('Auth')->where(['pid'=>0,'is_nav'=>1])->select(); 
+			//获取二级权限
+			$second = D("Auth")->where(['pid'=>['GT',0],'is_nav'=>1])->select();
+			// var_dump($second);die;
+		}else{
+			//普通管理员 先查询角色表 在查询权限表
+			//查询角色表
+			$role = D('Role') ->where(['role_id'=>$role_id])->find();
+			$role_auth_ids = $role['role_auth_ids'];
+			//查询权限表
+			//查询顶级权限
+			$top = D("Auth")->where("pid = 0 and id in($role_auth_ids) and is_nav=1")->select();
+			//查询二级权限
+			$second = D("Auth")->where("pid > 0 and id in($role_auth_ids) and is_nav=1")->select();	
+
+		}
+		//将权限数据保存到session中
+		//如果权限发生变化，退出重新登录
+		session('top',$top);
+		session('second',$second);
+	}
+	public function checkauth(){
+		//先获取当前管理员的角色ID
+		$role_id = session('manager_info.role_id');
+		if($role_id == 1){
+			return true;
+		}
+		//根据角色ID获取拥有的权限
+		$role = D('Role')->where(['role_id'=>$role_id])->find();
+		//获取当前页面控制器和方法名称
+		$c = CONTROLLER_NAME;
+		$a = ACTION_NAME;
+		//将当前方法名和控制器名用短线拼接
+		//判断拼接的字符串是否在role_auth_ac中
+		$ac = $c.'-'.$a;
+		if($ac == 'Index-index'){
+			return true;
+		}
+		$auth_ac = explode(',',$role['role_auth_ac']);
+		if(!in_array($ac,$auth_ac)){
+			$this->redirect('Admin/Index/index');
+		}
+	}
+}
+
+
+?>

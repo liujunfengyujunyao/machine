@@ -1,0 +1,48 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class CommonController extends Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->header();
+	}
+    public function header(){
+    	//查询所有钻石分类
+    	$category = D('Category')->select();
+    	$this->assign('cate',$category);
+    	//查询所有钻石系列
+    	$series = D('Series')->select();
+    	$this->assign('series',$series);
+        
+    }
+
+    // 首页购物车悬浮框
+    public function headerCart()
+    {
+        // ajax 传值
+        $id = I('post.id');
+        $cart = D('Cart') -> where(['id' => $id]) ->order('create_time') -> limit(2)-> find();
+        $this -> assign('cart',$cart);
+        $this -> display();
+    }
+    //点击X 删除购物车记录
+    public function delCart()
+    {
+        $id = I('post.id');
+        $res = D('Cart') -> where(['id' => $id]) -> delete();
+        if($res){
+            $return = array(
+                'code' => 10000,
+                'msg' => '删除成功'
+                );
+            $this -> ajaxReturn($return);
+        }else{
+            $return = array(
+                'code' => 10001,
+                'msg' => '删除失败'
+                );
+            $this -> ajaxReturn($return);
+
+        }
+    }
+}

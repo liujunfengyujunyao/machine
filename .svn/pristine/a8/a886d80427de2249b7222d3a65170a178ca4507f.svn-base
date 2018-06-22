@@ -1,0 +1,417 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    
+    <title>Blog post view</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="/Public/Home/css/grid.css">
+    <link rel="stylesheet" href="/Public/Home/css/style.css">
+    <link rel="stylesheet" href="/Public/Home/css/normalize.css">
+
+    <script src="/Public/Home/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/Public/Home/js/jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="/Public/Home/js/html5.js"></script>
+    <script src="/Public/Home/js/main.js"></script>
+    <script src="/Public/Home/js/radio.js"></script>
+    <script src="/Public/Home/js/checkbox.js"></script>
+    <script src="/Public/Home/js/selectBox.js"></script>
+    <script src="/Public/Home/js/jquery.carouFredSel-5.2.2-packed.js"></script>
+    <script src="/Public/Home/js/jquery.jqzoom-core.js"></script>
+    <script src="/Public/Home/js/jquery.transit.js"></script>
+    <script src="/Public/Home/js/jquery.easing.1.2.js"></script>
+    <script src="/Public/Home/js/jquery.anythingslider.js"></script>
+    <script src="/Public/Home/js/jquery.anythingslider.fx.js"></script>
+</head>
+<body>
+       <div id="top">
+        <div class="container_12">
+            <div class="grid_3">
+                <div class="lang">
+                    <ul>
+                        <li class="current"><a href="#">中文</a></li>
+                        <li><a href="#">英文</a></li>
+                    </ul>
+                </div><!-- .lang -->
+
+                <div class="currency">
+                    <ul>
+                        <li class="current"><a href="#">￥</a></li>
+                        <li><a href="#">$</a></li>
+                    </ul>
+                </div><!-- .currency -->
+            </div><!-- .grid_3 -->
+
+            <div class="grid_9">
+                <nav>
+                <?php if( $_SESSION['user_info']== null ): ?><ul>
+                            <li class="current"><a href="#">个人账户</a></li>
+                            <li><a href="#">收藏夹</a></li>
+                            <li><a href="/index.php/Home/Login/login">登录</a></li>
+                            <li><a href="/index.php/Home/Login/register">注册</a></li>
+                        </ul>
+                <?php else: ?>
+                         <ul>
+                            <li class="current"><a href="#">个人账户</a></li>
+                            <li><a href="/index.php/Home/Wish/index">收藏夹</a></li>
+                            <li><a href="/index.php/Home/Login/logout">退出</a></li>
+
+                </ul><?php endif; ?>  
+                </nav>
+            </div><!-- .grid_9 -->
+        </div>
+    </div><!-- #top -->
+
+  
+    <header>
+        <div class="container_12">
+            <div class="grid_3">
+                <hgroup>
+                    <h1 id="site_logo"><a href="index.html" title=""><img src="/Public/Home/img/logo.png" alt="Online Store Theme Logo"></a></h1>
+                    <h2 id="site_description">线上主题商店</h2>
+                </hgroup>
+            </div><!-- .grid_3 -->
+
+            <div class="grid_9">
+                <div class="top_header">
+                <?php if( $_SESSION['user_info']== null ): ?><div class="welcome">
+                        Welcome visitor you can <a href="/index.php/Home/Login/login">登录</a> or <a href="/index.php/Home/Login/register">注册</a>.
+                    </div><!-- .welcome -->
+                    <?php else: ?>
+                    <div class="welcome">
+                        Welcome! <?php echo ($_SESSION['user_info']['email']); ?>
+                    </div><?php endif; ?>  
+
+                    <ul id="cart_nav">
+                        <li>
+                            <a class="cart_li" href="#">
+                                <div class="cart_ico"></div>
+                                购物车
+                                <span>$0.00</span>
+                            </a>
+                            <ul class="cart_cont">
+                                <li class="no_border recently">最近添加的项目</li>
+                                <li>
+                                    <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="/Public/Home/img/content/cart_img.png" alt="Product 1" title=""></div></a>
+                                    <div class="cont_cart">
+                                        <h4>FADDYWAX香味散发器集 <br>栀子</h4>
+                                        <div class="price">1 x <span>$399.00</span></div>
+                                    </div>
+                                    <a title="close" class="close" href="#"></a>
+                                    <div class="clear"></div>
+                                </li>
+
+                                <li>
+                                    <a href="product_page.html" class="prev_cart"><div class="cart_vert"><img src="/Public/Home/img/content/cart_img2.png" alt="Product 2" title=""></div></a>
+                                    <div class="cont_cart">
+                                        <h4>CALDREA亚麻和室内喷雾</h4>
+                                        <div class="price">1 x <span>$123.00</span></div>
+                                    </div>
+                                    <a title="close" class="close" href="#"></a>
+                                    <div class="clear"></div>
+                                </li>
+                                <li class="no_border">
+                                    <a href="shopping_cart.html" class="view_cart">查看购物车</a>
+                                    <a href="checkout.html" class="checkout">结账</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!-- .cart_nav -->
+
+                    <form class="search">
+                        <input type="submit" class="search_button" value="">
+                        <input type="text" name="search" class="search_form" value="" placeholder="搜索关键词...">
+                    </form><!-- .search -->
+                </div><!-- .top_header -->
+
+                <nav class="primary">
+                    <ul>
+                        <li class="curent"><a href="/index.php/Home/Index/index">主页</a></li>
+                        <li><a href="/index.php/Home/List/index">全部商品</a></li>
+                        <li><a href="/index.php/Home/List/index">热销新品</a></li>
+                        <li class="parent">
+                            <a href="#">分类</a>
+                            <ul class="sub">
+                            <?php if(is_array($cate)): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><li><a href="/index.php/Home/List/index/cate_id/<?php echo ($val["id"]); ?>"><?php echo ($val["cate_name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                            </ul>
+                        </li>
+                        <li><a href="/index.php/Home/List/index">限量款</a></li>
+                        <li class="parent">
+                            <a href="#">diamond系列</a>
+                            <ul class="sub">
+                            <?php if(is_array($series)): $i = 0; $__LIST__ = $series;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><li><a href="/index.php/Home/List/index/series_id/<?php echo ($val["id"]); ?>"><?php echo ($val["series_name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav><!-- .primary -->
+            </div><!-- .grid_9 -->
+        </div>
+    </header>
+   
+    <div class="breadcrumbs">
+        <div class="container_12">
+            <div class="grid_12">
+                 <a href="index.html">Home</a><span></span><a href="#">Category</a><span></span><span class="current">This page</span>
+            </div><!-- .grid_12 -->
+        </div><!-- .container_12 -->
+    </div><!-- .breadcrumbs -->
+    
+    <section id="main">
+        <div class="container_12">
+            <div id="content" class="grid_9">
+	                <header>
+	                    <h1 ><?php echo ($data["article_title"]); ?></h1>
+	                </header>
+	                
+	     <article>
+			    <div class="content_article">
+	                        <p><?php echo ($data["article_content"]); ?> </p>
+	               
+	             </div><!-- .content_article -->
+		    <div class="footer_article">
+				<div class="number_c"><strong>3</strong> comments(S)</div>
+					<strong><?php echo ($data["article_author"]); ?></strong>, <time datetime="2012-11-03">03.11.2012</time>  |  Posted in <a href="#">Sports</a>, <a href="#">Movies</a>
+		    </div>
+		</article>
+                <div class="comments_blog">
+		    <h4>Comments</h4>
+		    <ul class="comments">
+			<li>
+			    <div class="avatar"><img src="/Public/Home/img/content/avatar.png" alt="Avatar"></div>
+			    <div class="autor"><strong>迈克的例子</strong></div>, <time datetime="2012-11-03">03.11.2012</time>
+			    <p>在placerat Suspendisse turpis。杜丽斯。卢特斯，在麦格纳特拉奎特。米西纳斯tincidunt feugiat ultricies。Phasellus et酒后驾车大笑。前庭性脂肪，厄洛斯昆斯洛伯提斯的格言。现在，许多桌面发布包和web页面编辑器都使用了。</p>
+			</li>
+
+			<li>
+			    <div class="avatar"><img src="/Public/Home/img/content/avatar.png" alt="Avatar"></div>
+			    <div class="autor"><strong>Mike Example</strong></div>, <time datetime="2012-11-03">03.11.2012</time>
+			    <p>在placerat Suspendisse turpis。杜丽斯。卢特斯，在麦格纳特拉奎特。米西纳斯tincidunt feugiat ultricies。Phasellus et酒后驾车大笑。前庭性脂肪，厄洛斯昆斯洛伯提斯的格言。现在，许多桌面发布包和web页面编辑器都使用了。</p>
+			</li>
+		    </ul><!-- .comments -->
+		</div><!-- .comments_blog -->
+                
+                <form class="add_comments" id="add_comments_blog">
+		    <h4>Leave a Reply</h4>
+
+		    <div class="nickname">
+			<strong>昵称</strong><sup>*</sup><br>
+			<input type="text" name="" class="" value="">
+		    </div><!-- .nickname -->
+
+		    <div class="your_review">
+			<strong>电子邮件地址</strong><sup>*</sup><br>
+			<input type="email" name="" class="" value="">
+		    </div><!-- .your_review -->
+
+		    <div class="clear"></div>
+
+		    <div class="text_review">
+			<strong>评论</strong><br>
+			<textarea name="text"></textarea><br>
+			<i>Note: HTML is not translated!</i>
+		    </div><!-- .text_review -->
+
+		    <input type="submit" value="Submit Comment">
+		</form><!-- #add_comments_blog -->
+                
+                <div class="clear"></div>
+            </div><!-- #content -->
+            
+            <div id="sidebar" class="grid_3">
+                <aside id="categories_nav">
+		    <header class="aside_title">
+                        <h3>日志分类</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			    <li><a href="#">娱乐</a></li>
+			    <li><a href="#">时尚</a></li>
+			    <li><a href="#">运动</a></li>
+			    <li><a href="#"> 假期</a></li>
+			    <li><a href="#">电影</a></li>
+			    <li><a href="#">食物</a></li>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside>
+		    <header class="aside_title">
+                        <h3>Archives</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			    <li><a href="#">August 2012</a></li>
+			    <li><a href="#">September 2012</a></li>
+			    <li><a href="#">October 2012</a></li>
+			    <li><a href="#">November 2012</a></li>
+			    <li><a href="#">December 2012</a></li>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside id="tags">
+                    <header class="aside_title">
+                        <h3>Tags</h3>
+                    </header>
+                    
+		    <a class="t1" href="#">california</a>
+		    <a class="t2" href="#">canada</a>
+		    <a class="t3" href="#">canon</a>
+		    <a class="t4" href="#">cat</a>
+		    <a class="t5" href="#">chicago</a>
+		    <a class="t6" href="#">christmas</a>
+		    <a class="t7" href="#">mars</a>
+		    <a class="t8" href="#">church</a>
+		    <a class="t9" href="#">city</a>
+		    <a class="t10" href="#">clouds</a>
+		    <a class="t11" href="#">color</a>
+		    <a class="t12" href="#">concert</a>
+		    <a class="t13" href="#">dance</a>
+		    <a class="t14" href="#">day</a>
+		    <a class="t15" href="#">dog</a>
+		    <a class="t16" href="#">england</a>
+		    <a class="t17" href="#">europe</a>
+                </aside><!-- #community_poll -->
+                
+                <aside id="banners">
+                    <header class="aside_title">
+                        <h3>Banners</h3>
+                    </header>
+
+                    <div class="list_carousel">
+			<ul id="list_banners">
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="/Public/Home/img/home_ban2.png" alt="Banner 2" title="">
+				</div><!-- .prev -->
+
+				<h2>Insane discounts</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="/Public/Home/img/home_ban1.png" alt="Banner 1" title="">
+				</div><!-- .prev -->
+
+				<h2>Free shipping</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="/Public/Home/img/home_ban2.png" alt="Banner 2" title="">
+				</div><!-- .prev -->
+
+				<h2>Insane discounts</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+			</ul>
+                    </div><!-- .list_carousel -->
+                    
+                    <div id="ban_pagination"></div>
+                </aside><!-- #banners -->
+                
+            </div><!-- .sidebar -->
+            <div class="clear"></div>
+        </div><!-- .container_12 -->
+    </section><!-- #main -->
+    <div class="clear"></div>
+
+    <footer>
+        <div class="footer_navigation">
+            <div class="container_12">
+                <div class="grid_3">
+                     <h3>联系我们</h3>
+                    <ul class="f_contact">
+                        <li>49 Archdale, 2B Charlestone</li>
+                        <li>+777 (100) 1234</li>
+                        <li>mail@example.com</li>
+                    </ul><!-- .f_contact -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_3">
+                    <h3>购物指南</h3>
+                    <nav class="f_menu">
+                        <ul>
+                            <li><a href="#">购买流程</a></li>
+                            <li><a href="#">支付方式</a></li>
+                            <li><a href="#">配送信息</a></li>
+                            <li><a href="#">退货流程</a></li>
+                        </ul>
+                    </nav><!-- .private -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_3">
+                    <h3>帮助中心</h3>
+                    <nav class="f_menu">
+                        <ul>
+                            <li><a href="#">在线客服</a></li>
+                            <li><a href="#">留言反馈</a></li>
+                            <li><a href="#">注册流程</a></li>
+                            <li><a href="#">网站地图</a></li>
+                        </ul>
+                    </nav><!-- .private -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_3">
+                    <h3>服务条款</h3>
+                    <nav class="f_menu">
+                        <ul>
+                            <li><a href="#">终身保养</a></li>
+                            <li><a href="#">注册协议</a></li>
+                            <li><a href="#">隐私声明</a></li>
+                            <li><a href="#">15天退换</a></li>
+                        </ul>
+                    </nav><!-- .private -->
+                </div><!-- .grid_3 -->
+
+                <div class="grid_12 newsletter-payments">
+                    <div class="newsletter">
+                        <div class="icon-mail">消息通知</div>
+                        <p>请我们将会发送最新的活动信息给您</p>
+                        <form>
+                            <input type="submit" value="">
+                            <input type="email" name="newsletter" value="" placeholder="输入你的邮箱地址">
+                        </form>
+                    </div><!-- .newsletter -->
+
+                    <div class="payments">
+                        <img src="/Public/Home/img/payments.png" alt="Payments">
+                    </div><!-- .payments -->
+                </div><!-- .grid_12.newsletter-payments -->
+
+                <div class="clear"></div>
+            </div><!-- .container_12 -->
+        </div><!-- .footer_navigation -->
+
+        <div class="footer_info">
+            <div class="container_12">
+                <div class="grid_6">
+                    <p class="copyright">© Diamond Store Theme, 2013.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                </div><!-- .grid_6 -->
+
+                <div class="grid_6">
+                    <div class="soc">
+                        <a class="google" href="#"></a>
+                        <a class="twitter" href="#"></a>
+                        <a class="facebook" href="#"></a>
+                    </div><!-- .soc -->
+                </div><!-- .grid_6 -->
+
+                <div class="clear"></div>
+            </div><!-- .container_12 -->
+        </div><!-- .footer_info -->
+    </footer>
+
+
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

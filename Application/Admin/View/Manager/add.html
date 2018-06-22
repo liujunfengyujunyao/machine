@@ -1,0 +1,141 @@
+<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>添加管理员 - 管理员管理 - Diamond后台</title>
+
+</head>
+<body>
+<include file="Common/header" />
+<include file="Common/menu" />
+<article class="cl pd-20">
+	<form action="__ACTION__" method="post" class="form form-horizontal" id="">
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>登陆账号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="username">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>昵称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="nickname">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>验证邮箱地址：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始密码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="password" class="input-text" autocomplete="off"  placeholder="确认新密码" id="repassword" name="repassword">
+			</div>
+		</div>
+		
+		<if condition = " $Think.session.manager_info.role_id == 1 ">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">角色：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+				<select class="select" name="role_id" size="1">
+					<volist name="role" id="vol">
+					<option value="{{$vol.role_id}}">{{$vol.role_name}}</option>
+					</volist>
+				</select>
+				</span> </div>
+		</div>
+		</if>
+		<if condition = " $Think.session.manager_info.role_id == 3 || $Think.session.manager_info.role_id = 5 ">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">职务：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+				<select class="select" name="manager_role" size="1">
+					
+					<option value="">无</option>
+					<volist name="manager_role" id="vol">
+					<option value="{{$vol.role_id}}">{{$vol.role_name}}</option>
+					</volist>
+				</select>
+				</span> </div>
+		</div>
+		</if>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="button" value="返回" onclick="javascript:history.back();"> 
+
+			</div>
+		
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript">
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#form-admin-add").validate({
+		rules:{
+			adminName:{
+				required:true,
+				minlength:4,
+				maxlength:16
+			},
+			password:{
+				required:true,
+			},
+			password2:{
+				required:true,
+				equalTo: "#password"
+			},
+			sex:{
+				required:true,
+			},
+			phone:{
+				required:true,
+				isPhone:true,
+			},
+			email:{
+				required:true,
+				email:true,
+			},
+			adminRole:{
+				required:true,
+			},
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit();
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
+});
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

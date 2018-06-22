@@ -1,0 +1,14 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class IndexController extends CommonController {
+    public function index(){
+    	//查询图片轮播部分商品信息
+    	$goods3 = D('Goods')->where('id in (1,2,3)')->select();
+    	$this->assign('goods3',$goods3);
+    	//查询经典产品部分商品信息
+    	$goods = D('Goods')->select();
+    	$this->assign('goods',$goods);
+        $this->display();
+    }
+}

@@ -1,0 +1,21 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class CartController extends CommonController
+{
+	public function index()
+	{
+		$data = D('Cart') -> select();
+		$this -> assign('data',$data);
+		$this -> display();
+	}
+
+	// 购物车添加方法
+	public function addCart()
+	{
+		// 从页面接收数据,调用add模型添加
+		$data = I('post.');
+		
+	}
+
+}

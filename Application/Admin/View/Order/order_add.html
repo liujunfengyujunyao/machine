@@ -1,0 +1,196 @@
+<html>
+<head>
+<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+<link href="__PUBLIC__/Admin/lib/table/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<link href="__PUBLIC__/Admin/lib/table/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+<title>机台列表 - 机台管理 </title>
+</head>
+<body>
+
+
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a>
+        <span class="c-gray en">&gt;</span>
+        订单列表
+        <span class="c-gray en">&gt;</span>
+        添加物流
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+    </nav>
+    <div class="Hui-article">
+        <form class="form form-horizontal" id="form-article-add" action="__CONTROLLER__/order_add" method="post" enctype="multipart/form-data">
+        <!-- 隐藏域为机台id -->
+        
+        <input type="hidden" name="log_id" value="{{$log_id}}">
+        <div class="row cl from-group" align="center" >
+        <a href="__CONTROLLER__/log_index" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe67f;</i>&emsp;返回列表页&emsp;</a>
+                &emsp;&emsp;<span class="btn btn-default radius"><i class="Hui-iconfont">&#xe6df;</i>&emsp;添加物流信息</span>
+        </div>
+        <div class="row cl from-group">
+    
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>收货人姓名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text form-control" value="{{$data.name}}" id="name" name="name">
+            </div>
+        
+        </div>
+        <!--上传商品照片-->
+        <!--   <div class="tab-pane fade in" id="pics">
+                <div class="well">
+                        <div>[<a href="javascript:void(0);" class="add">图片+</a>]：<input type="file" name="goods_pics[]" value="" class="input-xlarge"></div>
+                </div>
+            </div>   -->
+        <div class="row cl from-group">
+        
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>收货人手机：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text form-control" value="{{$data.phone}}"  id="phone" name="phone">
+            </div>
+        
+        </div>
+
+        <div class="row cl from-group">
+        
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>收货人地址：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text form-control" value="{{$data.address}}"  id="address" name="address">
+            </div>
+        
+        </div>
+       
+    
+     
+        
+        <div class="row cl from-group">
+        
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>快递单号：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text form-control" value=""  id="trace_number" name="trace_number">
+            </div>
+        
+        </div>
+
+    
+      <!--默认选中-->
+
+    <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>快递公司：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+                <select name="express_id" class="select" id="express_id">
+                    <option value="">==选择快递==</option>
+                    <!--快递类型id-->
+                    <volist name="express" id="v">
+                    <option value="{{$v.express_id}}">{{$v.express_name}}</option>
+                    </volist>
+                </select>
+                </span> </div>
+        </div>
+
+        
+    
+        <div class="row cl from-group">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                <button class="btn btn-primary radius" type="submit" id="addgood"><i class="Hui-iconfont">&#xe632;</i> 点击提交</button>
+                
+            </div>
+        </div>
+    </form>
+    </div>
+</section>
+
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/jquery.min.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/table/js/bootstrapValidator.min.js"></script>
+
+
+
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>   
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+
+
+<!-- 引入zyupload上传组件 -->
+<script type="text/javascript" src="__PUBLIC__/Admin/zyupload/core/zyFile.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/zyupload/control/css/zyUpload.css"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/zyupload/control/js/zyUpload.js"></script> 
+<!-- 引入zyupload上传组件 -->
+<script type="text/javascript">
+$(function(){
+    
+    //实例化编辑器
+      var ue=UE.getEditor('editor');
+      var icon = {
+        valid: 'glyphicon glyphicon-ok',
+        validating: 'glyphicon glyphicon-refresh'
+    };
+      //异步删除图片
+     
+
+      $("#form-article-add").bootstrapValidator({
+        feedbackIcons: icon,
+        live: 'disabled',
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: { message: '请输入收货人姓名' },
+                   // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' } 
+                 
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: { message: '请输入收货人手机' },
+          
+                    regexp: { regexp: /^1[3|4|5|7|8][0-9]{9}$/, message: '手机号码格式不正确' }
+                }
+            },
+             address: {
+                validators: {
+                    notEmpty: { message: '请输入收货人地址' },
+                   
+                }
+            },
+              trace_number: {
+                validators: {
+                    notEmpty: { message: '请输入快递单号' },
+                  
+                }
+            },
+              express_id: {
+                validators: {
+                    notEmpty: { message: '请选择快递公司' },
+                 
+                }
+           }
+           
+        }
+    });
+
+    
+
+});
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+</body>
+</html>

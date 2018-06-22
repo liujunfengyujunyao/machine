@@ -1,0 +1,111 @@
+<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>新增商品 -商品管理</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<article class="page-container">
+	<form class="form form-horizontal" id="form-article-add" action="__CONTROLLER__/add" method="post" enctype="multipart/form-data">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value=""  required="required" placeholder="请填写商品名" id="" name="goods_name">
+			</div>
+		</div>
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品原价：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="请填写商品原价" required="required" id="" name="goods_ori_price">
+			</div>
+		</div>
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品折扣价：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" required="required" placeholder="请填写商品折后价" id="" name="goods_price">
+			</div>
+		</div>
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品数量：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" required="required" placeholder="请填写商品数量" id="" name="goods_number">
+			</div>
+		</div>
+
+		<!-- <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品类型：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select name="" class="select">
+					<option value="0">==选择类型==</option>
+					<option value="1">帮助说明</option>
+					<option value="2">新闻资讯</option>
+				</select>
+				</span> </div>
+		</div> -->
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">缩略图：</label>
+			<!-- <div class="formControls col-xs-8 col-sm-9"> -->
+					<input type="file" name="goods_big_img" id="">
+			<!-- </div> -->
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品相册：</label>
+					<input type="file" name="pic_big" id="">
+					<input type="file" name="mid_big" id="">
+					<input type="file" name="pic_sma" id="">
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品简介：</label>
+			<div class="formControls col-xs-8 col-sm-9"> 
+				<textarea id="editor" name='goods_introduce' style="width:980px;height:400px;"></textarea>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 点击添加</button>
+				<button onClick="quxiao()" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+				&emsp;&emsp;<sup><font color="red">*</font></sup><span>必填项</span>
+			</div>
+		</div>
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/static/h-ui.admin/js/H-ui.admin.page.js"></script> 
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>   
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	//实例化编辑器
+      var ue=UE.getEditor('editor');
+
+      //关闭当前添加商品窗口
+   //   function quxiao(){
+   //    var index = parent.layer.getFrameIndex(add);  
+	// parent.layer.close(index);  
+   //    }
+	
+});
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

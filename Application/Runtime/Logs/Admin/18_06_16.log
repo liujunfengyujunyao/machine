@@ -1,0 +1,259 @@
+[ 2018-06-16T13:00:45+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-16T13:00:45+08:00 ] 127.0.0.1 /index.php/Admin/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.083005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.083005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.009000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.007001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007001s ]
+
+[ 2018-06-16T13:00:46+08:00 ] 127.0.0.1 /index.php/Admin/Login/captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-16T13:00:46+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-16T13:00:46+08:00 ] 127.0.0.1 /index.php/Admin/Login/captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-06-16T13:00:51+08:00 ] 127.0.0.1 /index.php/Admin/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager` WHERE `username` = 'ce3' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `group` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `group` WHERE `pid` = 4  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-06-16T13:00:52+08:00 ] 127.0.0.1 /index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `role` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `role` WHERE `role_id` = 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `auth` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `auth` WHERE ( pid = 0 and id in (2,8,9,10,17,34,35,36,37,3,11,12,45,13,18,38,39,40,14,15,20,31,41,42,43,44) and is_nav = 1 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `auth` WHERE ( pid > 0 and id in (2,8,9,10,17,34,35,36,37,3,11,12,45,13,18,38,39,40,14,15,20,31,41,42,43,44) and is_nav = 1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') days,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1528606852 and 1529125252 && t2.pid = 4 ) GROUP BY days  [ RunTime:0.0020s ]
+
+[ 2018-06-16T13:01:06+08:00 ] 127.0.0.1 /index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') days,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1528606866 and 1529125266 && t2.pid = 4 ) GROUP BY days  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: total D:\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 173 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-06-16T13:01:06+08:00 ] 127.0.0.1 /index.php/Admin/Index/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-16T13:01:11+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `equipment` WHERE `pid` = 4 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager` WHERE `pid` = 4 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id` FROM `manager` WHERE `pid` = 4  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: page D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 46 行.
+NOTIC: [8] Trying to get property of non-object D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 46 行.
+NOTIC: [8] Undefined variable: page D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 46 行.
+NOTIC: [8] Trying to get property of non-object D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 46 行.
+SQL: SELECT t1.*,t2.nickname,t2.equipment_ids,t3.*,t4.sn,t5.name as goods_name,t5.id as goods_id,t4.isOnline as isonline FROM equipment t1 left join manager as t2 on t1.owner = t2.id left join type as t3 on t3.type_id = t1.type left join machine as t4 on t4.uuid = t1.uuid left join goods as t5 on t1.goods_id = t5.id  WHERE ( t1.pid = 4 or t1.pid in (5,6,7) )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT t1.*,t2.* FROM manager t1 left join equipment as t2 on t2.owner = t1.id   WHERE t1.pid = '4'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: row_count D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 127 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 162 行.
+NOTIC: [8] Undefined index: equipment_create_time D:\workspace\machine\Application\Runtime\Cache\Admin\78a6f9d2713211ce3b751d7107b15895.php 第 163 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.094006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-16T13:01:11+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-06-16T13:01:18+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/detail/id/8
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM equipment t1 left join type as t2 on t1.type = t2.type_id  WHERE `id` = '8' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipmentpics` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipmentpics` WHERE `equipment_id` = 8  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `equipment` WHERE `id` = 8 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `machine` [ RunTime:0.0010s ]
+SQL: SELECT `isOnline` FROM `machine` WHERE `uuid` = 'ea6d0a0b-5c1b-47b3-8419-ec72ed475e45' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: goodspics D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 418 行.
+SQL: SHOW COLUMNS FROM `realtime_statistics_offline` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `realtime_statistics_offline` WHERE `equipment_id` = 8  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: today_realtime_offline_run_count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 470 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 470 行.
+NOTIC: [8] Undefined variable: today_realtime_offline_unfinish D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 471 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 471 行.
+SQL: SHOW COLUMNS FROM `realtime_statistics_online` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `realtime_statistics_online` WHERE `equipment_id` = 8  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: today_realtime_online_run_count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 513 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 513 行.
+NOTIC: [8] Undefined variable: today_realtime_online_unfinish D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 515 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 515 行.
+SQL: SELECT * FROM `realtime_statistics_offline` WHERE `equipment_id` = 8  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `realtime_statistics_online` WHERE `equipment_id` = 8  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `month_statistics_offline` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `month_statistics_offline` WHERE `equipment_id` = 8  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `month_statistics_online` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `month_statistics_online` WHERE `equipment_id` = 8  [ RunTime:0.0000s ]
+NOTIC: [2] Division by zero D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 641 行.
+NOTIC: [2] Division by zero D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 642 行.
+SQL: SHOW COLUMNS FROM `day_statistics_offline` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `day_statistics_offline` WHERE ( equipment_id = 8 and date_format(log_date,'%Y-%m')=date_format(DATE_SUB(curdate(), INTERVAL 1 MONTH),'%Y-%m') )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `day_statistics_offline` WHERE ( equipment_id = 8 and DATE_FORMAT(log_date,'%Y%m') = DATE_FORMAT(CURDATE(),'%Y%m') )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `day_statistics_offline` WHERE ( equipment_id = 8 and  date_sub(curdate(), INTERVAL 90 DAY) <= date(`log_date`) )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `day_statistics_online` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `day_statistics_online` WHERE ( equipment_id = 8 and  date_sub(curdate(), INTERVAL 90 DAY) <= date(`log_date`) )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `machine` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `machine` WHERE `uuid` = '8' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') days,count(t1.id) count FROM tbl_game_log t1 WHERE ( t1.end_time between 1528606878 and 1529125278 and t1.equipment_id = 8 ) GROUP BY days  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 739 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 739 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 739 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') days,count(t1.id) count FROM tbl_game_log t1 WHERE ( t1.end_time between 1528606878 and 1529125278 ) AND t1.equipment_id = '8' AND `got_gift` = 1 GROUP BY days  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 765 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 765 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 765 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 765 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 765 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 765 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 765 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') days,count(t1.id) count FROM tbl_game_log t1 WHERE ( t1.end_time between 1528606878 and 1529125278 ) AND t1.equipment_id = '8' AND `got_gift` = 0 GROUP BY days  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 792 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 792 行.
+NOTIC: [8] Undefined index: count D:\workspace\machine\Application\Admin\Controller\EquipmentController.class.php 第 792 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: equipment_introduce D:\workspace\machine\Application\Runtime\Cache\Admin\54746e89221da3b3c440acca3985ba94.php 第 151 行.
+NOTIC: [8] Undefined index: giftremain D:\workspace\machine\Application\Runtime\Cache\Admin\54746e89221da3b3c440acca3985ba94.php 第 265 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.146008s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.146008s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003001s ]
+
+[ 2018-06-16T13:01:18+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/detail/id/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+

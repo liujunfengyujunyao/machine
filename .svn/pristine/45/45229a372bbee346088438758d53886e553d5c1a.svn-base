@@ -1,0 +1,11 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class OrderController extends CommonController{
+	
+	public function index(){
+		$data = D('Order')->select();
+		$this->assign('data',$data);
+		$this->display();	
+	}
+}

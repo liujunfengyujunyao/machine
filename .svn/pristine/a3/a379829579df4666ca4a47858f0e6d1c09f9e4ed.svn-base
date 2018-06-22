@@ -1,0 +1,773 @@
+[ 2017-10-11T09:31:21+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000546s ]
+ERR: 无法加载模块:Favicon
+
+<<<<<<< .mine
+[ 2017-10-11T11:07:39+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000560s ]
+ERR: 无法加载模块:Favicon
+
+[ 2017-10-11T11:19:18+08:00 ] 127.0.0.1 /Public/Home/img/content/cart_img.pwng
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000620s ]
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T11:19:19+08:00 ] 127.0.0.1 /Public/Home/img/content/cart_img.pwng
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000607s ]
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T11:19:27+08:00 ] 127.0.0.1 /Public/Home/img/content/cart_img.pwng
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000612s ]
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T11:19:28+08:00 ] 127.0.0.1 /Public/Home/img/content/cart_img.pwng
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000551s ]
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:08:34+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:08:35+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:08:35+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:12:17+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:12:17+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:12:17+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:12:17+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:13:41+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:13:42+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:13:42+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:00+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:01+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:01+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:01+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:46+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:47+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:47+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:15:47+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:11+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:11+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:14+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:14+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:26+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:27+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:27+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:27+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:57+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:58+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:58+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:16:58+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:17:42+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:17:42+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:17:43+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:17:54+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:17:55+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:18:18+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:18:19+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:18:56+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:18:56+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:18:56+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:19:32+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:19:33+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:21:47+08:00 ] 127.0.0.1 /index.html/Home/Index/index
+ERR: 无法加载模块:Index.html
+
+[ 2017-10-11T17:22:01+08:00 ] 127.0.0.1 /indes
+ERR: 无法加载模块:Indes
+
+[ 2017-10-11T17:22:21+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:22:22+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:23:09+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:23:09+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:24:08+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:24:08+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:25:56+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:25:57+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:26:56+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:26:57+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:30:58+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:30:59+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:31:29+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:31:29+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T17:32:24+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+||||||| .r2
+=======
+
+[ 2017-10-11T16:00:08+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /css/style.css
+ERR: 无法加载模块:Css
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/html5.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /css/grid.css
+ERR: 无法加载模块:Css
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/main.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.min.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/checkbox.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/radio.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.carouFredSel-5.2.2-packed.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /css/normalize.css
+ERR: 无法加载模块:Css
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/selectBox.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.anythingslider.fx.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.jqzoom-core.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.transit.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.easing.1.2.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.anythingslider.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery-1.8.3.min.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/logo.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/html5.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/cart_img.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/main.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/cart_img2.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/radio.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/slid-1.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/checkbox.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/slid-2.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/selectBox.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/slid-3.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.carouFredSel-5.2.2-packed.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.jqzoom-core.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/sale.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product1.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.easing.1.2.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/bg_cart.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.anythingslider.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product2.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /js/jquery.anythingslider.fx.js
+ERR: 无法加载模块:Js
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/new.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product5.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product7.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product6.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product4.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/top.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product3.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/product8.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/brand4.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/brand1.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/brand3.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/brand2.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/brand5.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/brand6.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/content/brand7.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/payments.png
+ERR: 无法加载模块:Img
+
+[ 2017-10-11T16:01:01+08:00 ] 127.0.0.1 /img/bg_cart.png
+ERR: 无法加载模块:Img
+
+
+[ 2017-10-11T11:10:04+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000441s ]
+ERR: 无法加载模块:Favicon
+
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/css/grid.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/css/normalize.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.min.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/css/style.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/main.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/html5.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/checkbox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/radio.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/selectBox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.jqzoom-core.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.easing.1.2.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.carouFredSel-5.2.2-packed.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.transit.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.anythingslider.fx.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery-1.8.3.min.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.anythingslider.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/logo.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/cart_img.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-1.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/html5.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/cart_img2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/sale.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-3.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/bg_cart.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product1.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/main.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/new.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product3.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product4.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product5.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product6.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/radio.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/top.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product7.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/product8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand1.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand3.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/checkbox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand4.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand5.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand7.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/payments.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/selectBox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.carouFredSel-5.2.2-packed.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.jqzoom-core.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.transit.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.easing.1.2.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.anythingslider.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.anythingslider.fx.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:13:14+08:00 ] 127.0.0.1 /Public/Admin/img/bg_cart.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/css/grid.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/css/normalize.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/css/style.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.min.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/html5.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/radio.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/selectBox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/checkbox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.jqzoom-core.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.transit.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.easing.1.2.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/main.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.anythingslider.fx.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.carouFredSel-5.2.2-packed.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/logo.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/cart_img.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/cart_img2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-1.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-3.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/sale.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product1.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/bg_cart.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/new.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product3.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product4.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product5.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product6.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/top.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product7.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/product8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand1.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand3.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand4.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand5.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand6.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/content/brand7.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/img/payments.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:24+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.min.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/html5.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/main.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/radio.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/checkbox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/selectBox.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.carouFredSel-5.2.2-packed.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.jqzoom-core.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.transit.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.easing.1.2.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.anythingslider.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/js/jquery.anythingslider.fx.js
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/img/bg_cart.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-1.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-2.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:25:25+08:00 ] 127.0.0.1 /Public/Admin/img/content/slid-3.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T16:54:11+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2017-10-11T17:09:28+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+>>>>>>> .r15
+[ 2017-10-11T18:13:56+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T18:13:56+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T18:14:18+08:00 ] 127.0.0.1 /catalog_grid.html
+ERR: 无法加载模块:Catalog_grid
+
+<<<<<<< .mine
+[ 2017-10-11T18:38:53+08:00 ] 127.0.0.1 /catalog_grid.html
+ERR: 无法加载模块:Catalog_grid
+
+[ 2017-10-11T18:39:07+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:34:23+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:34:23+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:34:32+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:34:32+08:00 ] 127.0.0.1 /Public/Home/img/content/brand8.png
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T21:04:43+08:00 ] 127.0.0.1 /Public/Home/img/content/product.png
+ERR: 无法加载模块:Public
+
+||||||| .r21
+=======
+[ 2017-10-11T19:49:00+08:00 ] 127.0.0.1 /Public/Admin/static/h-ui/css/H-ui.login.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T19:51:39+08:00 ] 127.0.0.1 /Public/Admin/static/h-ui/css/H-ui.login.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:00:37+08:00 ] 127.0.0.1 /Public/Admin/static/h-ui/css/H-ui.login.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:01:14+08:00 ] 127.0.0.1 /Public/Admin/static/h-ui/css/H-ui.login.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:03:18+08:00 ] 127.0.0.1 /Public/Admin/static/h-ui/css/H-ui.login.css
+ERR: 无法加载模块:Public
+
+[ 2017-10-11T20:04:06+08:00 ] 127.0.0.1 /Public/Admin/static/h-ui/css/H-ui.login.css
+ERR: 无法加载模块:Public
+
+>>>>>>> .r26

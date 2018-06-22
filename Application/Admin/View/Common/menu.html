@@ -1,0 +1,22 @@
+<aside class="Hui-aside">
+
+	<div class="menu_dropdown bk_2">
+	<volist name="Think.session.top" id="vol_top" key="k">
+		<dl id="menu-article{{$k}}">
+			<dt><i class="Hui-iconfont">&#xe62d;</i>{{$vol_top.auth_name}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+			<volist name="Think.session.second" id="vol_second" key="k">
+		<if condition = " $vol_second.pid == $vol_top.id ">
+			<ul id="menu-article{{$k}}">
+					
+					<li><a href="__MODULE__/{{$vol_second.auth_c}}/{{$vol_second.auth_a}}">{{$vol_second.auth_name}}</a></li>
+				
+			</ul>
+			</if>
+			</volist>
+			</dd>
+		</dl>
+	</volist>
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

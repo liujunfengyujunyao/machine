@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    
+    <title>美文欣赏</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/grid.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/normalize.css">
+
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="__PUBLIC__/Home/js/html5.js"></script>
+    <script src="__PUBLIC__/Home/js/main.js"></script>
+    <script src="__PUBLIC__/Home/js/radio.js"></script>
+    <script src="__PUBLIC__/Home/js/checkbox.js"></script>
+    <script src="__PUBLIC__/Home/js/selectBox.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.carouFredSel-5.2.2-packed.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.jqzoom-core.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.transit.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.easing.1.2.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.fx.js"></script>
+</head>
+<body>
+   <include file="Common/header"/>
+   
+    <div class="breadcrumbs">
+        <div class="container_12">
+            <div class="grid_12">
+                 <a href="index.html">主页</a><span></span><a href="#">美文</a><span></span><span class="current">{$data.article_title}</span>
+            </div><!-- .grid_12 -->
+        </div><!-- .container_12 -->
+    </div><!-- .breadcrumbs -->
+    
+    <section id="main">
+        <div class="container_12">
+            <div id="content" class="grid_9">
+	                <header>
+	                    <h1 >{$data.article_title}</h1>
+	                </header>
+	                
+	     <article>
+			    <div class="content_article">
+	                        <p>{$data.article_content} </p>
+	               
+	             </div><!-- .content_article -->
+		    <div class="footer_article">
+				<div class="number_c"><strong>3</strong> 评论(S)</div>
+					<strong>{$data.article_author}</strong>, <time datetime="2012-11-03">03.11.2012</time>  |  发表在 <a href="#">体育</a>, <a href="#">电影</a>
+		    </div>
+		</article>
+                <div class="comments_blog">
+		    <h4>评论区</h4>
+		    <ul class="comments">
+			<li>
+			    <div class="avatar"><img src="__PUBLIC__/Home/img/content/avatar.png" alt="Avatar"></div>
+			    <div class="autor"><strong>迈克的例子</strong></div>, <time datetime="2012-11-03">03.11.2012</time>
+			    <p>在placerat Suspendisse turpis。杜丽斯。卢特斯，在麦格纳特拉奎特。米西纳斯tincidunt feugiat ultricies。Phasellus et酒后驾车大笑。前庭性脂肪，厄洛斯昆斯洛伯提斯的格言。现在，许多桌面发布包和web页面编辑器都使用了。</p>
+			</li>
+
+			<li>
+			    <div class="avatar"><img src="__PUBLIC__/Home/img/content/avatar.png" alt="Avatar"></div>
+			    <div class="autor"><strong>Mike Example</strong></div>, <time datetime="2012-11-03">03.11.2012</time>
+			    <p>在placerat Suspendisse turpis。杜丽斯。卢特斯，在麦格纳特拉奎特。米西纳斯tincidunt feugiat ultricies。Phasellus et酒后驾车大笑。前庭性脂肪，厄洛斯昆斯洛伯提斯的格言。现在，许多桌面发布包和web页面编辑器都使用了。</p>
+			</li>
+		    </ul><!-- .comments -->
+		</div><!-- .comments_blog -->
+                
+                <form class="add_comments" id="add_comments_blog">
+		    <h4>留下你的评论</h4>
+
+		    <div class="nickname">
+			<strong>昵称</strong><sup>*</sup><br>
+			<input type="text" name="" class="" value="">
+		    </div><!-- .nickname -->
+
+		    <div class="your_review">
+			<strong>电子邮件地址</strong><sup>*</sup><br>
+			<input type="email" name="" class="" value="">
+		    </div><!-- .your_review -->
+
+		    <div class="clear"></div>
+
+		    <div class="text_review">
+			<strong>评论</strong><br>
+			<textarea name="text"></textarea><br>
+			<i>注意！HTML不能识别</i>
+		    </div><!-- .text_review -->
+
+		    <input type="submit" value="提交评论">
+		</form><!-- #add_comments_blog -->
+                
+                <div class="clear"></div>
+            </div><!-- #content -->
+            
+            <div id="sidebar" class="grid_3">
+                <aside id="categories_nav">
+		    <header class="aside_title">
+                        <h3>文章分类</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			<volist name="series" id="val">
+			    <li><a href="__CONTROLLER__/index/id/{$val.id}">{$val.series_name}</a></li>
+			</volist>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside>
+		    <header class="aside_title">
+                        <h3>发布时间</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			    <li><a href="#">2012年六月期</a></li>
+			    <li><a href="#">2012年七月期</a></li>
+			    <li><a href="#">2012年八月期</a></li>
+			    <li><a href="#">2012年九月期</a></li>
+			    <li><a href="#">2012年十月期</a></li>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside id="tags">
+                    <header class="aside_title">
+                        <h3>标签</h3>
+                    </header>
+                    
+		    <a class="t1" href="#">真爱</a>
+		    <a class="t2" href="#">永恒</a>
+		    <a class="t3" href="#">浪漫</a>
+		    <a class="t4" href="#">魅力无限</a>
+		    <a class="t5" href="#">钻石</a>
+		    <a class="t6" href="#">青春</a>
+		    <a class="t7" href="#">梦幻</a>
+		    <a class="t8" href="#">婚礼</a>
+		    <a class="t9" href="#">复古</a>
+		    <a class="t10" href="#">时尚</a>
+		    <a class="t11" href="#">色彩</a>
+		    <a class="t12" href="#">迷恋</a>
+		    <a class="t13" href="#">幸福</a>
+		    <a class="t14" href="#">一生的爱</a>
+		    <a class="t15" href="#">体验</a>
+		    <a class="t16" href="#">热恋</a>
+                </aside><!-- #community_poll -->
+                
+                <aside id="banners">
+                    <header class="aside_title">
+                        <h3>活动</h3>
+                    </header>
+
+                    <div class="list_carousel">
+			<ul id="list_banners">
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="__PUBLIC__/Home/img/home_ban1.png" alt="Banner 1" title="">
+				</div><!-- .prev -->
+
+				<h2>免费送货</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="__PUBLIC__/Home/img/home_ban2.png" alt="Banner 2" title="">
+				</div><!-- .prev -->
+
+				<h2>疯狂的折扣</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+			</ul>
+                    </div><!-- .list_carousel -->
+                    
+                    <div id="ban_pagination"></div>
+                </aside><!-- #banners -->
+                
+            </div><!-- .sidebar -->
+            <div class="clear"></div>
+        </div><!-- .container_12 -->
+    </section><!-- #main -->
+    <div class="clear"></div>
+<include file="Common/footer"/>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

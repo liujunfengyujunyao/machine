@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    
+    <title>Blog posts</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/grid.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/normalize.css">
+
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="__PUBLIC__/Home/js/html5.js"></script>
+    <script src="__PUBLIC__/Home/js/main.js"></script>
+    <script src="__PUBLIC__/Home/js/radio.js"></script>
+    <script src="__PUBLIC__/Home/js/checkbox.js"></script>
+    <script src="__PUBLIC__/Home/js/selectBox.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.carouFredSel-5.2.2-packed.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.jqzoom-core.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.transit.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.easing.1.2.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.fx.js"></script>
+</head>
+<body>
+<include file="Common/header"/>
+ 
+    <div class="breadcrumbs">
+        <div class="container_12">
+            <div class="grid_12">
+                 <a href="index.html">Home</a><span></span><a href="#">Category</a><span></span><span class="current">This page</span>
+            </div><!-- .grid_12 -->
+        </div><!-- .container_12 -->
+    </div><!-- .breadcrumbs -->
+    
+    <section id="main">
+        <div class="container_12">
+            <div id="content" class="grid_9">
+                <header>
+                    <h1 class="page_title">我们的播客</h1>
+                </header>
+              
+             <volist name="data" id="val">  
+              <article class="post">
+		    <h2><a href="__MODULE__/Blog/detail/id/{$val.id}">{$val.article_title}</a></h2>
+		    <div class="content_article">
+			<p>{$val.article_introduce}</p>
+                        <a href="#" class="more">学到更多</a>
+                    </div><!-- .content_article -->
+		    <div class="footer_article">
+			<div class="number_c"><strong>{$val.id}</strong> comments(S)</div>
+			作者:<strong><font color="blue">{$val.article_author}</font></strong>
+		    </div>
+                </article>
+              </volist> 
+	      
+                <div class="pagination">
+		    <ul>
+			<li class="prev"><span>&#8592;</span></li>
+			<li class="curent"><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><span>...</span></li>
+			<li><a href="#">100</a></li>
+			<li class="next"><a href="#">&#8594;</a></li>
+		    </ul>
+                </div><!-- .pagination -->
+                <p class="pagination_info">Displaying 1 to 12 (of 100 products)</p>
+                
+                <div class="clear"></div>
+            </div><!-- #content -->
+            
+            <div id="sidebar" class="grid_3">
+                <aside id="categories_nav">
+		    <header class="aside_title">
+                        <h3>Blog Categories</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			    <li><a href="#">Entertainment</a></li>
+			    <li><a href="#">Fashion</a></li>
+			    <li><a href="#">Sports</a></li>
+			    <li><a href="#">Vacation</a></li>
+			    <li><a href="#">Movies</a></li>
+			    <li><a href="#">Food</a></li>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside>
+		    <header class="aside_title">
+                        <h3>Archives</h3>
+                    </header>
+
+		    <nav class="right_menu">
+			<ul>
+			    <li><a href="#">August 2012</a></li>
+			    <li><a href="#">September 2012</a></li>
+			    <li><a href="#">October 2012</a></li>
+			    <li><a href="#">November 2012</a></li>
+			    <li><a href="#">December 2012</a></li>
+			</ul>
+		    </nav><!-- .right_menu -->
+                </aside><!-- #categories_nav -->
+                
+                <aside id="tags">
+                    <header class="aside_title">
+                        <h3>Tags</h3>
+                    </header>
+                    
+		    <a class="t1" href="#">california</a>
+		    <a class="t2" href="#">canada</a>
+		    <a class="t3" href="#">canon</a>
+		    <a class="t4" href="#">cat</a>
+		    <a class="t5" href="#">chicago</a>
+		    <a class="t6" href="#">christmas</a>
+		    <a class="t7" href="#">mars</a>
+		    <a class="t8" href="#">church</a>
+		    <a class="t9" href="#">city</a>
+		    <a class="t10" href="#">clouds</a>
+		    <a class="t11" href="#">color</a>
+		    <a class="t12" href="#">concert</a>
+		    <a class="t13" href="#">dance</a>
+		    <a class="t14" href="#">day</a>
+		    <a class="t15" href="#">dog</a>
+		    <a class="t16" href="#">england</a>
+		    <a class="t17" href="#">europe</a>
+                </aside><!-- #community_poll -->
+                
+                <aside id="newsletter_signup">
+                    <header class="aside_title">
+                        <h3>Newsletter Signup</h3>
+                    </header>
+
+		    <p>Phasellus vel ultricies felis. Duis rhoncus risus eu urna pretium.</p>
+
+		    <form class="newsletter">
+			<input type="email" name="newsletter" class="your_email" value="" placeholder="Enter your email address...">
+			<input type="submit" id="submit" value="Subscribe">
+		    </form>
+                </aside><!-- #newsletter_signup -->
+                
+                <aside id="community_poll">
+                    <header class="aside_title">
+                        <h3>Community Poll</h3>
+                    </header>
+
+		    <h4>How old are you?</h4>
+
+		    <form action="#" class="poll">
+			<ul>
+			    <li><input class="niceRadio" type="radio" name="" value=""> less than 18 years</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 18-24 years</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 24-30 years(9)</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> 30-40 years</li>
+			    <li><input class="niceRadio" type="radio" name="" value=""> More than 40 years</li>
+			</ul>
+
+			<input class="vote" type="submit" name="" value="Vote">
+		    </form>
+                </aside><!-- #community_poll -->
+                
+                <aside id="banners">
+                    <header class="aside_title">
+                        <h3>Banners</h3>
+                    </header>
+
+                    <div class="list_carousel">
+			<ul id="list_banners">
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="__PUBLIC__/Home/img/home_ban2.png" alt="Banner 2" title="">
+				</div><!-- .prev -->
+
+				<h2>Insane discounts</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="__PUBLIC__/Home/img/home_ban1.png" alt="Banner 1" title="">
+				</div><!-- .prev -->
+
+				<h2>Free shipping</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+
+			    <li class="banner"><a href="#">
+				<div class="prev">
+				    <img src="__PUBLIC__/Home/img/home_ban2.png" alt="Banner 2" title="">
+				</div><!-- .prev -->
+
+				<h2>Insane discounts</h2>
+				<p>on new collection!</p>
+ 			    </a></li>
+			</ul>
+                    </div><!-- .list_carousel -->
+                    
+                    <div id="ban_pagination"></div>
+                </aside><!-- #banners -->
+                
+            </div><!-- .sidebar -->
+            <div class="clear"></div>
+        </div><!-- .container_12 -->
+    </section><!-- #main -->
+    <div class="clear"></div>
+        
+<include file ="Common/footer"/>
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

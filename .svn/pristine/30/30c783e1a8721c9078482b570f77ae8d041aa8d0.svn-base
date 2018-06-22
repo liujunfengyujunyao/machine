@@ -1,0 +1,98 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" />
+<!--/meta 作为公共模版分离出去-->
+
+<title>商品展示 - 商品管理</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<style type="text/css">  
+            div img{  
+                cursor: pointer;  
+                transition: all 0.6s;  
+            }  
+            div img:hover{  
+                transform: scale(1.9);  
+            }  
+        </style>  
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+<include file="Common/header" />
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 展示商品 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c">
+					<button type="submit" class="btn btn-success" id="" name=""> 下面就是商品详情啦</button>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l">
+				<a href="__CONTROLLER__/edit" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6df;</i>&emsp;编&emsp;辑</a> 
+				<a href="__CONTROLLER__/index" class="btn btn-primary radius"> <i class="Hui-iconfont">&#xe67f;</i>&emsp;返回商品列表</a></span> 
+			<span class="r" >
+				<a href="__CONTROLLER__/add" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe600;</i>&emsp;添加商品</a>
+			</span>
+			 </div>
+			<table class="table table-border table-bordered table-bg" >
+				<thead>
+					<tr>
+						<td width="80">商品名称:</td>
+						<td>{{$data.goods_name}}</td>
+					</tr>
+					<tr>
+						<td>商品类型:</td>
+						<td>{{$data.cate_name}}</td>
+					</tr>
+					<tr>
+						<td>商品原价:</td>
+						<td>{{$data.goods_ori_price}}</td>
+					</tr>
+					<tr>
+						<td>商品折扣价:</td>
+						<td>{{$data.goods_price}}</td>
+					</tr>
+					<tr>
+						<td>商品数量:</td>
+						<td>{{$data.goods_number}}</td>
+					</tr>
+					<tr>
+						<td>商品Logo:</td>
+						<td>
+						<div>
+							<img src="{{$data.goods_small_img}}" alt="" class="big">
+						</div>
+						</td>
+
+					</tr>
+					<tr>
+						<td>商品简介:</td>
+						<td>{{$data.goods_introduce}}</td>
+					</tr>
+			</table>
+		</article>
+	</div>
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+
+<!--/_footer /作为公共模版分离出去-->
+
+
+<!--请在下方写此页面业务相关的脚本-->
+
+<script type="text/javascript">
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+<!-- 仿百度图片放大效果 -->
+
+<!-- 仿百度图片放大效果 -->
+</body>
+</html>

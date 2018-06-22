@@ -1,0 +1,114 @@
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class GoodsController extends Controller{
+	//商品列表页
+	public function index(){
+		//实例化Goods模型
+		$model=D('Goods');
+		$row_count=$model->count();
+
+		$data=$model->select();
+		//总记录数
+		$this->assign('row_count',$row_count);
+		//分配商品信息
+		$this->assign('data',$data);
+		$this->display();
+	}
+
+	//商品添加页
+	public function add(){
+		//判断是否是POST提交
+		if(IS_POST) {
+			$data=I('post.');
+			// dump($_FILES);
+			//实例化商品类
+			$model=D('Goods');
+
+			//上传单文件
+			$upload_res=$model->upload_One($_FILES['goods_big_img'],$data);
+
+			//判断上传返回结果
+			if (!$upload_res) {
+				$error=$model -> getError();
+				$this-> error($error);
+			}
+
+			// dump($data);
+			//创建数据集
+			$create=$model->create($data);
+
+			if (!$create) {
+				$error=$model->getError();
+				$this->error($error);
+			}
+
+			//添加商品数据
+			$res=$model->add();
+
+			//判断返回结果
+			if($res){
+				//接收相册文件
+				$files=$_FILES;
+				unset($files['goods_big_img']);
+				
+				//调用模型里的多文件上传
+				$model->upload_All($res,$files);
+
+				$this->success('添加成功',U('Admin/Goods/index'));
+			}else{
+				$this->error('添加失败');
+			}
+
+		}else{
+			$this->display();
+		}	
+	}
+
+	//商品编辑
+	public function edit(){
+
+	}
+
+	//商品删除
+	public function del(){
+		$id=I('get.id');
+
+		$model=D('Goods');
+		//根据id查询数据库中的商品信息
+		$goods_info=$model->where(['id'=>$id])->find();
+		// dump($goods_info);die;
+		$pic_info=D('Goodspics')->where(['goods_id'=>$id])->find();
+		// dump($pic_info);die;
+
+		//返回受影响行数
+		if (isset($goods_info)) {
+			//删除商品表中的数据
+			$res=$model->where(['id'=>$goods_info['id']])->delete();
+			//删除商品相册中的数据
+			$pics_res=D('Goodspics')->where(['goods_id'=>$id])->delete();
+
+			//删除项目目录中的图片
+			unlink(ROOT_PATH.$goods_info['goods_big_img']);
+			unlink(ROOT_PATH.$goods_info['goods_small_img']);
+
+			//删除图片相册中的图片
+			$model->clear($pic_info);
+			
+			if ($res) {
+				$return=array(
+					'code'=>10000,
+					'msg'=>'success'
+				);
+				$this->ajaxReturn($return);
+			}else{
+				$return=array(
+					'code'=>10001,
+					'msg'=>'删除失败'
+				);
+				$this->ajaxReturn($return);			}
+		}else{
+			$this->error('无效参数');
+		}
+	}
+}

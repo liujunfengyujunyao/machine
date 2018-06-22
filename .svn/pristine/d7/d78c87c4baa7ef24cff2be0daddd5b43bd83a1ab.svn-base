@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    
+    <title>Shoping cart</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/grid.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/normalize.css">
+
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="__PUBLIC__/Home/js/html5.js"></script>
+    <script src="__PUBLIC__/Home/js/main.js"></script>
+    <script src="__PUBLIC__/Home/js/radio.js"></script>
+    <script src="__PUBLIC__/Home/js/checkbox.js"></script>
+    <script src="__PUBLIC__/Home/js/selectBox.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.carouFredSel-5.2.2-packed.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.jqzoom-core.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.transit.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.easing.1.2.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.anythingslider.fx.js"></script>
+</head>
+<body>
+<include file="Common/header" />
+
+    <section id="main">
+        <div class="container_12">
+            <div id="content" class="grid_12">
+                <header>
+                    <h1 class="page_title">购物车</h1>
+                </header>
+                    
+                <article>
+                    <table class="cart_product">
+                        <tr class="bg">
+                            <th class="images"></th>
+                            <th class="name">产品名称</th>
+                            <th class="edit">属性</th>
+                            <th class="price">单价</th>
+                            <th class="">数量</th>
+                            <th class="subtotal total_sm">小计</th>
+                            <th class="close"> </th>
+                        </tr>
+                        <form>
+                            <volist name="data" id="val">
+      
+                            <tr  goods_id="{$val.goods_id}" goods_attr_ids="{$val.goods_attr_ids}">
+                                <td class="images"><a href="__MODULE__/Index/detail/id/{$val.goods_id}"><img src="{$val.goods_small_img}" alt="Product 12" title=""></a></td>
+                                <td class="name">{$val.goods_name}</td>
+                                <td class="price_one">
+                                <volist name="val.goods_attr" id="val_attr">
+                                    {$val_attr.attr_name}:{$val_attr.attr_value}<br>
+                                </volist>
+                                </td>
+                                <td class="price">{$val.goods_price}</td>
+                                <td class="" num="{$val.goods_number}" width="200px">
+                                    <input class="sup_num" name=""  type="button" value="^" /><br/>
+                                    <input class="ori_num" type="text" name=""  value="{$val.goods_number}" placeholder="{$val.goods_number}"><br/>
+                                    <input class="sub_num" name="" type="button" value="v" />
+                                </td>
+                                <td class="subtotal one_row">{$val[goods_price] * $val[goods_number]}</td>
+                                <td class="close1"><a title="" class="close close_" href="javascript:void(0);"></a></td>
+                            </tr>
+                            </volist>
+                        </form>
+                        <tr>
+                            <td colspan="7" class="cart_but">
+                                <a href="__MODULE__/Index/index" class="continue"><img src="__PUBLIC__/Home/img/cont.png" alt="" title=""> 继续购物</a>
+                                <a href="#" class="update"><img src="__PUBLIC__/Home/img/update.png" alt="" title=""> 更新购物车</a>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div id="cart_forms">
+                        <div class="grid_4">
+                            <div class="bottom_block estimate">
+                                <h3>估计运费和税金</h3>
+                                <p>输入您的目的地以获得运费预估。</p>
+                                <form>
+                                    <p>
+                                        <strong>国家:</strong><sup>*</sup><br>
+                                        <select>
+                                            <option>中国</option>
+                                            <option>中国</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <strong>州省:</strong><br>
+                                        <select class="bottom-index">
+                                            <option>请选择地区，州或省</option>
+                                            <option>请选择地区，州或省</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <strong>邮编/邮政编码</strong><br>
+                                        <input type="text" name="" value="">
+                                    </p>
+                                    <input type="submit" id="get_estimate" value="获取报价">
+                                </form>
+
+                            </div><!-- .estimate -->
+                        </div><!-- .grid_4 -->
+
+                        <div class="grid_4">
+                            <div class="bottom_block discount">
+                                <h3>折扣代码</h3>
+                                <p>输入您的优惠券代码（如果有）。</p>
+                                <form>
+                                    <p><input type="text" name="" value=""></p>
+                                    <input type="submit" id="apply_coupon" value="申请优惠券">
+                                </form>
+                            </div><!-- .discount -->
+                        </div><!-- .grid_4 -->
+
+                        <div class="grid_4">
+                            <div class="bottom_block total">
+                                <table class="subtotal">
+                                    <tr>
+                                        <td></td><td class=""></td>
+                                    </tr>
+                                    <tr class="grand_total">
+                                        <td>累计</td><td class="price ">$<span class="total_cart"></span></td>
+                                    </tr>
+                                </table>
+                                <button class="checkout">进行结算 <img src="__PUBLIC__/Home/img/checkout.png" alt="" title=""></button>
+                            </div><!-- .total -->
+                        </div><!-- .grid_4 -->
+
+                        <div class="clear"></div>
+                    </div><!-- #cart_forms -->
+                    <div class="clear"></div>
+		</article>
+                
+      
+                <div class="clear"></div>
+            </div><!-- #content -->
+
+            <div class="clear"></div>
+        </div><!-- .container_12 -->
+    </section><!-- #main -->
+    <div class="clear"></div>
+        
+<include file="Common/footer" />
+</body>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<script type="text/javascript">
+    $(function(){
+         var changetotal = function(){
+            var one_row = $('.one_row');
+            var total_price = 0;
+            $.each(one_row,function(i,v){
+                var row_price = parseFloat($(v).text());
+                total_price += row_price;
+            });
+            $('.total_cart').text(total_price);
+         }
+        changetotal();
+        //
+        var changenum = function(new_num,e){
+            var data = {
+                'goods_num':new_num,
+                'goods_id':$(e).closest('tr').attr('goods_id'),
+                'goods_attr_ids':$(e).closest('tr').attr('goods_attr_ids')
+            };
+            $.ajax({
+                'url':'__CONTROLLER__/ajaxchangenum',
+                'type':'post',
+                'data':data,
+                'dataType':'json',
+                'success':function(response){
+                    if(response.code != 10000){
+                        alert(response.msg);
+                        return;
+                    }else{
+                        $(e).closest('td').find('.ori_num').val(new_num);
+                        var now_price = parseFloat($(e).closest('tr').find('.price-one').text());
+                        var row_price = now_price * new_num;
+                        $(e).closest('tr').find('.total_sm').text(row_price);
+                        $(e).parent().attr('num',new_num);
+                        changetotal();
+                    }
+                }
+            });
+        };
+
+       
+        //加一
+        $('.sup_num').click(function(){
+            var ori_num = parseInt($(this).closest('td').find('.ori_num').val());
+            var new_num = ori_num + 1;
+            changenum(new_num,this);
+        });
+        $('.sub_num').click(function(){
+            var ori_num = parseInt($(this).closest('td').find('.ori_num').val());
+            var new_num = ori_num - 1;
+            if(new_num < 1){
+                return;
+            }
+            changenum(new_num,this);
+        });
+        $('.ori_num').change(function(){
+            var ori_num = parseInt($(this).val());
+            var new_num = ori_num ;
+            if(new_num <1 || new_num >100){
+                alert('购买数量有误');
+                new_num = parseInt($(this).parent().attr('num'));
+            }
+            changenum(ori_num,this);
+        });
+
+        //
+        $('.close_').click(function(){
+            var data = {
+             'goods_id':$(this).closest('tr').attr('goods_id'),
+             'goods_attr_ids':$(this).closest('tr').attr('goods_attr_ids')
+                };
+                var _this = this;
+            $.ajax({
+                'url':'__MODULE__/Cart/delCart',
+                'type':'post',
+                'dataType':'json',
+                'data':data,
+                'success':function(response){
+                if(response.code !== 10000){
+                        return;
+                    }else{
+                        $(_this).closest('tr').remove();
+                    }
+                }
+            })
+            // $('form').submit();
+        });
+    })
+</script>>
+</html>

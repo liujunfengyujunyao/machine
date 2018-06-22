@@ -1,0 +1,76 @@
+<?php
+namespace Home\Model;
+use Think\Model;
+class CartModel extends Model
+{
+	//添加到购物车
+	// 购物车显示的信息: 商品名称 价格 尺寸 材质 数量 总价格
+	// 通过 用户id 
+	public function addC($goods_id,$goods_attr_ids,$goods_number)
+	{
+		//判断登录状态
+		if(session('?user_info')){
+			//已登录 将数据保存到数据表
+			//去用户id
+			// die;
+
+			$user_id = session('user_info.id');
+			$data = array(
+				'user_id' => $user_id,
+				'goods_id' => $goods_id,
+				'goods_attr_ids' => $goods_attr_ids
+				);
+			$cart_info = D('Cart') -> where($data) -> find();
+			// return $cart_info;
+			if($cart_info){
+				//如果存在 数量加一个
+				$cart_info['goods_number'] += $goods_number;
+				$res = D('Cart') -> save($cart_info);
+				return $res !== false ? true : false;
+			}else{
+				//记录不存在,添加数据
+				$data['goods_number'] = $goods_number;
+				$res = D('Cart') -> add($data);
+				return $res !== false ? true : false;
+			}
+		}else{
+			//未登录 将数据保存到cookie
+			return "no_login";
+			
+		}
+	}
+
+	public function  addAllCart()
+	{
+			//登录状态
+			$user_id = session('user_info.id');
+			$cart = D('Cart') -> where(['user_id' => $user_id]) -> select();
+			return $cart;
+	}
+
+		public function delCart($goods_id,$goods_attr_ids)
+	{
+		
+			//登录,从数据表重删除一条数据
+			$user_id = session('user_info.id');
+			$where = array(
+				'user_id' => $user_id,
+				'goods_id' => $goods_id,
+				'goods_attr_ids' => $goods_attr_ids
+			);
+			$res = D('Cart') -> where($where) -> delete();
+			return $res !==false ? true : false;
+	}	 
+	public function changeNum($goods_id,$goods_attr_ids,$goods_num){
+			$user_id = session('user_info.id');
+			$where = array(
+				'user_id'=>$user_id,
+				'goods_id'=>$goods_id,
+				'goods_attr_ids'=>$goods_attr_ids
+				);
+			$res = $this->where($where)->save(['goods_number'=>$goods_num]);
+			return $res !== false ? true : false;
+	}   
+}
+?>
+}

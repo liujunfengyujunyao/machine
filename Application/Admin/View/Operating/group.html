@@ -1,0 +1,175 @@
+<!--_meta 作为公共模版分离出去-->
+<include file="Common/meta" /> 
+<!--/meta 作为公共模版分离出去-->
+
+<title>Diamond后台</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+
+</head>
+<body>
+<!--头部-->
+<include file="Common/header" />
+<!--头部-->
+
+<!--_menu 作为公共模版分离出去-->
+<include file="Common/menu" />
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="__MODULE__/Index/index" class="maincolor">首页</a> 
+        <span class="c-999 en">&gt;</span>
+        <span class="c-666">经营数据</span> 
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <div class="Hui-article">
+        <article class="cl pd-20">
+            <!-- <p>登录次数：18 </p>
+            <p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                    <tr>
+                        <th colspan="7" scope="col">信息统计</th>
+            </tr>
+                    <tr class="text-c">
+                        <th>统计</th>
+                        <th>资讯库</th>
+                        <th>图片库</th>
+                        <th>产品库</th>
+                        <th>用户</th>
+                        <th>管理员</th>
+            </tr>
+        </thead>
+                <tbody>
+                    <tr class="text-c">
+                        <td>总数</td>
+                        <td>92</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>8</td>
+                        <td>20</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>今日</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>昨日</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>本周</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+                    <tr class="text-c">
+                        <td>本月</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <label>月度报表：</label>
+        <!-- <div id="container" style="min-width:700px;height:400px"></div> -->
+        <div id="container" style="min-width:400px;height:400px"></div>
+        
+    
+</article>
+        <!-- <footer class="footer">
+            <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br> Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+</footer> -->
+</div>
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+<include file="Common/footer" />
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->dark-unica
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/lib/hcharts/Highcharts/5.0.6/js/themes/dark-unica.js"></script>
+<script type="text/javascript">
+ $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '昨日机台运行状况'
+        },
+        subtitle: {
+            text: 'Management Platform 管理平台'
+        },
+        xAxis: {
+            categories: [
+                '一月',
+                '二月',
+                '三月',
+                '四月',
+                '五月',
+               
+            ]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rainfall (RMB)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} RMB</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '线上收入',
+            data: {{$data.income}}
+
+        }, {
+            name: '支出',
+            data: {{$data.pay}}
+
+        }, {
+            name: '线下收入',
+            data: {{$data.offline}}
+
+        }, {
+            name: '利润',
+            data: {{$data.arr}}
+
+        }]
+    });
+
+
+ 
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+<!--此乃百度统计代码，请自行删除-->
+
+
+<!--/此乃百度统计代码，请自行删除-->
+</body>
+</html>
