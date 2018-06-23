@@ -22,7 +22,7 @@ class RoomsController extends Controller{
            $params = $GLOBALS['HTTP_RAW_POST_DATA'];         
            $params = json_decode($params,true);
            $signature = array(
-            'type' => "1",
+            'type' => $params['type'],
             'userid' => $params['userid'],
             'timestamp' => $params['timestamp'],
             'access_token' => $_SESSION['accesstoken'],
