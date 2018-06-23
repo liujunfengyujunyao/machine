@@ -108,75 +108,38 @@
  -->
 			<!-- <p>登录次数：18 </p>
 			<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p> -->
-            <div id="container" style=""></div>
-            <button id="large">放大</button>
-			<button id="small">缩小</button>
-			<table class="table table-border table-bordered table-bg">
+            <!-- <div id="container" style=""></div> -->
+             <div id="container" style="min-width:400px;height:400px"></div>
+<!--             <button id="large">放大</button>
+			<button id="small">缩小</button> -->
+			<div class="mt-20">
+               	<table class="table table-border table-bordered table-bg table-sort">
 				<thead>
 					<tr>
-						<th colspan="7" scope="col">信息统计</th>
-			</tr>
+						<th scope="col" colspan="9">统计列表</th>
+					</tr>
 					<tr class="text-c">
-                        <th>统计</th>
-						<th>线上机台运行</th>
-						<!-- <th>线下机台运行</th>
-						<th>免费游戏次数</th> -->
-						<!-- <th>机台运行失败</th> -->
-						<th>线上收入</th>
-						<!-- <th>线下收入</th> -->
-			</tr>
-		</thead>
+						<!-- <th>ID</th> -->
+						<!-- <th>管理员</th> -->
+						<th>日期</th>
+						<th>机台运行游戏总次数</th>
+						<th>抓取成功次数</th>
+						<th>抓取失败次数</th>
+						<th>每天的收入</th>
+					</tr>
+				</thead>
 				<tbody>
-			<!-- 		<tr class="text-c">
-						<td>总数</td>
-						<td>92</td>
-						<td>9</td>
-						<td>0</td>
-						<td>8</td>
-                        <td>20元</td>
-						<td>20游戏币</td>
-			</tr> -->
-
-					<tr class="text-c">
-						<td>今日</td>
-					<!-- 	<td>0</td>
-						<td>0</td> -->
-						<td>0</td>
-					<!-- 	<td>0</td> -->
-                        <td>0元</td>
-						<!-- <td>0游戏币</td> -->
-			</tr>
-					<tr class="text-c">
-						<td>本周</td>
-					<!-- 	<td>0</td>
-						<td>0</td> -->
-						<td>0</td>
-						<!-- <td>0</td> -->
-                        <td>0元</td>
-
-						<!-- <td>0游戏币</td> -->
-			</tr>
-					<tr class="text-c">
-						<td>本月</td>
-					<!-- 	<td>0</td>
-						<td>0</td> -->
-						<td>0</td>
-					
-                        <td>0元</td>
-						<!-- <td>0游戏币</td> -->
-			</tr>
-					<tr class="text-c">
-						<td>今年</td>
-					<!-- 	<td>0</td>
-						<td>0</td> -->
-						<td>0</td>
-						<!-- <td><?php echo ($total["month_unfinish"]); ?></td> -->
-                        <td>0元</td>
-						<!-- <td>0游戏币</td> -->
-			</tr>
-		</tbody>
-	
-	</table>
+					<?php if(is_array($equipment_all2)): $k = 0; $__LIST__ = $equipment_all2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?><tr class="text-c">
+						<!-- <td><?php echo ($v["id"]); ?></td> -->
+						<td><?php echo ($v["statistics_date"]); ?></td>
+						<td><?php echo ($v["run_count"]); ?></td>
+						<td><?php echo ($v["success_number"]); ?></td>
+						<td><?php echo ($v["fail_number"]); ?></td>
+						<td><?php echo ($v["income_count"]); ?></td>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				</tbody>
+			</table>
+            </div>
 	<!-- <label>实时概况：</label> -->
         
       
@@ -215,68 +178,118 @@
 <script type="text/javascript" src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
 
 <script type="text/javascript">
-$(function () {
-    var chart = Highcharts.chart('container', {
+// $(function () {
+//     var chart = Highcharts.chart('container', {
+//         chart: {
+//             type: 'column'
+//         },
+//         title: {
+//             text: '商户日统计'
+//         },
+//         subtitle: {
+//             text: ''
+//         },
+//         xAxis: {
+//             categories: <?php echo ($day); ?>
+//         },
+//         yAxis: {
+//             labels: {
+//                 x: -15
+//             },
+//             title: {
+//                 text: '统计'
+//             }
+//         },
+//         series: [{
+//             name: '销售',
+//             data: <?php echo ($count); ?>
+//         }],
+//         responsive: {
+//             rules: [{
+//                 condition: {
+//                     maxWidth: 500
+//                 },
+//                 // Make the labels less space demanding on mobile
+//                 chartOptions: {
+//                     xAxis: {
+//                         labels: {
+//                             formatter: function () {
+//                                 return this.value.replace('号', '')
+//                             }
+//                         }
+//                     },
+//                     yAxis: {
+//                         labels: {
+//                             align: 'left',
+//                             x: 0,
+//                             y: -2
+//                         },
+//                         title: {
+//                             text: ''
+//                         }
+//                     }
+//                 }
+//             }]
+//         }
+//     });
+//     $('#small').click(function () {
+//         chart.setSize(400, 300);
+//     });
+//     $('#large').click(function () {
+//         chart.setSize(800, 300);
+//     });
+// });
+</script>
+<script type="text/javascript">
+ $('#container').highcharts({
         chart: {
             type: 'column'
         },
         title: {
-            text: '数据统计'
+            text: '商户日统计'
         },
         subtitle: {
             text: ''
         },
         xAxis: {
             categories: <?php echo ($day); ?>
+         },
+         yAxis: {
+                title: {
+                        text: '浮动对比'
+                },
+                labels: {
+                        formatter: function () {
+                                return this.value  + '次';
+                        }
+                }
         },
-        yAxis: {
-            labels: {
-                x: -15
-            },
-            title: {
-                text: '统计'
+        tooltip: {
+              pointFormat: '{series.name} 运行 <b>{point.y:,.0f}</b>次' 
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.1,
+                borderWidth: 0
             }
         },
         series: [{
-            name: '运行总次数',
-            data: <?php echo ($count); ?>
-        }],
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                // Make the labels less space demanding on mobile
-                chartOptions: {
-                    xAxis: {
-                        labels: {
-                            formatter: function () {
-                                return this.value.replace('号', '')
-                            }
-                        }
-                    },
-                    yAxis: {
-                        labels: {
-                            align: 'left',
-                            x: 0,
-                            y: -2
-                        },
-                        title: {
-                            text: ''
-                        }
-                    }
-                }
-            }]
-        }
+            name: '运行',
+            data: <?php echo ($run_count); ?>
+
+        }, {
+            name: '成功',
+            data: <?php echo ($success_number); ?>
+         },{
+			name: '失败',
+            data: <?php echo ($fail_number); ?>
+        }]
     });
-    $('#small').click(function () {
-        chart.setSize(400, 300);
-    });
-    $('#large').click(function () {
-        chart.setSize(800, 300);
-    });
-});
+
+
+ 
 </script>
+
 <!--/请在上方写此页面业务相关的脚本-->
 
 <!--此乃百度统计代码，请自行删除-->

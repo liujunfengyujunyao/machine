@@ -9,55 +9,193 @@ class IndexController extends CommonController{
 		}
 	}
 
-	public function index(){ 
-		$id = session('manager_info.id');
-		$today = time();
-		$seven = strtotime('-2 days');
-
-		$data = M('tbl_game_log')
-		->alias("t1")
-		->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') days,count(t1.id) count")
-		->where("t1.end_time between $seven and $today && t2.pid = $id")
-		->Group('days')
-		->join("left join equipment as t2 on t2.id = t1.equipment_id")
-		->select();
-	
-		// dump($data);die;
-		// dump($data);die;
-		//查询出游戏记录的总数
-		foreach ($data as $key => $value) {
-			$count[] = floatval($value['count']);
-			foreach ($data as $k => $v) {
-				$day[$k] = substr($v['days'],6);
-			}
-		}
-		
-		// dump($count);dump($day);die;
-		$count = json_encode($count);
-
-		//求出近7天的日期
-		// $day = array(
-		// 	floatval(date('d',strtotime('-6 days'))),
-		// 	floatval(date('d',strtotime('-5 days'))),
-		// 	floatval(date('d',strtotime('-4 days'))),
-		// 	floatval(date('d',strtotime('-3 days'))),
-		// 	floatval(date('d',strtotime('-2 days'))),
-		// 	floatval(date('d',strtotime('-1 days'))),
-		// 	floatval(date('d',time())),
-		// 	);
-		
-		$day = array(
-			
-			floatval(date('d',strtotime('-2 days'))),
-			floatval(date('d',strtotime('-1 days'))),
-			floatval(date('d',time())),
-			);
-
-		$day = json_encode($day);
-		$this->assign('day',$day);
-		$this->assign('count',$count);
-		$this->display();
+		public function index(){
+		$manager = session('manager_info.id');
+		//dump($manager);die;
+		$total = strtotime('-3 days');
+		$time = time();
+        $date = array(
+        	array('statistics_date'=>date('Ymd',strtotime('-2 days'))),
+        	array('statistics_date'=>date('Ymd',strtotime('-1 days'))),
+        	array('statistics_date'=>date('Ymd',time())),
+        	);
+        $equipment_all=M('equipment')
+        ->alias('t1')
+        ->field("FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift")
+        ->where(['t1.pid'=>$manager])
+        ->where("t3.end_time between $total and $time")
+        ->join("left join tbl_game_log as t3 on t3.equipment_id = t1.id")
+        ->join('left join goods as t2 on t1.goods_id=t2.id')
+        ->order("t1.id",asc)
+        ->select();
+        //dump($equipment_all);die;
+        $equipment_all2 = $date;
+        foreach ($equipment_all2 as $key => &$value) {
+        	foreach ($equipment_all as $k => $v) {
+        			if($value['statistics_date'] == $v['statistics_date']){
+        				$value['income_count'] +=$v['price'];
+        				$value['run_count'] += $v['roomid']=1;
+        				$value['success_number'] += $v['got_gift']==1;
+        				$value['fail_number'] += $v['got_gift']==0;
+        			}
+        	}
+        	if(!$value['income_count']){
+        		$value['income_count'] = '0';
+        	}
+        }
+         //dump($equipment_all2);
+        $data_all = M('tbl_game_log')
+        ->alias("t1")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count")
+        ->where("t1.end_time between $total and $time")
+        ->where(['t2.pid'=>$manager])
+        ->join("left join equipment as t2 on t2.id = t1.equipment_id")
+        ->Group("statistics_date")
+        ->select();
+        $data_all2 = $date;
+        foreach ($data_all2 as $key => &$value) {
+        		foreach ($data_all as $k => $v) {
+        			if($value['statistics_date'] == $v['statistics_date'])
+        			{
+        					$value['run_count'] = $v['count'];
+        			}
+        			if(!$value['run_count']){
+        				$value['run_count'] = '0';
+        			}	
+        		}
+        }
+        //dump($data_all2);
+        $success_number = M('tbl_game_log')
+        ->alias("t1")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number")
+        ->where(['t1.got_gift'=>1])
+        ->where(['t2.pid'=>$manager])
+        ->where("t1.end_time between $total and $time")
+        ->join("left join equipment as t2 on t2.id = t1.equipment_id")
+        ->Group("statistics_date")
+        ->select();
+        $success_number2 = $date;
+        foreach ($success_number2 as $key => &$value) {
+        	foreach ($success_number as $k => $v) {
+        		if($value['statistics_date'] == $v['statistics_date']){
+        			$value['success_number'] = $v['success_number'];
+        		}
+        	}
+        	if(!$value['success_number']){
+        		$value['success_number'] = '0';
+        	}
+        }
+        //dump($success_number);
+         $fail_number = M('tbl_game_log')
+        ->alias("t1")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') fail_number")
+        ->where(['t1.got_gift'=>0])
+        ->where(['t2.pid' => $manager])
+        ->where("t1.end_time between $total and $time")
+        ->join('left join equipment as t2 on t2.id = t1.equipment_id')
+        ->Group("statistics_date")
+        ->select();
+         $fail_number2 = $date;
+        foreach ($fail_number2 as $key => &$value) {
+        	foreach ($fail_number as $k => $v) {
+        		if($value['statistics_date'] == $v['statistics_date']){
+        			$value['fail_number'] = $v['fail_number'];
+        		}
+        	}
+        	if(!$value['fail_number']){
+        		$value['fail_number'] = '0';
+        	}
+        } 
+        //dump($fail_number);die;     
+        foreach ($data_all2 as $key => $value) {
+        	$run_count[] = floatval($value['run_count']);
+        }
+        foreach ($success_number2 as $key => $value) {
+        	$success_number3[] = floatval($value['success_number']);
+        }
+        foreach ($fail_number2 as $key => $value) {
+        	$fail_number3[] = floatval($value['fail_number']);
+        }
+        //  foreach ($equipment_all2 as $key => $value) {
+        // 	$income_count3[] = floatval($value['income_count']);
+        // }
+         foreach ($date as $key => $value) {
+	 		$day[] = substr($value['statistics_date'],6);
+	 	}
+	 	//dump($day);die;
+		$chinese = array(
+	 			'2' =>'今天',
+	 			'1'=>'昨天',
+	 			'0'=>'前天',
+	 			);
+	 	foreach ($day as $key => $value) {
+	 		foreach ($chinese as $k => $v) {
+	 			if($key == $k){
+	 				$day[$k] = $v;
+	 			}
+	 		}
+	 	}
+         $run_count = json_encode($run_count);		
+		 $success_number3 = json_encode($success_number3);
+		 $fail_number3 = json_encode($fail_number3);
+		 $day = json_encode($day);
+		 $this->assign('day',$day);
+		 $this->assign('run_count',$run_count);
+		 $this->assign('success_number',$success_number3);
+		 $this->assign('fail_number',$fail_number3);
+		 $this->assign('equipment_all2',$equipment_all2);
+		 $this->display();
 	}
+
+	// public function index(){ 
+	// 	$id = session('manager_info.id');
+	// 	$today = time();
+	// 	$seven = strtotime('-2 days');
+
+	// 	$data = M('tbl_game_log')
+	// 	->alias("t1")
+	// 	->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') days,count(t1.id) count")
+	// 	->where("t1.end_time between $seven and $today && t2.pid = $id")
+	// 	->Group('days')
+	// 	->join("left join equipment as t2 on t2.id = t1.equipment_id")
+	// 	->select();
+	
+	// 	// dump($data);die;
+	// 	// dump($data);die;
+	// 	//查询出游戏记录的总数
+	// 	foreach ($data as $key => $value) {
+	// 		$count[] = floatval($value['count']);
+	// 		foreach ($data as $k => $v) {
+	// 			$day[$k] = substr($v['days'],6);
+	// 		}
+	// 	}
+		
+	// 	// dump($count);dump($day);die;
+	// 	$count = json_encode($count);
+
+	// 	//求出近7天的日期
+	// 	// $day = array(
+	// 	// 	floatval(date('d',strtotime('-6 days'))),
+	// 	// 	floatval(date('d',strtotime('-5 days'))),
+	// 	// 	floatval(date('d',strtotime('-4 days'))),
+	// 	// 	floatval(date('d',strtotime('-3 days'))),
+	// 	// 	floatval(date('d',strtotime('-2 days'))),
+	// 	// 	floatval(date('d',strtotime('-1 days'))),
+	// 	// 	floatval(date('d',time())),
+	// 	// 	);
+		
+	// 	$day = array(
+			
+	// 		floatval(date('d',strtotime('-2 days'))),
+	// 		floatval(date('d',strtotime('-1 days'))),
+	// 		floatval(date('d',time())),
+	// 		);
+
+	// 	$day = json_encode($day);
+	// 	$this->assign('day',$day);
+	// 	$this->assign('count',$count);
+	// 	$this->display();
+	// }
 	// public function index(){
 	// 	// //接收id参数
 	// 	// $id = session('manager_info.id');
