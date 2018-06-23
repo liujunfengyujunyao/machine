@@ -282,3 +282,332 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000505s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000543s ]
 
+[ 2018-06-23T15:38:56+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000584s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0011s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 29 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529480336 and 1529739536 ) ORDER BY t1.id  [ RunTime:0.0015s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529480336 and 1529739536 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 62 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 62 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529480336 and 1529739536 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529480336 and 1529739536 ) GROUP BY statistics_date  [ RunTime:0.0013s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000145s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000203s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.087337s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.087390s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000480s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000711s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000755s ]
+
+[ 2018-06-23T15:47:15+08:00 ] 127.0.0.1 /index.php/Admin/Order/log_index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000388s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000544s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000581s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0012s ]
+SQL: SELECT `id` FROM `equipment` WHERE `pid` = 4  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0009s ]
+SQL: SELECT `id` FROM `manager` WHERE ( pid = 4 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tbl_order` [ RunTime:0.0006s ]
+SQL: SELECT t1.id,t1.address,t1.phone,t1.name,t3.name as goods_name,t1.status,t2.start_time,t2.end_time,t2.id as log_id,t1.name as address_name,t4.name as equipment_name,t4.id as equipment_id,t3.id as goods_id FROM tbl_order t1 left join tbl_game_log as t2 on t1.log_id = t2.id left join goods as t3 on t3.id = t2.goods_id INNER JOIN equipment as t4 on t4.id = t2.equipment_id  WHERE ( t1.status = 0 && (t4.pid = 4 || t4.pid in (5,6,7)) )  [ RunTime:0.0238s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000095s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000133s ]
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 152 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 157 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 152 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 157 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 152 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 157 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 152 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 157 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 152 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 157 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 152 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\671f30a68fc69af59427e59d8d6e563c.php 第 157 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.075324s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075375s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000448s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001514s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001597s ]
+
+[ 2018-06-23T15:47:15+08:00 ] 127.0.0.1 /index.php/Admin/Order/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+
+[ 2018-06-23T15:47:20+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/leader
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000468s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0416s ]
+SQL: SELECT * FROM `manager` WHERE `pid` = 4  [ RunTime:0.0058s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0101s ]
+SQL: SELECT t1.owner,t1.id as Equipment_id,t2.* FROM equipment t1 left join manager as t2 on t2.id = t1.owner  WHERE t1.pid = '4'  [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000203s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000280s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.079028s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.079097s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000449s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000480s ]
+
+[ 2018-06-23T15:47:20+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+
+[ 2018-06-23T15:47:22+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/setauth/id/5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0049s ]
+SQL: SELECT `id` FROM `manager` WHERE `pid` = 4  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment` WHERE ( pid=4 and status !=3 or pid in (5,6,7) and status !=3 )  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000062s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000110s ]
+NOTIC: [8] Undefined variable: keyiyong C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\e4f99c716dd491afb9325b022080de8f.php 第 48 行.
+NOTIC: [8] Undefined variable: keyiyong C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\e4f99c716dd491afb9325b022080de8f.php 第 48 行.
+NOTIC: [8] Undefined variable: keyiyong C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\e4f99c716dd491afb9325b022080de8f.php 第 48 行.
+NOTIC: [8] Undefined variable: keyiyong C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\e4f99c716dd491afb9325b022080de8f.php 第 48 行.
+NOTIC: [8] Undefined variable: keyiyong C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\e4f99c716dd491afb9325b022080de8f.php 第 48 行.
+NOTIC: [8] Undefined variable: keyiyong C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\e4f99c716dd491afb9325b022080de8f.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031822s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031868s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000446s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000478s ]
+
+[ 2018-06-23T15:47:22+08:00 ] 127.0.0.1 /index.php/Admin/Equipment/setauth/id/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000342s ]
+
+[ 2018-06-23T15:47:25+08:00 ] 127.0.0.1 /index.php/Admin/Manager/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000408s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000648s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000701s ]
+SQL: SHOW COLUMNS FROM `role` [ RunTime:0.0166s ]
+SQL: SELECT * FROM `role`  [ RunTime:0.0109s ]
+SQL: SHOW COLUMNS FROM `manager_role` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `manager_role` WHERE `pid` = 4  [ RunTime:0.0248s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000135s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074952s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075021s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000637s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000685s ]
+
+[ 2018-06-23T15:47:25+08:00 ] 127.0.0.1 /index.php/Admin/Manager/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+
+[ 2018-06-23T15:47:28+08:00 ] 127.0.0.1 /index.php/Admin/Goods/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0010s ]
+SQL: SELECT `id` FROM `goods` WHERE `pid` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM goods t1 INNER JOIN type as t2 on t2.type_id = t1.type_id  WHERE `pid` = '4'  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT t1.id,t1.name FROM equipment t1 left join goods as t2 on t2.id = t1.goods_id  WHERE ( t1.pid = 4 && t1.goods_id = 4 )  [ RunTime:0.0006s ]
+SQL: SELECT t1.id,t1.name FROM equipment t1 left join goods as t2 on t2.id = t1.goods_id  WHERE ( t1.pid = 4 && t1.goods_id = 5 )  [ RunTime:0.0007s ]
+SQL: SELECT t1.id,t1.name FROM equipment t1 left join goods as t2 on t2.id = t1.goods_id  WHERE ( t1.pid = 4 && t1.goods_id = 6 )  [ RunTime:0.0007s ]
+NOTIC: [2] implode(): Invalid arguments passed C:\phpStudy\workspace\machine\Application\Admin\Controller\GoodsController.class.php 第 27 行.
+SQL: SELECT t1.id,t1.name FROM equipment t1 left join goods as t2 on t2.id = t1.goods_id  WHERE ( t1.pid = 4 && t1.goods_id = 7 )  [ RunTime:0.0008s ]
+NOTIC: [2] implode(): Invalid arguments passed C:\phpStudy\workspace\machine\Application\Admin\Controller\GoodsController.class.php 第 27 行.
+SQL: SELECT t1.id,t1.name FROM equipment t1 left join goods as t2 on t2.id = t1.goods_id  WHERE ( t1.pid = 4 && t1.goods_id = 8 )  [ RunTime:0.0009s ]
+NOTIC: [2] implode(): Invalid arguments passed C:\phpStudy\workspace\machine\Application\Admin\Controller\GoodsController.class.php 第 27 行.
+SQL: SELECT t1.id,t1.name FROM equipment t1 left join goods as t2 on t2.id = t1.goods_id  WHERE ( t1.pid = 4 && t1.goods_id = 9 )  [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000114s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000160s ]
+NOTIC: [8] Undefined variable: row_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 127 行.
+NOTIC: [8] Undefined index: pics_mid C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 151 行.
+NOTIC: [8] Undefined index: equipment_small_img C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 156 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 157 行.
+NOTIC: [8] Undefined index: pics_mid C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 151 行.
+NOTIC: [8] Undefined index: equipment_small_img C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 156 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 157 行.
+NOTIC: [8] Undefined index: pics_mid C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 151 行.
+NOTIC: [8] Undefined index: equipment_small_img C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 156 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 157 行.
+NOTIC: [8] Undefined index: pics_mid C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 151 行.
+NOTIC: [8] Undefined index: equipment_small_img C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 156 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 157 行.
+NOTIC: [8] Undefined index: pics_mid C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 151 行.
+NOTIC: [8] Undefined index: equipment_small_img C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 156 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 157 行.
+NOTIC: [8] Undefined index: pics_mid C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 151 行.
+NOTIC: [8] Undefined index: equipment_small_img C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 156 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\7460c3bd08e8aaf3e719467d6ea19bd3.php 第 157 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071493s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071541s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000330s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000590s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000633s ]
+
+[ 2018-06-23T15:47:28+08:00 ] 127.0.0.1 /index.php/Admin/Goods/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+
+[ 2018-06-23T15:47:31+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000473s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0005s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 29 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529480851 and 1529740051 ) ORDER BY t1.id  [ RunTime:0.0222s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0005s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529480851 and 1529740051 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0046s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 62 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 62 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529480851 and 1529740051 ) GROUP BY statistics_date  [ RunTime:0.0082s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529480851 and 1529740051 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000141s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063258s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063300s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000478s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000509s ]
+
+[ 2018-06-23T15:49:10+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000439s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0012s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 29 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529480950 and 1529740150 ) ORDER BY t1.id  [ RunTime:0.0016s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 39 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529480950 and 1529740150 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 62 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 62 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529480950 and 1529740150 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529480950 and 1529740150 ) GROUP BY statistics_date  [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.065080s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.065117s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000496s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000529s ]
+
