@@ -11,7 +11,6 @@ class IndexController extends CommonController{
 
 		public function index(){
 		$manager = session('manager_info.id');
-		//dump($manager);die;
 		$total = strtotime('-3 days');
 		$time = time();
         $date = array(
@@ -43,7 +42,7 @@ class IndexController extends CommonController{
         		$value['income_count'] = '0';
         	}
         }
-         //dump($equipment_all2);
+         //dump($equipment_all2);die;
         $data_all = M('tbl_game_log')
         ->alias("t1")
         ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count")
@@ -85,16 +84,17 @@ class IndexController extends CommonController{
         		$value['success_number'] = '0';
         	}
         }
-        //dump($success_number);
+        //dump($success_number2);
          $fail_number = M('tbl_game_log')
         ->alias("t1")
-        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') fail_number")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number")
         ->where(['t1.got_gift'=>0])
         ->where(['t2.pid' => $manager])
         ->where("t1.end_time between $total and $time")
         ->join('left join equipment as t2 on t2.id = t1.equipment_id')
         ->Group("statistics_date")
         ->select();
+        //dump($fail_number);
          $fail_number2 = $date;
         foreach ($fail_number2 as $key => &$value) {
         	foreach ($fail_number as $k => $v) {
@@ -106,16 +106,19 @@ class IndexController extends CommonController{
         		$value['fail_number'] = '0';
         	}
         } 
-        //dump($fail_number);die;     
+        //dump($fail_number2);die;
+        foreach ($fail_number as $key => $value) {
+        	$fail_number3[] = floatval($value['fail_number']);
+        }
+        //dump($fail_number3);die;
         foreach ($data_all2 as $key => $value) {
         	$run_count[] = floatval($value['run_count']);
         }
         foreach ($success_number2 as $key => $value) {
         	$success_number3[] = floatval($value['success_number']);
         }
-        foreach ($fail_number2 as $key => $value) {
-        	$fail_number3[] = floatval($value['fail_number']);
-        }
+        
+        //dump($fail_number3);die;
         //  foreach ($equipment_all2 as $key => $value) {
         // 	$income_count3[] = floatval($value['income_count']);
         // }
