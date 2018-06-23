@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 class IndexController extends Controller {
     public function index(){
        
-        dump(2);die;
+      
         //查询图片轮播部分商品信息
         // $goods3 = D('Goods')->where('id in (1,2,3)')->select();
         // $this->assign('goods3',$goods3);
