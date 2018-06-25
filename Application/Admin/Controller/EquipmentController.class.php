@@ -617,8 +617,7 @@ class EquipmentController extends CommonController{
 			// floatval(date('d',strtotime('-1 days'))),
 			// floatval(date('d',time())),
 			// );
-			dump($day2);
-			dump($res);die;
+			
 			$day = json_encode($day);
 			$day2 = json_encode($day2);
 			$this->assign('day',$day2);
