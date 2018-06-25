@@ -27,7 +27,6 @@ class IndexController extends CommonController{
         ->join('left join goods as t2 on t1.goods_id=t2.id')
         ->order("t1.id",asc)
         ->select();
-        //dump($equipment_all);die;
         $equipment_all2 = $date;
         foreach ($equipment_all2 as $key => &$value) {
         	foreach ($equipment_all as $k => $v) {
@@ -74,6 +73,7 @@ class IndexController extends CommonController{
         ->Group("statistics_date")
         ->select();
         $success_number2 = $date;
+        //dump($success_number2);die;
         foreach ($success_number2 as $key => &$value) {
         	foreach ($success_number as $k => &$v) {
         		if($value['statistics_date'] == $v['statistics_date']){
@@ -84,7 +84,7 @@ class IndexController extends CommonController{
         		$value['success_number'] = '0';
         	}
         }
-        //dump($success_number2);
+        //dump($success_number2);die;
          $fail_number = M('tbl_game_log')
         ->alias("t1")
         ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number")
@@ -107,7 +107,7 @@ class IndexController extends CommonController{
         	}
         }
          //dump($fail_number2);    
-           foreach ($date as $key => $value) {
+        foreach ($date as $key => $value) {
 	 		$day[] = substr($value['statistics_date'],6);
 	 	}
 		$chinese = array(

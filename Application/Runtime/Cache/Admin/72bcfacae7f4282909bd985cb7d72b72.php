@@ -267,7 +267,7 @@ var chart = Highcharts.chart('container',{
                 'https://www.goldenbrother.cn</a>'
         },
         xAxis: {
-                allowDecimals: false
+                 categories: <?php echo ($day); ?>
         },
         yAxis: {
                 title: {
@@ -307,15 +307,6 @@ var chart = Highcharts.chart('container',{
             name:"失败次数",
             data:<?php echo ($fail_number); ?>
         }
-
-        // ,
-        //  {
-        //         name: '失败次数',
-        //         data: [13092, 14478,
-        //                      15915, 17385, 29055, 21205, 23044, 25393, 27935, 30062, 32049,
-        //                      33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000, 37000,
-        //                      35000, 33000, 31800, 29000, 27000, 25000, 24000, 23000, 22000,12121]
-        // }
 
         ]
 });

@@ -34,7 +34,15 @@ class OperatingController extends CommonController{
 		}
 		$lastStartDay = $lastyear . '-' . $lastmonth . '-1';
 		$lastEndDay = $lastyear . '-' . $lastmonth . '-' . date('t', strtotime($lastStartDay));
+
+		$meiintime = strtotime($lastStartDay);$endtime = strtotime($lastEndDay);//每一天的时间
+		for ($start = $meiintime; $start <= $endtime; $start += 24 * 3600) {
+   				$daysd[]['month'] = date("Ymd", $start);"<br/>";
+   				//  //$daysd[] = $start;
+   			}
+		//dump($daysd);die;
 		$star = strtotime($lastStartDay);//上个月的月初时间戳
+		//dump($star);die;
 		$end = strtotime($lastEndDay)+60*60*24-1;//上个月的月末时间戳
 		$id = session('manager_info.id');
 		$equipment_ids = M('Equipment')->where(['pid'=>$id])->getField("id",true);
@@ -54,30 +62,47 @@ class OperatingController extends CommonController{
 		$this->assign("end",$end);
 		$this->assign("statistics",$statistics);
 		$this->assign("equipment",$equipment);
-		
 
-		//添加where("statistics_date between $star and $end")
-		$partner_day_statistics = M('partner_day_statistics')->where("statistics_date between $star and $end")->where("pid = $manager_id")->select();
-		// dump($partner_day_statistics);die;
-		foreach ($partner_day_statistics as $key => $value) {
-			$partner[$key]['run_count'] = $value['run_count'];
-			$partner[$key]['success_number'] = $value['success_number'];
-			$partner[$key]['fail_number'] = $value['run_count'] - $value['success_number'];
+		$partner_day_statistics = M('partner_day_statistics')->field("FROM_UNIXTIME(statistics_date,'%Y%m%d') month,run_count,success_number,fail_number")->where("pid = $manager_id")->where("statistics_date between $star and $end")->select();
+		$partner_day_statistics2 = $daysd;
+		foreach ($partner_day_statistics2 as $key => &$value) {
+			foreach ($partner_day_statistics as $k => $v) {
+				if($value['month'] == $v['month']){
+					$value['month'] = $value['month'];
+					$value['run_count'] = $v['run_count'];
+					$value['success_number'] = $v['success_number'];
+					$value['fail_number'] = $v['run_count'] - $v['success_number'];
+				}
+			}
+			if(!$value['month']){
+				$value['month'] = '0';
+			}
 		}
-		foreach ($partner as $key => &$value) {
+		//dump($partner_day_statistics2);die;
+		foreach ($partner_day_statistics2 as $key => &$value) {
 		if($key == 0){
-            $number['run_count'] = $value['run_count'];
-            $number['success_number'] = $value['success_number'];
-            $number['fail_number'] = $value['fail_number'];
+				$number['month'] = $value['month'];
+				$number['run_count'] = $value['run_count'];
+	            $number['success_number'] = $value['success_number'];
+	            $number['fail_number'] = $value['fail_number'];
           }else{
+          	$number['month'] .= ',' . $value['month'];
             $number['run_count'] .=  ',' . $value['run_count'];
             $number['success_number'] .= ',' . $value['success_number'];
             $number['fail_number'] .= ',' . $value['fail_number'];
           }
 		}
+		$number['month'] = explode(',', $number['month']);
 		$number['run_count'] = explode(',',$number['run_count']);
 		$number['success_number'] = explode(",",$number['success_number']);
 		$number['fail_number'] = explode(",",$number['fail_number']);
+
+		 
+	 	if($daysd == $number['month']){
+			foreach ($daysd as $key => $value) {
+		 		$day[] = substr($value['month'],6);
+		 	}
+	 	}
 		foreach ($number['run_count'] as $key => $value) {
 			$run_count[] = intval($value);
 		}
@@ -87,32 +112,15 @@ class OperatingController extends CommonController{
 		foreach ($number['fail_number'] as $key => $value) {
 			$fail_number[] = intval($value);
 		}
-
-
+		$day = json_encode($day);
 		$run_count = json_encode($run_count);
 		$success_number = json_encode($success_number);
 		$fail_number = json_encode($fail_number);
 
-		
-		
-		$array1 = array(
-			11,12,13,14,15,14,13,12,11,10,12,14,15,16,17,14,15,13,14,15,16,14,17,18,11,14,12,14,15,20
-			);
-		$array2 = array(
-			11,22,13,24,15,14,17,28,19,10,11,12,13,14,35,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30
-			);
-
-
-		$array1 = json_encode($array1);
-		$array2 = json_encode($array2);
-		// dump($array1);die;
-		$this->assign('array1',$array1);
-		$this->assign('array2',$array2);
+		$this->assign('day',$day);
 		$this->assign('run_count',$run_count);
 		$this->assign('success_number',$success_number);
 		$this->assign('fail_number',$fail_number);
-
-		$this->assign();
 		$this -> display();
 	}
 

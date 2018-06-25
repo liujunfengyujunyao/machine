@@ -12,11 +12,9 @@ class StatisticsController extends CommonController{
 		public function partner_day(){
 			$manager = session("manager_info.id");
 			$date = array(
-				array('days'=>(date("Ymd",strtotime("-2 day")))),//昨天时间
+				array('days'=>(date("Ymd",strtotime("-1 day")))),//昨天时间
 				);
 			 $days = M("equipment_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid")->where(['t2.pid'=>$manager])->join("left join equipment as t2 on t2.id = t1.equipment_id")->select();	
-			 //$dates = date("Y-m-d H:i:s",$days['statistics_date']);
-			 //dump($dates);die;
 			 $days2 = $date;
 			 foreach ($days2 as $key => &$value) {
 			 	foreach ($days as $v) {
@@ -38,8 +36,9 @@ class StatisticsController extends CommonController{
 			 		}
 			 	}
 			 }
-			 $partner_day_statitics = array(
-			 		'statistics_date'=>$value['days'],
+			$time = strtotime($value['days']);//时间转换成时间戳
+			 $partner_day_statistics = array(
+			 		'statistics_date'=>$time,
 			 		'hardware_failure_time'=>$value['hardware_failure_time'],
 			 		'silver_game_times'=>$value['silver_game_times'],
 			 		'gold_game_times'=>$value['gold_game_times'],
@@ -55,10 +54,10 @@ class StatisticsController extends CommonController{
 			 		'pid'=>$value['pid'],
 			 		'create_time'=>time(),
 			 	);
-			//if(time()==$value['create_time']){
-				M("partner_day_statistics")->add($partner_day_statitics);
-			//}			
-			 $partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.*")->where(['t1.pid'=>$manager])->select();
+			if(time()==$value['create_time']){
+				M("partner_day_statistics")->add($partner_day_statistics);
+			}			
+			 $partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.*")->where(['t1.pid'=>$manager])->select();
 			 $this->assign("day",$partner_day);
 			$this->display();
 		}
@@ -75,7 +74,7 @@ class StatisticsController extends CommonController{
 	        }
 	        $lastStartDay = $lastyear . '-' . $lastmonth . '-1';
 	        $lastEndDay = $lastyear . '-' . $lastmonth . '-' . date('t', strtotime($lastStartDay));
-	     	$begin_time = date('Ym',strtotime('-1 month'));//只有年月
+	     	//$begin_time = date('Ym',strtotime('-1 month'));//只有年月
 	        $b_time = strtotime($lastStartDay);//上个月的月初时间戳
 	        $e_time = strtotime($lastEndDay)+(60*60*24-1);//上个月的月末时间戳
 			$month = M("equipment_month_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid")->where(['t2.pid'=>$manager])->where("t1.statistics_date between $b_time and $e_time")->join("left join equipment as t2 on t2.id = t1.equipment_id")->select();
@@ -98,7 +97,7 @@ class StatisticsController extends CommonController{
 			}
 			//dump($Luna);die;
 			$monthlast = array(
-					'statistics_date'=>$begin_time,
+					'statistics_date'=>$b_time,
 			 		'hardware_failure_time'=>$Luna['hardware_failure_time'],
 			 		'silver_game_times'=>$Luna['silver_game_times'],
 			 		'gold_game_times'=>$Luna['gold_game_times'],
@@ -115,14 +114,63 @@ class StatisticsController extends CommonController{
 			 		'create_time'=>time(),
 				);
 
-			//if(time() == $Luna['create_time']){
-				M("partner_month_statitiscs")->add($monthlast);
-			//}
-			$partner_month = M("partner_month_statitics")->alias("t1")->field("FROM_UNIXTIME(t1.create_time) monthlast,t1.*")->where(['t1.pid'=>$manager])->select();
+			if(time() == $Luna['create_time']){
+				M("partner_month_statistics")->add($monthlast);
+			 }
+			$partner_month = M("partner_month_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date) monthstart,FROM_UNIXTIME(t1.create_time) monthlast,t1.*")->where(['t1.pid'=>$manager])->select();
+			//dump($partner_month);die;
 			$this->assign("month",$partner_month);
 			$this->display();
 		}
-	// public function rijiaoyue(){
+		public function year(){
+			$manager = session('manager_info.id');
+	       $last_year_first = strtotime(date('Y-01-01', strtotime('-1 year')));//上年初
+		  $last_year_last =  strtotime(date('Y-m-d',$last_year_first)."+12 month -1 day")+(60*60*24-1);//上年尾
+		  $year = M("equipment_year_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid")->where(['t2.pid'=>$manager])->where("t1.statistics_date between $last_year_first and $last_year_last")->join("left join equipment as t2 on t2.id = t1.equipment_id")->select();
+			//dump($year);die;
+			foreach ($year as $key => $v) {
+						$year_end['hardware_failure_time']+=$v['hardware_failure_time'];//保修次数
+			 			$year_end['silver_game_times']+=$v['silver_game_times'];
+			 			$year_end['gold_game_times']+=$v['gold_game_times'];
+			 			$year_end['run_count']+=$v['run_count'];
+			 			$year_end['success_number']+=$v['success_number'];
+			 			$year_end['fail_number']+=$v['fail_number'];
+			 			$year_end['silver_game_win_times']+=$v['silver_game_win_times'];
+			 			$year_end['silver_game_lose_times']+=$v['silver_game_lose_times'];
+			 			$year_end['gold_game_win_times']+=$v['gold_game_win_times'];
+			 			$year_end['gold_game_lose_times']+=$v['gold_game_lose_times'];
+			 			$year_end['gift_out_count']+=$v['gift_out_count'];
+			 			$year_end['income_count']+=$v['income_count'];
+			 			$year_end['pid'] = $v['pid'];
+			 			$year_end['create_time'] = $v['create_time'];
+			}
+		//dump($year_end);die;
+			$yearlast = array(
+					'statistics_date'=>$last_year_first,
+			 		'hardware_failure_time'=>$year_end['hardware_failure_time'],
+			 		'silver_game_times'=>$year_end['silver_game_times'],
+			 		'gold_game_times'=>$year_end['gold_game_times'],
+			 		'run_count'=>$year_end['run_count'],
+			 		'success_number'=>$year_end['success_number'],
+			 		'fail_number'=>$year_end['fail_number'],
+			 		'silver_game_win_times'=>$year_end['silver_game_win_times'],
+			 		'silver_game_lose_times'=>$year_end['silver_game_lose_times'],
+			 		'gold_game_win_times'=>$year_end['gold_game_win_times'],
+			 		'gold_game_lose_times'=>$year_end['gold_game_lose_times'],
+			 		'gift_out_count'=>$year_end['gift_out_count'],
+			 		'income_count'=>$year_end['income_count'],
+			 		'pid'=>$year_end['pid'],
+			 		'create_time'=>time(),
+				);
+		//dump($yearlast);die;
+			if(time() == $year_end['create_time']){
+				M("partner_year_statistics")->add($yearlast);
+			 }
+			$partner_year = M("partner_year_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date) yearstart,FROM_UNIXTIME(t1.create_time) yearlast,t1.*")->where(['t1.pid'=>$manager])->select();
+			$this->assign("year",$partner_year);
+			$this->display();
+		}
+	// public function rijiayue(){
 			 // $item =array();
 			 // foreach ($days as $k => $v) {
 			 // 		if(!isset($item[$v["equipment_id"]])){
