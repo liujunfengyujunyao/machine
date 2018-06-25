@@ -1,0 +1,1357 @@
+[ 2018-06-25T09:31:03+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014999s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.017961s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.018029s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.3980s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631062 and 1529890262 ) ORDER BY t1.id  [ RunTime:0.5971s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0198s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631062 and 1529890262 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0360s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631062 and 1529890262 ) GROUP BY statistics_date  [ RunTime:0.0811s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631062 and 1529890262 ) GROUP BY statistics_date  [ RunTime:0.0261s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.203193s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.203258s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.011455s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011509s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.013860s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013935s ]
+
+[ 2018-06-25T09:31:59+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000582s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.2730s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631119 and 1529890319 ) ORDER BY t1.id  [ RunTime:0.0754s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0089s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631119 and 1529890319 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0088s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631119 and 1529890319 ) GROUP BY statistics_date  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631119 and 1529890319 ) GROUP BY statistics_date  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000257s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000355s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.081416s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.081485s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000357s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000619s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000654s ]
+
+[ 2018-06-25T09:32:35+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000505s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0282s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631154 and 1529890354 ) ORDER BY t1.id  [ RunTime:0.1075s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631154 and 1529890354 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0196s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631154 and 1529890354 ) GROUP BY statistics_date  [ RunTime:0.0121s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631154 and 1529890354 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.059624s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.059676s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000332s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000371s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000698s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000829s ]
+
+[ 2018-06-25T09:33:02+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0525s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631182 and 1529890382 ) ORDER BY t1.id  [ RunTime:0.0693s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631182 and 1529890382 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0116s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631182 and 1529890382 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631182 and 1529890382 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000214s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000289s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074660s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074730s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000650s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000698s ]
+
+[ 2018-06-25T09:33:42+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000388s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.1010s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631221 and 1529890421 ) ORDER BY t1.id  [ RunTime:0.0334s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631221 and 1529890421 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631221 and 1529890421 ) GROUP BY statistics_date  [ RunTime:0.0135s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631221 and 1529890421 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000239s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000329s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080061s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080109s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000369s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000552s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000590s ]
+
+[ 2018-06-25T09:34:45+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000355s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000645s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000701s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.1311s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631285 and 1529890485 ) ORDER BY t1.id  [ RunTime:0.0656s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0027s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631285 and 1529890485 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0282s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631285 and 1529890485 ) GROUP BY statistics_date  [ RunTime:0.0339s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631285 and 1529890485 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:35:50+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000294s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000462s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0330s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631350 and 1529890550 ) ORDER BY t1.id  [ RunTime:0.0637s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631350 and 1529890550 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631350 and 1529890550 ) GROUP BY statistics_date  [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631350 and 1529890550 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:36:17+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0305s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631377 and 1529890577 ) ORDER BY t1.id  [ RunTime:0.0444s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631377 and 1529890577 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631377 and 1529890577 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631377 and 1529890577 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:36:34+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000427s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000461s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0275s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631394 and 1529890594 ) ORDER BY t1.id  [ RunTime:0.0265s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631394 and 1529890594 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631394 and 1529890594 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631394 and 1529890594 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:37:09+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000561s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0198s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631429 and 1529890629 ) ORDER BY t1.id  [ RunTime:0.0059s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631429 and 1529890629 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631429 and 1529890629 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631429 and 1529890629 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:38:18+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008254s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000809s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0301s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631497 and 1529890697 ) ORDER BY t1.id  [ RunTime:0.0462s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0072s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631497 and 1529890697 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631497 and 1529890697 ) GROUP BY statistics_date  [ RunTime:0.0112s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631497 and 1529890697 ) GROUP BY statistics_date  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:38:38+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000406s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000579s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0195s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631518 and 1529890718 ) ORDER BY t1.id  [ RunTime:0.0318s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631518 and 1529890718 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0058s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631518 and 1529890718 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631518 and 1529890718 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:39:00+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000427s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0329s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631540 and 1529890740 ) ORDER BY t1.id  [ RunTime:0.0769s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631540 and 1529890740 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631540 and 1529890740 ) GROUP BY statistics_date  [ RunTime:0.0078s ]
+NOTIC: [8] Undefined variable: success_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 77 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 77 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631540 and 1529890740 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined variable: fail_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 99 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 99 行.
+NOTIC: [8] Undefined variable: fail_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 110 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 110 行.
+NOTIC: [8] Undefined variable: success_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 118 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 118 行.
+NOTIC: [8] Undefined variable: success_number3 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: fail_number3 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 144 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000133s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.065549s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.065591s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000319s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000346s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000546s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000579s ]
+
+[ 2018-06-25T09:39:46+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000824s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000884s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0548s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631586 and 1529890786 ) ORDER BY t1.id  [ RunTime:0.0544s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0006s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631586 and 1529890786 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631586 and 1529890786 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined variable: success_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 77 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 77 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631586 and 1529890786 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined variable: fail_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 99 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 99 行.
+NOTIC: [8] Undefined variable: fail_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 110 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 110 行.
+NOTIC: [8] Undefined variable: success_number2 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 118 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 118 行.
+NOTIC: [8] Undefined variable: success_number3 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 143 行.
+NOTIC: [8] Undefined variable: fail_number3 C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 144 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000143s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.066725s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.066775s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000492s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000528s ]
+
+[ 2018-06-25T09:40:48+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000685s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002441s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0017s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631648 and 1529890848 ) ORDER BY t1.id  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631648 and 1529890848 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631648 and 1529890848 ) GROUP BY statistics_date  [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631648 and 1529890848 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000135s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063499s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063539s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000472s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000505s ]
+
+[ 2018-06-25T09:41:24+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000452s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000494s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0018s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631684 and 1529890884 ) ORDER BY t1.id  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631684 and 1529890884 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631684 and 1529890884 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631684 and 1529890884 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:42:06+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000555s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0051s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631726 and 1529890926 ) ORDER BY t1.id  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0005s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631726 and 1529890926 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631726 and 1529890926 ) GROUP BY statistics_date  [ RunTime:0.0136s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631726 and 1529890926 ) GROUP BY statistics_date  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:42:07+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000553s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0029s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631727 and 1529890927 ) ORDER BY t1.id  [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631727 and 1529890927 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631727 and 1529890927 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631727 and 1529890927 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:42:07+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000427s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0287s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631727 and 1529890927 ) ORDER BY t1.id  [ RunTime:0.0237s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631727 and 1529890927 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631727 and 1529890927 ) GROUP BY statistics_date  [ RunTime:0.0088s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631727 and 1529890927 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:42:52+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001180s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000961s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001055s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0286s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631772 and 1529890972 ) ORDER BY t1.id  [ RunTime:0.0362s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631772 and 1529890972 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631772 and 1529890972 ) GROUP BY statistics_date  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631772 and 1529890972 ) GROUP BY statistics_date  [ RunTime:0.0011s ]
+
+[ 2018-06-25T09:42:59+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001135s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001199s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0018s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631779 and 1529890979 ) ORDER BY t1.id  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0006s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631779 and 1529890979 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631779 and 1529890979 ) GROUP BY statistics_date  [ RunTime:0.0089s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631779 and 1529890979 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+
+[ 2018-06-25T09:43:00+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000365s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000583s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0016s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631780 and 1529890980 ) ORDER BY t1.id  [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0005s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631780 and 1529890980 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631780 and 1529890980 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631780 and 1529890980 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+
+[ 2018-06-25T09:43:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0015s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631796 and 1529890996 ) ORDER BY t1.id  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0006s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631796 and 1529890996 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631796 and 1529890996 ) GROUP BY statistics_date  [ RunTime:0.0112s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631796 and 1529890996 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+
+[ 2018-06-25T09:43:31+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0349s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631811 and 1529891011 ) ORDER BY t1.id  [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631811 and 1529891011 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631811 and 1529891011 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631811 and 1529891011 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+
+[ 2018-06-25T09:44:56+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000838s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000886s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0080s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631896 and 1529891096 ) ORDER BY t1.id  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631896 and 1529891096 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631896 and 1529891096 ) GROUP BY statistics_date  [ RunTime:0.0107s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631896 and 1529891096 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:45:13+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000337s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000576s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0014s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631913 and 1529891113 ) ORDER BY t1.id  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631913 and 1529891113 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631913 and 1529891113 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631913 and 1529891113 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:45:14+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000465s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631914 and 1529891114 ) ORDER BY t1.id  [ RunTime:0.0224s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631914 and 1529891114 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631914 and 1529891114 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631914 and 1529891114 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:45:46+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000657s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000856s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0026s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529631946 and 1529891146 ) ORDER BY t1.id  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529631946 and 1529891146 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529631946 and 1529891146 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529631946 and 1529891146 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+
+[ 2018-06-25T09:46:15+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000431s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000465s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0023s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529718374 and 1529891174 ) ORDER BY t1.id  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529718374 and 1529891174 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529718374 and 1529891174 ) GROUP BY statistics_date  [ RunTime:0.0087s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529718374 and 1529891174 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+
+[ 2018-06-25T09:46:41+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000455s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0023s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632001 and 1529891201 ) ORDER BY t1.id  [ RunTime:0.0014s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632001 and 1529891201 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632001 and 1529891201 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632001 and 1529891201 ) GROUP BY statistics_date  [ RunTime:0.0011s ]
+
+[ 2018-06-25T09:47:04+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000560s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632024 and 1529891224 ) ORDER BY t1.id  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632024 and 1529891224 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632024 and 1529891224 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 83 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632024 and 1529891224 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+
+[ 2018-06-25T09:47:57+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009171s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000949s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001050s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0014s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632077 and 1529891277 ) ORDER BY t1.id  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632077 and 1529891277 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632077 and 1529891277 ) GROUP BY statistics_date  [ RunTime:0.0005s ]
+
+[ 2018-06-25T09:48:15+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000718s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000794s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0016s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632095 and 1529891295 ) ORDER BY t1.id  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0034s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632095 and 1529891295 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632095 and 1529891295 ) GROUP BY statistics_date  [ RunTime:0.0037s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 84 行.
+
+[ 2018-06-25T09:48:34+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000340s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000534s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000582s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0017s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632114 and 1529891314 ) ORDER BY t1.id  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0006s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632114 and 1529891314 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632114 and 1529891314 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 84 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632114 and 1529891314 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:49:53+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0067s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632193 and 1529891393 ) ORDER BY t1.id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632193 and 1529891393 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632193 and 1529891393 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 84 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632193 and 1529891393 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:50:40+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000862s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006503s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0019s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632240 and 1529891440 ) ORDER BY t1.id  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632240 and 1529891440 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632240 and 1529891440 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 84 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632240 and 1529891440 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:51:07+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632267 and 1529891467 ) ORDER BY t1.id  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632267 and 1529891467 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632267 and 1529891467 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 84 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632267 and 1529891467 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+
+[ 2018-06-25T09:51:23+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000637s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0089s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632283 and 1529891483 ) ORDER BY t1.id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 41 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632283 and 1529891483 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632283 and 1529891483 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 84 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632283 and 1529891483 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 135 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 136 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 137 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.064967s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.065016s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000435s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000849s ]
+
+[ 2018-06-25T09:59:32+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000702s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0116s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529632772 and 1529891972 ) ORDER BY t1.id  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 38 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529632772 and 1529891972 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0090s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 61 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529632772 and 1529891972 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 84 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529632772 and 1529891972 ) GROUP BY statistics_date  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000136s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.075895s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075947s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000603s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000652s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000699s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000780s ]
+
