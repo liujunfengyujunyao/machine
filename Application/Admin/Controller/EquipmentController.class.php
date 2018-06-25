@@ -441,20 +441,15 @@ class EquipmentController extends CommonController{
 		$month_star = strtotime(date('Y-m'));//本月初
 		$month_end = strtotime(date('Y-m-t'))+60*60*24-1;//本月末
 		$month_all = M('equipment_day_statistics')->where("statistics_date between $month_star and $month_end")->where(['equipment_id'=>$id])->select();
-		// dump($month_all);die;
-		foreach ($month_all as $key => &$value) {
-				$value['run_count']+=$value['run_count']+$value['run_count'];
-				$value['gold_game_times']+=$value['gold_game_times']+$value['gold_game_times'];
-				$value['silver_game_times']+=$value['silver_game_times']+$value['silver_game_times'];
-				$value['income_count']+=$value['income_count']+$value['income_count'];
-		}
-		foreach ($month_all as $key => $value) {
-				$month['count'] = $value['run_count'];
-				$month['gold'] = $value['gold_game_times'];
-				$month['silver'] = $value['silver_game_times'];
-				$month['income'] = $value['income_count'];
-		}
 
+		foreach ($month_all as $key => &$value) {
+				$month['count']+=$value['run_count'];
+				$month['gold']+=$value['gold_game_times'];
+				$month['silver']+=$value['silver_game_times'];
+				$month['income']+=$value['income_count'];
+		}
+		
+		
 		//上个月的数据
 		$thismonth = date('m');
 		$thisyear = date('Y');
@@ -617,8 +612,7 @@ class EquipmentController extends CommonController{
 			// floatval(date('d',strtotime('-1 days'))),
 			// floatval(date('d',time())),
 			// );
-			dump($day2);
-			dump($res);die;
+			
 			$day = json_encode($day);
 			$day2 = json_encode($day2);
 			$this->assign('day',$day2);

@@ -260,16 +260,24 @@ class OperatingController extends CommonController{
 
 	public function equipment_edit(){
 		if (IS_POST) {
+
 			$data = I('post.');
+
 			$id = $data['id'];
 			$model = D('Equipment');		
 			//娃娃机的百分比
 			if (isset($data['odds1'])) {
-			
-				// $data['equipment_odds'] = sprintf("%1\$.2f",100/$data['equipment_odds1']);
-				$data['odds'] = round(100/$data['odds1'],2);			
+				$data['odds'] = round(100/$data['odds1'],2);	
+				$data['odds2'] = round(100/$data['odds1lv2'],2);		
+				$data['odds3'] = round(100/$data['odds1lv3'],2);		
+				$data['odds4'] = round(100/$data['odds1lv4'],2);		
+				$data['odds5'] = round(100/$data['odds1lv5'],2);		
 				unset($data['odds1']);
-				
+				unset($data['odds1lv2']);
+				unset($data['odds1lv3']);
+				unset($data['odds1lv4']);
+				unset($data['odds1lv5']);
+			
 			}//彩票机的出票数量
 			elseif (isset($data['odds2'])) {
 				
@@ -289,6 +297,10 @@ class OperatingController extends CommonController{
 			$time_limit = $data['time_limit'];
 			$equipment_price = $data['price'];
 			$equipment_odds = $data['odds'];
+			$equipment_odds_lv2 = $data['odds2'];
+			$equipment_odds_lv3 = $data['odds3'];
+			$equipment_odds_lv4 = $data['odds4'];
+			$equipment_odds_lv5 = $data['odds5'];
 			//添加优先等级
 			$data['level'] = 2;
 			//将所有goods_id相同的机器设置全部修改
@@ -311,7 +323,7 @@ class OperatingController extends CommonController{
 				M('Setting')->where("uuid in ({$equipment_uuid}) and `key` = 'TIME_OF_GAME'")->save($data0);
 				M('Setting')->where("uuid in ({$equipment_uuid}) and `key` = 'GAME_PRICE'")->save($data3);
 				M('Setting')->where("uuid in ({$equipment_uuid}) and `key` = 'RATE'")->save($data20);
-				$model->where("id in ({$equipment_ids})")->save(['price'=>$equipment_price,'time_limit'=>$time_limit,'odds'=>$equipment_odds]);
+				$model->where("id in ({$equipment_ids})")->save(['price'=>$equipment_price,'time_limit'=>$time_limit,'odds'=>$equipment_odds,'odds2'=>$equipment_odds_lv2,'odds3'=>$equipment_odds_lv3,'odds4'=>$equipment_odds_lv4,'odds5'=>$equipment_odds_lv5]);
 				$this->success('修改完成',U('Admin/Operating/operating'));
 			}else{
 				//不大于0，单独改
@@ -331,7 +343,7 @@ class OperatingController extends CommonController{
 				M('Setting')->where(['uuid'=>$equipment_uuid,`key`=>'GAME_PRICE'])->save($data3);
 				M('Setting')->where(['uuid'=>$equipment_uuid,`key`=>'RATE'])->save($data20);
 				// M('Set')->where("uuid = $equipment_uuid and `key` = 'RATE'")->save($data20);
-				$model->where(['id'=>$equipment_id])->save(['price'=>$equipment_price,'time_limit'=>$time_limit,'odds'=>$equipment_odds]);
+				$model->where(['id'=>$equipment_id])->save(['price'=>$equipment_price,'time_limit'=>$time_limit,'odds'=>$equipment_odds,'odds2'=>$equipment_odds_lv2,'odds3'=>$equipment_odds_lv3,'odds4'=>$equipment_odds_lv4,'odds5'=>$equipment_odds_lv5]);
 				$this->success('修改完成',U('Admin/Operating/operating'));
 			}
 			
