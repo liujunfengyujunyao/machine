@@ -147,9 +147,25 @@
 		<?php if( $equipment["type_id"] == 1 ): ?><!--娃娃机-->
 		<div class="row cl from-group">
 		
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV1：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text form-control" value="<?php echo ($equipment["odds"]); ?>"  id="odds1" name="odds1" style="display: inline;width:50%;"><span style="color:blue;">中奖概率，运行多少次可以抓取一个，0为永不中奖</span>
+				<input type="text" class="input-text form-control" value="<?php echo ($equipment["odds"]); ?>"  id="odds1" name="odds1" style="display: inline;width:50%;" oninput="myFunction()"><span style="color:blue;">中奖概率，运行多少次可以抓取一个，0为永不中奖</span>
+			</div>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV2：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="<?php echo ($equipment["odds"]); ?>"  id="odds1lv2" name="odds1lv2" style="display: inline;width:50%;">
+			</div>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV3：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="<?php echo ($equipment["odds"]); ?>"  id="odds1lv3" name="odds1lv3" style="display: inline;width:50%;">
+			</div>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV4：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="<?php echo ($equipment["odds"]); ?>"  id="odds1lv4" name="odds1lv4" style="display: inline;width:50%;">
+			</div>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV5：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text form-control" value="<?php echo ($equipment["odds"]); ?>"  id="odds1lv5" name="odds1lv5" style="display: inline;width:50%;">
 			</div>
 		
 		</div><?php endif; ?>
@@ -251,7 +267,7 @@ $(function(){
         feedbackIcons: icon,
         live: 'disabled',
         fields: {
-            equipment_price: {
+            price: {
                 validators: {
                     notEmpty: { message: '请输入价格' },
                    // stringLength: { min: 1, max: 3, message: '长度请保持在1至3位' } 
@@ -265,24 +281,48 @@ $(function(){
                     between: { min: 10, max: 120, message:'单次时长应在10秒 - 120秒之间'}
                 }
             },
-             equipment_odds1: {
+             odds1: {
                 validators: {
                     notEmpty: { message: '请输入赔率' },
                     between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
                 }
             },
-              equipment_odds2: {
+              odds2: {
                 validators: {
                     notEmpty: { message: '请输入出票数量' },
                     between: { min: 0, max: 255, message: '彩票出票应为0-255之间' }
                 }
             },
-           equipment_odds3: {
+           	  odds3: {
            		validators: {
            			notEmpty: { message: '请输入返还率' },
            			between: { min :50, max: 100, message: '赔率百分比应为50%-100%之间'}
            		}
-           }
+           },
+            odds1lv2: {
+                validators: {
+                    // notEmpty: { message: '请输入赔率' },
+                    between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
+                }
+            },
+             odds1lv3: {
+                validators: {
+                    // notEmpty: { message: '请输入赔率' },
+                    between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
+                }
+            },
+             odds1lv4: {
+                validators: {
+                    // notEmpty: { message: '请输入赔率' },
+                    between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
+                }
+            },
+             odds1lv5: {
+                validators: {
+                    // notEmpty: { message: '请输入赔率' },
+                    between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
+                }
+            },
            
         }
     });
@@ -330,6 +370,12 @@ function submit_sure(){
 	}else{
 		return false;
 	}
+}
+function myFunction(){
+	document.getElementById('odds1lv2').value=document.getElementById('odds1').value;
+	document.getElementById('odds1lv3').value=document.getElementById('odds1').value;
+	document.getElementById('odds1lv4').value=document.getElementById('odds1').value;
+	document.getElementById('odds1lv5').value=document.getElementById('odds1').value;
 }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
