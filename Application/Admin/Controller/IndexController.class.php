@@ -63,7 +63,28 @@ class IndexController extends CommonController{
         			}	
         		}
         }
-        //dump($data_all2);
+       //dump($data_all2);
+        $success_number = M('tbl_game_log')
+        ->alias("t1")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number")
+        ->where(['t1.got_gift'=>1])
+        ->where(['t2.pid'=>$manager])
+        ->where("t1.end_time between $total and $time")
+        ->join("left join equipment as t2 on t2.id = t1.equipment_id")
+        ->Group("statistics_date")
+        ->select();
+        $success_number2 = $date;
+        foreach ($success_number2 as $key => &$value) {
+        	foreach ($success_number as $k => &$v) {
+        		if($value['statistics_date'] == $v['statistics_date']){
+        			$value['success_number'] = $v['success_number'];
+        		}
+        	}
+        	if(!$value['success_number']){
+        		$value['success_number'] = '0';
+        	}
+        }
+        //dump($success_number2);
          $fail_number = M('tbl_game_log')
         ->alias("t1")
         ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number")
@@ -85,32 +106,10 @@ class IndexController extends CommonController{
         		$value['fail_number'] = '0';
         	}
         }
-         //dump($fail_number2);
-        $success_number = M('tbl_game_log')
-        ->alias("t1")
-        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number")
-        ->where(['t1.got_gift'=>1])
-        ->where(['t2.pid'=>$manager])
-        ->where("t1.end_time between $total and $time")
-        ->join("left join equipment as t2 on t2.id = t1.equipment_id")
-        ->Group("statistics_date")
-        ->select();
-        $success_number2 = $date;
-        foreach ($success_number2 as $key => &$value) {
-        	foreach ($success_number as $k => $v) {
-        		if($value['statistics_date'] == $v['statistics_date']){
-        			$value['success_number'] = $v['success_number'];
-        		}
-        	}
-        	if(!$value['success_number']){
-        		$value['success_number'] = '0';
-        	}
-        }
-        //dump($success_number2);die;
+         //dump($fail_number2);    
            foreach ($date as $key => $value) {
 	 		$day[] = substr($value['statistics_date'],6);
 	 	}
-	 	//dump($day);die;
 		$chinese = array(
 	 			'2' =>'今天',
 	 			'1'=>'昨天',
@@ -123,23 +122,21 @@ class IndexController extends CommonController{
 	 			}
 	 		}
 	 	}
-	 	foreach ($data_all2 as $key => $value) {
+
+	 	 foreach ($data_all2 as $key => $value) {
         	$run_count[] = floatval($value['run_count']);
         }
-        //dump($data_all2);
-        foreach ($fail_number2 as $key => $value) {
-        	$fail_number3[] = floatval($value['fail_number']);
-        }
-        //dump($fail_number3);
-        foreach ($success_number2 as $key => $value) {
+       	foreach ($success_number2 as $key =>$value) {
         	$success_number3[] = floatval($value['success_number']);
         }
-       // dump($success_number2);die;
-        //dump($fail_number3);die;
-        //  foreach ($equipment_all2 as $key => $value) {
-        // 	$income_count3[] = floatval($value['income_count']);
-        // }
-      
+
+        foreach ($data_all2 as $key => &$value) {
+        	foreach ($success_number2 as $k => &$va) {
+        		if($value['statistics_date'] == $va['statistics_date']){
+        			$fail_number3[] = floatval($value['run_count']) - floatval($va['success_number']);
+        		}
+        	}
+        }
          $run_count = json_encode($run_count);		
 		 $success_number3 = json_encode($success_number3);
 		 $fail_number3 = json_encode($fail_number3);
