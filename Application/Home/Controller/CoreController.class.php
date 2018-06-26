@@ -99,5 +99,45 @@ class CoreController extends Controller{
     echo "操作已完成 请关闭页面";
 }
 
-    
+      public function equipment_month_statistics(){
+    $thismonth = date('m');
+    $thisyear = date('Y');
+    if ($thismonth == 1) {
+     $lastmonth = 12;
+     $lastyear = $thisyear - 1;
+    } else {
+     $lastmonth = $thismonth - 1;
+     $lastyear = $thisyear;
+    }
+    $lastStartDay = $lastyear . '-' . $lastmonth . '-1';
+    $lastEndDay = $lastyear . '-' . $lastmonth . '-' . date('t', strtotime($lastStartDay));
+    $star = strtotime($lastStartDay);//上个月的月初时间戳
+    $end = strtotime($lastEndDay)+60*60*24-1;//上个月的月末时间戳
+
+    $month_all = M('equipment_day_statistics')->select();
+
+        $equipment_all=M('equipment')
+        ->field("id as equipment_id")
+        ->select();
+            foreach ($month_all as $key => $value) {
+              foreach($equipment_all as $k => &$v){
+                if($v['equipment_id']==$value['equipment_id']){
+
+                    foreach($value as $ke => $val ){
+                      if($ke != 'id' && $ke != 'equipment_id' && $ke != 'statistics_date' && $ke != 'create_time'){
+                        $v[$ke] += $val;
+                        $v['statistics_date'] = $star;
+                        $v['create_time'] = time();
+                      }
+                   }
+
+                }
+
+              }
+            }
+
+            $statistics = M('equipment_month_statistics')->addAll($equipment_all);
+
+       
+  }
 }
