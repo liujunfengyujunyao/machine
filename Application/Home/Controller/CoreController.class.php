@@ -99,6 +99,7 @@ class CoreController extends Controller{
     
 		$statistics = M('equipment_day_statistics')->addAll($all9);
     echo "操作已完成 请关闭页面";
+    flush();
 }
 
 
@@ -141,7 +142,8 @@ class CoreController extends Controller{
             }
 
             $statistics = M('equipment_month_statistics')->addAll($equipment_all);
-
+             echo "操作已完成 请关闭页面";
+             flush();
        
   }
 }
