@@ -10,6 +10,8 @@ use Think\Controller;
 
 class CoreController extends Controller{
 
+
+  //机台日志的存储过程
 	public function index(){
 		$y = date("Y");
         $m = date("m");
@@ -99,6 +101,8 @@ class CoreController extends Controller{
     echo "操作已完成 请关闭页面";
 }
 
+
+  //机台月志的存储过程
       public function equipment_month_statistics(){
     $thismonth = date('m');
     $thisyear = date('Y');
