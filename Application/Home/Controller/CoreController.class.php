@@ -1,13 +1,16 @@
 <?php
+/**
+ * User: Junfeng
+ * Date: 2018/6/26
+ * Time: 13:12
+ */
 
 namespace Home\Controller;
 use Think\Controller;
-header("content-type:text/html;charset=utf-8");
-class StatisticsController extends Controller{
 
+class CoreController extends Controller{
 
-		//每日生成机台统计的脚本
-		public function equipment_day_statistics(){
+	public function index(){
 		$y = date("Y");
         $m = date("m");
         $d = date("d");
@@ -93,97 +96,8 @@ class StatisticsController extends Controller{
 		}
     
 		$statistics = M('equipment_day_statistics')->addAll($all9);
+    echo "操作已完成 请关闭页面";
 }
 
-
-  public function equipment_year_statistics(){
-    $star = 1514736000;//2017年年初时间戳
-    $end = 1546271999;//2017年年末时间戳
-    $data = M('equipment_month_statistics')->where("statistics_date between $star and $end")->order('id asc')->select();
-    foreach ($data as $key => $value) {
-      //遍历每个月
-      
-    }
-    dump($data);die;
-  }
-
-
-	public function equipment_month_statistics(){
-		$thismonth = date('m');
-		$thisyear = date('Y');
-		if ($thismonth == 1) {
-		 $lastmonth = 12;
-		 $lastyear = $thisyear - 1;
-		} else {
-		 $lastmonth = $thismonth - 1;
-		 $lastyear = $thisyear;
-		}
-		$lastStartDay = $lastyear . '-' . $lastmonth . '-1';
-		$lastEndDay = $lastyear . '-' . $lastmonth . '-' . date('t', strtotime($lastStartDay));
-		$star = strtotime($lastStartDay);//上个月的月初时间戳
-		$end = strtotime($lastEndDay)+60*60*24-1;//上个月的月末时间戳
-
-		$month_all = M('equipment_day_statistics')->select();
-
-        $equipment_all=M('equipment')
-        ->field("id as equipment_id")
-        ->select();
-            foreach ($month_all as $key => $value) {
-              foreach($equipment_all as $k => &$v){
-                if($v['equipment_id']==$value['equipment_id']){
-
-                    foreach($value as $ke => $val ){
-                      if($ke != 'id' && $ke != 'equipment_id' && $ke != 'statistics_date' && $ke != 'create_time'){
-                        $v[$ke] += $val;
-                        $v['statistics_date'] = $star;
-                        $v['create_time'] = time();
-                      }
-                   }
-
-                }
-
-              }
-            }
-
-            $statistics = M('equipment_month_statistics')->addAll($equipment_all);
-
-       
-	}
-
-
-
-		//生成每日机器记录时用到的遍历函数
- 		function inspirit($all = array(),$other = array(),$pre = 'count'){
-		foreach($all as $k=>&$v){
-		    foreach($other as $k1=>$v1){
-		        if($v['equipment_id']==$v1['equipment_id']){
-		          $v[$pre] = $v1['count'];
-		        }
-		      }
-		    if(!$v[$pre]){
-		        $v[$pre] = '0';
-		    }
-		}
-		return $all;
-	}
-
-	public function test(){
-		$y = date("Y");
-        $m = date("m");
-        $d = date("d");
-        $morningTime= mktime(0,0,0,$m,$d,$y);
-        $end = $morningTime-1;//前一天23:59:59的时间戳
-        $star = $morningTime-60*60*24;//前一天0点的时间戳
-		$get = D('tbl_game_log')
-            ->field("FROM_UNIXTIME(end_time,'%Y%m%d') days,count(id) count,equipment_id")
-            ->where("end_time between $star and $end")
-            ->Group('equipment_id')
-            ->select();
-
-	}
-
-  public function index(){
-    echo 11;
-  }
-
+    
 }
