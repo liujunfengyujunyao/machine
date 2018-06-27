@@ -89,3 +89,27 @@ INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
 >>>>>>> be1a1aa8ad5ece408ec66e2f5d84f373e86a0614
 ERR: 无法加载模块:Favicon
 
+[ 2018-06-26T16:33:20+08:00 ] 192.168.1.145 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+ERR: 无法加载模块:Favicon
+
+[ 2018-06-26T17:02:32+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+ERR: 无法加载模块:Favicon
+
+[ 2018-06-26T17:02:42+08:00 ] 192.168.1.145 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013231s ]
+ERR: 无法加载模块:Favicon
+
+[ 2018-06-26T17:02:43+08:00 ] 192.168.1.145 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000299s ]
+ERR: 无法加载模块:Favicon
+
