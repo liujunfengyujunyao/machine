@@ -1230,6 +1230,7 @@ INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 >>>>>>> be1a1aa8ad5ece408ec66e2f5d84f373e86a0614
 
+<<<<<<< HEAD
 [ 2018-06-26T15:55:00+08:00 ] 192.168.1.145 /Home/Core/partner_day
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
@@ -1649,4 +1650,325 @@ INFO: [ view_filter ] --END-- [ RunTime:0.000380s ]
 INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000603s ]
+=======
+[ 2018-06-26T16:05:59+08:00 ] 192.168.1.164 /Home/core/equipment_month_statistics
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment_day_statistics`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT id as equipment_id FROM `equipment`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `equipment_month_statistics` [ RunTime:0.0000s ]
+SQL: INSERT INTO `equipment_month_statistics` (`equipment_id`,`hardware_failure_time`,`statistics_date`,`create_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`) VALUES ('2','0','1525104000','1530000358','7','12','19','10','9','4','3','6','6','0','1900'),('8','0','1525104000','1530000358','0','8','12','3','9','0','0','2','6','0','480'),('9','0','1525104000','1530000358','0','0','0','0','0','0','0','0','0','0','0'),('10','0','1525104000','1530000358','0','0','0','0','0','0','0','0','0','0','0'),('11','0','1525104000','1530000358','1','23','25','7','18','0','1','5','17','0','14'),('12','0','1525104000','1530000358','0','1','1','0','1','0','0','0','1','0','0'),('13','0','1525104000','1530000358','0','0','0','0','0','0','0','0','0','0','0') [ RunTime:0.0970s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-06-26T16:05:59+08:00 ] 192.168.1.164 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.123007s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.123007s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.009001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-26T16:19:02+08:00 ] 192.168.1.164 /Home/core
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT t1.pid as manager_id,t1.id as equipment_id,t2.price,1529856000 as statistics_data FROM equipment t1 left join goods as t2 on t1.goods_id=t2.id   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 ) GROUP BY equipment_id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && got_gift=1 ) GROUP BY equipment_id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && got_gift=0 ) GROUP BY equipment_id  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && got_gift=1 && type=('gold') ) GROUP BY equipment_id  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && got_gift=1 && type=('silver') ) GROUP BY equipment_id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && got_gift=0 && type=('gold') ) GROUP BY equipment_id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && got_gift=0 && type=('silver') ) GROUP BY equipment_id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && type=('gold') ) GROUP BY equipment_id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SELECT count(id) count,`equipment_id` FROM `tbl_game_log` WHERE ( end_time between 1529856000 and 1529942399 && type=('silver') ) GROUP BY equipment_id  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Common\Common\function.php 第 259 行.
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0000s ]
+SQL: INSERT INTO `equipment_day_statistics` (`equipment_id`,`run_count`,`success_number`,`fail_number`,`gold_game_win_times`,`silver_game_win_times`,`gold_game_lose_times`,`silver_game_lose_times`,`gold_game_times`,`silver_game_times`,`income_count`,`create_time`,`statistics_date`) VALUES ('2','0','0','0','0','0','0','0','0','0','0','1530001142','1529856000'),('8','5','0','5','0','0','5','0','5','0','300','1530001142','1529856000'),('9','0','0','0','0','0','0','0','0','0','0','1530001142','1529856000'),('10','0','0','0','0','0','0','0','0','0','0','1530001142','1529856000'),('11','1','1','0','0','0','0','0','0','0','2','1530001142','1529856000'),('12','0','0','0','0','0','0','0','0','0','0','1530001142','1529856000'),('13','0','0','0','0','0','0','0','0','0','0','1530001142','1529856000') [ RunTime:0.0740s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-26T16:22:13+08:00 ] 192.168.1.164 /Home/core/equipment_month_statistics
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment_day_statistics`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT id as equipment_id FROM `equipment`  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: hardware_failure_time D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: success_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: fail_number D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: silver_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_win_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gold_game_lose_times D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: gift_out_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: income_count D:\WWW\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+SQL: SHOW COLUMNS FROM `equipment_month_statistics` [ RunTime:0.0000s ]
+SQL: INSERT INTO `equipment_month_statistics` (`equipment_id`,`hardware_failure_time`,`statistics_date`,`create_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`) VALUES ('2','0','1525104000','1530001333','7','12','19','10','9','4','3','6','6','0','1900'),('8','0','1525104000','1530001333','0','8','12','3','9','0','0','2','6','0','480'),('9','0','1525104000','1530001333','0','0','0','0','0','0','0','0','0','0','0'),('10','0','1525104000','1530001333','0','0','0','0','0','0','0','0','0','0','0'),('11','0','1525104000','1530001333','1','23','25','7','18','0','1','5','17','0','14'),('12','0','1525104000','1530001333','0','1','1','0','1','0','0','0','1','0','0'),('13','0','1525104000','1530001333','0','0','0','0','0','0','0','0','0','0','0') [ RunTime:0.0480s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-26T18:49:37+08:00 ] 192.168.1.171 /Home/Userlogin/get_code
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-26T18:49:52+08:00 ] 192.168.1.171 /Home/Userlogin/get_code
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+>>>>>>> 517380756c5a6f877a6b1227643f6c5944007160
 
