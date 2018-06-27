@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+[ 2018-06-27T11:35:00+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+=======
 [ 2018-06-27T10:00:19+08:00 ] 127.0.0.1 /Home/Core
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
@@ -215,6 +236,7 @@ NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Ap
 NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
 NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
 NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+>>>>>>> 7569e1ac3a877f562049eb6a897d5bfad1b45779
 
 [ 2018-06-27T15:10:18+08:00 ] 127.0.0.1 /index.php
 INFO: [ app_init ] --START--
