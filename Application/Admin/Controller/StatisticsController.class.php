@@ -5,58 +5,129 @@ class StatisticsController extends CommonController{
 
 		public function day(){
 			$manager = session("manager_info.id");
-			 $days = M("equipment_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.*")->where(['t2.pid'=>$manager])->join("left join equipment as t2 on t2.id = t1.equipment_id")->select();
+			 $days = M("equipment_day_statistics")
+			 ->alias("t1")
+			 ->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.*")
+			 ->where(['t2.pid'=>$manager])
+			 ->join("left join equipment as t2 on t2.id = t1.equipment_id")
+			 ->select();
 			 $this->assign("day",$days);
 			$this->display();
 		}
+		public function days(){
+			$manager = M("manager")->getField("id",true);
+			$id = implode($manager,',');
+			$start =mktime(0,0,0,date('m'),date('d')-1,date('Y'));
+			$end =mktime(0,0,0,date('m'),date('d'),date('Y'))-1;
+			//dump($date);die;
+			$equipment = M("equipment")
+			->alias("t1")
+			->field("FROM_UNIXTIME(t2.statistics_date,'%Y%m%d') days,t2.*,t1.name,t3.id as pid,t3.username")
+			->where("t1.pid in ({$id})")
+			->where("t2.statistics_date between $start and $end")
+			->join("left join equipment_day_statistics t2 on t2.equipment_id = t1.id")
+			->join("left join manager as t3 on t3.id = t1.pid")
+			->select();
+			//dump($equipment);
+			$returnarr = array();
+			foreach($equipment as $val) {
+			    if(isset($returnarr[$val['pid']])) {
+			    	//dump($val['pid']);die;
+			    	$returnarr[$val['pid']]['statistics_date'] = $start;
+			        $returnarr[$val['pid']]['hardware_failure_time'] += $val['hardware_failure_time'];
+			        $returnarr[$val['pid']]['silver_game_times'] += $val['silver_game_times']; 
+			        $returnarr[$val['pid']]['gold_game_times'] += $val['gold_game_times']; 
+			        $returnarr[$val['pid']]['run_count'] += $val['run_count'];  
+			        $returnarr[$val['pid']]['success_number'] += $val['success_number']; 
+			        $returnarr[$val['pid']]['fail_number'] += $val['fail_number']; 
+			        $returnarr[$val['pid']]['silver_game_win_times'] += $val['silver_game_win_times']; 
+			        $returnarr[$val['pid']]['silver_game_lose_times'] += $val['silver_game_lose_times']; 
+			        $returnarr[$val['pid']]['gold_game_win_times'] += $val['gold_game_win_times']; 
+			        $returnarr[$val['pid']]['gold_game_lose_times'] += $val['gold_game_lose_times']; 
+			        $returnarr[$val['pid']]['gift_out_count'] += $val['gift_out_count']; 
+			        $returnarr[$val['pid']]['income_count'] += $val['income_count']; 
+			        //$returnarr[$val['managerid']]['create_time'] = $val['create_time']; 
+			        $returnarr[$val['pid']]['pid'] = $val['pid']; 
+			        //$returnarr[$val['pid']]['username'] = $val['username']; 
+			        $returnarr[$val['pid']]['create_time'] = time(); 
+			        //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
+			    } else {
+			    	$returnarr[$val['pid']]['statistics_date'] = $start;
+			    	$returnarr[$val['pid']]['pid'] = $val['pid']; 
+			        $returnarr[$val['pid']]['hardware_failure_time'] = $val['hardware_failure_time'];
+			        $returnarr[$val['pid']]['silver_game_times'] = $val['silver_game_times']; 
+			        $returnarr[$val['pid']]['gold_game_times'] = $val['gold_game_times']; 
+			        $returnarr[$val['pid']]['run_count'] = $val['run_count'];  
+			        $returnarr[$val['pid']]['success_number'] = $val['success_number']; 
+			        $returnarr[$val['pid']]['fail_number'] = $val['fail_number']; 
+			        $returnarr[$val['pid']]['silver_game_win_times'] = $val['silver_game_win_times']; 
+			        $returnarr[$val['pid']]['silver_game_lose_times'] = $val['silver_game_lose_times']; 
+			        $returnarr[$val['pid']]['gold_game_win_times'] = $val['gold_game_win_times']; 
+			        $returnarr[$val['pid']]['gold_game_lose_times'] = $val['gold_game_lose_times']; 
+			        $returnarr[$val['pid']]['gift_out_count'] = $val['gift_out_count']; 
+			        $returnarr[$val['pid']]['income_count'] = $val['income_count']; 
+			        //$returnarr[$val['managerid']]['create_time'] = $val['create_time'];
+			        //$returnarr[$val['pid']]['username'] = $val['username']; 
+			        $returnarr[$val['pid']]['create_time'] = time(); 
+			        //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
+			    }
+			}
+			//dump($returnarr);die;
+	
+			M('partner_day_statistics')->addAll($returnarr);
+
+	}
 		public function partner_day(){
 			$manager = session("manager_info.id");
-			$date = array(
-				array('days'=>(date("Ymd",strtotime("-1 day")))),//昨天时间
-				);
-			 $days = M("equipment_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid")->where(['t2.pid'=>$manager])->join("left join equipment as t2 on t2.id = t1.equipment_id")->select();	
-			 $days2 = $date;
-			 foreach ($days2 as $key => &$value) {
-			 	foreach ($days as $v) {
-			 		if($value['days'] == $v['days']){
-			 			$value['hardware_failure_time']+=$v['hardware_failure_time'];//保修次数
-			 			$value['silver_game_times']+=$v['silver_game_times'];
-			 			$value['gold_game_times']+=$v['gold_game_times'];
-			 			$value['run_count']+=$v['run_count'];
-			 			$value['success_number']+=$v['success_number'];
-			 			$value['fail_number']+=$v['fail_number'];
-			 			$value['silver_game_win_times']+=$v['silver_game_win_times'];
-			 			$value['silver_game_lose_times']+=$v['silver_game_lose_times'];
-			 			$value['gold_game_win_times']+=$v['gold_game_win_times'];
-			 			$value['gold_game_lose_times']+=$v['gold_game_lose_times'];
-			 			$value['gift_out_count']+=$v['gift_out_count'];
-			 			$value['income_count']+=$v['income_count'];
-			 			$value['pid'] = $v['pid'];
-			 			$value['create_time'] = $v['create_time'];
-			 		}
-			 	}
-			 }
-			$time = strtotime($value['days']);//时间转换成时间戳
-			 $partner_day_statistics = array(
-			 		'statistics_date'=>$time,
-			 		'hardware_failure_time'=>$value['hardware_failure_time'],
-			 		'silver_game_times'=>$value['silver_game_times'],
-			 		'gold_game_times'=>$value['gold_game_times'],
-			 		'run_count'=>$value['run_count'],
-			 		'success_number'=>$value['success_number'],
-			 		'fail_number'=>$value['fail_number'],
-			 		'silver_game_win_times'=>$value['silver_game_win_times'],
-			 		'silver_game_lose_times'=>$value['silver_game_lose_times'],
-			 		'gold_game_win_times'=>$value['gold_game_win_times'],
-			 		'gold_game_lose_times'=>$value['gold_game_lose_times'],
-			 		'gift_out_count'=>$value['gift_out_count'],
-			 		'income_count'=>$value['income_count'],
-			 		'pid'=>$value['pid'],
-			 		'create_time'=>time(),
-			 	);
-			if(time()==$value['create_time']){
-				M("partner_day_statistics")->add($partner_day_statistics);
-			}			
+			// $date = array(
+			// 	array('days'=>(date("Ymd",strtotime("-1 day")))),//昨天时间
+			// 	);
+			//  $days = M("equipment_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid")->where(['t2.pid'=>$manager])->join("left join equipment as t2 on t2.id = t1.equipment_id")->select();	
+			//  $days2 = $date;
+			// // dump($days);die;
+			//  foreach ($days2 as $key => &$value) {
+			//  	foreach ($days as $v) {
+			//  		if($value['days'] == $v['days']){
+			//  			$value['hardware_failure_time']+=$v['hardware_failure_time'];//保修次数
+			//  			$value['silver_game_times']+=$v['silver_game_times'];
+			//  			$value['gold_game_times']+=$v['gold_game_times'];
+			//  			$value['run_count']+=$v['run_count'];
+			//  			$value['success_number']+=$v['success_number'];
+			//  			$value['fail_number']+=$v['fail_number'];
+			//  			$value['silver_game_win_times']+=$v['silver_game_win_times'];
+			//  			$value['silver_game_lose_times']+=$v['silver_game_lose_times'];
+			//  			$value['gold_game_win_times']+=$v['gold_game_win_times'];
+			//  			$value['gold_game_lose_times']+=$v['gold_game_lose_times'];
+			//  			$value['gift_out_count']+=$v['gift_out_count'];
+			//  			$value['income_count']+=$v['income_count'];
+			//  			$value['pid'] = $v['pid'];
+			//  			$value['create_time'] = $v['create_time'];
+			//  		}
+			//  	}
+			//  }
+			//  //dump($value);die;
+			// $time = strtotime($value['days']);//时间转换成时间戳
+			//  $partner_day_statistics = array(
+			//  		'statistics_date'=>$time,
+			//  		'hardware_failure_time'=>$value['hardware_failure_time'],
+			//  		'silver_game_times'=>$value['silver_game_times'],
+			//  		'gold_game_times'=>$value['gold_game_times'],
+			//  		'run_count'=>$value['run_count'],
+			//  		'success_number'=>$value['success_number'],
+			//  		'fail_number'=>$value['fail_number'],
+			//  		'silver_game_win_times'=>$value['silver_game_win_times'],
+			//  		'silver_game_lose_times'=>$value['silver_game_lose_times'],
+			//  		'gold_game_win_times'=>$value['gold_game_win_times'],
+			//  		'gold_game_lose_times'=>$value['gold_game_lose_times'],
+			//  		'gift_out_count'=>$value['gift_out_count'],
+			//  		'income_count'=>$value['income_count'],
+			//  		'pid'=>$value['pid'],
+			//  		'create_time'=>time(),
+			//  	);
+			// // dump($partner_day_statistics);die;
+			// if(time()==$value['create_time']){
+			// 	M("partner_day_statistics")->add($partner_day_statistics);
+			// }			
 			 $partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.*")->where(['t1.pid'=>$manager])->select();
 			 $this->assign("day",$partner_day);
 			$this->display();

@@ -16,3 +16,15 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
 INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
 ERR: 无法加载模块:Public
 
+[ 2018-06-27T18:36:36+08:00 ] 127.0.0.1 /Public/Admin/lib/echarts/3.4.3/echarts.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+ERR: 无法加载模块:Public
+
+[ 2018-06-27T18:36:36+08:00 ] 127.0.0.1 /Public/Admin/lib/echarts/3.4.3/echarts.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+ERR: 无法加载模块:Public
+
