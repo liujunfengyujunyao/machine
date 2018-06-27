@@ -3,6 +3,12 @@ namespace Admin\Controller;
 use Think\Controller;
 header("content-type:text/html;charset=utf-8");
 class OperatingController extends CommonController{
+	// public function ggg(){
+	// 	$id = session("manager_info.id");
+	// 	$ddd = M("equipment_day_statistics")->alias("t1")->field("t1.*,t2.id as rootid,t2.pid")->where(['t2.pid'=>$id])->join("left join equipment as t2 on t2.id = t1.equipment_id")->select();
+	// 	dump($ddd);die;
+
+	// }
 	//列表页
 		// public function index(){
 		// 	$id = session('manager_info.id');//获取超级管理员id
@@ -57,6 +63,7 @@ class OperatingController extends CommonController{
 		foreach ($equipment as $key => $value) {
 			$statistics[$key]['name'] = $value['name'];
 		}
+		//dump($statistics);die;
 		//表格的遍历数据
 		$this->assign("star",$star);
 		$this->assign("end",$end);

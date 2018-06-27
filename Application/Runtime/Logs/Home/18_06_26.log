@@ -1230,6 +1230,427 @@ INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 >>>>>>> be1a1aa8ad5ece408ec66e2f5d84f373e86a0614
 
+<<<<<<< HEAD
+[ 2018-06-26T15:55:00+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000764s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000736s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0013s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = null  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 131 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 132 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 134 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 135 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 136 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 137 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 138 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 139 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 140 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 141 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 142 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 143 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 146 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000770s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000806s ]
+
+[ 2018-06-26T15:55:20+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = null  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 131 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 132 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 134 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 135 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 136 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 137 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 138 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 139 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 140 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 141 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 142 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 143 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0011s ]
+ERR: 1048:Column 'hardware_failure_time' cannot be null
+ [ SQL语句 ] : INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1529999720')
+ERR: 1048:Column 'hardware_failure_time' cannot be null
+ [ SQL语句 ] : INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1529999720')
+
+[ 2018-06-26T15:56:26+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000303s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000750s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = null  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 131 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 132 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 134 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 135 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 136 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 137 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 138 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 139 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 140 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 141 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 142 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 143 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0008s ]
+ERR: 1048:Column 'hardware_failure_time' cannot be null
+ [ SQL语句 ] : INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1529999786')
+ERR: 1048:Column 'hardware_failure_time' cannot be null
+ [ SQL语句 ] : INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1529999786')
+
+[ 2018-06-26T15:57:19+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000555s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = null  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 131 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 132 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 133 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 134 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 135 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 136 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 137 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 138 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 139 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 140 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 141 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 142 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 143 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0008s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1529999839') [ RunTime:0.0680s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000798s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000839s ]
+
+[ 2018-06-26T15:57:59+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0590s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = null  [ RunTime:0.0010s ]
+
+[ 2018-06-26T15:57:59+08:00 ] 192.168.1.145 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000679s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001410s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000138s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000198s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018589s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018668s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000464s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000751s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000796s ]
+
+[ 2018-06-26T15:58:21+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000426s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0020s ]
+
+[ 2018-06-26T16:00:18+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000664s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000723s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0013s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0026s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 112 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 113 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 114 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 115 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 116 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 117 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 118 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 119 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 120 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0189s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000','0','0','5','6','1','5','0','0','0','5','0','302','4','1530000018') [ RunTime:0.0568s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000847s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000889s ]
+
+[ 2018-06-26T16:19:57+08:00 ] 192.168.1.145 /Home/core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000545s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000592s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0022s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 112 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 113 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 114 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 115 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 116 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 117 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 118 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 119 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 120 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0195s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000','0','0','5','6','1','5','0','0','0','5','0','302','4','1530001196') [ RunTime:0.0547s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001134s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001207s ]
+
+[ 2018-06-26T16:20:34+08:00 ] 192.168.1.145 /Home/core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000993s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0019s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 112 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 113 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 114 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 115 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 116 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 117 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 118 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 119 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 120 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0149s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000','0','0','5','6','1','5','0','0','0','5','0','302','4','1530001234') [ RunTime:0.0485s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000835s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000880s ]
+
+[ 2018-06-26T16:25:58+08:00 ] 192.168.1.145 /Home/core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000338s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000576s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0164s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0018s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 112 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 113 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 114 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 115 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 116 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 117 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 118 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 119 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 120 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0070s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000','0','0','5','6','1','5','0','0','0','5','0','302','4','1530001558') [ RunTime:0.0525s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000958s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001031s ]
+
+[ 2018-06-26T16:33:20+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000910s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0021s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 112 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 113 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 114 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 115 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 116 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 117 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 118 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 119 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 120 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0010s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000','0','0','5','6','1','5','0','0','0','5','0','302','4','1530002000') [ RunTime:0.0403s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000965s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001028s ]
+
+[ 2018-06-26T16:37:33+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000318s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000534s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0183s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0025s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 112 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 113 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 114 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 115 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 116 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 117 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 118 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 119 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 120 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0013s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000','0','0','5','6','1','5','0','0','0','5','0','302','4','1530002253') [ RunTime:0.0641s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001305s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001385s ]
+
+[ 2018-06-26T17:02:29+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000787s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000849s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000144s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025247s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025310s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000385s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000654s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000696s ]
+
+[ 2018-06-26T17:02:43+08:00 ] 192.168.1.145 /Home/Core/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000629s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000694s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 112 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 113 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 114 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 115 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 116 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 117 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 118 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 119 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 120 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 121 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 122 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Home\Controller\CoreController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0010s ]
+SQL: INSERT INTO `partner_day_statistics` (`statistics_date`,`hardware_failure_time`,`silver_game_times`,`gold_game_times`,`run_count`,`success_number`,`fail_number`,`silver_game_win_times`,`silver_game_lose_times`,`gold_game_win_times`,`gold_game_lose_times`,`gift_out_count`,`income_count`,`pid`,`create_time`) VALUES ('1529856000','0','0','5','6','1','5','0','0','0','5','0','302','4','1530003763') [ RunTime:0.0383s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000723s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000764s ]
+
+[ 2018-06-26T17:08:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000549s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000758s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000824s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017667s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017722s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000371s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000816s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000862s ]
+
+[ 2018-06-26T17:09:37+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000709s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001387s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026364s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026441s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000534s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000579s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000780s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000826s ]
+
+[ 2018-06-26T17:36:03+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000664s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000717s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000222s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020338s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020410s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000351s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000380s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000603s ]
+=======
 [ 2018-06-26T16:05:59+08:00 ] 192.168.1.164 /Home/core/equipment_month_statistics
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
@@ -1549,4 +1970,5 @@ INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
 INFO: [ app_begin ] --START--
 INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
 INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+>>>>>>> 517380756c5a6f877a6b1227643f6c5944007160
 
