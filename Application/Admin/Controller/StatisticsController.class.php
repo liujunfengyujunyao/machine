@@ -170,6 +170,20 @@ class StatisticsController extends CommonController{
 			$this->assign("year",$partner_year);
 			$this->display();
 		}
+		// public function all(){
+  //       //$manager = M("manager");
+  //       $manager = M('manager')->select();
+  //       $id = session("manager_info.id");    
+  //       foreach ($manager as $key => $value) {
+  //       	if($value['equipment_ids'] == null){
+  //       		$manager_id = M('manager')->where(['id'=>$id])->select();
+  //       	}else{
+  //       		$manager_ids = M("manager")->where(['id'=>$id])->getField("equipment_ids",true);
+  //       	}
+  //       }
+  //       dump($manager_ids);die;
+  //   }
+
 	// public function rijiayue(){
 			 // $item =array();
 			 // foreach ($days as $k => $v) {

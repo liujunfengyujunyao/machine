@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [ 2018-06-27T11:34:59+08:00 ] 127.0.0.1 /admin
 INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
@@ -731,4 +732,1143 @@ INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
 INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+=======
+[ 2018-06-27T09:11:31+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000661s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004484s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0115s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0017s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0004s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000143s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.087601s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.087663s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000460s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000500s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000916s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000978s ]
+
+[ 2018-06-27T09:11:37+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000409s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000752s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0012s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0019s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000136s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.075221s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075280s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000820s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000872s ]
+
+[ 2018-06-27T09:12:08+08:00 ] 127.0.0.1 /index.php/Admin/Operating/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000353s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `equipment` WHERE `pid` = 4  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `equipment` WHERE ( id in (2,8,9,10,11,12,13) )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment_month_statistics` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment_month_statistics` WHERE ( statistics_date = 1525104000 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(statistics_date,'%Y%m%d') month,`run_count`,`success_number`,`fail_number` FROM `partner_day_statistics` WHERE ( statistics_date between 1525104000 and 1527782399 )  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined variable: day C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 122 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000113s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000157s ]
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.066595s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.066637s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000681s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000731s ]
+
+[ 2018-06-27T09:12:16+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000554s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000601s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0021s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000138s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074205s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074255s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000592s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000626s ]
+
+[ 2018-06-27T09:29:14+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000321s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000564s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0021s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000137s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.088025s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.088080s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000390s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000424s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000818s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000874s ]
+
+[ 2018-06-27T09:34:16+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000555s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0022s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.078621s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078681s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000661s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000707s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000882s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000928s ]
+
+[ 2018-06-27T09:34:21+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000823s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000629s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+SQL: SELECT `equipment_ids` FROM `manager`  [ RunTime:0.0005s ]
+
+[ 2018-06-27T09:34:50+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000673s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000724s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000777s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0012s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+
+[ 2018-06-27T09:35:07+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000596s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0256s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+
+[ 2018-06-27T09:35:56+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+
+[ 2018-06-27T09:36:31+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000533s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000568s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+
+[ 2018-06-27T09:38:33+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000441s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000824s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000884s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+
+[ 2018-06-27T09:42:51+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000560s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0013s ]
+NOTIC: [8] Undefined variable: manager_id C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 176 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004308s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004375s ]
+
+[ 2018-06-27T09:42:52+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000539s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000594s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: manager_id C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 176 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000725s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000766s ]
+
+[ 2018-06-27T09:43:01+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000477s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: manager_id C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 176 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined variable: manager_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 184 行.
+
+[ 2018-06-27T09:43:26+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000322s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000660s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+
+[ 2018-06-27T09:43:57+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0005s ]
+
+[ 2018-06-27T09:44:22+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000451s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0009s ]
+
+[ 2018-06-27T09:44:30+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002776s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002821s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: equipment_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 177 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined variable: manager_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 185 行.
+
+[ 2018-06-27T09:45:09+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000765s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000817s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0193s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0122s ]
+NOTIC: [8] Undefined index: equipment_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 177 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: manager_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 185 行.
+
+[ 2018-06-27T09:45:10+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000443s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: equipment_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 177 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined variable: manager_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 185 行.
+
+[ 2018-06-27T09:46:01+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000567s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: equipment_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 177 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined variable: manager_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 185 行.
+
+[ 2018-06-27T09:46:13+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000342s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: equipment_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 177 行.
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined variable: manager_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 185 行.
+
+[ 2018-06-27T09:47:41+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+
+[ 2018-06-27T09:48:00+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000318s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000539s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000576s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+
+[ 2018-06-27T09:48:22+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000538s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000575s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+NOTIC: [8] Undefined variable: manager_ids C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 192 行.
+
+[ 2018-06-27T09:48:26+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `manager`  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0006s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT `equipment_ids` FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `manager` WHERE `id` = 4  [ RunTime:0.0004s ]
+
+[ 2018-06-27T09:48:48+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000345s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+ERR: 非法操作:all
+
+[ 2018-06-27T09:48:51+08:00 ] 127.0.0.1 /index.php/Admin/Statistics
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000535s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000588s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000135s ]
+NOTIC: [8] Undefined variable: total C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\f6a89a7172fea4c457df44421924fe2c.php 第 180 行.
+NOTIC: [8] Undefined variable: data C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\f6a89a7172fea4c457df44421924fe2c.php 第 305 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080642s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080706s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000804s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000982s ]
+
+[ 2018-06-27T09:48:51+08:00 ] 127.0.0.1 /index.php/Admin/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000337s ]
+
+[ 2018-06-27T09:49:00+08:00 ] 127.0.0.1 /index.php/Admin/Statistics
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000354s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000143s ]
+NOTIC: [8] Undefined variable: total C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\f6a89a7172fea4c457df44421924fe2c.php 第 180 行.
+NOTIC: [8] Undefined variable: data C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\f6a89a7172fea4c457df44421924fe2c.php 第 305 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056203s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056266s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000544s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000593s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000822s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000874s ]
+
+[ 2018-06-27T09:49:04+08:00 ] 127.0.0.1 /index.php/Admin/Operating/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001174s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001311s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0012s ]
+SQL: SELECT `id` FROM `equipment` WHERE `pid` = 4  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `equipment` WHERE ( id in (2,8,9,10,11,12,13) )  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `equipment_month_statistics` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `equipment_month_statistics` WHERE ( statistics_date = 1525104000 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0007s ]
+SQL: SELECT FROM_UNIXTIME(statistics_date,'%Y%m%d') month,`run_count`,`success_number`,`fail_number` FROM `partner_day_statistics` WHERE ( statistics_date between 1525104000 and 1527782399 )  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 97 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 98 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 99 行.
+NOTIC: [8] Undefined variable: day C:\phpStudy\workspace\machine\Application\Admin\Controller\OperatingController.class.php 第 122 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000108s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000146s ]
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 203 行.
+NOTIC: [8] Undefined index: tag C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 206 行.
+NOTIC: [8] Undefined index: equipment_create_time C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 211 行.
+NOTIC: [8] Undefined index: goods_id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+NOTIC: [8] Undefined index: goods_name C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\72bcfacae7f4282909bd985cb7d72b72.php 第 212 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072917s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072968s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000595s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000636s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000919s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+
+[ 2018-06-27T09:49:09+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000485s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000529s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0018s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000143s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080689s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080740s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000414s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000445s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000708s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000751s ]
+
+[ 2018-06-27T09:49:16+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000556s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0014s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529804956 and 1530064156 ) ORDER BY t1.id  [ RunTime:0.0235s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 34 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 40 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 43 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 49 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 40 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 43 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 49 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0009s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529804956 and 1530064156 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 69 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529804956 and 1530064156 ) GROUP BY statistics_date  [ RunTime:0.0143s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 92 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 92 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529804956 and 1530064156 ) GROUP BY statistics_date  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 114 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000108s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.061749s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.061823s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000754s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000808s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001039s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001097s ]
+
+[ 2018-06-27T09:49:24+08:00 ] 127.0.0.1 /index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000461s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0012s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1529804963 and 1530064163 ) ORDER BY t1.id  [ RunTime:0.0257s ]
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 34 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 40 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 43 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 49 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 40 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 43 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 49 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1529804963 and 1530064163 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0085s ]
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 69 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1529804963 and 1530064163 ) GROUP BY statistics_date  [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 92 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 92 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1529804963 and 1530064163 ) GROUP BY statistics_date  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 114 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000133s ]
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined variable: count C:\phpStudy\workspace\machine\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073185s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073240s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000361s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000660s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000709s ]
+
+[ 2018-06-27T09:49:30+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000546s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0008s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000140s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074898s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074954s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000327s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000676s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000761s ]
+
+[ 2018-06-27T09:50:31+08:00 ] 127.0.0.1 /index.php/Admin/Statistics/partner_day
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000632s ]
+SQL: SHOW COLUMNS FROM `equipment_day_statistics` [ RunTime:0.0011s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,t1.*,t2.pid FROM equipment_day_statistics t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t2.pid = '4'  [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: hardware_failure_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 42 行.
+NOTIC: [8] Undefined index: silver_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 43 行.
+NOTIC: [8] Undefined index: gold_game_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 44 行.
+NOTIC: [8] Undefined index: run_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 45 行.
+NOTIC: [8] Undefined index: success_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 46 行.
+NOTIC: [8] Undefined index: fail_number C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 47 行.
+NOTIC: [8] Undefined index: silver_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 48 行.
+NOTIC: [8] Undefined index: silver_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 49 行.
+NOTIC: [8] Undefined index: gold_game_win_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 50 行.
+NOTIC: [8] Undefined index: gold_game_lose_times C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 51 行.
+NOTIC: [8] Undefined index: gift_out_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 52 行.
+NOTIC: [8] Undefined index: income_count C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 53 行.
+NOTIC: [8] Undefined index: pid C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 54 行.
+NOTIC: [8] Undefined index: create_time C:\phpStudy\workspace\machine\Application\Admin\Controller\StatisticsController.class.php 第 57 行.
+SQL: SHOW COLUMNS FROM `partner_day_statistics` [ RunTime:0.0014s ]
+SQL: SELECT FROM_UNIXTIME(t1.statistics_date,'%Y%m%d') days,FROM_UNIXTIME(t1.create_time,'%Y%m%d') day,t1.* FROM partner_day_statistics t1 WHERE t1.pid = '4'  [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000144s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.083449s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.083504s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000327s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000689s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000739s ]
+>>>>>>> 7569e1ac3a877f562049eb6a897d5bfad1b45779
 

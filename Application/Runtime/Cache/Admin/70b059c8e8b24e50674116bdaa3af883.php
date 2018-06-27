@@ -98,7 +98,7 @@
 		<span class="c-gray en">&gt;</span>
 		<a href="">统计数据</a>
 		<span class="c-gray en">&gt;</span>
-		日统计 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+		商户日统计 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<table class="table table-border table-bordered table-bg table-sort">

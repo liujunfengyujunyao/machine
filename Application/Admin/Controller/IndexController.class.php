@@ -40,6 +40,15 @@ class IndexController extends CommonController{
         	if(!$value['income_count']){
         		$value['income_count'] = '0';
         	}
+        	if(!$value['run_count']){
+        		$value['run_count'] = '0';
+        	}
+        	if(!$value['success_number']){
+        		$value['success_number'] = '0';
+        	}
+        	if(!$value['fail_number']){
+        		$value['fail_number'] = '0';
+        	}
         }
          //dump($equipment_all2);die;
         $data_all = M('tbl_game_log')
