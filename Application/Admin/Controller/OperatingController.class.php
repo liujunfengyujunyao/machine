@@ -46,31 +46,37 @@ class OperatingController extends CommonController{
    				$daysd[]['month'] = date("Ymd", $start);"<br/>";
    				//  //$daysd[] = $start;
    			}
-		//dump($daysd);die;
 		$star = strtotime($lastStartDay);//上个月的月初时间戳
-		//dump($star);die;
 		$end = strtotime($lastEndDay)+60*60*24-1;//上个月的月末时间戳
 		$id = session('manager_info.id');
-		$equipment_ids = M('Equipment')->where(['pid'=>$id])->getField("id",true);
+		$equipment_ids = M('equipment')->where(['pid'=>$id])->getField("id",true);
 		$equipment_ids = implode(",",$equipment_ids);
-		$equipment = M('equipment')->where("id in ({$equipment_ids})")->select();
+		if($equipment_ids == null){
+
+		}else{
+			$equipment = M('equipment')->where("id in ({$equipment_ids})")->select();
 		//查询出名下的机台上个月的统计情况
 		$statistics = M('equipment_month_statistics')
-		->where("equipment_id in ({$equipment_ids})")
-		->where("statistics_date = $star")
+		->alias("t1")
+		->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') month,t1.*,t2.name")
+		->where("t1.statistics_date between $star and $end")
+		->where("t1.equipment_id in ({$equipment_ids})")
+		->join("left join equipment as t2 on t2.id = t1.equipment_id")
 		->select();
-		//将机台名称放入数组中
-		foreach ($equipment as $key => $value) {
-			$statistics[$key]['name'] = $value['name'];
-		}
 		//dump($statistics);die;
-		//表格的遍历数据
+		//将机台名称放入数组中
+		// foreach ($equipment as $key => &$value) {
+		// 	$statistics[$key]['name'] = $value['name'];
+		// }
+		//dump($statistics);die;
+		//表格的遍历数据		
+		}
 		$this->assign("star",$star);
 		$this->assign("end",$end);
 		$this->assign("statistics",$statistics);
 		$this->assign("equipment",$equipment);
 
-		$partner_day_statistics = M('partner_day_statistics')->field("FROM_UNIXTIME(statistics_date,'%Y%m%d') month,run_count,success_number,fail_number")->where("pid = $manager_id")->where("statistics_date between $star and $end")->select();
+		$partner_day_statistics = M('partner_day_statistics')->field("FROM_UNIXTIME(statistics_date,'%Y%m%d') month,run_count,success_number,fail_number")->where("statistics_date between $star and $end")->where(['pid'=>$manager_id])->select();
 		$partner_day_statistics2 = $daysd;
 		foreach ($partner_day_statistics2 as $key => &$value) {
 			foreach ($partner_day_statistics as $k => $v) {

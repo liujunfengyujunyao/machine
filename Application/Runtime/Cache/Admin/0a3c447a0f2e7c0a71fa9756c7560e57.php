@@ -98,7 +98,7 @@
 		<span class="c-gray en">&gt;</span>
 		<a href="">统计数据</a>
 		<span class="c-gray en">&gt;</span>
-		年统计 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+		商户月统计 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<table class="table table-border table-bordered table-bg table-sort">
@@ -108,29 +108,39 @@
 					</tr>
 					<tr class="text-c">
 						<th>ID</th>
-						<th>年期</th>
-						<th>机台</th>
-						<th>游戏成功次数</th>
-						<th>游戏失败次数</th>
-						<th>机台游戏总数</th>
+						<th>日期</th>
+						<th>机台保修次数</th>
+						<th>免费游戏次数</th>
+						<th>收费游戏次数</th>
+						<th>机台运行游戏总次数</th>
+						<th>抓取成功次数</th>
+						<th>抓取失败次数</th>
+						<th>免费抓取成功次数</th>
+						<th>免费抓取失败次数</th>
+						<th>收费抓取成功次数</th>
+						<th>收费抓取失败次数</th>
 						<th>输出商品</th>
-						<th>游戏用户总数</th>
-						<th>一年的收入</th>
+						<th>每月的收入</th>
 						<th>统计时间</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php if(is_array($year)): $k = 0; $__LIST__ = $year;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?><tr class="text-c">
+					<?php if(is_array($month)): $k = 0; $__LIST__ = $month;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?><tr class="text-c">
 						<td><?php echo ($v["id"]); ?></td>
-						<td><?php echo ($v["year_count"]); ?></td>
-						<td><?php echo ($v["equipment_id"]); ?></td>
+						<td><?php echo ($v["yearstart"]); ?></td>
+						<td><?php echo ($v["hardware_failure_time"]); ?></td>
+						<td><?php echo ($v["silver_game_times"]); ?></td>
+						<td><?php echo ($v["gold_game_times"]); ?></td>
+						<td><?php echo ($v["run_count"]); ?></td>
 						<td><?php echo ($v["success_number"]); ?></td>
-						<td><?php echo ($v["fail_numbr"]); ?></td>
-						<td><?php echo ($v["run_count_total"]); ?></td>
-						<td><?php echo ($v["gift_out_count_total"]); ?></td>
-						<td><?php echo ($v["all_user_id_count"]); ?></td>
-						<td><?php echo ($v["income_day_count"]); ?></td>
-						<td><?php echo ($v["create_time"]); ?></td>
+						<td><?php echo ($v["fail_number"]); ?></td>
+						<td><?php echo ($v["silver_game_win_times"]); ?></td>
+						<td><?php echo ($v["silver_game_lose_times"]); ?></td>
+						<td><?php echo ($v["gold_game_win_times"]); ?></td>
+						<td><?php echo ($v["gold_game_lose_times"]); ?></td>
+						<td><?php echo ($v["gift_out_count"]); ?></td>
+						<td><?php echo ($v["income_count"]); ?></td>
+						<td><?php echo ($v["yearlast"]); ?></td>
 					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
 			</table>

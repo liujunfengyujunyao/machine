@@ -20,7 +20,7 @@
 		<span class="c-gray en">&gt;</span>
 		<a href="">统计数据</a>
 		<span class="c-gray en">&gt;</span>
-		年统计 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+		商户月统计 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<table class="table table-border table-bordered table-bg table-sort">
@@ -30,30 +30,40 @@
 					</tr>
 					<tr class="text-c">
 						<th>ID</th>
-						<th>年期</th>
-						<th>机台</th>
-						<th>游戏成功次数</th>
-						<th>游戏失败次数</th>
-						<th>机台游戏总数</th>
+						<th>日期</th>
+						<th>机台保修次数</th>
+						<th>免费游戏次数</th>
+						<th>收费游戏次数</th>
+						<th>机台运行游戏总次数</th>
+						<th>抓取成功次数</th>
+						<th>抓取失败次数</th>
+						<th>免费抓取成功次数</th>
+						<th>免费抓取失败次数</th>
+						<th>收费抓取成功次数</th>
+						<th>收费抓取失败次数</th>
 						<th>输出商品</th>
-						<th>游戏用户总数</th>
-						<th>一年的收入</th>
+						<th>每月的收入</th>
 						<th>统计时间</th>
 					</tr>
 				</thead>
 				<tbody>
-					<volist name="year" key="k" id="v">
+					<volist name="month" key="k" id="v">
 					<tr class="text-c">
 						<td>{{$v.id}}</td>
-						<td>{{$v.year_count}}</td>
-						<td>{{$v.equipment_id}}</td>
+						<td>{{$v.yearstart}}</td>
+						<td>{{$v.hardware_failure_time}}</td>
+						<td>{{$v.silver_game_times}}</td>
+						<td>{{$v.gold_game_times}}</td>
+						<td>{{$v.run_count}}</td>
 						<td>{{$v.success_number}}</td>
-						<td>{{$v.fail_numbr}}</td>
-						<td>{{$v.run_count_total}}</td>
-						<td>{{$v.gift_out_count_total}}</td>
-						<td>{{$v.all_user_id_count}}</td>
-						<td>{{$v.income_day_count}}</td>
-						<td>{{$v.create_time}}</td>
+						<td>{{$v.fail_number}}</td>
+						<td>{{$v.silver_game_win_times}}</td>
+						<td>{{$v.silver_game_lose_times}}</td>
+						<td>{{$v.gold_game_win_times}}</td>
+						<td>{{$v.gold_game_lose_times}}</td>
+						<td>{{$v.gift_out_count}}</td>
+						<td>{{$v.income_count}}</td>
+						<td>{{$v.yearlast}}</td>
 					</tr>
 					</volist>
 				</tbody>

@@ -120,14 +120,14 @@
 						<th>收费抓取成功次数</th>
 						<th>收费抓取失败次数</th>
 						<th>输出商品</th>
-						<th>每天的收入</th>
+						<th>每月的收入</th>
 						<th>统计时间</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php if(is_array($month)): $k = 0; $__LIST__ = $month;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?><tr class="text-c">
 						<td><?php echo ($v["id"]); ?></td>
-						<td><?php echo ($v["statistics_date"]); ?></td>
+						<td><?php echo ($v["monthstart"]); ?></td>
 						<td><?php echo ($v["hardware_failure_time"]); ?></td>
 						<td><?php echo ($v["silver_game_times"]); ?></td>
 						<td><?php echo ($v["gold_game_times"]); ?></td>

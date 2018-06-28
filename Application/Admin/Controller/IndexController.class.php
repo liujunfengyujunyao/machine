@@ -14,19 +14,20 @@ class IndexController extends CommonController{
 		$total = strtotime('-3 days');
 		$time = time();
         $date = array(
-        	array('statistics_date'=>date('Ymd',strtotime('-2 days'))),
-        	array('statistics_date'=>date('Ymd',strtotime('-1 days'))),
-        	array('statistics_date'=>date('Ymd',time())),
+        	array('statistics_date'=>date('Y-m-d',strtotime('-2 days'))),
+        	array('statistics_date'=>date('Y-m-d',strtotime('-1 days'))),
+        	array('statistics_date'=>date('Y-m-d',time())),
         	);
         $equipment_all=M('equipment')
         ->alias('t1')
-        ->field("FROM_UNIXTIME(t3.end_time,'%Y%m%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift")
+        ->field("FROM_UNIXTIME(t3.end_time,'%Y-%m-%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift")
         ->where(['t1.pid'=>$manager])
         ->where("t3.end_time between $total and $time")
         ->join("left join tbl_game_log as t3 on t3.equipment_id = t1.id")
         ->join('left join goods as t2 on t1.goods_id=t2.id')
         ->order("t1.id",asc)
         ->select();
+        //dump($equipment_all);
         $equipment_all2 = $date;
         foreach ($equipment_all2 as $key => &$value) {
         	foreach ($equipment_all as $k => $v) {
@@ -50,10 +51,9 @@ class IndexController extends CommonController{
         		$value['fail_number'] = '0';
         	}
         }
-         //dump($equipment_all2);die;
         $data_all = M('tbl_game_log')
         ->alias("t1")
-        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count(t1.id) count")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y-%m-%d') statistics_date,count(t1.id) count")
         ->where("t1.end_time between $total and $time")
         ->where(['t2.pid'=>$manager])
         ->join("left join equipment as t2 on t2.id = t1.equipment_id")
@@ -71,10 +71,10 @@ class IndexController extends CommonController{
         			}	
         		}
         }
-       //dump($data_all2);
+       //dump($data_all2);die;
         $success_number = M('tbl_game_log')
         ->alias("t1")
-        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.id') success_number")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y-%m-%d') statistics_date,count('t1.id') success_number")
         ->where(['t1.got_gift'=>1])
         ->where(['t2.pid'=>$manager])
         ->where("t1.end_time between $total and $time")
@@ -96,7 +96,7 @@ class IndexController extends CommonController{
         //dump($success_number2);die;
          $fail_number = M('tbl_game_log')
         ->alias("t1")
-        ->field("FROM_UNIXTIME(t1.end_time,'%Y%m%d') statistics_date,count('t1.got_gift') fail_number")
+        ->field("FROM_UNIXTIME(t1.end_time,'%Y-%m-%d') statistics_date,count('t1.got_gift') fail_number")
         ->where(['t1.got_gift'=>0])
         ->where(['t2.pid' => $manager])
         ->where("t1.end_time between $total and $time")

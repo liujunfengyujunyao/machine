@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?>﻿<!--_meta 作为公共模版分离出去-->
+<?php if (!defined('THINK_PATH')) exit();?><!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,7 +24,7 @@
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>管理员列表 - 管理员列表 - Diamond后台</title>
+<title>群组列表 - 群管理 - MP后台</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
@@ -32,7 +32,7 @@
 <!--_header 作为公共模版分离出去-->
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/index.php/Admin/Index/index">管理平台</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/index.php/Admin/Statistics/Index/index">管理平台</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/index.php/Admin/Index/index">管理平台</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/index.php/Admin/Group/Index/index">管理平台</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 		<?php if( $_SESSION['manager_info']['role_id']== 3 || $_SESSION['manager_info']['role_id']== 5): ?><nav class="nav navbar-nav">
 							<ul class="cl">
 					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 群管理 <i class="Hui-iconfont">&#xe6d5;</i></a>
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 </header>
-<!--/_header 作为公共模版分离出去--> 
+<!--/_header 作为公共模版分离出去-->
 
 <!--_menu 作为公共模版分离出去-->
 <aside class="Hui-aside">
@@ -94,61 +94,54 @@
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> <a href="/index.php/Admin/Index/index">首页</a>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 全部
 		<span class="c-gray en">&gt;</span>
-		<a href="">统计数据</a>
-		<span class="c-gray en">&gt;</span>
-		商户日统计 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+		群
+	
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
-			<table class="table table-border table-bordered table-bg table-sort">
-				<thead>
-					<tr>
-						<th scope="col" colspan="9">统计列表</th>
-					</tr>
-					<tr class="text-c">
-						<th>ID</th>
-						<th>日期</th>
-						<th>机台保修次数</th>
-						<th>免费游戏次数</th>
-						<th>收费游戏次数</th>
-						<th>机台运行游戏总次数</th>
-						<th>抓取成功次数</th>
-						<th>抓取失败次数</th>
-						<th>免费抓取成功次数</th>
-						<th>免费抓取失败次数</th>
-						<th>收费抓取成功次数</th>
-						<th>收费抓取失败次数</th>
-						<th>输出商品</th>
-						<th>每天的收入</th>
-						<th>统计时间</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php if(is_array($day)): $k = 0; $__LIST__ = $day;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?><tr class="text-c">
-						<td><?php echo ($v["id"]); ?></td>
-						<td><?php echo ($v["days"]); ?></td>
-						<td><?php echo ($v["hardware_failure_time"]); ?></td>
-						<td><?php echo ($v["silver_game_times"]); ?></td>
-						<td><?php echo ($v["gold_game_times"]); ?></td>
-						<td><?php echo ($v["run_count"]); ?></td>
-						<td><?php echo ($v["success_number"]); ?></td>
-						<td><?php echo ($v["fail_number"]); ?></td>
-						<td><?php echo ($v["silver_game_win_times"]); ?></td>
-						<td><?php echo ($v["silver_game_lose_times"]); ?></td>
-						<td><?php echo ($v["gold_game_win_times"]); ?></td>
-						<td><?php echo ($v["gold_game_lose_times"]); ?></td>
-						<td><?php echo ($v["gift_out_count"]); ?></td>
-						<td><?php echo ($v["income_count"]); ?></td>
-						<td><?php echo ($v["day"]); ?></td>
-					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-				</tbody>
-			</table>
+			
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l">
+				<a href="javascript:;" id="delAll" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+				<a class="btn btn-primary radius" data-title="添加资讯" _href="article-add.html"  href="/index.php/Admin/Group/add"><i class="Hui-iconfont">&#xe600;</i> 添加群组</a>
+				</span>
+			</div>
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-bg table-hover table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="25"><input type="checkbox" name="" value=""></th>
+							<th width="80">群名称</th>
+							<!-- <th style="width: 150px;">标题</th> -->
+							<th width="80">机台</th>
+							<th width="120">人员</th>
+							<th width="120">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php if(is_array($group)): $i = 0; $__LIST__ = $group;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><tr class="text-c">
+							<td><input type="checkbox" value="<?php echo ($vol["id"]); ?>" name="del_one" class="del_one"></td>
+							<td><a href="/index.php/Admin/Group/detail/id/<?php echo ($vol["id"]); ?>"><?php echo ($vol["group_name"]); ?></a></td>
+							<td><?php echo ($vol["equipment_names"]); ?></td>	
+							<td class="text-l">
+								<!-- <u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10001')" title="查看"> --><?php echo ($vol["manager_nicknames"]); ?><!-- </u> -->
+							</td>
+							<!-- <td><?php echo ($vol["article_author"]); ?></td> -->
+							<td class="f-14 td-manage">
+								<a style="text-decoration:none" class="ml-5"  href="/index.php/Admin/Group/edit/id/<?php echo ($vol["id"]); ?>" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+								<a style="text-decoration:none" class="ml-5" onclick="if(confirm('确认删除？')) location.href='/index.php/Admin/Group/del/id/<?php echo ($vol["id"]); ?>'" href="/index.php/Admin/Group/del/id/<?php echo ($vol["id"]); ?>" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					</tbody>
+				</table>
+			</div>
 		</article>
 	</div>
 </section>
 
-<!--_footer 作为公共模版分离出去--> 
+<!--_footer 作为公共模版分离出去-->
 
 <script type="text/javascript" src="/Public/Admin/lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="/Public/Admin/lib/layer/2.4/layer.js"></script>
@@ -161,18 +154,11 @@
 <script type="text/javascript" src="/Public/Admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 
 
-<!--/_footer /作为公共模版分离出去--> 
+<!--/_footer /作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="/Public/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="/Public/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="/Public/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
-<script language="JavaScript"> 
-//  function myrefresh(){ 
-// window.location.reload(); 
-// } 
-// setTimeout('myrefresh()',1000); //指定1秒刷新一次 
-// </script> 
+<script type="text/javascript" src="/Public/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
@@ -182,59 +168,8 @@ $('.table-sort').dataTable({
 		// {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
 	]
 });
-/*
-	参数解释：
-	title	标题
-	url		请求的url
-	id		需要操作的数据id
-	w		弹出层宽度（缺省调默认值）
-	h		弹出层高度（缺省调默认值）
-*/
-
-/*管理员-增加*/
-function admin_add(title,url,w,h){
-	layer_show(title,url,w,h);
-}
-/*管理员-删除*/
-// function admin_del(obj,id){
-// 	layer.confirm('确认要删除吗？',function(index){
-// 		//此处请求后台程序，下方是成功后的前台处理……
-		
-// 		$(obj).parents("tr").remove();
-// 		layer.msg('已删除!',{icon:1,time:1000});
-// 	});
-// }
-/*管理员-编辑*/
-// function admin_edit(title,url,id,w,h){
-// 	layer_show(title,url,w,h);
-// }
-/*管理员-停用*/
-// function admin_stop(obj,id){
-// 	layer.confirm('确认要停用吗？',function(index){
-			
-// 		//此处请求后台程序，下方是成功后的前台处理……
-		
-// 		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,id)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
-// 		$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
-// 		$(obj).remove();
-// 		layer.msg('已停用!',{icon: 5,time:1000});
-// 	});
-// }
-
-/*管理员-启用*/
-// function admin_start(obj,id){
-// 	layer.confirm('确认要启用吗？',function(index){
-// 		//此处请求后台程序，下方是成功后的前台处理……
-		
-// 		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="";" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
-// 		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-// 		$(obj).remove();
-// 		layer.msg('已启用!', {icon: 6,time:1000});
-// 	});
-// }
 $('#delAll').click(function(){
 	var ids ='' ;
-	
 	$.each($(':checked[name=del_one]'),function(i,v){	
 	ids += $(v).val()+',' ;
 	});
@@ -249,20 +184,102 @@ $('#delAll').click(function(){
 			'type':'post',
 			'dataType':'json',
 			'data':'ids='+ids,
-			'url':'/index.php/Admin/Statistics/delAll',
+			'url':'/index.php/Admin/Group/delAll',
 			'success':function(response){
 				if(response.code!=10000){
 					alert(response.msg);
 					return;
 				}else{
 					window.document.write('删除成功');
-					location.href="/index.php/Admin/Statistics/index";
+					location.href="/index.php/Admin/Group/index";
 				}
 			}
 		});
 	});
 });
-</script> 
+
+/*资讯-添加*/
+function article_add(title,url,w,h){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*资讯-编辑*/
+function article_edit(title,url,id,w,h){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*资讯-删除*/
+function article_del(obj,id){
+	layer.confirm('确认要删除吗？',function(index){
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			success: function(data){
+				$(obj).parents("tr").remove();
+				layer.msg('已删除!',{icon:1,time:1000});
+			},
+			error:function(data) {
+				console.log(data.msg);
+			},
+		});		
+	});
+}
+
+/*资讯-审核*/
+function article_shenhe(obj,id){
+	layer.confirm('审核文章？', {
+		btn: ['通过','不通过','取消'], 
+		shade: false,
+		closeBtn: 0
+	},
+	function(){
+		$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_start(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
+		$(obj).remove();
+		layer.msg('已发布', {icon:6,time:1000});
+	},
+	function(){
+		$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_shenqing(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">未通过</span>');
+		$(obj).remove();
+    	layer.msg('未通过', {icon:5,time:1000});
+	});	
+}
+/*资讯-下架*/
+function article_stop(obj,id){
+	layer.confirm('确认要下架吗？',function(index){
+		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_start(this,id)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已下架</span>');
+		$(obj).remove();
+		layer.msg('已下架!',{icon: 5,time:1000});
+	});
+}
+
+/*资讯-发布*/
+function article_start(obj,id){
+	layer.confirm('确认要发布吗？',function(index){
+		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
+		$(obj).remove();
+		layer.msg('已发布!',{icon: 6,time:1000});
+	});
+}
+/*资讯-申请上线*/
+function article_shenqing(obj,id){
+	$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
+	$(obj).parents("tr").find(".td-manage").html("");
+	layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
+}
+</script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>

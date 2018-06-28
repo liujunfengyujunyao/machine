@@ -109,6 +109,7 @@ class Diliang2Controller extends Controller{
 
 	public function available($type){
 		//pid为9是Diliang2  4是ce
+   // dump();die;
 		if ($type == 1) {
 			$rooms = M('Goods')
 			->alias('t1')

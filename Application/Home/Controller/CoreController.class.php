@@ -101,13 +101,12 @@ class CoreController extends Controller{
     echo "操作已完成 请关闭页面";
     flush();
 }
-
+//商户日统计
 public function days(){
       $manager = M("manager")->getField("id",true);
       $id = implode($manager,',');
       $start =mktime(0,0,0,date('m'),date('d')-1,date('Y'));
       $end =mktime(0,0,0,date('m'),date('d'),date('Y'))-1;
-      //dump($date);die;
       $equipment = M("equipment")
       ->alias("t1")
       ->field("FROM_UNIXTIME(t2.statistics_date,'%Y%m%d') days,t2.*,t1.name,t3.id as pid,t3.username")
@@ -160,11 +159,144 @@ public function days(){
               //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
           }
       }
+      M('partner_day_statistics')->addAll($returnarr);
+  }
+  //商户月统计
+  public function month_month(){
+      $thismonth = date('m');
+      $thisyear = date('Y');
+      if ($thismonth == 1) {
+       $lastmonth = 12;
+       $lastyear = $thisyear - 1;
+      } else {
+       $lastmonth = $thismonth - 1;
+       $lastyear = $thisyear;
+      }
+      $lastStartDay = $lastyear . '-' . $lastmonth . '-1';
+      $lastEndDay = $lastyear . '-' . $lastmonth . '-' . date('t', strtotime($lastStartDay));
+      $meiintime = strtotime($lastStartDay);$endtime = strtotime($lastEndDay);//每一天的时间
+      $star = strtotime($lastStartDay);//上个月的月初时间戳
+      //dump($star);die;
+      $end = strtotime($lastEndDay)+60*60*24-1;//上个月的月末时间戳
+      $manager = M("manager")->getField("id",true);
+      $id = implode($manager,',');
+      $equipment = M("equipment")
+      ->alias("t1")
+      ->field("FROM_UNIXTIME(t2.statistics_date,'%Y%m%d') days,t2.*,t1.name,t3.id as pid,t3.username")
+      ->where("t1.pid in ({$id})")
+      ->where("t2.statistics_date between $star and $end")
+      ->join("left join equipment_month_statistics t2 on t2.equipment_id = t1.id")
+      ->join("left join manager as t3 on t3.id = t1.pid")
+      ->select();
+      //dump($equipment);
+      $returnarr = array();
+      foreach($equipment as $val) {
+          if(isset($returnarr[$val['pid']])) {
+            //dump($val['pid']);die;
+            $returnarr[$val['pid']]['statistics_date'] = $end;
+              $returnarr[$val['pid']]['hardware_failure_time'] += $val['hardware_failure_time'];
+              $returnarr[$val['pid']]['silver_game_times'] += $val['silver_game_times']; 
+              $returnarr[$val['pid']]['gold_game_times'] += $val['gold_game_times']; 
+              $returnarr[$val['pid']]['run_count'] += $val['run_count'];  
+              $returnarr[$val['pid']]['success_number'] += $val['success_number']; 
+              $returnarr[$val['pid']]['fail_number'] += $val['fail_number']; 
+              $returnarr[$val['pid']]['silver_game_win_times'] += $val['silver_game_win_times']; 
+              $returnarr[$val['pid']]['silver_game_lose_times'] += $val['silver_game_lose_times']; 
+              $returnarr[$val['pid']]['gold_game_win_times'] += $val['gold_game_win_times']; 
+              $returnarr[$val['pid']]['gold_game_lose_times'] += $val['gold_game_lose_times']; 
+              $returnarr[$val['pid']]['gift_out_count'] += $val['gift_out_count']; 
+              $returnarr[$val['pid']]['income_count'] += $val['income_count']; 
+              //$returnarr[$val['managerid']]['create_time'] = $val['create_time']; 
+              $returnarr[$val['pid']]['pid'] = $val['pid']; 
+              //$returnarr[$val['pid']]['username'] = $val['username']; 
+              $returnarr[$val['pid']]['create_time'] = time(); 
+              //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
+          } else {
+            $returnarr[$val['pid']]['statistics_date'] = $end;
+            $returnarr[$val['pid']]['pid'] = $val['pid']; 
+              $returnarr[$val['pid']]['hardware_failure_time'] = $val['hardware_failure_time'];
+              $returnarr[$val['pid']]['silver_game_times'] = $val['silver_game_times']; 
+              $returnarr[$val['pid']]['gold_game_times'] = $val['gold_game_times']; 
+              $returnarr[$val['pid']]['run_count'] = $val['run_count'];  
+              $returnarr[$val['pid']]['success_number'] = $val['success_number']; 
+              $returnarr[$val['pid']]['fail_number'] = $val['fail_number']; 
+              $returnarr[$val['pid']]['silver_game_win_times'] = $val['silver_game_win_times']; 
+              $returnarr[$val['pid']]['silver_game_lose_times'] = $val['silver_game_lose_times']; 
+              $returnarr[$val['pid']]['gold_game_win_times'] = $val['gold_game_win_times']; 
+              $returnarr[$val['pid']]['gold_game_lose_times'] = $val['gold_game_lose_times']; 
+              $returnarr[$val['pid']]['gift_out_count'] = $val['gift_out_count']; 
+              $returnarr[$val['pid']]['income_count'] = $val['income_count']; 
+              //$returnarr[$val['managerid']]['create_time'] = $val['create_time'];
+              //$returnarr[$val['pid']]['username'] = $val['username']; 
+              $returnarr[$val['pid']]['create_time'] = time(); 
+              //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
+          }
+      }
       //dump($returnarr);die;
   
-      M('partner_day_statistics')->addAll($returnarr);
-
-  }
+      M('partner_month_statistics')->addAll($returnarr);
+    }
+    //商户年统计
+      public function year_year(){  
+      $time = time();
+      $date = date('Y',$time) - 1;//一年前日期
+      $first=$date."-01-01";$end=$date."-12-31";
+      $equipment = M("equipment")
+      ->alias("t1")
+      ->field("FROM_UNIXTIME(t2.statistics_date,'%Y%m%d') days,t2.*,t1.name,t3.id as pid,t3.username")
+      ->where("t1.pid in ({$id})")
+      ->where("t2.statistics_date between $first and $end")
+      ->join("left join equipment_year_statistics t2 on t2.equipment_id = t1.id")
+      ->join("left join manager as t3 on t3.id = t1.pid")
+      ->select();
+      //dump($equipment);
+      $returnarr = array();
+      foreach($equipment as $val) {
+          if(isset($returnarr[$val['pid']])) {
+            //dump($val['pid']);die;
+            $returnarr[$val['pid']]['statistics_date'] = $end;
+              $returnarr[$val['pid']]['hardware_failure_time'] += $val['hardware_failure_time'];
+              $returnarr[$val['pid']]['silver_game_times'] += $val['silver_game_times']; 
+              $returnarr[$val['pid']]['gold_game_times'] += $val['gold_game_times']; 
+              $returnarr[$val['pid']]['run_count'] += $val['run_count'];  
+              $returnarr[$val['pid']]['success_number'] += $val['success_number']; 
+              $returnarr[$val['pid']]['fail_number'] += $val['fail_number']; 
+              $returnarr[$val['pid']]['silver_game_win_times'] += $val['silver_game_win_times']; 
+              $returnarr[$val['pid']]['silver_game_lose_times'] += $val['silver_game_lose_times']; 
+              $returnarr[$val['pid']]['gold_game_win_times'] += $val['gold_game_win_times']; 
+              $returnarr[$val['pid']]['gold_game_lose_times'] += $val['gold_game_lose_times']; 
+              $returnarr[$val['pid']]['gift_out_count'] += $val['gift_out_count']; 
+              $returnarr[$val['pid']]['income_count'] += $val['income_count']; 
+              //$returnarr[$val['managerid']]['create_time'] = $val['create_time']; 
+              $returnarr[$val['pid']]['pid'] = $val['pid']; 
+              //$returnarr[$val['pid']]['username'] = $val['username']; 
+              $returnarr[$val['pid']]['create_time'] = time(); 
+              //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
+          } else {
+            $returnarr[$val['pid']]['statistics_date'] = $end;
+            $returnarr[$val['pid']]['pid'] = $val['pid']; 
+              $returnarr[$val['pid']]['hardware_failure_time'] = $val['hardware_failure_time'];
+              $returnarr[$val['pid']]['silver_game_times'] = $val['silver_game_times']; 
+              $returnarr[$val['pid']]['gold_game_times'] = $val['gold_game_times']; 
+              $returnarr[$val['pid']]['run_count'] = $val['run_count'];  
+              $returnarr[$val['pid']]['success_number'] = $val['success_number']; 
+              $returnarr[$val['pid']]['fail_number'] = $val['fail_number']; 
+              $returnarr[$val['pid']]['silver_game_win_times'] = $val['silver_game_win_times']; 
+              $returnarr[$val['pid']]['silver_game_lose_times'] = $val['silver_game_lose_times']; 
+              $returnarr[$val['pid']]['gold_game_win_times'] = $val['gold_game_win_times']; 
+              $returnarr[$val['pid']]['gold_game_lose_times'] = $val['gold_game_lose_times']; 
+              $returnarr[$val['pid']]['gift_out_count'] = $val['gift_out_count']; 
+              $returnarr[$val['pid']]['income_count'] = $val['income_count']; 
+              //$returnarr[$val['managerid']]['create_time'] = $val['create_time'];
+              //$returnarr[$val['pid']]['username'] = $val['username']; 
+              $returnarr[$val['pid']]['create_time'] = time(); 
+              //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
+          }
+      }
+      //dump($returnarr);die;
+  
+      M('partner_year_statistics')->addAll($returnarr);
+    }
 
 // public function partner_day(){
 //       //$manager = session("manager_info.id");

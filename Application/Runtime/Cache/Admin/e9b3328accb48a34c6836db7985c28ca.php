@@ -1,4 +1,4 @@
-<!--_meta 作为公共模版分离出去-->
+<?php if (!defined('THINK_PATH')) exit();?><!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -10,16 +10,16 @@
 <link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/html5shiv.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/html5shiv.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="/Public/Admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
@@ -30,12 +30,12 @@
 </head>
 <body>
 <article class="page-container">
-    <form action="__SELF__" method="post" class="form form-horizontal" id="">
-   <input type="hidden" name="group_id" value="{{$group.id}}">
+    <form action="/index.php/Admin/Group/edit/id/82" method="post" class="form form-horizontal" id="">
+   <input type="hidden" name="group_id" value="<?php echo ($group["id"]); ?>">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>组群名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$group.group_name}}" placeholder="" id="group_name" name="group_name">
+                <input type="text" class="input-text" value="<?php echo ($group["group_name"]); ?>" placeholder="" id="group_name" name="group_name">
             </div>
         </div>
        
@@ -50,18 +50,16 @@
                     </dt>
                     <dd>
                         <dl class="cl permission-list2">
-                        <volist name="equipment" id="vol">
-                            <dt>
+                        <?php if(is_array($equipment)): $i = 0; $__LIST__ = $equipment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><dt>
                                <!--  <label class="">
-                                    <input type="checkbox" value="{{$vol.id}}" name="equipment_id[]">
-                                    {{$vol.equipment_name}}</label>
+                                    <input type="checkbox" value="<?php echo ($vol["id"]); ?>" name="equipment_id[]">
+                                    <?php echo ($vol["equipment_name"]); ?></label>
                                     <label> -->
-                            <input type="checkbox" value="{{$vol.id}}" name="equipment_id[]"  <in name="vol.id" value="$group.equipment_ids"> checked="checked"</in> >{{$vol.name}}
+                            <input type="checkbox" value="<?php echo ($vol["id"]); ?>" name="equipment_id[]"  <?php if(in_array(($vol["id"]), is_array($group["equipment_ids"])?$group["equipment_ids"]:explode(',',$group["equipment_ids"]))): ?>checked="checked"<?php endif; ?> ><?php echo ($vol["name"]); ?>
                             </label>
 
 
-                            </dt>
-                        </volist>
+                            </dt><?php endforeach; endif; else: echo "" ;endif; ?>
                            
                         </dl>
                        
@@ -75,15 +73,13 @@
                     </dt>
                     <dd>
                         <dl class="cl permission-list2">
-                        <volist name="manager" id="v">
-                            <dt>
+                        <?php if(is_array($manager)): $i = 0; $__LIST__ = $manager;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><dt>
                                 <!-- <label class="">
-                                    <input type="checkbox" value="{{$v.id}}" name="manager_ids[]">
-                                    {{$v.nickname}}</label> -->
-                                    <input type="checkbox" value="{{$v.id}}" name="manager_ids[]"  <in name="v.id" value="$group.manager_ids"> checked="checked"</in> >{{$v.nickname}}
+                                    <input type="checkbox" value="<?php echo ($v["id"]); ?>" name="manager_ids[]">
+                                    <?php echo ($v["nickname"]); ?></label> -->
+                                    <input type="checkbox" value="<?php echo ($v["id"]); ?>" name="manager_ids[]"  <?php if(in_array(($v["id"]), is_array($group["manager_ids"])?$group["manager_ids"]:explode(',',$group["manager_ids"]))): ?>checked="checked"<?php endif; ?> ><?php echo ($v["nickname"]); ?>
                             </label>
-                            </dt>
-                        </volist>
+                            </dt><?php endforeach; endif; else: echo "" ;endif; ?>
                            
                         </dl>
                        
@@ -100,15 +96,15 @@
 </article>
 
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Admin/static/h-ui/js/H-ui.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/Admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/Public/Admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/Public/Admin/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/Public/Admin/static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="/Public/Admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 // $(function(){
 //     $(".permission-list dt input:checkbox").click(function(){

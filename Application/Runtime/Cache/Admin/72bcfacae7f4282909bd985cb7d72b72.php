@@ -260,7 +260,7 @@ var chart = Highcharts.chart('container',{
                 type: 'area'
         },
         title: {
-                text: '总体概况'
+                text: '商户月统计'
         },
         subtitle: {
                 text: '数据来源: <a href="https://www.goldenbrother.cn/index.php/admin">' +

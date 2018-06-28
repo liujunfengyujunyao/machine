@@ -311,8 +311,8 @@ class GroupController extends CommonController{
 				$manager_id = D('Manager')->where(['pid'=>$id])->getField('id',true);
 
 				$manager_ids = implode(',',$manager_id);
-				$equipment = D('Equipment')->where("((equipment_pid in ({$manager_ids}) or equipment_pid = $id) && group_id = 0) or group_id = $group_id")->select();
-				
+				//$equipment = D('Equipment')->where("((equipment_pid in ({$manager_ids}) or equipment_pid = $id) && group_id = 0) or group_id = $group_id")->select();
+				$equipment = D('Equipment')->where("pid = $id && group_id = 0 or group_id = $group_id")->select();
 				$manager = D('Manager')->where("(pid = $id && group_id = 0) or group_id = $group_id")->select();
 				// dump($manager);die;
 			// }
