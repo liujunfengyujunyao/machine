@@ -124,7 +124,7 @@
 							<td class="text-l" ><center><?php echo ($v["type_name"]); ?></center></td>
 							<td><font color="blue"><?php echo ($v["time_limit"]); ?>秒</font></td>
 							<td><font color="red"><b><?php echo ($v["price"]); ?>元</b></font></td>
-							<?php if( $v["type_id"] == 1 || $v["type_id"] == 3 ): ?><td><?php echo ($v["odds"]); ?>%</td>						
+							<?php if( $v["type_id"] == 1 || $v["type_id"] == 3 ): ?><td><?php echo ($v["odds"]); ?>  :  1</td>						
 							<?php else: ?>
 							<td><?php echo ($v["odds"]); ?>票</td><?php endif; ?>
 							<!-- <td><img src="<?php echo ($v["equipment_small_img"]); ?>" alt=""></td> -->

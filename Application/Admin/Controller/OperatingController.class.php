@@ -280,11 +280,16 @@ class OperatingController extends CommonController{
 			$model = D('Equipment');		
 			//娃娃机的百分比
 			if (isset($data['odds1'])) {
-				$data['odds'] = round(100/$data['odds1'],2);	
-				$data['odds2'] = round(100/$data['odds1lv2'],2);		
-				$data['odds3'] = round(100/$data['odds1lv3'],2);		
-				$data['odds4'] = round(100/$data['odds1lv4'],2);		
-				$data['odds5'] = round(100/$data['odds1lv5'],2);		
+				// $data['odds'] = round(100/$data['odds1'],2);
+				// $data['odds2'] = round(100/$data['odds1lv2'],2);		
+				// $data['odds3'] = round(100/$data['odds1lv3'],2);		
+				// $data['odds4'] = round(100/$data['odds1lv4'],2);		
+				// $data['odds5'] = round(100/$data['odds1lv5'],2);
+				$data['odds'] = $data['odds1'];
+				$data['odds2'] = $data['odds1lv2'];
+				$data['odds3'] = $data['odds1lv3'];
+				$data['odds4'] = $data['odds1lv4'];
+				$data['odds5'] = $data['odds1lv5'];			
 				unset($data['odds1']);
 				unset($data['odds1lv2']);
 				unset($data['odds1lv3']);
