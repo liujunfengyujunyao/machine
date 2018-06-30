@@ -18,7 +18,7 @@ class StatisticsController extends CommonController{
 		 $id = session("manager_info.id");
 		 $manager = M("manager")->where(['id'=>$id])->select();
 		 foreach ($manager as $key => $value) {
-		 		if($value['role_id']==3){
+		 		if($value['role_id']==1 || $value['role_id']==3 || $value['role_id']==5){
 		 			$partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') days,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') day,t1.*")->where("t1.pid = $id || t1.pid =0")->select();
 		 		}else{
 		 			$partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') days,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') day,t1.*")->where("t1.pid = $id")->select();
@@ -31,7 +31,7 @@ class StatisticsController extends CommonController{
 			$id = session("manager_info.id");
 			$manager = M("manager")->where(['id'=>$id])->select();
 			 foreach ($manager as $key => $value) {
-		 		if($value['role_id']==3){
+		 		if($value['role_id']==1 || $value['role_id']==3 || $value['role_id']==5){
 		 			$partner_month = M("partner_month_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') monthstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') monthlast,t1.*")->where("t1.pid = $id || t1.pid =0")->select();
 		 		}else{
 		 			$partner_month = M("partner_month_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') monthstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') monthlast,t1.*")->where(['t1.pid'=>$id])->select();
@@ -44,7 +44,7 @@ class StatisticsController extends CommonController{
 			$id = session("manager_info.id");
 			$manager = M("manager")->where(['id'=>$id])->select();
 			 foreach ($manager as $key => $value) {
-		 		if($value['role_id']==3){
+		 		if($value['role_id']==1 || $value['role_id']==3 || $value['role_id']==5){
 		 			$partner_month = M("partner_year_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') yearstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') yearlast,t1.*")->where("t1.pid = $id || t1.pid =0")->select();
 		 		}else{
 		 			$partner_month = M("partner_year_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') yearstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') yearlast,t1.*")->where(['t1.pid'=>$id])->select();
