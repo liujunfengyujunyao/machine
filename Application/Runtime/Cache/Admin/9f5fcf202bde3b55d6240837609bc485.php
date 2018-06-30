@@ -105,11 +105,15 @@
 							
 							<!-- <th width="60">ID</th> -->
 							<th width="80">机台名称</th>
-							<th width="80">SN</th>
+							<!-- <th width="80">SN</th> -->
 							<th width="80">机台类型</th>
 							<th width="60">单次时长</th>
 							<th width="80">单次价格</th>
-							<th width="80">赔率</th>
+							<th width="80">赔率LV1</th>
+							<th width="80">赔率LV2</th>
+							<th width="80">赔率LV3</th>
+							<th width="80">赔率LV4</th>
+							<th width="80">赔率LV5</th>
 							<!-- <th width="150">商品大图</th> -->
 							<th width="60">添加时间</th>
 							<th width="120">操作</th>
@@ -120,11 +124,15 @@
 							
 							<!-- <td><?php echo ($v["id"]); ?></td> -->
 							<td class="text-l"><?php echo ($v["name"]); ?></td>
-							<td class="text-l"><?php echo ($v["sn"]); ?></td>		
+							<!-- <td class="text-l"><?php echo ($v["sn"]); ?></td>		 -->
 							<td class="text-l" ><center><?php echo ($v["type_name"]); ?></center></td>
 							<td><font color="blue"><?php echo ($v["time_limit"]); ?>秒</font></td>
 							<td><font color="red"><b><?php echo ($v["price"]); ?>元</b></font></td>
 							<?php if( $v["type_id"] == 1 || $v["type_id"] == 3 ): ?><td><?php echo ($v["odds"]); ?>  :  1</td>						
+							<td><?php echo ($v["odds2"]); ?>  :  1</td>						
+							<td><?php echo ($v["odds3"]); ?>  :  1</td>						
+							<td><?php echo ($v["odds4"]); ?>  :  1</td>						
+							<td><?php echo ($v["odds5"]); ?>  :  1</td>						
 							<?php else: ?>
 							<td><?php echo ($v["odds"]); ?>票</td><?php endif; ?>
 							<!-- <td><img src="<?php echo ($v["equipment_small_img"]); ?>" alt=""></td> -->
