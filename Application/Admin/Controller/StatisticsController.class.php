@@ -15,26 +15,48 @@ class StatisticsController extends CommonController{
 			$this->display();
 		}
 		public function partner_day(){
-		 $manager = session("manager_info.id");
-		 $partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') days,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') day,t1.*")->where(['t1.pid'=>$manager])->select();
+		 $id = session("manager_info.id");
+		 $manager = M("manager")->where(['id'=>$id])->select();
+		 foreach ($manager as $key => $value) {
+		 		if($value['role_id']==3){
+		 			$partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') days,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') day,t1.*")->where("t1.pid = $id || t1.pid =0")->select();
+		 		}else{
+		 			$partner_day = M("partner_day_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') days,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') day,t1.*")->where("t1.pid = $id")->select();
+		 		}
+		 }
 		 $this->assign("day",$partner_day);
 		 $this->display();
 		}
 		public function month(){
-			$manager = session("manager_info.id");
-			$partner_month = M("partner_month_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') monthstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') monthlast,t1.*")->where(['t1.pid'=>$manager])->select();
+			$id = session("manager_info.id");
+			$manager = M("manager")->where(['id'=>$id])->select();
+			 foreach ($manager as $key => $value) {
+		 		if($value['role_id']==3){
+		 			$partner_month = M("partner_month_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') monthstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') monthlast,t1.*")->where("t1.pid = $id || t1.pid =0")->select();
+		 		}else{
+		 			$partner_month = M("partner_month_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') monthstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') monthlast,t1.*")->where(['t1.pid'=>$id])->select();
+		 		}
+		 	}
 			$this->assign("month",$partner_month);
 			$this->display();
 		}
 		public function year(){
-			$manager = session("manager_info.id");
-			$partner_month = M("partner_year_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') yearstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') yearlast,t1.*")->where(['t1.pid'=>$manager])->select();
+			$id = session("manager_info.id");
+			$manager = M("manager")->where(['id'=>$id])->select();
+			 foreach ($manager as $key => $value) {
+		 		if($value['role_id']==3){
+		 			$partner_month = M("partner_year_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') yearstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') yearlast,t1.*")->where("t1.pid = $id || t1.pid =0")->select();
+		 		}else{
+		 			$partner_month = M("partner_year_statistics")->alias("t1")->field("FROM_UNIXTIME(t1.statistics_date,'%Y-%m-%d') yearstart,FROM_UNIXTIME(t1.create_time,'%Y-%m-%d') yearlast,t1.*")->where(['t1.pid'=>$id])->select();
+		 		}
+		 	}
 			$this->assign("year",$partner_month);
 			$this->display();
 		}
 	// 	public function days(){
-	// 		// $manager = M("manager")->getField("id",true);
+	// 		// $manager = M("manager")->getField("role_id",true);
 	// 		// $id = implode($manager,',');
+	// 		//dump($id);die;
 	// 		$start =mktime(0,0,0,date('m'),date('d')-1,date('Y'));
 	// 		$end =mktime(0,0,0,date('m'),date('d'),date('Y'))-1;
 	// 		//dump($date);die;
@@ -49,7 +71,7 @@ class StatisticsController extends CommonController{
 	// 		->select();
 	// 		foreach ($equipment as $key => &$value) {
 	// 				if($value['pid'] == null){
-	// 						$value['pid']=4;//int
+	// 						$value['pid']=0;//int
 	// 						settype($value['pid'],'string');//转换成字符串
 	// 				}
 	// 		}
@@ -95,21 +117,8 @@ class StatisticsController extends CommonController{
 	// 		        $returnarr[$val['pid']]['create_time'] = time(); 
 	// 		        //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
 	// 		    }
-	// 		    // if(){
-	// 		    // 	$returnarr[$val['pid']]['pid'] = $val['pid'];
-	// 		    // }
 	// 		}
-	// 		// foreach ($returnarr as $key => $value) {
-	// 		// 	if($key == NULL){
-	// 		// 		$returnarr[$key] == 4;
-	// 		// 	}
-	// 		// }
-	// 		// //dump($dd);
-	// 		// // if($returnarr['pid'] == unll){
-	// 		// // 	die;
-	// 		// // }
-	// 		//dump($returnarr);die;
-	
+	// 	//dump($returnarr);die;
 	// 		M('partner_day_statistics')->addAll($returnarr);
 
 	// }

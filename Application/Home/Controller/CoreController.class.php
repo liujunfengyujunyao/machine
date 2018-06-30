@@ -117,7 +117,7 @@ public function days(){
       ->select();
         foreach ($equipment as $key => &$value) {
           if($value['pid'] == null){
-              $value['pid']=4;//int
+              $value['pid']=0;//int
               settype($value['pid'],'string');//转换成字符串
           }
       }
@@ -195,7 +195,7 @@ public function days(){
       ->select();
         foreach ($equipment as $key => &$value) {
           if($value['pid'] == null){
-              $value['pid']=4;//int
+              $value['pid']=0;//int
               settype($value['pid'],'string');//转换成字符串
           }
       }
@@ -261,7 +261,7 @@ public function days(){
       ->select();
         foreach ($equipment as $key => &$value) {
           if($value['pid'] == null){
-              $value['pid']=4;//int
+              $value['pid']=0;//int
               settype($value['pid'],'string');//转换成字符串
           }
       }

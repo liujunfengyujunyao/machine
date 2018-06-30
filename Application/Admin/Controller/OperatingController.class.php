@@ -384,14 +384,14 @@ class OperatingController extends CommonController{
 		}
 			$this->assign('equipment_name',$equipment_name);
 			
-			if ($equipment['type_id'] == 1) {
-				$equipment['odds'] = floor(100/$equipment['odds']);
+			// if ($equipment['type_id'] == 1) {
+			// 	$equipment['odds'] = floor(100/$equipment['odds']);
 				
-				//误差
-				if ($equipment['odds'] == 256) {
-					$equipment['odds'] = 255;
-				}
-			}
+			// 	//误差
+			// 	if ($equipment['odds'] == 256) {
+			// 		$equipment['odds'] = 255;
+			// 	}
+			// }
 			// dump($equipment);die;
 			$type = D('Type')->select();
 	
