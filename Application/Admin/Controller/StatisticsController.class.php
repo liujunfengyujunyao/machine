@@ -32,24 +32,29 @@ class StatisticsController extends CommonController{
 			$this->assign("year",$partner_month);
 			$this->display();
 		}
-	
 	// 	public function days(){
-	// 		$manager = M("manager")->getField("id",true);
-	// 		$id = implode($manager,',');
+	// 		// $manager = M("manager")->getField("id",true);
+	// 		// $id = implode($manager,',');
 	// 		$start =mktime(0,0,0,date('m'),date('d')-1,date('Y'));
 	// 		$end =mktime(0,0,0,date('m'),date('d'),date('Y'))-1;
 	// 		//dump($date);die;
 	// 		$equipment = M("equipment")
 	// 		->alias("t1")
 	// 		->field("FROM_UNIXTIME(t2.statistics_date,'%Y%m%d') days,t2.*,t1.name,t3.id as pid,t3.username")
-	// 		->where("t1.pid in ({$id})")
+	// 		//->where('t1.pid in ({$id})')
 	// 		->where("t2.statistics_date between $start and $end")
 	// 		->join("left join equipment_day_statistics t2 on t2.equipment_id = t1.id")
 	// 		->join("left join manager as t3 on t3.id = t1.pid")
+	// 		->order("t3.pid")
 	// 		->select();
-	// 		//dump($equipment);
+	// 		foreach ($equipment as $key => &$value) {
+	// 				if($value['pid'] == null){
+	// 						$value['pid']=4;//int
+	// 						settype($value['pid'],'string');//转换成字符串
+	// 				}
+	// 		}
 	// 		$returnarr = array();
-	// 		foreach($equipment as $val) {
+	// 		foreach($equipment as $key => $val) {
 	// 		    if(isset($returnarr[$val['pid']])) {
 	// 		    	//dump($val['pid']);die;
 	// 		    	$returnarr[$val['pid']]['statistics_date'] = $start;
@@ -90,7 +95,19 @@ class StatisticsController extends CommonController{
 	// 		        $returnarr[$val['pid']]['create_time'] = time(); 
 	// 		        //$returnarr[$val['managerid']]['amount'] += $val['amount']; 
 	// 		    }
+	// 		    // if(){
+	// 		    // 	$returnarr[$val['pid']]['pid'] = $val['pid'];
+	// 		    // }
 	// 		}
+	// 		// foreach ($returnarr as $key => $value) {
+	// 		// 	if($key == NULL){
+	// 		// 		$returnarr[$key] == 4;
+	// 		// 	}
+	// 		// }
+	// 		// //dump($dd);
+	// 		// // if($returnarr['pid'] == unll){
+	// 		// // 	die;
+	// 		// // }
 	// 		//dump($returnarr);die;
 	
 	// 		M('partner_day_statistics')->addAll($returnarr);

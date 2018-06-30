@@ -1413,6 +1413,19 @@ public function equipment(){
         $return = json_curl($url,$data);
         dump($return);die;
       }
+      public function ass(){
+        $data = array(
+          'msgtype' => 'payment_cancel',
+          'userid' => 1,
+          'machineid' =>1,
+          'amount' => 20,
+          'type' =>'gold',
+          'timestamp'=>time(),
+          );
+        $url = "http://www.machine.com/Home/Sever/payment";
+        $return = json_curl($url,$data);
+        dump($return);die;
+      }
 
        
 }

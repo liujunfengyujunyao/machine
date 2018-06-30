@@ -115,7 +115,12 @@ public function days(){
       ->join("left join equipment_day_statistics t2 on t2.equipment_id = t1.id")
       ->join("left join manager as t3 on t3.id = t1.pid")
       ->select();
-      //dump($equipment);
+        foreach ($equipment as $key => &$value) {
+          if($value['pid'] == null){
+              $value['pid']=4;//int
+              settype($value['pid'],'string');//转换成字符串
+          }
+      }
       $returnarr = array();
       foreach($equipment as $val) {
           if(isset($returnarr[$val['pid']])) {
@@ -188,7 +193,12 @@ public function days(){
       ->join("left join equipment_month_statistics t2 on t2.equipment_id = t1.id")
       ->join("left join manager as t3 on t3.id = t1.pid")
       ->select();
-      //dump($equipment);
+        foreach ($equipment as $key => &$value) {
+          if($value['pid'] == null){
+              $value['pid']=4;//int
+              settype($value['pid'],'string');//转换成字符串
+          }
+      }
       $returnarr = array();
       foreach($equipment as $val) {
           if(isset($returnarr[$val['pid']])) {
@@ -249,7 +259,12 @@ public function days(){
       ->join("left join equipment_year_statistics t2 on t2.equipment_id = t1.id")
       ->join("left join manager as t3 on t3.id = t1.pid")
       ->select();
-      //dump($equipment);
+        foreach ($equipment as $key => &$value) {
+          if($value['pid'] == null){
+              $value['pid']=4;//int
+              settype($value['pid'],'string');//转换成字符串
+          }
+      }
       $returnarr = array();
       foreach($equipment as $val) {
           if(isset($returnarr[$val['pid']])) {

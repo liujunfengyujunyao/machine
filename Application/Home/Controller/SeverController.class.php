@@ -36,8 +36,8 @@ class SeverController extends Controller{
 		public function payment(){
 			$params = $GLOBALS['HTTP_RAW_POST_DATA'];         
             $params = json_decode($params,true);
-            
             $type = $params['msgtype'] ? $params['msgtype'] : "";
+            //dump($type);die;
             switch ($type) {
             	case 'payment_request':
             		

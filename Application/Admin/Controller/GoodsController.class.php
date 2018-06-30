@@ -39,13 +39,14 @@ class GoodsController extends CommonController{
 			$user = session('manager_info');
 			$id = $user['id'];
 			$data = I('post.');
+			//dump($data);die;
 			$role_id = session('manager_info.role_id');
 			$model = D('Goods');
 			$files = $_FILES;
 			if ($role_id > 3) {
 				$data['pid'] = D('Manager')->where(['id'=>$id])->getField('pid',true);
 			}
-
+			//die;
 			$goods_id = $model -> add($data);
 			unset($file['logo']);
 			$model -> upload_pics($goods_id,$files);
@@ -192,8 +193,8 @@ class GoodsController extends CommonController{
 		$id = I('post.id');
 
 		//先获取到要删除的图片的图片路径,用作后续删除图片
-		$info = D('Goodspics')->where(['id'=>$id])->find();
-		$res = D('Goodspics')->where(['id'=>$id])->delete();
+		$info = D('Goodspics')->where(['goods_id'=>$id])->find();
+		$res = D('Goodspics')->where(['goods_id'=>$id])->delete();
 		D('Goods')->where(['id'=>$id])->delete();
 		if ($res!==false) {
 			//删除成功
