@@ -6101,3 +6101,624 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000927s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000982s ]
 
+[ 2018-06-30T17:22:48+08:00 ] 127.0.0.1 /index.php/Admin/Operating/equipment_edit/id/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM equipment t1 left join type as t2 on t1.type = t2. type_id  WHERE `id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment` WHERE `goods_id` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `type`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-30T17:23:06+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant asc - assumed 'asc' D:\Source\Application\Admin\Controller\IndexController.class.php 第 28 行.
+SQL: SELECT FROM_UNIXTIME(t3.end_time,'%Y-%m-%d') statistics_date,t2.price,t3.id as roomid,t3.got_gift FROM equipment t1 left join tbl_game_log as t3 on t3.equipment_id = t1.id left join goods as t2 on t1.goods_id=t2.id  WHERE t1.pid = '4' AND ( t3.end_time between 1530091386 and 1530350586 ) ORDER BY t1.id  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: income_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 35 行.
+NOTIC: [8] Undefined index: run_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: success_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: fail_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: income_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 41 行.
+NOTIC: [8] Undefined index: run_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 44 行.
+NOTIC: [8] Undefined index: success_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 47 行.
+NOTIC: [8] Undefined index: fail_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 50 行.
+SQL: SHOW COLUMNS FROM `tbl_game_log` [ RunTime:0.0010s ]
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y-%m-%d') statistics_date,count(t1.id) count FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE ( t1.end_time between 1530091386 and 1530350586 ) AND t2.pid = '4' GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: run_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: run_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: run_count D:\Source\Application\Admin\Controller\IndexController.class.php 第 69 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y-%m-%d') statistics_date,count('t1.id') success_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 1 AND t2.pid = '4' AND ( t1.end_time between 1530091386 and 1530350586 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: success_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 92 行.
+NOTIC: [8] Undefined index: success_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 92 行.
+NOTIC: [8] Undefined index: success_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 92 行.
+SQL: SELECT FROM_UNIXTIME(t1.end_time,'%Y-%m-%d') statistics_date,count('t1.got_gift') fail_number FROM tbl_game_log t1 left join equipment as t2 on t2.id = t1.equipment_id  WHERE t1.got_gift = 0 AND t2.pid = '4' AND ( t1.end_time between 1530091386 and 1530350586 ) GROUP BY statistics_date  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: fail_number D:\Source\Application\Admin\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\Source\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id D:\Source\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined index: id D:\Source\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 133 行.
+NOTIC: [8] Undefined variable: count D:\Source\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 205 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/operating
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager` WHERE `pid` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+SQL: SELECT t1.*,t2.nickname,t2.equipment_ids,t3.*,t4.sn FROM equipment t1 left join manager as t2 on t1.owner = t2.id left join type as t3 on t3.type_id = t1.type left join machine as t4 on t4.uuid = t1.uuid  WHERE ( t1.pid = 4 or t1.pid in (5,6,7) )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `group` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `group` WHERE `pid` = 4  [ RunTime:0.0000s ]
+SQL: SELECT `name` FROM `equipment` WHERE `group_id` = 82  [ RunTime:0.0000s ]
+SQL: SELECT `nickname` FROM `manager` WHERE `group_id` = 82  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: article_author D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 177 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:10+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:13+08:00 ] 127.0.0.1 /index.php/Admin/Operating/equipment_edit/id/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+SQL: SELECT * FROM equipment t1 left join type as t2 on t1.type = t2. type_id  WHERE `id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment` WHERE `goods_id` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `type`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:23:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/equipment_edit/id/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM equipment t1 left join type as t2 on t1.type = t2. type_id  WHERE `id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `equipment` WHERE `goods_id` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `type`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-30T17:24:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/operating
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager` WHERE `pid` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT t1.*,t2.nickname,t2.equipment_ids,t3.*,t4.sn FROM equipment t1 left join manager as t2 on t1.owner = t2.id left join type as t3 on t3.type_id = t1.type left join machine as t4 on t4.uuid = t1.uuid  WHERE ( t1.pid = 4 or t1.pid in (5,6,7) )  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `group` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `group` WHERE `pid` = 4  [ RunTime:0.0000s ]
+SQL: SELECT `name` FROM `equipment` WHERE `group_id` = 82  [ RunTime:0.0000s ]
+SQL: SELECT `nickname` FROM `manager` WHERE `group_id` = 82  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: article_author D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 177 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.064004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:17+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:18+08:00 ] 127.0.0.1 /index.php/Admin/Operating/equipment_edit/id/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM equipment t1 left join type as t2 on t1.type = t2. type_id  WHERE `id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment` WHERE `goods_id` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `type`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-30T17:24:20+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:20+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:20+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:24:20+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:25:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/operating
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `manager` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `manager` WHERE `pid` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT t1.*,t2.nickname,t2.equipment_ids,t3.*,t4.sn FROM equipment t1 left join manager as t2 on t1.owner = t2.id left join type as t3 on t3.type_id = t1.type left join machine as t4 on t4.uuid = t1.uuid  WHERE ( t1.pid = 4 or t1.pid in (5,6,7) )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `group` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `group` WHERE `pid` = 4  [ RunTime:0.0000s ]
+SQL: SELECT `name` FROM `equipment` WHERE `group_id` = 82  [ RunTime:0.0010s ]
+SQL: SELECT `nickname` FROM `manager` WHERE `group_id` = 82  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: equipment_small_img D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 138 行.
+NOTIC: [8] Undefined index: article_author D:\Source\Application\Runtime\Cache\Admin\9f5fcf202bde3b55d6240837609bc485.php 第 177 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.060004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.061004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-06-30T17:25:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/My97DatePicker/4.8/WdatePicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:25:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/jquery.validate.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:25:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:25:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/validate-methods.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:25:15+08:00 ] 127.0.0.1 /index.php/Admin/Operating/__PUBIC__/Admin/lib/jquery.validation/1.14.0/messages_zh.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:__PUBIC__
+
+[ 2018-06-30T17:25:16+08:00 ] 127.0.0.1 /index.php/Admin/Operating/equipment_edit/id/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0020s ]
+SQL: SELECT * FROM equipment t1 left join type as t2 on t1.type = t2. type_id  WHERE `id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `equipment` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `equipment` WHERE `goods_id` = 4  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `type`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.053003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
