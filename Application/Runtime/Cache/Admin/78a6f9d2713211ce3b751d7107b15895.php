@@ -134,7 +134,7 @@
 							<th width="25"><input type="checkbox" name="" value=""></th>
 							<th width="60">ID</th>
 							<th width="80">机台名称</th>
-							<th width='80'>SN</th>>
+							<!-- <th width='80'>SN</th>> -->
 							<th width="80">机台类型</th>
 							<th width="80">存放商品</th>
 							<th width="60">单次时长</th>
@@ -151,7 +151,7 @@
 							<td><input type="checkbox" value="" name=""></td>
 							<td><?php echo ($v["id"]); ?></td>
 							<td class="text-l"><a href="/index.php/Admin/Equipment/detail/id/<?php echo ($v["id"]); ?>"><?php echo ($v["name"]); ?></a></td>
-							<td><?php echo ($v["sn"]); ?></td>
+							<!-- <td><?php echo ($v["sn"]); ?></td> -->
 							<td class="text-l" ><center><?php echo ($v["type_name"]); ?></center></td>
 							<td class="text-1"><a href="/index.php/Admin/Goods/detail/id/<?php echo ($v["goods_id"]); ?>"><center><?php echo ($v["goods_name"]); ?></center></a></td>
 							<td><font color="blue"><?php echo ($v["time_limit"]); ?></font></td>

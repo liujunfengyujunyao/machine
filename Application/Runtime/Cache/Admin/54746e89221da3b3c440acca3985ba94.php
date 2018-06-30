@@ -126,6 +126,10 @@
 						<td>机台类型:</td>
 						<td><?php echo ($equipment["type_name"]); ?></td>
 					</tr>
+                    <tr>
+                        <td>SN:</td>
+                        <td><?php echo ($sn); ?></td>
+                    </tr>
 					<tr>
 						<td>单次价格:</td>
 						<td><?php echo ($equipment["price"]); ?>币</td>
@@ -136,7 +140,7 @@
 					</tr>
 					<tr>
 						<td>赔率:</td>
-						<td><?php echo ($equipment["odds"]); ?>%</td>
+						<td><?php echo ($equipment["odds"]); ?>:1</td>
 					</tr>
 					<tr>
                         <td>视频推流地址1:</td>

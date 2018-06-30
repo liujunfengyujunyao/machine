@@ -401,7 +401,8 @@ class EquipmentController extends CommonController{
 		$id = I('get.id');
 		//查询该机台的基本信息
 		$equipment = D('Equipment')->alias('t1')->where(['id'=>$id])->join("left join type as t2 on t1.type = t2.type_id")->find();
-
+		$sn = M('equipment')->alias('t1')->where(['id'=>$id])->join("left join machine as t2 on t1.uuid = t2.uuid")->getField('sn');
+		$this->assign('sn',$sn);
 		//获取图片路径
 		
 		$equipmentpics = D('Equipmentpics')->where(['equipment_id'=>$id])->select();

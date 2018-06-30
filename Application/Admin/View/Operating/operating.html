@@ -27,11 +27,15 @@
 							
 							<!-- <th width="60">ID</th> -->
 							<th width="80">机台名称</th>
-							<th width="80">SN</th>
+							<!-- <th width="80">SN</th> -->
 							<th width="80">机台类型</th>
 							<th width="60">单次时长</th>
 							<th width="80">单次价格</th>
-							<th width="80">赔率</th>
+							<th width="80">赔率LV1</th>
+							<th width="80">赔率LV2</th>
+							<th width="80">赔率LV3</th>
+							<th width="80">赔率LV4</th>
+							<th width="80">赔率LV5</th>
 							<!-- <th width="150">商品大图</th> -->
 							<th width="60">添加时间</th>
 							<th width="120">操作</th>
@@ -43,12 +47,16 @@
 							
 							<!-- <td>{{$v.id}}</td> -->
 							<td class="text-l">{{$v.name}}</td>
-							<td class="text-l">{{$v.sn}}</td>		
+							<!-- <td class="text-l">{{$v.sn}}</td>		 -->
 							<td class="text-l" ><center>{{$v.type_name}}</center></td>
 							<td><font color="blue">{{$v.time_limit}}秒</font></td>
 							<td><font color="red"><b>{{$v.price}}元</b></font></td>
 							<if condition = " $v.type_id == 1 || $v.type_id == 3 ">
-							<td>{{$v.odds}}%</td>						
+							<td>{{$v.odds}}  :  1</td>						
+							<td>{{$v.odds2}}  :  1</td>						
+							<td>{{$v.odds3}}  :  1</td>						
+							<td>{{$v.odds4}}  :  1</td>						
+							<td>{{$v.odds5}}  :  1</td>						
 							<else/>
 							<td>{{$v.odds}}票</td>
 							</if>

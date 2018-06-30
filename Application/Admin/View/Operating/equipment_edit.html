@@ -75,15 +75,15 @@
 			</div>
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV2：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds1lv2" name="odds1lv2" style="display: inline;width:50%;">
+				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds1lv2" name="odds1lv2" style="display: inline;width:50%;"" oninput="myFunction2()">
 			</div>
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV3：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds1lv3" name="odds1lv3" style="display: inline;width:50%;">
+				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds1lv3" name="odds1lv3" style="display: inline;width:50%;" oninput="myFunction3()">
 			</div>
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV4：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds1lv4" name="odds1lv4" style="display: inline;width:50%;">
+				<input type="text" class="input-text form-control" value="{{$equipment.odds}}"  id="odds1lv4" name="odds1lv4" style="display: inline;width:50%;" oninput="myFunction4()">
 			</div>
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>抓取率LV5：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -215,25 +215,25 @@ $(function(){
            },
             odds1lv2: {
                 validators: {
-                    // notEmpty: { message: '请输入赔率' },
+                    notEmpty: { message: '请输入赔率' },
                     between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
                 }
             },
              odds1lv3: {
                 validators: {
-                    // notEmpty: { message: '请输入赔率' },
+                    notEmpty: { message: '请输入赔率' },
                     between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
                 }
             },
              odds1lv4: {
                 validators: {
-                    // notEmpty: { message: '请输入赔率' },
+                    notEmpty: { message: '请输入赔率' },
                     between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
                 }
             },
              odds1lv5: {
                 validators: {
-                    // notEmpty: { message: '请输入赔率' },
+                    notEmpty: { message: '请输入赔率' },
                     between: { min: 0, max: 255, message: '平均抓取局数应为0-255之间' }
                 }
             },
@@ -290,6 +290,18 @@ function myFunction(){
 	document.getElementById('odds1lv3').value=document.getElementById('odds1').value;
 	document.getElementById('odds1lv4').value=document.getElementById('odds1').value;
 	document.getElementById('odds1lv5').value=document.getElementById('odds1').value;
+}
+function myFunction2(){
+	document.getElementById('odds1lv3').value=document.getElementById('odds1lv2').value;
+	document.getElementById('odds1lv4').value=document.getElementById('odds1lv2').value;
+	document.getElementById('odds1lv5').value=document.getElementById('odds1lv2').value;
+}
+function myFunction3(){
+	document.getElementById('odds1lv4').value=document.getElementById('odds1lv3').value;
+	document.getElementById('odds1lv5').value=document.getElementById('odds1lv3').value;
+}
+function myFunction4(){
+	document.getElementById('odds1lv5').value=document.getElementById('odds1lv4').value;
 }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
