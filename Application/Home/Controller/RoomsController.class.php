@@ -11,7 +11,7 @@ class RoomsController extends Controller{
 
   public function get_room_types(){
     //查出现在商品存放于机台的种类
-    $roomtype = M('Goods')->alias("t1")->where("t3.status!=0")->join("left join type as t2 on t1.type_id = t2.type_id")->join("left join equipment as t3 on t3.goods_id = t1.id")->getField('t1.type_id,t2.type_name');
+    $roomtype = M('Goods')->alias("t1")->where("t3.state!=0")->join("left join type as t2 on t1.type_id = t2.type_id")->join("left join equipment as t3 on t3.goods_id = t1.id")->getField('t1.type_id,t2.type_name');
     //不显示没有机台在线的商品房间
     $data = json_encode($roomtype,JSON_UNESCAPED_UNICODE);
     echo $data;
@@ -76,13 +76,13 @@ class RoomsController extends Controller{
               ),
             );
          }else{
-              //查出现在空闲出来的机台status1为空闲
-        $equipment = M('Equipment')->field('id as equipment_id')->where(['goods_id'=>$roomid,'status'=>1])->select();
+              //查出现在空闲出来的机台state1为空闲
+        $equipment = M('Equipment')->field('id as equipment_id')->where(['goods_id'=>$roomid,'state'=>1])->select();
         // dump($equipment);die;
         if ($equipment) {
           //如果有值,证明有空闲的机台0,0,0 取出第一台机台的信息
           $equipment_id = implode($equipment[0]);
-          M('Equipment')->where(['id'=>$equipment_id])->save(['status'=>2]); //将机台状态修改为2(待机)
+          M('Equipment')->where(['id'=>$equipment_id])->save(['state'=>2]); //将机台状态修改为2(待机)
           //将这个机台的人数存入缓存(有人)
           $number = 1;
           S("$equipment_id",$number);
@@ -146,20 +146,27 @@ class RoomsController extends Controller{
       //获取到这个房间下的所有机台id
     $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
     $machines_ids = implode(',',$machines);
-    $url = "http://游戏服务器地址/account_server";//游戏服务器地址
+    $url = "http://192.168.1.3/account_server";//游戏服务器地址
+    $key = array(
+      'msgtype' => 'get_machine_status',
+      'machines' => $machines,
+      'timestamp' => time(),
+      );
+    $key = sha1($key);
     $data = array(
       'msgtype'  => 'get_machine_status',
       'machines' => $machines,
       'timestamp' => time(),
+      'signature' => $key,
       );
     }
-    $return = json_curl($url,$data);//发送给游戏服务器获取机台的machineid机器IDusers用户数和status是否被占用
-    $status = json_decode($return,1);//转换为数组
-    //获取到服务器返回的statusJSON数组
+    $return = json_curl($url,$data);//发送给游戏服务器获取机台的machineid机器IDusers用户数和state是否被占用
+    $state = json_decode($return,1);//转换为数组
+    //获取到服务器返回的stateJSON数组
     //根据房间人数升序重组二维数组,升序人数从少到多
-    $status = arraySequence($status,'users',$sort = 'SORT_ASC');
+    $state = arraySequence($state,'users',$sort = 'SORT_ASC');
     //闲置机台(非离线,运行)
-    $free = M('Equipment')->where("id in ({$machines_ids}) and status = 1")->find();
+    $free = M('Equipment')->where("id in ({$machines_ids}) and state = 1")->find();
     if ($free) {
       $data = array(
         'gameserver' => $free['gamesever'],
@@ -169,14 +176,14 @@ class RoomsController extends Controller{
         );
     }else{
       //取出升序排序后第一个(人数最少的机台)
-      reset($status);
-      $status = $status[0];
-      $status = M('Equipment')->where(['id'=>$status['machineid']])->find();
+      reset($state);
+      $state = $state[0];
+      $state = M('Equipment')->where(['id'=>$state['machineid']])->find();
       $data = array(
-        'gamesever'  => $status['gamesever'],
-        'machineid'  => $status['id'],
-        'camera0'    => $status['live_channel1'],
-        'camera1'    => $status['live_channel2'],
+        'gamesever'  => $state['gamesever'],
+        'machineid'  => $state['id'],
+        'camera0'    => $state['live_channel1'],
+        'camera1'    => $state['live_channel2'],
         );
     }
        $data = json_encode($data,JSON_UNESCAPED_UNICODE);
@@ -198,13 +205,19 @@ class RoomsController extends Controller{
     $x = arraySequence($x,'id',$sort = 'SORT_DESC');dump($x);
     reset($x);dump($x[0]);die;
     //查询出娃娃机中空闲下来的机台
-  $rooms = M('Goods')->alias('t1')->where("t1.type_id = 1 && t4.status = 1")->dietinct(true)->field("t1.id as roomid,t1.name,t2.pics_origin as pjoto,t1.price,t3.type_name as type,t4.id as equipment_id")->join("left join goodspics as t2 on t2.goods_id = t1.id")->join("left join type as t3 on t3.type_id = t1.type_id")->join("left join equipment as t4 on t4.goods_id = t1.id")->select();
+  $rooms = M('Goods')->alias('t1')->where("t1.type_id = 1 && t4.state = 1")->dietinct(true)->field("t1.id as roomid,t1.name,t2.pics_origin as pjoto,t1.price,t3.type_name as type,t4.id as equipment_id")->join("left join goodspics as t2 on t2.goods_id = t1.id")->join("left join type as t3 on t3.type_id = t1.type_id")->join("left join equipment as t4 on t4.goods_id = t1.id")->select();
   dump($rooms);die;
   
   $room = count($rooms);
   return $room;//空闲下来的总数
   }
 
+
+  public function ceee(){
+    $type = 0;
+    $return = $this->available($type);
+    dump($return);
+  }
   //封装判断机器是否空闲以及种类的方法
   public function available($type){
 
@@ -212,7 +225,7 @@ class RoomsController extends Controller{
       $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 1 and t4.status!=0 and t4.pid = 4")//查询娃娃机的
+      ->where("t1.type_id = 1 and t4.state!=0 and t4.pid = 4")//查询娃娃机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -223,7 +236,7 @@ class RoomsController extends Controller{
    
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 2 and t4.status!=0 and t4.pid = 4")//查询彩票机的
+      ->where("t1.type_id = 2 and t4.state!=0 and t4.pid = 4")//查询彩票机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -233,7 +246,7 @@ class RoomsController extends Controller{
         $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 3 and t4.status!=0 and t4.pid =4")
+      ->where("t1.type_id = 3 and t4.state!=0 and t4.pid =4")
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -243,7 +256,7 @@ class RoomsController extends Controller{
         $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t4.status!=0 and t4.pid = 4")
+      ->where("t4.state!=0 and t4.pid = 4")
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -252,7 +265,7 @@ class RoomsController extends Controller{
     }
     
     foreach ($rooms as $key => &$value) {
-      $available = M('Goods')->alias('t1')->where(['t2.status'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->find();
+      $available = M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->find();
       if ($available) {
         $value['available'] = 1;
       }else{
@@ -265,13 +278,13 @@ class RoomsController extends Controller{
   //封装查询出空闲的机台/人数最少机台的方法
   public function number($roomid){
     $roomid = 4;
-    //查出现在空闲出来的机台status1为空闲
-    $equipment = M('Equipment')->field('id as equipment_id')->where(['goods_id'=>$roomid,'status'=>1])->select();
+    //查出现在空闲出来的机台state1为空闲
+    $equipment = M('Equipment')->field('id as equipment_id')->where(['goods_id'=>$roomid,'state'=>1])->select();
     // dump($equipment);die;
     if ($equipment) {
       //如果有值,证明有空闲的机台0,0,0 取出第一台机台的信息
       $equipment_id = implode($equipment[0]);
-      M('Equipment')->where(['id'=>$equipment_id])->save(['status'=>2]); //将机台状态修改为2(待机)
+      M('Equipment')->where(['id'=>$equipment_id])->save(['state'=>2]); //将机台状态修改为2(待机)
       //将这个机台的人数存入缓存(有人)
       $number = 1;
       S("$equipment_id",$number);

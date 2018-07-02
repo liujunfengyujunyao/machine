@@ -14,8 +14,8 @@ class UserloginController extends Controller{
 		$obj = new Wxlogin($config);
 		
 		//前端接收code的地址
-		$redirect_url = "http://www.12202.com.cn/vue/#roomList/list1";
-
+		// $redirect_url = "http://www.12202.com.cn/vue/#roomList/list1";
+		$redirect_url =  "http://192.168.1.171/#/roomList";
 		$url = $obj->getOauthurl($redirect_url);
 		
 		$data = array(

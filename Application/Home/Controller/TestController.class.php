@@ -1427,5 +1427,11 @@ public function equipment(){
         dump($return);die;
       }
 
+      public function ysever(){
+        $url = "http://192.168.1.3/account_server";
+        $data = [2,11,8];
+        $return = json_curl($url,$data);
+        dump($return);die;
+      }
        
 }
