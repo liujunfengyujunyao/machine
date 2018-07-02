@@ -1434,4 +1434,17 @@ public function equipment(){
         dump($return);die;
       }
        
+      public function room_list(){
+        $url = "http://www.source.com/Home/Rooms/get_room_list";
+        $data = array(
+          'limit'=>3,
+          'type' => 1,
+          'userid'=>1,
+          'timestamp'=>time(),
+          );
+        dump(json_encode($data));die;
+        $return = json_curl($url,$data);
+        $return = json_decode($return,true);
+        dump($return);
+      }
 }

@@ -39,17 +39,23 @@ class RoomsController extends Controller{
                 'timestamp' => time(),
                 ),
               );
-           }elseif($params['signature']!=$signature){
-              $data = array(
-                'msgtype' => 'error',
-                'params' => array(
-                  'errid' => 10003,
-                  'errmsg' => 'signature error',
-                  ),
-                );
-           }else{
+           }
+           // elseif($params['signature']!=$signature){
+           //    $data = array(
+           //      'msgtype' => 'error',
+           //      'params' => array(
+           //        'errid' => 10003,
+           //        'errmsg' => 'signature error',
+           //        ),
+           //      );
+           // }
+           else{
                $type = $params['type'];
-               $room = $this->available($type);
+               $limit = $params['limit'];
+               $room = $this->available($type,$limit);
+               //分页获取
+            
+
                $data = array(
                     'msgtype' => 'room_list',
                     'rooms'   => $room,
@@ -219,7 +225,7 @@ class RoomsController extends Controller{
     dump($return);
   }
   //封装判断机器是否空闲以及种类的方法
-  public function available($type){
+  public function available($type,$limit){
 
     if ($type == 1) {
       $rooms = M('Goods')
@@ -230,6 +236,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
+      ->limit($limit,1)
+      // ->limit($limit*10,10)
       ->select();
     }elseif($type == 2){
       $rooms = M('Goods')
@@ -241,6 +249,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
+      ->limit($limit,1)
+     // ->limit($limit*10,10)
       ->select();
     }elseif($type == 3){
         $rooms = M('Goods')
@@ -251,6 +261,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
+      ->limit($limit,1)
+      // ->limit($limit*10,10)
       ->select();
     }else{
         $rooms = M('Goods')
@@ -261,6 +273,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
+      ->limit($limit,1)
+      // ->limit($limit*10,10)
       ->select();
     }
     
