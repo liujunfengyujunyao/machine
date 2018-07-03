@@ -236,8 +236,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
-      ->limit($limit,1)
-      // ->limit($limit*10,10)
+      // ->limit($limit,1)
+      ->limit($limit*10,10)
       ->select();
     }elseif($type == 2){
       $rooms = M('Goods')
@@ -249,8 +249,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
-      ->limit($limit,1)
-     // ->limit($limit*10,10)
+      // ->limit($limit,1)
+     ->limit($limit*10,10)
       ->select();
     }elseif($type == 3){
         $rooms = M('Goods')
@@ -261,8 +261,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
-      ->limit($limit,1)
-      // ->limit($limit*10,10)
+      // ->limit($limit,1)
+      ->limit($limit*10,10)
       ->select();
     }else{
         $rooms = M('Goods')
@@ -273,8 +273,8 @@ class RoomsController extends Controller{
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
-      ->limit($limit,1)
-      // ->limit($limit*10,10)
+      // ->limit($limit,1)
+      ->limit($limit*10,10)
       ->select();
     }
     
