@@ -83,7 +83,7 @@
 							<td><font color="red"><b>{{$v.price}}</b></font></td>
 							<td>{{$v.nickname}}</td>
 							
-							  <td>  <if condition =" $v.isonline == 1"><img src="__PUBLIC__/Admin/paihang/images/online.png" alt="在线" title="在线" ></if><if condition =" $v.isonline == 0"><img src="__PUBLIC__/Admin/paihang/images/noline.png"  alt="离线" title="离线" ></if></td>
+							  <td>  <if condition =" $v.state == 1"><img src="__PUBLIC__/Admin/paihang/images/online.png" alt="在线" title="在线" ></if><if condition =" $v.state == 0"><img src="__PUBLIC__/Admin/paihang/images/noline.png"  alt="离线" title="离线" ></if></td>
 							<!-- <td><img src="{{$v.equipment_small_img}}" alt=""></td> -->
 							<!-- <td class="td-status"><span class="label label-success radius">{{$v.equipment_create_time|date="Y-m-d",###}}</span></td> -->
 							<td class="td-status"><span class="label label-success radius">{{$v.create_time|date="Y-m-d",###}}</span></td>

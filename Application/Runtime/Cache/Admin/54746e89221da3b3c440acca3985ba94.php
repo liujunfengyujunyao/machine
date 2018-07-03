@@ -264,7 +264,7 @@
             </tr> -->
                     <tr class="text-c">
                         <td>当前</td>
-                        <td>  <?php if( $isonline == 1): ?>在线<?php endif; if( $isonline == 0): ?>离线<?php endif; ?></td>
+                        <td>  <?php if( $equipment["state"] == 1): ?>在线<?php endif; if( $equipment["state"] == 0): ?>离线<?php endif; ?></td>
                         <!-- <td><?php echo ($total["today_realtime_online_free_game_count"]); ?></td> -->
                         <!-- <td><?php echo ($total["giftremain"]); ?></td> -->
                         

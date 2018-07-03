@@ -497,7 +497,7 @@ public function days(){
     $star = strtotime($lastStartDay);//上个月的月初时间戳
     $end = strtotime($lastEndDay)+60*60*24-1;//上个月的月末时间戳
 
-    $month_all = M('equipment_day_statistics')->select();
+    $month_all = M('equipment_day_statistics')->where("statistics_date between $star and $end")->select();
 
         $equipment_all=M('equipment')
         ->field("id as equipment_id")
@@ -518,10 +518,41 @@ public function days(){
 
               }
             }
-
+            dump($equipment_all);die;
             $statistics = M('equipment_month_statistics')->addAll($equipment_all);
              echo "操作已完成 请关闭页面";
              flush();
        
   }
+
+  //机台年统计表
+  public function equipment_year_statistics(){
+    $star = 1514736000;
+    $end = 1546271999;
+    $year_all = M('equipment_month_statistics')->where("statistics_date between $star and $end")->select();//查出月统计的数据
+    $equipment_all = M('equipment')
+    ->field("id as equipment_id")
+    ->select();
+
+    foreach ($year_all as $key => $value) {
+      foreach ($equipment_all as $key1 => &$value1) {
+        if ($value['equipment_id']==$value1['equipment_id']) {
+              //如果机台表的机台和月统计表的机台id一致
+              foreach ($value as $key2 => $value2) {
+                //填充(年)二维数组
+                if ($key2 != 'id' && $key2 != 'statistics_date' && $key2 != 'create_time' && $key2 != 'equipment_id') {
+                  $value1[$key2] += $value2;
+                  $value1['statistics'] = $star;
+                  $value1['create_time'] = time();
+                }
+              }
+        }
+      }
+    }
+
+    $statistics = M('equipment_month_statistics')->addAll($equipment_all);
+    echo "操作已完成 请关闭页面";
+    flush();
+  }
+
 }

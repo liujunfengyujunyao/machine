@@ -158,7 +158,7 @@
 							<td><font color="red"><b><?php echo ($v["price"]); ?></b></font></td>
 							<td><?php echo ($v["nickname"]); ?></td>
 							
-							  <td>  <?php if( $v["isonline"] == 1): ?><img src="/Public/Admin/paihang/images/online.png" alt="在线" title="在线" ><?php endif; if( $v["isonline"] == 0): ?><img src="/Public/Admin/paihang/images/noline.png"  alt="离线" title="离线" ><?php endif; ?></td>
+							  <td>  <?php if( $v["state"] == 1): ?><img src="/Public/Admin/paihang/images/online.png" alt="在线" title="在线" ><?php endif; if( $v["state"] == 0): ?><img src="/Public/Admin/paihang/images/noline.png"  alt="离线" title="离线" ><?php endif; ?></td>
 							<!-- <td><img src="<?php echo ($v["equipment_small_img"]); ?>" alt=""></td> -->
 							<!-- <td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["equipment_create_time"])); ?></span></td> -->
 							<td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["create_time"])); ?></span></td>
