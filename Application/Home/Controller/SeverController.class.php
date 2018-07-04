@@ -8,8 +8,8 @@ class SeverController extends Controller{
 		//HTTP://账户服务器/Server/user_auth/
 		public function user_auth(){
 			//获取到从服务器接收到的数据,转换成数组
-			$params = $GLOBALS['HTTP_RAW_POST_DATA'];         
-    		$params = json_decode($params,true);
+			$params = $GLOBALS['HTTP_RAW_POST_DATA'];  	file_put_contents("server.txt",$params);       
+    		$params = json_decode($params,true); 	
     		$user = M('all_user')->where(['id'=>$params['userid']])->find();
     		if(time()-$params['timestamp']>10){
     			$data = array(

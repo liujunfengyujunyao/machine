@@ -1543,4 +1543,29 @@ public function equipment(){
      dump($machines_ids);
      dump($free);die;
   }
+
+  public function yu(){
+    $machines = M('Equipment')->where(['goods_id'=>4])->getField('id',true);
+    $data = array(
+      'msgtype'  => 'get_machine_status',
+      'machines' => $machines,
+      'timestamp' => time(),
+      );
+    foreach ($machines as $key => $value) {
+        $machines2[] = intval($value);
+    }
+    dump($machines2);die;
+    dump($data);die;
+  }
+
+  public function dd(){
+    $data = array(
+      'msgtype' => 'user_auth',
+      'userid' => 1,
+      'timestamp' => time(),
+      );
+    $url = "http://192.168.1.164/Home/Diliang/payment";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
 }

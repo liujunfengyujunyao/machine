@@ -163,9 +163,15 @@ class RoomsController extends Controller{
       'timestamp' => time(),
       );
     $key = sha1($key);
+
+    //将machines改成int形
+    foreach ($machines as $key => $value) {
+      $machines2[] = intval($value);
+    }
     $data = array(
       'msgtype'  => 'get_machine_status',
-      'machines' => $machines,
+      // 'machines' => $machines,
+      'machines' => $machines2,
       'timestamp' => time(),
       'signature' => $key,
       );
@@ -180,7 +186,7 @@ class RoomsController extends Controller{
     if ($free) {
       $data = array(
         // 'gameserver' => $free['gamesever'],
-        'gameserver' => "ws://192.168.1.148:5002/game_server",
+        'gameserver' => "ws://192.168.1.148:7777/game_server",
         'machineid'  => $free['id'],
         'camera0'    => $free['live_channel1'],
         'camera1'    => $free['live_channel2'],
@@ -192,7 +198,7 @@ class RoomsController extends Controller{
       $state = M('Equipment')->where(['id'=>$state['machineid']])->find();
       $data = array(
         // 'gamesever'  => $state['gamesever'],
-        'gameserver' => "ws://192.168.1.148:5002/game_server",
+        'gameserver' => "ws://192.168.1.148:7777/game_server",
         'machineid'  => $state['id'],
         'camera0'    => $state['live_channel1'],
         'camera1'    => $state['live_channel2'],

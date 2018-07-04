@@ -368,6 +368,36 @@ class DiliangController extends Controller{
   		echo $data;
   	}
 
+
+    //游戏服务器认证用户
+      public function user_auth(){
+      //获取到从服务器接收到的数据,转换成数组
+      $params = $GLOBALS['HTTP_RAW_POST_DATA'];   file_put_contents("server.txt",$params);       
+        $params = json_decode($params,true);  
+        $user = M('all_user')->where(['id'=>$params['userid']])->find();
+        if(time()-$params['timestamp']>10){
+          $data = array(
+            'errid' => 10001,
+            'timestamp' => time(),
+            );
+        }elseif (!$user) {
+          $data = array(
+            'errid' => 10003,
+            'errmsg' => 'auth error',
+            );
+        }else{
+          //验证成功,返回用户数组ID,用户昵称,头像地址
+          $data = array(
+            'userid' => $user['id'],
+            'username' => $user['nick'],
+            'avatar'  => $user['head'],
+            ); 
+        }
+        $data = json_encode($data,JSON_UNESCAPED_UNICODE);
+          echo $data;
+    }
+
+
   //用来接收游戏服务器传输的数据
   public function payment(){
 
@@ -404,30 +434,44 @@ class DiliangController extends Controller{
 
   //扣款请求(应为开始游戏前游戏服务器请求)
 	public function payment_request($params){
-     
-	    // $url = "http://192.168.1.164/Home/Iwawa/iwawa";
-      $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
-	    $data = array(
-	    	'msgtype' => 'payment_request',
-	    	'params' => $params,
-	    	);
+      //判断属于谁的用户
+      $user = M('all_user')->where(['id'=>$params['userid']])->find();
+      if (is_null($user['uuid'])) {
+        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $return = json_curl($params);
+      }
+      else{
+        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+        $data = array(
+        'msgtype' => 'payment_request',
+        'params' => $params,
+        );
 
-	    $return = json_curl($url,$data);
-      // var_dump($return);die;
-      // var_dump($return);die;
-	    // $return = json_decode($return,true);
+      $return = json_curl($url,$data);
+      }
 	     return $return;
 	}
+
+
+
+
   //撤销扣款
   public function payment_cancel($params){
-     
-      // $url = "http://192.168.1.164/Home/Iwawa/iwawa";
-      $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
-      $data = array(
+       //判断属于谁的用户
+      $user = M('all_user')->where(['id'=>$params['userid']])->find();
+      if (is_null($user['uuid'])) {
+        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $return = json_curl($params);
+      }
+      else{
+        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        $data = array(
         'msgtype' => 'payment_cancel',
         'params' => $params
         );
       $return = json_curl($url,$data);
+      }
+     
       // var_dump($return);die;
       return $return;
       // $return = json_decode($return,true);
@@ -437,9 +481,15 @@ class DiliangController extends Controller{
 
   //游戏结果
   public function game_result($params){
+      //判断属于谁的用户
       //接收从游戏服务器发送过来的游戏结果
+      $user = M('all_user')->where(['id'=>$params['userid']])->find();
+      if (is_null($user['uuid'])) {
+        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        $return = json_curl($params);
+        return $return;
+      }
       
-     
       
       //发送给iwawa服务器
       $goods = M('Goods')->where(['id'=>$params['roomid']])->find();

@@ -32,7 +32,6 @@ class IwawaController extends Controller{
 				break;
 			case 'payment_request':
 				echo $this->payment_request($result);
-				// echo "xxxx";
 				break;
 			case 'payment_cancel':
 				echo $this->payment_cancel($result);
