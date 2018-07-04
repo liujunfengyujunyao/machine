@@ -81,10 +81,10 @@ class GoodsController extends CommonController{
 			}else{
 			//NULL为全部取消  $diff为被取消的机台的id集合
 			if (is_null($diff)) {
-				D('Equipment')->where("id in ({$e_ids})")->save(['goods_id'=>0]);
+				D('Equipment')->where("id in ({$e_ids})")->save(['goods_id'=>0,'price'=>2,'time_limit'=>30]);
 			}
 			if ($diff) {
-				D('Equipment')->where("id in ({$diff})")->save(['goods_id'=>0]);
+				D('Equipment')->where("id in ({$diff})")->save(['goods_id'=>0,'price'=>2,'time_limit'=>30]);
 			}
 			}
 			$model = D('Goods');
@@ -113,7 +113,7 @@ class GoodsController extends CommonController{
 					$equipment_ids = implode(',',$data['id']);
 					
 					//一种商品可能存放于多个机台中
-					$setauth = D('Equipment')->where("id in ({$equipment_ids})")->save(['goods_id'=>$data['goods_id']]);
+					$setauth = D('Equipment')->where("id in ({$equipment_ids})")->save(['goods_id'=>$data['goods_id'],['price'=>$data['price'],'time_limit'=>$data['time_limit']]);
 				}
 				
 				$this->success('修改成功',U('Admin/Goods/index'));
