@@ -436,12 +436,17 @@ class DiliangController extends Controller{
 	public function payment_request($params){
       //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
-      if (is_null($user['uuid'])) {
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
-        $return = json_curl($params);
+      // var_dump($params);var_dump($user);die;
+
+      if (!$user['uuid']) {
+    
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "http://192.168.1.164/Home/Sever/payment";
+        $return = json_curl($url,$params);
       }
       else{
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+        // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+        $url = "http://192.168.1.164/Home/Iwawa/iwawa"; 
         $data = array(
         'msgtype' => 'payment_request',
         'params' => $params,
@@ -459,9 +464,9 @@ class DiliangController extends Controller{
   public function payment_cancel($params){
        //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
-      if (is_null($user['uuid'])) {
+      if (!$user['uuid']) {
         $url = "http://192.168.1.3/index.php/Home/Sever/payment";
-        $return = json_curl($params);
+        $return = json_curl($url,$params);
       }
       else{
         $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
@@ -484,12 +489,13 @@ class DiliangController extends Controller{
       //判断属于谁的用户
       //接收从游戏服务器发送过来的游戏结果
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
-      if (is_null($user['uuid'])) {
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
-        $return = json_curl($params);
+      if (!$user['uuid']) {
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "http://192.168.1.164/Home/sever/payment";
+        $return = json_curl($url,$params);
         return $return;
       }
-      
+     
       
       //发送给iwawa服务器
       $goods = M('Goods')->where(['id'=>$params['roomid']])->find();
@@ -532,6 +538,16 @@ class DiliangController extends Controller{
         
   }
 
+  //机器硬件错误
+  public function index(){
+    $params = $GLOBALS['HTTP_RAW_POST_DATA'];
+    $params = json_decode($params,true);
+    $data = array(
+      'errid' => $params['errid'],//错误ID
+      'machineid' => $params['machineid'],//错误机台
+      );
+    M('error')->add($data);
+  }
 
   //游戏结果测试
   public function test_game_result(){

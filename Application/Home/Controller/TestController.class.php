@@ -1568,4 +1568,16 @@ public function equipment(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
+
+  public function lujing(){
+    $url = "http://192.168.1.164/Home/Diliang/payment";
+    $data = array(
+      'msgtype' => 'game_result',
+      'userid' => 2,
+      'machineid' => 4,
+      'result' => 0,
+      );
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
 }

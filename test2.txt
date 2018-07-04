@@ -1,1 +1,1 @@
-{"msgtype":"user_auth","userid":1,"timestamp":1530692324}
+{"msgtype":"game_result","userid":2,"machineid":4,"result":0}
