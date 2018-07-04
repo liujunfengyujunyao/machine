@@ -27,7 +27,17 @@ class DiliangController extends Controller{
         $useruuid = M('all_user')->where(['uuid'=>$return['useruuid']])->find();
 	    	$id = $useruuid['id'];
 	    	if ($useruuid) {
-	    		//已存在
+	    		//已存在  更新
+          $url = "http://wwj.94zl.com/iwawa/get_current_user_info";
+          $info = array(
+            'useruuid' => $return['useruuid'],
+            'timestamp' => time(),
+            'signature' => "测试",
+            );
+          $info = json_curl($url,$data);
+          $info = json_decode($info,true);
+          //更新昵称和头像
+          $user = M('all_user')->where(['id'=>$id])->save(['nick'=>$info['username'],'head'=>$info['avatar']]);
 	    		$data = array(
 	    			'userid' => $useruuid['id'],
 	    			'accesstoken' => $accesstoken,
@@ -36,7 +46,16 @@ class DiliangController extends Controller{
 	    		//不存在,添加
 	    		// $user = M('iwawa_user')->add(array('uuid'=>$return['useruuid'],'create_time'=>time()));
           //添加到用户表中
-          $user = M('all_user')->add(array('uuid'=>$return['useruuid'],'addtime'=>time()));
+          //添加获取用户详细信息
+          $url = "http://wwj.94zl.com/iwawa/get_current_user_info";
+          $info = array(
+            'useruuid' => $return['useruuid'],
+            'timestamp' => time(),
+            'signature' => "测试",
+            );
+          $info = json_curl($url,$data);
+          $info = json_decode($info,true);
+          $user = M('all_user')->add(array('uuid'=>$return['useruuid'],'addtime'=>time(),'nick'=>$info['username'],'head'=>$info['avatar']));
 	    		$id = $user;
 	    		$data = array(
 	    			'userid' => $user,
@@ -106,9 +125,9 @@ class DiliangController extends Controller{
 	}
 
 	public function get_room_types(){
-		$roomtype = M('Goods')->alias("t1")->where("t3.status!=0 && t3.pid = 9")->join("left join type as t2 on t1.type_id = t2.type_id")->join("left join equipment as t3 on t3.goods_id = t1.id")->getField('t2.type_name');
+		$roomtype = M('Goods')->alias("t1")->where("t3.state!=0 && t3.pid = 9")->join("left join type as t2 on t1.type_id = t2.type_id")->join("left join equipment as t3 on t3.goods_id = t1.id")->getField('t2.type_name');
 
-		$roomtype = M('equipment')->alias("t1")->where("t1.pid =9 && t1.status != 0")->join("left join type as t2 on t2.type_id = t1.type")->getField("t2.type_name");
+		$roomtype = M('equipment')->alias("t1")->where("t1.pid =9 && t1.state != 0")->join("left join type as t2 on t2.type_id = t1.type")->getField("t2.type_name");
 		
 		$data = json_encode($roomtype,JSON_UNESCAPED_UNICODE);
 		echo $data;
@@ -137,7 +156,7 @@ class DiliangController extends Controller{
       $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 1 and t4.status!=0")//查询娃娃机的
+      ->where("t1.type_id = 1 and t4.state!=0")//查询娃娃机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -148,7 +167,7 @@ class DiliangController extends Controller{
    
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 2 and t4.status!=0")//查询彩票机的
+      ->where("t1.type_id = 2 and t4.state!=0")//查询彩票机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -158,7 +177,7 @@ class DiliangController extends Controller{
         $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 3 and t4.status!=0")
+      ->where("t1.type_id = 3 and t4.state!=0")
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -179,7 +198,7 @@ class DiliangController extends Controller{
     }
     
     foreach ($rooms as $key => &$value) {
-      $available = M('Goods')->alias('t1')->where(['t2.status'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->find();
+      $available = M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->find();
       if ($available) {
         $value['available'] = 1;
       }else{

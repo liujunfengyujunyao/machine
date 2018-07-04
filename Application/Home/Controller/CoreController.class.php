@@ -555,4 +555,18 @@ public function days(){
     flush();
   }
 
+
+  public function bianli(){
+     $star = 1514736000;
+     $end = 1546271999;
+     $equipment = M('equipment')->field("id as equipment_id")->select();
+     $month = M('equipment_month_statistics')->where("statistics_date between $star and $end")->select();
+     foreach ($equipment as $key => &$value) {
+       foreach ($month as $key1 => $value1) {
+         if ($value['equipment_id'] == $value1['equipment_id']) {
+            $
+         }
+       }
+     }
+  }
 }

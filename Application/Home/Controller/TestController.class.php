@@ -1447,4 +1447,15 @@ public function equipment(){
         $return = json_decode($return,true);
         dump($return);
       }
+
+      public function info(){
+        $data = array(
+          'timestamp' => time(),
+          'signature' => "测试",
+          'useruuid' => 11,
+          );
+        $url = "http://wwj.94zl.com/iwawa/get_current_user_info";
+        $return = json_curl($url,$data);
+        dump($return);die;
+      }
 }
