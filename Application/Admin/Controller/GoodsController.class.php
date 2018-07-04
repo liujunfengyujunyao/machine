@@ -113,7 +113,7 @@ class GoodsController extends CommonController{
 					$equipment_ids = implode(',',$data['id']);
 					
 					//一种商品可能存放于多个机台中
-					$setauth = D('Equipment')->where("id in ({$equipment_ids})")->save(['goods_id'=>$data['goods_id'],['price'=>$data['price'],'time_limit'=>$data['time_limit']]);
+					$setauth = D('Equipment')->where("id in ({$equipment_ids})")->save(['goods_id'=>$data['goods_id'],'price'=>$data['price'],'time_limit'=>$data['time_limit']]);
 				}
 				
 				$this->success('修改成功',U('Admin/Goods/index'));
