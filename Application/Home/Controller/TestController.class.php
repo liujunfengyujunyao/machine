@@ -1458,4 +1458,89 @@ public function equipment(){
         $return = json_curl($url,$data);
         dump($return);die;
       }
+      public function fuwu(){
+        $data = array(
+          'msgtype' => 'get_machine_status',
+          'machines' => array(2,8),
+          'timestamp' => time(),
+          'signature' => "测试",
+          );
+        // dump(json_encode($data,JSON_UNESCAPED_UNICODE));die;
+        $url = "http://192.168.1.148:7777/account_server";
+        $return = json_curl($url,$data);
+        $return = json_decode($return,1);
+        dump($return);die;
+      }
+
+      public function ooo(){
+    $params = $GLOBALS['HTTP_RAW_POST_DATA'];         
+    $params = json_decode($params,true);
+    $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
+    $machines_ids = implode(',',$machines);
+    $url = "http://192.168.1.148:7777/account_server";//游戏服务器地址
+    $key = array(
+      'msgtype' => 'get_machine_status',
+      'machines' => $machines,
+      'timestamp' => time(),
+      );
+    $key = sha1($key);
+    $data = array(
+      'msgtype'  => 'get_machine_status',
+      'machines' => $machines,
+      'timestamp' => time(),
+      'signature' => $key,
+      );
+    
+    $return = json_curl($url,$data);//发送给游戏服务器获取机台的machineid机器IDusers用户数和state是否被占用
+    $state = json_decode($return,1);//转换为数组
+    //获取到服务器返回的stateJSON数组
+    //根据房间人数升序重组二维数组,升序人数从少到多
+    $state = arraySequence($state,'users',$sort = 'SORT_ASC');
+    //闲置机台(非离线,运行)
+    $free = M('Equipment')->where("id in ({$machines_ids}) and state = 1")->find();
+    if ($free) {
+      $data = array(
+        // 'gameserver' => $free['gamesever'],
+        'gamesever' => "ws://192.168.1.148:5002/game_server",
+        'machineid'  => $free['id'],
+        'camera0'    => $free['live_channel1'],
+        'camera1'    => $free['live_channel2'],
+        );
+    }else{
+      //取出升序排序后第一个(人数最少的机台)
+      reset($state);
+      $state = $state[0];
+      $state = M('Equipment')->where(['id'=>$state['machineid']])->find();
+      $data = array(
+        // 'gamesever'  => $state['gamesever'],
+        'gamesever' => "ws://192.168.1.148:5002/game_server",
+        'machineid'  => $state['id'],
+        'camera0'    => $state['live_channel1'],
+        'camera1'    => $state['live_channel2'],
+        );
+    }
+       $data = json_encode($data,JSON_UNESCAPED_UNICODE);
+       echo $data;
+
+    }
+
+  public function iii(){
+    $data = array(
+      'userid'=>1,
+      'roomid'=>4,
+      'timestamp' => time(),
+      'signature' => 1,
+      );
+    $url = "www.source.com/Home/Rooms/enter_room";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+
+  public function ii(){
+    $machines = M('Equipment')->where(['goods_id'=>4])->getField('id',true);
+     $machines_ids = implode(',',$machines);
+      $free = M('Equipment')->where("id in ({$machines_ids}) and state = 1")->find();
+     dump($machines_ids);
+     dump($free);die;
+  }
 }

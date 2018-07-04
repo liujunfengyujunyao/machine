@@ -132,7 +132,8 @@ class RoomsController extends Controller{
       );
     $signature = json_encode($signature);
     $signature = sha1($signature);
-    if (time()-$params['tiumestamp']>12) {
+    // $signature = 1;
+    if (time()-$params['timestamp']>12) {
       $data = array(
         'msgtype' => 'error',
         'params' => array(
@@ -140,19 +141,22 @@ class RoomsController extends Controller{
           'timestamp' => time(),
           ),
         );
-    }elseif($params['signature']!=$signature){
-      $data = array(
-        'msgtype' => 'error',
-        'params' => array(
-          'errid' => 10003,
-          'errmsg' => 'signature error',
-          )
-        );
-    }else{
+    }
+    // elseif($params['signature']!=$signature){
+    //   $data = array(
+    //     'msgtype' => 'error',
+    //     'params' => array(
+    //       'errid' => 10003,
+    //       'errmsg' => 'signature error',
+    //       )
+    //     );
+    // }
+    else{
+      
       //获取到这个房间下的所有机台id
     $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
     $machines_ids = implode(',',$machines);
-    $url = "http://192.168.1.3/account_server";//游戏服务器地址
+    $url = "http://192.168.1.148:7777/account_server";//游戏服务器地址
     $key = array(
       'msgtype' => 'get_machine_status',
       'machines' => $machines,
@@ -165,7 +169,7 @@ class RoomsController extends Controller{
       'timestamp' => time(),
       'signature' => $key,
       );
-    }
+    
     $return = json_curl($url,$data);//发送给游戏服务器获取机台的machineid机器IDusers用户数和state是否被占用
     $state = json_decode($return,1);//转换为数组
     //获取到服务器返回的stateJSON数组
@@ -175,7 +179,8 @@ class RoomsController extends Controller{
     $free = M('Equipment')->where("id in ({$machines_ids}) and state = 1")->find();
     if ($free) {
       $data = array(
-        'gameserver' => $free['gamesever'],
+        // 'gameserver' => $free['gamesever'],
+        'gameserver' => "ws://192.168.1.148:5002/game_server",
         'machineid'  => $free['id'],
         'camera0'    => $free['live_channel1'],
         'camera1'    => $free['live_channel2'],
@@ -186,12 +191,15 @@ class RoomsController extends Controller{
       $state = $state[0];
       $state = M('Equipment')->where(['id'=>$state['machineid']])->find();
       $data = array(
-        'gamesever'  => $state['gamesever'],
+        // 'gamesever'  => $state['gamesever'],
+        'gameserver' => "ws://192.168.1.148:5002/game_server",
         'machineid'  => $state['id'],
         'camera0'    => $state['live_channel1'],
         'camera1'    => $state['live_channel2'],
         );
     }
+  }
+  
        $data = json_encode($data,JSON_UNESCAPED_UNICODE);
        echo $data;
   }
