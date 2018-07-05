@@ -1572,11 +1572,63 @@ public function equipment(){
   public function lujing(){
     $url = "http://192.168.1.164/Home/Diliang/payment";
     $data = array(
-      'msgtype' => 'game_result',
+      'msgtype' => 'payment_request',
       'userid' => 2,
-      'machineid' => 4,
-      'result' => 0,
+      'machineid' => 2,
+      'timestamp' => time(),
       );
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+
+  public function shijian(){
+    $data = array(
+      'userid' => 1,
+      'timestamp' => time(),
+      );
+    $url = "http://192.168.1.164/Home/Diliang/user_auth";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+
+  public function js(){
+    $data = array(
+      'msgtype' => 'payment_request',
+      'userid' => 1,
+      'machineid' => 14,
+      'timestamp' => time(),
+      );
+    // $data = json_encode($data);
+    // dump($data);die;
+    $url = "http://192.168.1.164/Home/Diliang/payment";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+  public function jg(){
+    $data = array(
+      'msgtype' => 'game_result',
+      'userid' => 1,
+      'machineid' => 14,
+      'result' => 1,
+      'paymentid' => 2018070521460,
+      );
+    $url = "http://192.168.1.164/Home/Diliang/payment";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+  public function shuzi(){
+    $paymentid = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);//消费记录流水号
+        $paymentid = intval($paymentid);
+        dump($paymentid);die;
+  }
+
+  public function rm(){
+    $data = array(
+      'type' => 0,
+      'userid' => 1,
+      'timestamp' => time(),
+      );
+    $url = "http://192.168.1.164/Home/Rooms/get_room_list";
     $return = json_curl($url,$data);
     dump($return);die;
   }

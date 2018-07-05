@@ -32,7 +32,7 @@ class UserloginController extends Controller{
 	public function login_auth(){
 		
 		$a = $GLOBALS['HTTP_RAW_POST_DATA']; 
-		
+		file_put_contents('shebei.txt',$a);
 		$a = json_decode($a,true); 
 		$code = $a['wechat_code'];
 		       
@@ -75,11 +75,11 @@ class UserloginController extends Controller{
 				$data['type'] = 'oauth';
 				$data['addtime'] = time();
 				$data['referee'] = $referee;
-				$data['model'] = $model['model'];
-				$data['vendor'] = $model['vendor'];
-				$data['os'] = $model['os'];
-				$data['versaion'] = $model['versaion'];
-				$data['uuid'] = $model['uuid'];
+				$data['model'] = $a['model'];
+				$data['vendor'] = $a['vendor'];
+				$data['os'] = $a['os'];
+				$data['version'] = $a['version'];
+				// $data['uuid'] = $model['uuid'];
 				$data['access_token'] = encrypt_password(time());
 				$access_token = $data['access_token'];
 				// $id = M('wx_user')->add($data);
@@ -92,11 +92,14 @@ class UserloginController extends Controller{
 				$data['gender'] = $wx_user->sex;//1:男 2:女 3:保密
 				$data['type'] = 'oauth';
 				$data['addtime'] = time();
-				$data['model'] = $model['model'];
-				$data['vendor'] = $model['vendor'];
-				$data['os'] = $model['os'];
-				$data['versaion'] = $model['versaion'];
-				$data['uuid'] = $model['uuid'];
+				// $data['model'] = $model['model'];
+				$data['model'] = $a['model'];
+				// $data['vendor'] = $model['vendor'];
+				$data['vendor'] = $a['vendor'];
+				// $data['os'] = $model['os'];
+				$data['os'] = $a['os'];
+				$data['version'] = $a['version'];
+				// $data['uuid'] = $model['uuid'];
 				$data['access_token'] = encrypt_password(time());
 				$access_token = $data['access_token'];
 				// $id = M('wx_user')->add($data);
@@ -106,11 +109,15 @@ class UserloginController extends Controller{
 				$data['nick'] = $wx_user->nickname;
 				$data['head'] = $wx_user->headimgurl;
 				$data['gender'] = $wx_user->sex;
-				$data['model'] = $model['model'];
-				$data['vendor'] = $model['vendor'];
-				$data['os'] = $model['os'];
-				$data['versaion'] = $model['versaion'];
-				$data['uuid'] = $model['uuid'];
+				// $data['model'] = $model['model'];
+				$data['model'] = $a['model'];
+				// $data['vendor'] = $model['vendor'];
+				$data['vendor'] = $a['vendor'];
+				// $data['os'] = $model['os'];
+				$data['os'] = $a['os'];
+				// $data['versaion'] = $model['versaion'];
+				$data['version'] = $a['version'];
+				// $data['uuid'] = $model['uuid'];
 				// M('wx_user')->where(['openid'=>$wx_user->openid])->save($data);
 				M('all_user')->where(['openid'=>$wx_user->openid])->save($data);
 				$id = $user['id'];

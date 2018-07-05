@@ -481,5 +481,19 @@ class ManagerController extends CommonController{
               $object->png($url, false, $errorCorrectionLevel, $matrixPointSize, 2);   
     }
    
-   
+   public function qrcode2($url="",$level=3,$size=4)
+    {			
+              Vendor('phpqrcode.phpqrcode.phpqrcode');
+              $errorCorrectionLevel =intval($level) ;//容错级别 
+              $matrixPointSize = intval($size);//生成图片大小 
+              $id = session('manager_info.id');
+              // $url = U('Admin/Login/register',array('id'=>$id),'.html',true);
+              // $url = "http://".$_SERVER['HTTP_HOST']."/Admin/Login/register?id=" .$id;
+              $url = "http://192.168.1.171/#/LOGIN";
+       			
+              // $body = "<br><a href='$url'>$url</a><br>";
+             //生成二维码图片 
+              $object = new \QRcode();
+              $object->png($url, false, $errorCorrectionLevel, $matrixPointSize, 2);   
+    }
 }

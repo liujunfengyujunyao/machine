@@ -109,12 +109,15 @@ class IwawaController extends Controller{
 	public function payment_request($result){
 		
 		$data['useruuid'] = M('all_user')->where(['id'=>$result['userid']])->getField('uuid');
-		$data['paymentid'] = 111;
+		$paymentid = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);//消费记录流水号 111;
 		$data['roomid'] = M('Equipment')->where(['id'=>$result['machineid']])->getField('goods_id');
 		$data['machineid'] = $result['machineid'];
-		$data['price'] = $result['amount'];
-		$data['timestamp'] = $result['timestamp'];
-		$data['signature'] = $result['signature'];
+		// $data['price'] = $result['amount'];
+		$data['price'] = M('Goods')->where(['id'=>$data['roomid']])->getField('price');
+		// $data['timestamp'] = $result['timestamp'];
+		$data['timestamp'] = time();
+		// $data['signature'] = $result['signature'];
+		$data['signature'] = "测试";
 		
 		
 		// var_dump($result,JSON_UNESCAPED_UNICODE);die;
@@ -122,6 +125,36 @@ class IwawaController extends Controller{
 		// $url = "http://www.machine.com/Home/Diliang/test2";
 		$return = json_curl($url,$data);
 
+
+
+		$equipment = M('Equipment')
+		->alias("t1")
+		->field("t3.pics_origin,t2.name as goods_name,t2.id as roomid,t1.id as machineid")
+		->where(['t1.id'=>$data['machineid']])
+		->join("left join goods as t2 on t2.id = t1.goods_id")
+		->join("left join goodspics as t3 on t3.goods_id = t2.id")
+		->find();
+		$user = M('all_user')->where(['uuid'=>$data['useruuid']])->find();
+		//添加这个userid的消费记录到record表中
+		$record = array(
+					'userid' => $user['id'],
+					'roomid' => $equipment['roomid'],
+					'goodsname' =>  $equipment['goods_name'],
+					'photo' => $equipment['pics_origin'],
+					'equipment_id' => $equipment['machineid'],
+					'type' => $type,//消费的币种类型
+					'amount' => $params['amount'],
+					'paymentid' => $paymentid,
+					'cancel' => 0,  //是否被撤销扣款
+					);
+		M('Record')->add($record);
+		$log = array(
+					'userid' => $user['id'],
+					'type' => $params['type'],
+					'paymentid'=>$paymentid,
+
+					);
+		$gamelogid = M('tbl_game_log')->add($log);
 		// var_dump($return);die;
 		return $return;
 	}

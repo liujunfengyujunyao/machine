@@ -388,7 +388,7 @@ class DiliangController extends Controller{
         }else{
           //验证成功,返回用户数组ID,用户昵称,头像地址
           $data = array(
-            'userid' => $user['id'],
+            'userid' => intval($user['id']),
             'username' => $user['nick'],
             'avatar'  => $user['head'],
             ); 
@@ -436,15 +436,17 @@ class DiliangController extends Controller{
 	public function payment_request($params){
       //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
-      // var_dump($params);var_dump($user);die;
+      
 
-      if (!$user['uuid']) {
-    
+      if ($user['openid']) {
+
         // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
         $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
+    
       }
       else{
+ 
         // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
         $url = "http://192.168.1.164/Home/Iwawa/iwawa"; 
         $data = array(
@@ -453,6 +455,7 @@ class DiliangController extends Controller{
         );
 
       $return = json_curl($url,$data);
+     
       }
 	     return $return;
 	}
@@ -464,7 +467,7 @@ class DiliangController extends Controller{
   public function payment_cancel($params){
        //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
-      if (!$user['uuid']) {
+      if ($user['openid']) {
         $url = "http://192.168.1.3/index.php/Home/Sever/payment";
         $return = json_curl($url,$params);
       }
@@ -489,7 +492,7 @@ class DiliangController extends Controller{
       //判断属于谁的用户
       //接收从游戏服务器发送过来的游戏结果
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
-      if (!$user['uuid']) {
+      if ($user['openid']) {
         // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
         $url = "http://192.168.1.164/Home/sever/payment";
         $return = json_curl($url,$params);
@@ -498,12 +501,14 @@ class DiliangController extends Controller{
      
       
       //发送给iwawa服务器
-      $goods = M('Goods')->where(['id'=>$params['roomid']])->find();
+      // $goods = M('Goods')->where(['id'=>$params['roomid']])->find();
+      $goods_id = M('equipment')->where(['id'=>$params['machineid']])->gitField('goods_id');
       $res['equipment_id'] = $params['machineid'];
       $res['got_gift'] = $params['result'];
       $res['userid'] = $params['userid'];//区别 iwawa使用的是uuid
       $res['uuid'] = M('all_user')->where(['id'=>$params['userid']])->getField("uuid");
-      $res['goods_id'] = $goods['id'];
+      // $res['goods_id'] = $goods['id'];
+      $res['goods_id'] = $goods_id;
       $res['tag'] = time()+100;//后期改
       $res['end_time'] = time();
       $res['type'] = "gold";
@@ -517,7 +522,8 @@ class DiliangController extends Controller{
           'msgtype' => 'game_result',
           'params' =>array(
         'useruuid' => $res['uuid'],
-        'roomid' => $params['roomid'],
+        // 'roomid' => $params['roomid'],
+        'roomid' => $goods_id,
         'machineid' => $params['machineid'],
         'gamelogid' => $result,
         'result' => $params['result'],
