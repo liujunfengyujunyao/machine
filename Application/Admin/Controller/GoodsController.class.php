@@ -164,6 +164,7 @@ class GoodsController extends CommonController{
 		// $goods = D('Goods')->alias('t1')->where(['t1.id'=>$id])->join("left join goodspics as t2 on t1.id = t2.goods_id")->select();
 		$goods = D('Goods')->where(['id'=>$id])->find();
 		$goodspics = D('Goodspics')->where(['goods_id'=>$id])->select();
+		dump($goodspics);die;
 		$this->assign('goods',$goods);
 		$this->assign('goodspics',$goodspics);
 		$this->display();

@@ -1,1 +1,1 @@
-{"msgtype":"game_result","machineid":14,"userid":335,"paymentid":3260421162,"result":0}
+{"msgtype":"game_result","machineid":14,"userid":303,"paymentid":0,"result":0}

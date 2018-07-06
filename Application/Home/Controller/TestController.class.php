@@ -1632,4 +1632,79 @@ public function equipment(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
+
+  public function hg(){
+    $data = array(
+      'userid' => 1,
+      'roomid' => 4,
+      'timestamp' => time(),
+      );
+    $url = "http://192.168.1.164/Home/Rooms/enter_room";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+
+  public function gh(){
+    $params['roomid'] = 4;
+     $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
+    
+    $machines_ids = implode(',',$machines);
+    foreach ($machines as $key => $value) {
+      $machines2[] = intval($value);
+    }
+ 
+     $url = "http://192.168.1.148:7777/account_server";
+      $data = array(
+      'msgtype'  => 'get_machine_status',
+      // 'machines' => $machines,
+      'machines' => $machines2,
+      'timestamp' => time(),
+      // 'signature' => $key,
+      );
+    
+    $return = json_curl($url,$data);//
+    dump($return);die;
+  }
+
+  public function sig(){
+   $data = array(
+    'signature' => "53e5e80bac3c8c4bbcf42c960664543349b8ee4d",
+    'userid' => 1,
+    'timestamp' => 1530784819,
+    );
+   $url = "http://192.168.1.164/home/diliang/user_auth";
+   $return = json_curl($url,$data);
+   dump($return);die;
+  }
+  public function sig2(){
+    $data = array(
+      'msgtype' => 'login_request',
+      'userid' => 1,
+      'machineid' => 1,
+      'timestamp' => 1530784819,
+      );
+    $data = json_encode($data);
+    // dump($data);die;
+    dump(sha1($data));die;
+  }
+
+
+  public function huancun(){
+    $id = 1;
+    $access_token = "ssqqfqfqfqfasdadqwd";
+    $access_token2 = "whatssss";
+    S($id,$access_token);
+    S('2',$access_token2);
+    dump(S(1));
+    dump(S(2));die;
+  }
+
+  public function kuayu(){
+    $data = array(
+      'userid' => 1,
+      );
+    $url = "http://192.168.1.164/Home/diliang/user_auth";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
 }

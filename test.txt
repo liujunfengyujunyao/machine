@@ -1,2 +1,0 @@
-{"msgtype":"game_result", "userid":1, "machineid":8, result":0}
-测试git

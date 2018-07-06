@@ -124,9 +124,11 @@ class UserloginController extends Controller{
 			}
 			$access_token = sha1(time());
 			$_SESSION['accesstoken'] = $access_token;
+			
 			$_SESSION['userid'] = $id;
-
-			S('$id',111);
+			S($id,$access_token);
+			// M('all_user')->where(['id'=>$id])->save(['token'=>$access_token]);
+			
 			// file_put_contents('session.txt',$);
 			$data = array(
 				'msgtype' => 'userinfo',

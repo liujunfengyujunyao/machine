@@ -1,0 +1,1 @@
+{"userid":1,"machineid":14,"timestamp":1530788532,"signature":"64ab90eca3dffd5df0c5445e56a0820925ff4fbd"}

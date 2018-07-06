@@ -428,4 +428,13 @@ class TestingController extends Controller{
 		$return = json_curl($url,$data);
 		dump($return);die;
 	}
+
+	public function huancun(){
+		$data = S(1);
+		$data2 = S(2);
+		dump($data2);
+		dump($data);die;
+
+	}
+
 }
