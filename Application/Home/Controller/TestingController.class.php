@@ -430,11 +430,23 @@ class TestingController extends Controller{
 	}
 
 	public function huancun(){
-		$data = S(1);
-		$data2 = S(2);
-		dump($data2);
-		dump($data);die;
+		$params = array(
+			'userid' => 1,
+			);
+
+		// $params = json_encode($params,JSON_UNESCAPED_UNICODE);
+		$data = array(
+			'params' => 'userid'
+			'timestamp' => time(),
+			'signature' => '测试', 
+			);
+		$url = "http://wwj.94zl.com/iwawa/client_auth";
+
+		$return = json_curl($url,$data);
+		dump($retur);die;
 
 	}
+
+
 
 }

@@ -1,1 +1,1 @@
-{"msgtype":"game_result","machineid":14,"userid":303,"paymentid":0,"result":0}
+{"msgtype":"payment_request","userid":336,"machineid":2,"timestamp":1530874470,"signature":"dcf25b1ef264ec81c05accfa4c191464c3e9f88b"}

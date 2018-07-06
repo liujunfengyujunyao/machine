@@ -380,7 +380,7 @@ class DiliangController extends Controller{
       //获取到从服务器接收到的数据,转换成数组
         $params = $GLOBALS['HTTP_RAW_POST_DATA'];   file_put_contents("11111111111111.txt",$params);
         $params = json_decode($params,true);  
-        // $user = M('all_user')->where(['id'=>$params['userid']])->find();
+        $user = M('all_user')->where(['id'=>$params['userid']])->find();
         $test = json_encode($user,JSON_UNESCAPED_UNICODE);
         file_put_contents("2222222222222222.txt",$test); 
         $access_token = S($params['userid']);
