@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"msgtype":"game_result","userid":1,"machineid":14,"result":"测试"}
-=======
-{"msgtype":"payment_request","userid":336,"machineid":2,"timestamp":1530874470,"signature":"dcf25b1ef264ec81c05accfa4c191464c3e9f88b"}
->>>>>>> 75c1a09ad965984c95b2e8cb8c3a46ed1566036b
+{"msgtype":"game_result","machineid":14,"userid":202,"paymentid":0,"result":0}
