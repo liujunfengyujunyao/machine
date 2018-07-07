@@ -578,9 +578,18 @@ class DiliangController extends Controller{
   public function index(){
     $params = $GLOBALS['HTTP_RAW_POST_DATA'];
     $params = json_decode($params,true);
+    if ($params['errid'] == 30002) {
+      $errmsg = "机台已下线";
+    }elseif ($params['errid'] == 30005) {
+      $errmsg = "IO板错误";
+    }else{
+      $errmsg = "硬件错误";
+    }
     $data = array(
       'errid' => $params['errid'],//错误ID
       'machineid' => $params['machineid'],//错误机台
+      'errmsg' => $errmsg,
+      'time' => time();
       );
     M('error')->add($data);
   }

@@ -1,1 +1,1 @@
-{"wechat_code":"0612wCzc2rCjgE0nKmAc2XxCzc22wCzW","model":"MI-4C","os":"Android","version":"7.0"}
+{"wechat_code":"021J4APG1yWg280kDJPG1YwDPG1J4APx","model":"IPHONE","vendor":"Apple","os":"iOS","version":"9.1"}
