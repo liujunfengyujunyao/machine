@@ -321,6 +321,12 @@ class DiliangController extends Controller{
   		echo $data;
   	}
 
+
+      public function huancun(){
+        $id = 1;
+        $data = S(1);
+        dump($data);
+      }
     //获取订单记录
   	public function get_order_logs(){
   		$params = $GLOBALS['HTTP_RAW_POST_DATA'];
@@ -372,9 +378,27 @@ class DiliangController extends Controller{
     //游戏服务器认证用户
       public function user_auth(){
       //获取到从服务器接收到的数据,转换成数组
-      $params = $GLOBALS['HTTP_RAW_POST_DATA'];   file_put_contents("server.txt",$params);       
+        $params = $GLOBALS['HTTP_RAW_POST_DATA'];   file_put_contents("11111111111111.txt",$params);
         $params = json_decode($params,true);  
         $user = M('all_user')->where(['id'=>$params['userid']])->find();
+        $test = json_encode($user,JSON_UNESCAPED_UNICODE);
+        file_put_contents("2222222222222222.txt",$test); 
+        $access_token = S($params['userid']);
+        // $access_token = M('all_user')->where(['id'=>$params['userid']])->getField('token'); 
+        $signature = array(
+        'msgtype' => 'login_request',
+        // 'userid' => $params['userid'],
+        'userid' => $params['userid'],
+        'machineid' => $params['machineid'],
+        'timestamp' => $params['timestamp'],
+        // 'timestamp' => 1530784819,
+        // 'access_token' => $_SESSION['accesstoken'],
+        'access_token' => $access_token,
+      );
+
+        $signature = json_encode($signature);file_put_contents("333333333333333.txt",$signature);
+        $signature = sha1($signature);
+
         if(time()-$params['timestamp']>10){
           $data = array(
             'errid' => 10001,
@@ -385,7 +409,14 @@ class DiliangController extends Controller{
             'errid' => 10003,
             'errmsg' => 'auth error',
             );
-        }else{
+        }
+        elseif($params['signature'] != $signature){
+          $data = array(
+            'errid' => 10005,
+            'errmsg' => 'signature error',
+            );
+        }
+        else{
           //验证成功,返回用户数组ID,用户昵称,头像地址
           $data = array(
             'userid' => intval($user['id']),

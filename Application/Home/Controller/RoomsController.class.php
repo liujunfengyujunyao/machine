@@ -8,7 +8,10 @@ header('Access-Control-Allow-Origin:*');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 class RoomsController extends Controller{
 
-
+  public function sess(){
+    $data = $_SESSION['WA'];
+    dump($data);dump(S('ha'));
+  }
   public function get_room_types(){
     //查出现在商品存放于机台的种类
     $roomtype = M('Goods')->alias("t1")->where("t3.state!=0")->join("left join type as t2 on t1.type_id = t2.type_id")->join("left join equipment as t3 on t3.goods_id = t1.id")->getField('t1.type_id,t2.type_name');
@@ -178,7 +181,9 @@ class RoomsController extends Controller{
       );
     
     $return = json_curl($url,$data);//发送给游戏服务器获取机台的machineid机器IDusers用户数和state是否被占用
+
     $state = json_decode($return,1);//转换为数组
+
     //获取到服务器返回的stateJSON数组
     //根据房间人数升序重组二维数组,升序人数从少到多
     $state = arraySequence($state,'users',$sort = 'SORT_ASC');
@@ -195,7 +200,7 @@ class RoomsController extends Controller{
     }else{
       //取出升序排序后第一个(人数最少的机台)
       reset($state);
-      $state = $state[0];
+      $state = $state['machines'][0];
       $state = M('Equipment')->where(['id'=>$state['machineid']])->find();
       $data = array(
         // 'gamesever'  => $state['gamesever'],
@@ -305,35 +310,35 @@ class RoomsController extends Controller{
     return $rooms;
   }
   //封装查询出空闲的机台/人数最少机台的方法
-  public function number($roomid){
-    $roomid = 4;
-    //查出现在空闲出来的机台state1为空闲
-    $equipment = M('Equipment')->field('id as equipment_id')->where(['goods_id'=>$roomid,'state'=>1])->select();
-    // dump($equipment);die;
-    if ($equipment) {
-      //如果有值,证明有空闲的机台0,0,0 取出第一台机台的信息
-      $equipment_id = implode($equipment[0]);
-      M('Equipment')->where(['id'=>$equipment_id])->save(['state'=>2]); //将机台状态修改为2(待机)
-      //将这个机台的人数存入缓存(有人)
-      $number = 1;
-      S("$equipment_id",$number);
-      $room = M('Equipment')->field('id as machineid,live_channel1 as camera0,live_channel2 as camera1')->where(['id'=>$equipment_id])->find();
-    }else{
-    	//如果没有空闲的机台的话,查询出这个房间下所有的机台
-      $machine = M('Equipment')->where(['goods_id'=>$roomid])->select();
-      foreach ($machine as $key => $value) {
-        //找出对应机台在缓存中存储的房间人数
-        $data[$value['id']] = S($value['id']);
-      }
-      reset($data);
-      //获取到人数从小到大排序后第一个元素的键值(ID)
-      $equipment_id = key($data);
-      $number = S('$equipment_id')+1;
-      S('$equipment_id',$number);
-      $room = M('Equipment')->where(['id'=>$equipment_id])->find();
-    }
+  // public function number($roomid){
+  //   $roomid = 4;
+  //   //查出现在空闲出来的机台state1为空闲
+  //   $equipment = M('Equipment')->field('id as equipment_id')->where(['goods_id'=>$roomid,'state'=>1])->select();
+  //   // dump($equipment);die;
+  //   if ($equipment) {
+  //     //如果有值,证明有空闲的机台0,0,0 取出第一台机台的信息
+  //     $equipment_id = implode($equipment[0]);
+  //     M('Equipment')->where(['id'=>$equipment_id])->save(['state'=>2]); //将机台状态修改为2(待机)
+  //     //将这个机台的人数存入缓存(有人)
+  //     $number = 1;
+  //     S("$equipment_id",$number);
+  //     $room = M('Equipment')->field('id as machineid,live_channel1 as camera0,live_channel2 as camera1')->where(['id'=>$equipment_id])->find();
+  //   }else{
+  //   	//如果没有空闲的机台的话,查询出这个房间下所有的机台
+  //     $machine = M('Equipment')->where(['goods_id'=>$roomid])->select();
+  //     foreach ($machine as $key => $value) {
+  //       //找出对应机台在缓存中存储的房间人数
+  //       $data[$value['id']] = S($value['id']);
+  //     }
+  //     reset($data);
+  //     //获取到人数从小到大排序后第一个元素的键值(ID)
+  //     $equipment_id = key($data);
+  //     $number = S('$equipment_id')+1;
+  //     S('$equipment_id',$number);
+  //     $room = M('Equipment')->where(['id'=>$equipment_id])->find();
+  //   }
 
-  }
+  // }
 
   public function number1(){
     dump(S('1'));die;

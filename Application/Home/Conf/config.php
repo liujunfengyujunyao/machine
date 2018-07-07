@@ -45,7 +45,7 @@ return array(
     'DATA_CACHE_TYPE' => 'Memcache',
     'MEMCACHED_HOST' => '127.0.0.1',
     'MEMCACHED_PORT' => '11211',
-    'DATA_CACHE_TIME' => '5',//设置缓存时间
+    // 'DATA_CACHE_TIME' => '5000',//设置缓存时间
 
    'DB_CONFIG2' => array(
       'db_type'  => 'mysql',
