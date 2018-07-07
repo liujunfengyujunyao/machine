@@ -591,7 +591,7 @@ class DiliangController extends Controller{
       'errid' => $params['errid'],//错误ID
       'machineid' => $params['machineid'],//错误机台
       'errmsg' => $errmsg,
-      'time' => time();
+      'time' => time(),
       );
     M('error')->add($data);
   }

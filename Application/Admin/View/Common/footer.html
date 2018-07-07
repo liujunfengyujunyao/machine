@@ -10,30 +10,51 @@
 <script type="text/javascript" src="__PUBLIC__/Admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	var getting = {
-        url:'__MODULE__/Common/notReadMsg',
-        dataType:'json',
-        success:function(res) {
-        	if(res.status==1001){
-                        $('#Hui-msg').attr('data-content',res.msg);
-        		if(res.count > 99){
-        			$('#Hui-msg .badge').text('99+');
-        		}else{
-        			$('#Hui-msg .badge').text(res.count);
-        		}
-                        if(res.renew == 1){
-                                $('#Hui-msg').popover('show');
-                                setTimeout(function(){$('#Hui-msg').popover('hide')},7000);
+        $('#Hui-msg').click(function(){
+                $("#modal-demo").modal("show");
+
+        });
+        $('#modal-demo').on('show.bs.modal', function () {
+                $.ajax({
+                        url:"__MODULE__/Common/allMsg",
+                        dataType:'json',
+                        success:function(res) {
+                           if(res.status==1001){
+                                $('#modal-demo .modal-body ul').html(res.html);
+                           }else{
+                                $('#modal-demo .modal-body ul').html('暂无消息');
+                           }
+                                
                         }
-        	}else{
-        		$('#Hui-msg .badge').text('');
-                        $('#Hui-msg').removeAttr('title');
-                        $('#Hui-msg').attr('data-content','暂无新消息');
-        	} 
-        }
+                });
+        });
+	var getting = {
+                url:'__MODULE__/Common/notReadMsg',
+                dataType:'json',
+                success:function(res) {
+                	if(res.status==1001){
+                                $('#Hui-msg').attr('data-content',res.msg);
+                		if(res.count > 99){
+                			$('#Hui-msg .badge').text('99+');
+                		}else{
+                			$('#Hui-msg .badge').text(res.count);
+                		}
+                                if(res.renew == 1){
+                                        $('#Hui-msg').popover('show');
+                                        setTimeout(function(){$('#Hui-msg').popover('hide')},7000);
+                                }
+                	}else{
+                		$('#Hui-msg .badge').text('');
+                                $('#Hui-msg').removeAttr('title');
+                                $('#Hui-msg').attr('data-content','暂无新消息');
+                	} 
+                }
 	};
         $.ajax(getting);
 	//Ajax定时访问服务端，不断获取数据 ，10秒请求一次。
 	window.setInterval(function(){$.ajax(getting)},10000);
+
+       
 });
 </script>
+
