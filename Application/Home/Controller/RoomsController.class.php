@@ -158,7 +158,8 @@ class RoomsController extends Controller{
     else{
       
       //获取到这个房间下的所有机台id
-    $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
+    // $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
+    $machines = M('Equipment')->where(['goods_id'=>$params['roomid'],'state'=>array('gt',0)])->getField('id',true);
     $machines_ids = implode(',',$machines);
     $url = "http://192.168.1.148:7777/account_server";//游戏服务器地址
     $key = array(
