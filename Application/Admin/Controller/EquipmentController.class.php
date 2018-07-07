@@ -262,7 +262,7 @@ class EquipmentController extends CommonController{
 			//表单提交
 			//接收数据
 			$data = I('post.');
-			// dump($data);die;
+			 //dump($data);die;
 			// dump($data);
 			// dump($_FILES);
 			// die;
@@ -291,6 +291,8 @@ class EquipmentController extends CommonController{
 			// $res = $model -> save();
 			// $res = $model -> save($data);
 			// dump($res);die;
+			//$equipment = M('Equipment')->where(['goods_id'=>$data['id']])->save(['type'=>$data['type_id']]);
+			
 			$res = D('Equipment')->where(['id'=>$data['id']])->save($data);
 			
 			//$res 是受影响的记录条数
@@ -329,6 +331,7 @@ class EquipmentController extends CommonController{
 				// M('EquipmentAttr') -> addAll($attr_data);
 				$equipment = D('Equipment')->where("id = ({$data['id']})")->find();
 				// $equipment_id = $equipment['equipment_id'];
+				$goods = M('goods')->where(['id'=>$data['goods_id']])->save(['type_id'=>$data['type']]);
 				$description = '修改了机台:'. '    '. $equipment['id']; 
 				$this->operate_log($description);
 				$this -> success('修改成功', U('Admin/Equipment/index'));

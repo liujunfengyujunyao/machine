@@ -60,6 +60,7 @@ class GoodsController extends CommonController{
 	public function edit(){
 		if (IS_POST) {
 			$data = I('post.');
+			//dump($data);die;
 			$data['equipment_odds'] = round(100/$data['equipment_odds'],2);
 			//查询出被分配这个商品的机台
 			$equipments = M('Equipment')->where(['goods_id'=>$data['goods_id']])->select();
@@ -92,7 +93,7 @@ class GoodsController extends CommonController{
 			//修改goods表中的数据
 			$res = $model->where(['id'=>$data['goods_id']])->save($data);
 			//修改equipment表中的数据
-			$equipment = M('Equipment')->where(['goods_id'=>$data['goods_id']])->save(['price'=>$data['price'],'odds'=>$data['equipment_odds'],'time_limit'=>$data['time_limit']]);
+			$equipment = M('Equipment')->where(['goods_id'=>$data['goods_id']])->save(['price'=>$data['price'],'odds'=>$data['equipment_odds'],'time_limit'=>$data['time_limit'],'type'=>$data['type_id']]);
 			//修改set表中的数据 优先等级与单独修改一致
 
 			$data0['value'] = '(0   ,true ,true ,true ,1,true ,"'.$data['time_limit'].'")';
@@ -113,7 +114,7 @@ class GoodsController extends CommonController{
 					$equipment_ids = implode(',',$data['id']);
 					
 					//一种商品可能存放于多个机台中
-					$setauth = D('Equipment')->where("id in ({$equipment_ids})")->save(['goods_id'=>$data['goods_id'],'price'=>$data['price'],'time_limit'=>$data['time_limit']]);
+					$setauth = D('Equipment')->where("id in ({$equipment_ids})")->save(['goods_id'=>$data['goods_id'],'price'=>$data['price'],'time_limit'=>$data['time_limit'],'type'=>$data['type_id']]);
 				}
 				
 				$this->success('修改成功',U('Admin/Goods/index'));

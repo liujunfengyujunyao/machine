@@ -1,5 +1,5 @@
 <?php
-namespace Home=Controller;
+namespace Home\Controller;
 use Think\Controller;
 header('Access-Control-Allow-Origin:*');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
@@ -8,6 +8,7 @@ class Diliang2Controller extends Controller{
 	public function userlogin(){
 		$params = $GLOBALS['HTTP_RAW_POST_DATA'];
 		$params = json_decode($params,true);
+   // var_dump($params);die;
 		$url = "http://43.524.90.98/index.php/Home/Iwawa/iwawa";
 		$data = array(
 			'msgtype' => 'client_auth',
@@ -15,6 +16,7 @@ class Diliang2Controller extends Controller{
 			);
 		$return = json_curl($url,$data);
 		$return = json_decode($return,true);
+    var_dump($return);die;
 		if ($return['useruuid']) {
 			$accesstoken = md5(time());
 			//成功

@@ -404,10 +404,9 @@ class DiliangController extends Controller{
     $params = $GLOBALS['HTTP_RAW_POST_DATA'];
     file_put_contents("test2.txt",$params);
     $params = json_decode($params,true);
-
     $type = $params['msgtype'] ? $params['msgtype'] : "";
     // $params = $params['params'];
-    
+    //var_dump($params);die;
     switch ($type) {
       case 'payment_request':
         echo $this->payment_request($params);
@@ -494,7 +493,7 @@ class DiliangController extends Controller{
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
         // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
-        $url = "http://192.168.1.164/Home/sever/payment";
+        $url = "http://192.168.1.145/Home/sever/payment";
         $return = json_curl($url,$params);
         return $return;
       }

@@ -17,7 +17,6 @@ class IwawaController extends Controller{
 
 		$params = json_decode($params,true);//解析
 		
-		// var_dump($params);die;
 		$type = $params['msgtype'] ? $params['msgtype'] : "";
 		$result = $params['params'];
 
@@ -62,7 +61,7 @@ class IwawaController extends Controller{
 			'timestamp' => time(),
 			);
 		$return = json_curl($url,$data);
-
+		var_dump($return);die;
 		return $return;
 	}
 

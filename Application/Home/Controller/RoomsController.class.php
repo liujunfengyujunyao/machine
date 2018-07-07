@@ -124,6 +124,7 @@ class RoomsController extends Controller{
     //接收到客户端发送过来的roomid,查询出来这个商品下所有的机台,将机台的数组发给游戏服务器
     $params = $GLOBALS['HTTP_RAW_POST_DATA'];         
     $params = json_decode($params,true);
+    //var_dump($params);die;
     //添加signature
     $signature = array(
         'userid' => $params['userid'],

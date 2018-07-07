@@ -289,6 +289,7 @@ class SeverController extends Controller{
 					);
 			}
 			$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+			var_dump($data);die;
 			return $data;
 
 		}
