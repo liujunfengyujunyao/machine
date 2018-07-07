@@ -498,11 +498,13 @@ class DiliangController extends Controller{
        //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
       }
       else{
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        $url = "http://192.168.1.164/Home/Iwawa/iwawa";
         $data = array(
         'msgtype' => 'payment_cancel',
         'params' => $params
