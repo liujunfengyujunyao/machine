@@ -1632,63 +1632,6 @@ public function equipment(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
-<<<<<<< HEAD
-  public function ddds(){
-    $data = array(
-      'msgtype' => 'enter_room',
-      //'type'=>1,
-      'userid'=>1,
-      'roomid'=>4,
-      // 'machineid'=>2,
-      // 'amount'=>22,
-      // 'type'=>'gold',
-      //'roomid'=>4,
-      'timestamp'=>time(),
-      );
-    $url = "http://192.168.1.145/Home/Rooms/enter_room";
-    $return = json_curl($url,$data);
-    dump($return);die;
-}
-  public function lei(){
-    $data = array(
-      'msgtype' => 'game_result',
-       //'types'=>,
-      'userid'=>1,
-      //'roomid'=>4,
-      'machineid'=>14,
-      'result'=>"测试",
-      //'amount'=>22,
-      //'type'=>'1',
-      //'roomid'=>4,
-      //'timestamp'=>time(),
-      );
-    $url = "http://192.168.1.145/Home/Diliang/payment";
-    $return = json_curl($url,$data);
-    dump($return);die;
-} 
-  public function ggg(){
-    $data = array(
-      'msgtype'=>'get_room_list',
-      "type"=>1,
-      'userid'=>1,
-      'timestamp'=>time(),
-      );
-    $url = "http://192.168.1.145/Home/Rooms/get_room_list";
-    $return = json_curl($url,$data);
-    dump($return);die;
-  }
-  public function userloginss(){
-    $params = array('id'=>1);
-    $data = array(
-      'params' => $params,
-      );
-    $url = "http://www.machine.com/Home/Diliang/userlogin";
-    $return = json_curl($url,$data);
-    dump($return);die;
-  }
-
-=======
-
   public function hg(){
     $data = array(
       'userid' => 1,
@@ -1763,5 +1706,21 @@ public function equipment(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
->>>>>>> 75c1a09ad965984c95b2e8cb8c3a46ed1566036b
+
+  public function iwawaya(){
+    $params = array('roomid'=>4,'machineid'=>14,'userid'=>334,'timestamp'=>time(),);
+    //$params = array('userid'=>1,'timestamp'=>time(),);
+      $data = array(
+          'msgtype'=>'payment_request',
+          //  'userid'=>14,
+          //  'roomid'=>4,
+          //  'machineid'=>2,
+          //  'price'=>1,
+          //  'timestamp'=>time(),
+        "params"=>$params,
+        );
+      $url = "http://192.168.1.145/Home/Iwawa/iwawa";
+      $return = json_curl($url,$data);
+      var_dump($return);die;
+  }
 }

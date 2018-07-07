@@ -1,1 +1,1 @@
-{"userid":336,"machineid":2,"timestamp":1530874461,"signature":"1a6697ead7ac2a84c7eef3fc11a4a992c0b2fe56"}
+{"userid":335}

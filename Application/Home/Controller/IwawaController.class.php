@@ -14,12 +14,10 @@ class IwawaController extends Controller{
 	public function iwawa(){
 
 		$params = $GLOBALS['HTTP_RAW_POST_DATA'];
-
 		$params = json_decode($params,true);//解析
-		
 		$type = $params['msgtype'] ? $params['msgtype'] : "";
 		$result = $params['params'];
-
+		// var_dump($result);die;
 		// $params = json_encode($params,JSON_UNESCAPED_UNICODE);
 		// print($params);die;
 		switch ($type) {
@@ -61,7 +59,6 @@ class IwawaController extends Controller{
 			'timestamp' => time(),
 			);
 		$return = json_curl($url,$data);
-		var_dump($return);die;
 		return $return;
 	}
 
@@ -108,22 +105,42 @@ class IwawaController extends Controller{
 	public function payment_request($result){
 		
 		$data['useruuid'] = M('all_user')->where(['id'=>$result['userid']])->getField('uuid');
-		$paymentid = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);//消费记录流水号 111;
+		$data['paymentid'] = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);//消费记录流水号 111;
 		$data['roomid'] = M('Equipment')->where(['id'=>$result['machineid']])->getField('goods_id');
 		$data['machineid'] = $result['machineid'];
 		// $data['price'] = $result['amount'];
 		$data['price'] = M('Goods')->where(['id'=>$data['roomid']])->getField('price');
+		$user = M('all_user')->where(['uuid'=>$data['useruuid']])->find();
+		if($user==null){
+			return '没有uuid值';
+		}else{
+			if($user['gold']-$data['price']<0 && $user['silver']-$data['price']<0){
+			$cuo = array(
+				'errid' => 40001,
+				'errmsg' => 'The balance of account is insufficient',
+			);
+				$cuo = json_encode($cuo,JSON_UNESCAPED_UNICODE);
+				return $cuo;
+			}elseif($user['gold']>=0){
+				$user['gold'] = $user['gold']-$data['price'];
+				$type = 'gold';
+			}else{
+				$user['silver'] = $user['silver']-$data['price'];
+				$type = 'silver';
+			}
+		}
+		
 		// $data['timestamp'] = $result['timestamp'];
 		$data['timestamp'] = time();
 		// $data['signature'] = $result['signature'];
 		$data['signature'] = "测试";
-		
-		
+		M('all_user')->save($user);
+		//var_dump($data);die;
 		// var_dump($result,JSON_UNESCAPED_UNICODE);die;
-		$url = 'http://wwj.94zl.com/iwawa/payment_request';
+		$url = "http://wwj.94zl.com/iwawa/payment_request";
 		// $url = "http://www.machine.com/Home/Diliang/test2";
 		$return = json_curl($url,$data);
-
+		//$return = json_encode($data);
 
 
 		$equipment = M('Equipment')
@@ -133,7 +150,7 @@ class IwawaController extends Controller{
 		->join("left join goods as t2 on t2.id = t1.goods_id")
 		->join("left join goodspics as t3 on t3.goods_id = t2.id")
 		->find();
-		$user = M('all_user')->where(['uuid'=>$data['useruuid']])->find();
+		//$user = M('all_user')->where(['uuid'=>$data['useruuid']])->find();
 		//添加这个userid的消费记录到record表中
 		$record = array(
 					'userid' => $user['id'],
@@ -142,20 +159,20 @@ class IwawaController extends Controller{
 					'photo' => $equipment['pics_origin'],
 					'equipment_id' => $equipment['machineid'],
 					'type' => $type,//消费的币种类型
-					'amount' => $params['amount'],
-					'paymentid' => $paymentid,
+					'amount' => $data['price'],
+					'paymentid' => $data['paymentid'],
 					'cancel' => 0,  //是否被撤销扣款
 					);
 		M('Record')->add($record);
 		$log = array(
 					'userid' => $user['id'],
-					'type' => $params['type'],
-					'paymentid'=>$paymentid,
+					'type' => $type,
+					'paymentid'=>$data['paymentid'],
 
 					);
 		$gamelogid = M('tbl_game_log')->add($log);
 		// var_dump($return);die;
-		return $return;
+		//return $return;
 	}
 	//取消扣款
 	public function payment_cancel($result){
