@@ -10,6 +10,7 @@ class Diliang2Controller extends Controller{
 		$params = json_decode($params,true);
    // var_dump($params);die;
 		$url = "http://43.524.90.98/index.php/Home/Iwawa/iwawa";
+    //$url = "http://192.168.1.145/index.php/Home/Iwawa/iwawa";
 		$data = array(
 			'msgtype' => 'client_auth',
 			'params' => $params,

@@ -1632,7 +1632,16 @@ public function equipment(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
-
+  public function hg(){
+    $data = array(
+      'userid' => 1,
+      'roomid' => 4,
+      'timestamp' => time(),
+      );
+    $url = "http://192.168.1.164/Home/Rooms/enter_room";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
 
   public function state(){
     $params['roomid'] = 4;
@@ -1640,4 +1649,39 @@ public function equipment(){
     dump($machines);die;
   }
 
+  public function huancun(){
+    $id = 1;
+    $access_token = "ssqqfqfqfqfasdadqwd";
+    $access_token2 = "whatssss";
+    S($id,$access_token);
+    S('2',$access_token2);
+    dump(S(1));
+    dump(S(2));die;
+  }
+
+  public function kuayu(){
+    $data = array(
+      'userid' => 1,
+      );
+    $url = "http://192.168.1.164/Home/diliang/user_auth";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+
+  public function iwawaya(){
+    $params = array('roomid'=>4,'machineid'=>14,'userid'=>334,'timestamp'=>time(),);
+    //$params = array('userid'=>1,'timestamp'=>time(),);
+      $data = array(
+          'msgtype'=>'payment_request',
+          //  'userid'=>14,
+          //  'roomid'=>4,
+          //  'machineid'=>2,
+          //  'price'=>1,
+          //  'timestamp'=>time(),
+        "params"=>$params,
+        );
+      $url = "http://192.168.1.145/Home/Iwawa/iwawa";
+      $return = json_curl($url,$data);
+      var_dump($return);die;
+  }
 }

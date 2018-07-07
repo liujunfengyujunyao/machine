@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 null
+=======
+{"id":"335","member_id":null,"openid":"ogD7808GSYhlWU9aURmcgBzGCOCg","unionid":null,"email":null,"nick":"努力，奋斗","head":"http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/gNcdhTEl6KgOLoJ8jKFqYvEXuflrJdcmWY8w8L348eZCzzNicAvyCxQPGcDMLY2OZdhtJuXJoTERHna8ZMgvQmw\/132","gender":"0","type":"oauth","addtime":"1530775910","gold":"87259","silver":"30000","access_token":"74cc4560c4444da7caa12a96dd16f576","referee":null,"model":"HM-UNDEFINED","vendor":"Xiaomi","os":"Android","version":"7.0","uuid":null,"rank":"1","referrals":"0","referralreward":"0","availamount":"0","owner":null,"balance":"0","token":"12f73143867eb5bd8f4559bfd4c7ae06096fe0b0"}
+>>>>>>> cf4acfd51ae8d90aa435f7f30062fd80069e6d6c
