@@ -1,1 +1,1 @@
-{"wechat_code":"0616AwtU1yr01W0BpkuU1lOLtU16Awtq","model":"MI-4C","os":"Android","version":"7.0"}
+{"wechat_code":"001k1sc20qf4YE1gLAf20NgEc20k1scH","model":"MI-4C","os":"Android","version":"7.0"}
