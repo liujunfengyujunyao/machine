@@ -498,11 +498,13 @@ class DiliangController extends Controller{
        //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
       }
       else{
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        $url = "http://192.168.1.164/Home/Iwawa/iwawa";
         $data = array(
         'msgtype' => 'payment_cancel',
         'params' => $params
@@ -524,7 +526,7 @@ class DiliangController extends Controller{
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
         // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
-        $url = "http://192.168.1.145/Home/sever/payment";
+        $url = "http://192.168.1.164/Home/sever/payment";
         $return = json_curl($url,$params);
         return $return;
       }
@@ -578,9 +580,18 @@ class DiliangController extends Controller{
   public function index(){
     $params = $GLOBALS['HTTP_RAW_POST_DATA'];
     $params = json_decode($params,true);
+    if ($params['errid'] == 30002) {
+      $errmsg = "机台已下线";
+    }elseif ($params['errid'] == 30005) {
+      $errmsg = "IO板错误";
+    }else{
+      $errmsg = "硬件错误";
+    }
     $data = array(
       'errid' => $params['errid'],//错误ID
       'machineid' => $params['machineid'],//错误机台
+      'errmsg' => $errmsg,
+      'time' => time();
       );
     M('error')->add($data);
   }

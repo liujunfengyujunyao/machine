@@ -165,4 +165,46 @@ class CommonController extends Controller{
 		M('operate_log')->add($data);
 
 	}
+
+	//查询未读消息
+	public function notReadMsg(){
+		$manager_id = session('manager_info.id');
+		$machineid = M('equipment')->where(['pid'=>$manager_id])->getField('id',true);
+		$machineids = implode(',',$machineid);
+		$msg = M('error')->where("machineid in ($machineids) and status = 0")->order('time ASC')->select();
+		$count = count($msg);
+		session('msg_count',$count);
+
+		if(session('ajax_time')){
+			$old_time = session('ajax_time');
+			$new_msg = M('error')->where("machineid in ($machineids) and status = 0 and time > $old_time ")->order('time ASC')->select();
+		}else{
+			$new_msg = $msg;
+		}
+		$renew = $new_msg ? 1 : 0;
+		session('ajax_time',time());
+		$li = "";
+		foreach(array_slice($msg,0,5) as $k=>$v){
+			$li .= "<li style='border-bottom:1px solid #eee;text-align:left;'>" .$v['machineid'] . "号机台" . $v['errmsg'] ."<br/><span style='font-size:10px;color:#555;'>" .date("Y-m-d H:i:s",$v['time']).  "</span> </li>";
+		}
+		if($count>5){
+
+			$html = "<ul style='text-align:center;'>" . $li ."<span style='color:#555;'>......</span></ul>";
+		}else{
+			$html = "<ul>" . $li ."</ul>";
+		}
+		if($count == 0){
+			$return = array(
+				'status' => 1000 ,
+				);
+		}else{
+			$return = array(
+				'status' => 1001 ,
+				'msg' => $html ,
+				'count' => $count ,
+				'renew' =>$renew ,
+			);
+		}
+		$this->ajaxReturn($return);
+	}
 }

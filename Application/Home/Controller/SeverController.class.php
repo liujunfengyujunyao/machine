@@ -207,20 +207,20 @@ class SeverController extends Controller{
 				$paymentid = intval($paymentid)+mt_rand(1,100000000000);
 				$equipment = M('Equipment')->alias("t1")->field("t3.pics_origin,t2.name as goods_name,t2.id as roomid,t1.id as machineid")->where(['t1.id'=>$params['machineid']])->join("left join goods as t2 on t2.id = t1.goods_id")->join("left join goodspics as t3 on t3.goods_id = t2.id")->find();
 				M('all_user')->save($user);//修改用户的金币余额
-				//添加这个userid的消费记录到record表中
-				// $record = array(
-				// 	'userid' => $user['id'],
-				// 	'roomid' => $equipment['roomid'],
-				// 	'goodsname' =>  $equipment['goods_name'],
-				// 	'photo' => $equipment['pics_origin'],
-				// 	'equipment_id' => $equipment['machineid'],
-				// 	'type' => $type,//消费的币种类型
-				// 	// 'amount' => $params['amount'],
-				// 	'amount' => $amount,
-				// 	'paymentid' => $paymentid,
-				// 	'cancel' => 0,  //是否被撤销扣款
-				// 	);
-				// M('Record')->add($record);
+				// 添加这个userid的消费记录到record表中
+				$record = array(
+					'userid' => $user['id'],
+					'roomid' => $equipment['roomid'],
+					'goodsname' =>  $equipment['goods_name'],
+					'photo' => $equipment['pics_origin'],
+					'equipment_id' => $equipment['machineid'],
+					'type' => $type,//消费的币种类型
+					// 'amount' => $params['amount'],
+					'amount' => $amount,
+					'paymentid' => $paymentid,
+					'cancel' => 0,  //是否被撤销扣款
+					);
+				M('Record')->add($record);
 				$log = array(
 					'userid' => $user['id'],
 					// 'type' => $params['type'],
@@ -251,6 +251,8 @@ class SeverController extends Controller{
 
 		public function payment_cancel($params){
 			$user = M('all_user')->where(['id'=>$params['userid']])->find();
+			$params['type'] = M('tbl_game_log')->where(['paymentid'=>$params['paymentid']])->getField('type');
+			$params['amount'] = M('record')->where(['paymentid'=>$params['paymentid']])->gitField('amount');
 			if ($params['type'] == "silver") {
 				$user['silver'] = $user['silver'] + $params['amount'];
 			}else{

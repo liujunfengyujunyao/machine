@@ -158,7 +158,8 @@ class RoomsController extends Controller{
     else{
       
       //获取到这个房间下的所有机台id
-    $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
+    // $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
+    $machines = M('Equipment')->where(['goods_id'=>$params['roomid'],'state'=>array('gt',0)])->getField('id',true);
     $machines_ids = implode(',',$machines);
     $url = "http://192.168.1.148:7777/account_server";//游戏服务器地址
     $key = array(
@@ -251,7 +252,7 @@ class RoomsController extends Controller{
       $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 1 and t4.state!=0 and t4.pid = 4")//查询娃娃机的
+      ->where("t1.type_id = 1 and t4.state!=0 and t4.pid = 4 and t4.state!=-1")//查询娃娃机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -264,7 +265,7 @@ class RoomsController extends Controller{
    
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 2 and t4.state!=0 and t4.pid = 4")//查询彩票机的
+      ->where("t1.type_id = 2 and t4.state!=0 and t4.pid = 4 and t4.state!=-1")//查询彩票机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -276,7 +277,7 @@ class RoomsController extends Controller{
         $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 3 and t4.state!=0 and t4.pid =4")
+      ->where("t1.type_id = 3 and t4.state!=0 and t4.pid =4 and t4.state!=-1")
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -288,7 +289,7 @@ class RoomsController extends Controller{
         $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t4.state!=0 and t4.pid = 4")
+      ->where("t4.state!=0 and t4.pid = 4 and t4.state!=-1")
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
