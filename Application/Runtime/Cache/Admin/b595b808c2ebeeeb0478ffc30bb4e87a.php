@@ -55,7 +55,11 @@
 							<li><a href="/index.php/Admin/Manager/repass/id/<?php echo ($_SESSION['manager_info']['id']); ?>">修改密码</a></li>
 						</ul>
 					</li>
+<<<<<<< HEAD
+					<li id="Hui-msg" onClick="modaldemo()" title="消息" data-container="body" data-toggle="popover" data-placement="bottom"  data-trigger="hover" data-html="true"> 
+=======
 					<li id="Hui-msg" title="消息" data-container="body" data-toggle="popover" data-placement="bottom"  data-trigger="hover" data-html="true"> 
+>>>>>>> 8bcaa41cf82b5801aeaa3e6bf656328de7ce5576
 						<a href="#" title="消息"><?php if( $_SESSION['msg_count'] > 0 ): ?><span class="badge badge-danger"><?php echo ($_SESSION["msg_count"]); ?></span><?php endif; ?><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> 
 					</li>
 					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
@@ -185,6 +189,29 @@
 <script type="text/javascript" src="/Public/Admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 $(function(){
+<<<<<<< HEAD
+	var getting = {
+        url:'/index.php/Admin/Common/notReadMsg',
+        dataType:'json',
+        success:function(res) {
+        	if(res.status==1001){
+                        $('#Hui-msg').attr('data-content',res.msg);
+        		if(res.count > 99){
+        			$('#Hui-msg .badge').text('99+');
+        		}else{
+        			$('#Hui-msg .badge').text(res.count);
+        		}
+                        if(res.renew == 1){
+                                $('#Hui-msg').popover('show');
+                                setTimeout(function(){$('#Hui-msg').popover('hide')},7000);
+                        }
+        	}else{
+        		$('#Hui-msg .badge').text('');
+                        $('#Hui-msg').removeAttr('title');
+                        $('#Hui-msg').attr('data-content','暂无新消息');
+        	} 
+        }
+=======
         $('#Hui-msg').click(function(){
                 $("#modal-demo").modal("show");
 
@@ -224,15 +251,21 @@ $(function(){
                                 $('#Hui-msg').attr('data-content','暂无新消息');
                 	} 
                 }
+>>>>>>> 8bcaa41cf82b5801aeaa3e6bf656328de7ce5576
 	};
         $.ajax(getting);
 	//Ajax定时访问服务端，不断获取数据 ，10秒请求一次。
 	window.setInterval(function(){$.ajax(getting)},10000);
+<<<<<<< HEAD
+});
+</script>
+=======
 
        
 });
 </script>
 
+>>>>>>> 8bcaa41cf82b5801aeaa3e6bf656328de7ce5576
 
 <!--/_footer /作为公共模版分离出去-->
 

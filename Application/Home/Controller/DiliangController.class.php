@@ -7,6 +7,7 @@ class DiliangController extends Controller{
 	//认证用户
 	public function userlogin(){
 		  $params = $GLOBALS['HTTP_RAW_POST_DATA'];
+      echo $params;die;
 	    $params = json_decode($params,true);
 	    // $url = "http://192.168.1.3/Home/Iwawa/iwawa";
       // $url = "http://192.168.1.164/Home/Iwawa/iwawa"; 
@@ -19,7 +20,7 @@ class DiliangController extends Controller{
 	    $return = json_curl($url,$data);
 
 	    $return = json_decode($return,true);
-	    // var_dump($return);die;
+	     var_dump($return);die;
 	    if ($return['useruuid']) {
 	    	$accesstoken = md5(time());
 	    	//成功
