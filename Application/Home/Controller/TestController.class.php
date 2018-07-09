@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+header("content-type:text/html;charset=utf-8");
 header('Access-Control-Allow-Origin:*');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 class TestController extends Controller{
@@ -1683,5 +1684,32 @@ public function equipment(){
       $url = "http://192.168.1.145/Home/Iwawa/iwawa";
       $return = json_curl($url,$data);
       var_dump($return);die;
+  }
+public function ddg(){
+   
+    $url = 'http://192.168.1.145/Home/diliang/userlogin';
+    $data = array(
+      'params'=>1,
+      );
+    $data = json_encode($data);
+    $return = json_curl($url,$data);
+
+   
+    dump($return);die;
+ }
+
+   public function upload(){
+  $upload = new \Think\Upload();// 实例化上传类
+  $upload->maxSize = 3145728 ;// 设置附件上传大小
+  //$upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+  $upload->rootPath = 'Public/Zhong/'; // 设置附件上传根目录
+  $upload->savePath = ''; // 设置附件上传（子）目录
+  $upload->saveName = '';
+  $info = $upload->upload();
+      if(!$info) {// 上传错误提示错误信息
+        $this->error($upload->getError());
+        }else{// 上传成功
+          $this->success("上传成功");
+      }
   }
 }
