@@ -1711,7 +1711,7 @@ public function ddg(){
         }else{// 上传成功
           $this->success("上传成功");
       }
-
+}
   public function pid(){
     $params['roomid'] = 4;
      $machines = M('Equipment')->where(['goods_id'=>$params['roomid'],'state'=>array('gt',0)])->getField('id',true);
