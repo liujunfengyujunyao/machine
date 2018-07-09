@@ -11,7 +11,7 @@ class SeverController extends Controller{
 			$params = $GLOBALS['HTTP_RAW_POST_DATA'];  	file_put_contents("server.txt",$params);       
     		$params = json_decode($params,true); 	
     		$user = M('all_user')->where(['id'=>$params['userid']])->find();
-    		if(time()-$params['timestamp']>10){
+    		if(time()-$params['timestamp']>30){
     			$data = array(
     				'errid' => 10001,
     				'timestamp' => time(),
@@ -150,7 +150,7 @@ class SeverController extends Controller{
 				$user = M('all_user')->where(['id'=>$params['userid']])->find();
 				$amount = M('equipment')->where(['id'=>$params['machineid']])->getField('price');
 				
-			if (time()-$params['timestamp']>10) {
+			if (time()-$params['timestamp']>30) {
 				$data = array(
 					'errid' => 10001,
 					'timestamp' => time(),

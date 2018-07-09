@@ -34,7 +34,7 @@ class RoomsController extends Controller{
            $signature = json_encode($signature);
            $signature = sha1($signature);
           
-           if (time()-$params['timestamp']>12) {
+           if (time()-$params['timestamp']>30) {
              $data = array(
               'msgtype' => 'error',
               'params' => array(
@@ -76,7 +76,7 @@ class RoomsController extends Controller{
         $params = json_decode($params,true);
         $roomid = $params['roomid'];
         //验证是否超时
-        if (time()-$params['timestamp']>12) {
+        if (time()-$params['timestamp']>30) {
            $data = array(
             'msgtype'=>'error',
             'params' => array(
@@ -137,7 +137,7 @@ class RoomsController extends Controller{
     $signature = json_encode($signature);
     $signature = sha1($signature);
     // $signature = 1;
-    if (time()-$params['timestamp']>12) {
+    if (time()-$params['timestamp']>30) {
       $data = array(
         'msgtype' => 'error',
         'params' => array(

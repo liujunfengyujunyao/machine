@@ -1704,4 +1704,30 @@ public function equipment(){
     $return = json_curl($url,$data);
     dump($return);
   }
+
+  public function baocuo(){
+    $data = array(
+      'msgtype' => 'payment_request',
+      'userid' => 1,
+      'machineid' => 14,
+      'timestamp' => time(),
+      );
+    $url = "http://192.168.1.164/Home/Diliang/payment";
+    // $url = "http://43.254.90.98:8080/index.php/Home/Diliang/payment";
+    $return = json_curl($url,$data);
+    dump(time());
+    dump($return);die;
+  }
+
+  public function usr_auth(){
+    $data = array(
+      'userid' => 1,
+      'timestamp' => time(),
+
+      );
+    // dump($data);die;
+    $url = "http://www.source.com/Home/Diliang/user_auth";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
 }

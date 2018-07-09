@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"userid":123123123123,"machineid":14,"timestamp":1530953964,"signature":"0b53c4c95ceab538ffb51df7a6a799add6e43721"}
-=======
-{"userid":335}
->>>>>>> cf4acfd51ae8d90aa435f7f30062fd80069e6d6c
+{"userid":336,"machineid":8,"timestamp":1531134303,"signature":"9fad9dd135d2e53b1f94280bc23524e7cd6e4450"}

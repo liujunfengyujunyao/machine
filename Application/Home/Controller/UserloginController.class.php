@@ -64,8 +64,10 @@ class UserloginController extends Controller{
 			if (!$user&&$referee) {
 				// $referee = M('wx_user')->where(['id'=>$referee])->find();
 				$referee = M('all_user')->where(['id'=>$referee])->find();
+				//奖励给推荐人的银币数量
+				$referee_silver = 5;
 				$referrals = $referee['referrals']+1;
-				//不存在(有推荐人),插入
+				//不存在用户但(有推荐人),插入
 				// $r = M('wx_user')->where(['id'=>$referee])->save(['referrals'=>$referrals]);
 				$r = M('all_user')->where(['id'=>$referee])->save(['referrals'=>$referrals]);
 				$data['openid'] = $wx_user->openid;
@@ -181,7 +183,7 @@ class UserloginController extends Controller{
 					'errmsg' => 'signature error',
 					),
 				);
-		}elseif(time()-$params['timestamp']>12){
+		}elseif(time()-$params['timestamp']>30){
 			//超时
 			$data = array(
 				'errid' => 10001,
@@ -286,7 +288,7 @@ class UserloginController extends Controller{
 		
 		$params = json_decode($params,true);
 		$signature = sha1($params['timestamp']*$params['userid']);
-		if (time()-$params['timestamp']>20) {
+		if (time()-$params['timestamp']>30) {
 			$data = array(
 				'errid' => 10001,
 				'timestamp' => time(),
