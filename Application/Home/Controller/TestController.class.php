@@ -1684,4 +1684,24 @@ public function equipment(){
       $return = json_curl($url,$data);
       var_dump($return);die;
   }
+
+  public function pid(){
+    $params['roomid'] = 4;
+     $machines = M('Equipment')->where(['goods_id'=>$params['roomid'],'state'=>array('gt',0)])->getField('id',true);
+      $machines_ids = implode(',',$machines);
+      dump($machines);dump($machines_ids);
+
+      die;
+  }
+
+  public function tanchuang(){
+    $data = array(
+      'msgtype' => "report_error",
+      'errid' => 30003,
+      'machineid' => 14,
+      );
+    $url = "http://192.168.1.164/Home/Diliang";
+    $return = json_curl($url,$data);
+    dump($return);
+  }
 }
