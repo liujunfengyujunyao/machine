@@ -28,7 +28,7 @@
 							<li><a href="__MODULE__/Manager/repass/id/{{$Think.session.manager_info.id}}">修改密码</a></li>
 						</ul>
 					</li>
-					<li id="Hui-msg" onClick="modaldemo()" title="消息" data-container="body" data-toggle="popover" data-placement="bottom"  data-trigger="hover" data-html="true"> 
+					<li id="Hui-msg" title="消息" data-container="body" data-toggle="popover" data-placement="bottom"  data-trigger="hover" data-html="true"> 
 						<a href="#" title="消息"><if condition = " $_SESSION['msg_count'] gt 0 "><span class="badge badge-danger">{{$_SESSION.msg_count}}</span></if><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> 
 					</li>
 					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
@@ -46,3 +46,20 @@
 		</div>
 	</div>
 </header>
+<div id="modal-demo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content radius">
+			<div class="modal-header">
+				<h3 class="modal-title" ><i class="Hui-iconfont" style="">&#xe68a;</i>&nbsp;消息列表</h3>
+				<a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+			</div>
+			<div class="modal-body">
+				<ul style='padding:0 20px'></ul>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary">确定</button>
+				<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
