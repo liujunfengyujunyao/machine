@@ -203,12 +203,15 @@ class UseraccountController extends Controller{
                         // $params['id'] = 10;
                         $out_trade_no = rand(10,999999);//生成订单编号
                         //将订单存入数据库,status为0(未支付)
+                         $repeat = $params['gamelogid'];
+                        $gamelogid = M('tbl_game_log')->where("id in ($repeat)")->distinct(true)->getField('id',true);
+                        $gamelogid = implode(',',$gamelogid);
                         $data = array(
                             'out_trade_no'=>$out_trade_no,
                             'create_time'=>time(),
                             'order_id' => 10,
                             'userid' => $params['userid'],
-                            'log_id' => $params['gamelogid'][0],
+                            'log_id' => $gamelogid,
                             'name' => $params['name'],
                             'address' => $params['addresss'],
                             'phone' => $params['tel'],
