@@ -304,6 +304,7 @@ class UserloginController extends Controller{
 			'head' => $user['head'],
 			'access_token' => $_SESSION['accesstoken'],
 			);
+			// S("$params['userid']",$_SESSION['accesstoken']);
 			file_put_contents("session.txt",$data);
 			// $_SESSION['accesstoken'] = $_SESSION['accesstoken'];
 		 		$data = json_encode($data,JSON_UNESCAPED_UNICODE);

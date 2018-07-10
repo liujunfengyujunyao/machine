@@ -105,7 +105,7 @@ class UseraccountController extends Controller{
 	public function create_order(){
 		$params = $GLOBALS['HTTP_RAW_POST_DATA'];  file_put_contents('order.txt',$params); 
 		$params = json_decode($params,true);
-      
+        
         if(count($params['gamelogid'])>1){//判断穿过来的gamelogid的长度
             $gamelogid = implode(',',$params['gamelogid']);
             //包邮
@@ -113,13 +113,14 @@ class UseraccountController extends Controller{
                 'userid' => $params['userid'],
                 'gamelogid' => $params['gamelogid'],
                 'roomid' => $params['roomid'],
-                'name' => $parmas['name'],
+                'name' => $params['name'],
                 'tel' => $params['tel'],
                 'addresss' => $params['addresss'],
                 'timestamp' => $params['timestamp'],
                 'access_token' => $_SESSION['accesstoken'],
                 );
             $signature = json_encode($signature,JSON_UNESCAPED_UNICODE);
+            file_put_contents('order2.txt',$signature);
             $signature = sha1($signature);
             $log = M('tbl_game_log')
             ->where("id in ($gamelogid)")

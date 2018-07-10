@@ -1,17 +1,20 @@
 <?php
+header('Access-Control-Allow-Origin:*');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 // 定义时区
-ini_set('date.timezone','Asia/Shanghai');
+ini_set('date.timezone','Asia/Shanghai');//12202服务器时间差18秒
+
 class Weixinpay {
     // 定义配置项
-    private $config=array(
-        'APPID'              => 'wx7d93e0114cc3453a', // 微信支付APPID
-        'MCHID'              => '1457705302', // 微信支付MCHID 商户收款账号
-        'KEY'                => 'ede449b5c872ada3365d8f91563dd8b6', // 微信支付KEY
-        'APPSECRET'          => 'e64bda5d1006894a4f3cfb1b908dca19',  //公众帐号secert
-        'NOTIFY_URL'         => 'http://310975f0.nat123.cc/Home/Weixinpay/notify', // 接收支付状态的连接  改成自己的域名
-        );
+//    private $config=array(
+//        'APPID'              => 'wx7d93e0114cc3453a', // 微信支付APPID
+//        'MCHID'              => '1457705302', // 微信支付MCHID 商户收款账号
+//        'KEY'                => 'ede449b5c872ada3365d8f91563dd8b6', // 微信支付KEY
+//        'APPSECRET'          => 'e64bda5d1006894a4f3cfb1b908dca19',  //公众帐号secert
+//        'NOTIFY_URL'         => 'http://310975f0.nat123.cc/Home/Weixinpay/notify', // 接收支付状态的连接  改成自己的域名
+//        );
     // 构造函数
     public function __construct(){
         // 如果是在thinkphp中 那么需要补全/Application/Common/Conf/config.php中的配置
@@ -29,7 +32,7 @@ class Weixinpay {
             'appid'=>$weixinpay_config['APPID'],
             'mch_id'=>$weixinpay_config['MCHID'],
             'nonce_str'=>'test',
-            'spbill_create_ip'=>'192.168.0.164',
+            'spbill_create_ip'=>'192.168.1.164',
             'notify_url'=>$weixinpay_config['NOTIFY_URL']
             );
         // 合并配置数据和订单数据
@@ -60,6 +63,7 @@ class Weixinpay {
         }
         $result['sign']=$sign;
         $result['nonce_str']='test';
+
         return $result;
     }
     /**
@@ -146,34 +150,68 @@ class Weixinpay {
      * @return array jssdk需要用到的数据
      */
     public function getParameters(){
+
         // 获取配置项
         $config=$this->config;
         // 如果没有get参数没有code；则重定向去获取openid；
         if (!isset($_GET['code'])) {
+
             // 获取订单号
             $out_trade_no=I('get.out_trade_no',1,'intval');
+
+//            var_dump($out_trade_no);
+
             // 返回的url
             $redirect_uri=U('Home/Weixinpay/pay','','',true);
+//            var_dump($redirect_uri);die;
+//            $redirect_uri="http://www.12202.com.cn/diamond/index.php/Home/Ajax/index2";
+//            $redirect_uri="http://www.12202.com.cn/vue/index.html#/recharge";//拉起支付SDK的页面
+            $redirect_uri="http://www.12202.com.cn/vue/#/PAY";//拉起支付SDK的页面
             $redirect_uri=urlencode($redirect_uri);
+
             $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$config['APPID'].'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_base&state='.$out_trade_no.'#wechat_redirect';
+//            var_dump($url);die;
             redirect($url);
         }else{
+//            echo 6;
             // 如果有code参数；则表示获取到openid
             $code=I('get.code');
+//            var_dump($code);die;
             // 取出订单号
             $out_trade_no=I('get.state',0,'intval');
+//            $order_id = I('get.out_trade_no');
+//            $order_id = substr($order_id, -1);
+
+
             // 组合获取prepay_id的url
             $url='https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$config['APPID'].'&secret='.$config['APPSECRET'].'&code='.$code.'&grant_type=authorization_code';
+
             // curl获取prepay_id
-            $result=$this->curl_get_contents($url);
+//            $result=$this->curl_get_contents($url);dump($result);die;
+            $result=$this->httpGet($url);
             $result=json_decode($result,true);
             $openid=$result['openid'];
             // 订单数据  请根据订单号out_trade_no 从数据库中查出实际的body、total_fee、out_trade_no、product_id
+            $log = M('order_log')
+                ->alias("t1")
+                ->field("t2.body,t2.money,t2.id as order_id")
+                ->where("t1.out_trade_no = $out_trade_no")
+                ->join("left join `order` as t2 on t2.id = t1.order_id")
+                ->find();
+
+//            $order=array(
+//                'body'=>'test',// 商品描述（需要根据自己的业务修改）
+//                'total_fee'=>1,// 订单金额  以(分)为单位（需要根据自己的业务修改）
+//                'out_trade_no'=>$out_trade_no,// 订单号（需要根据自己的业务修改）
+//                'product_id'=>'1',// 商品id（需要根据自己的业务修改）
+//                'trade_type'=>'JSAPI',// JSAPI公众号支付
+//                'openid'=>$openid// 获取到的openid
+//            );
             $order=array(
-                'body'=>'test',// 商品描述（需要根据自己的业务修改）
-                'total_fee'=>1,// 订单金额  以(分)为单位（需要根据自己的业务修改）
+                'body'=>$log['body'],// 商品描述（需要根据自己的业务修改）
+                'total_fee'=>$log['money'],// 订单金额  以(分)为单位（需要根据自己的业务修改）
                 'out_trade_no'=>$out_trade_no,// 订单号（需要根据自己的业务修改）
-                'product_id'=>'1',// 商品id（需要根据自己的业务修改）
+                'product_id'=>$log['order_id'],// 商品id（需要根据自己的业务修改）
                 'trade_type'=>'JSAPI',// JSAPI公众号支付
                 'openid'=>$openid// 获取到的openid
             );
@@ -191,9 +229,107 @@ class Weixinpay {
             );
             // 生成签名
             $data['paySign']=$this->makeSign($data);
+            //添加的返回数据
+            $data['amount'] = $order['product_id'];
+//            $data['amount'] = M('Order')->where(['id'=>$order['product_id']])->getField('amount');
             return $data;
+//            $data = json_encode($data);
+//            var_dump($data);die;
         }
     }
+
+    //物流支付
+    public function getParameters2(){
+
+        // 获取配置项
+        $config=$this->config;
+        // 如果没有get参数没有code；则重定向去获取openid；
+        if (!isset($_GET['code'])) {
+
+            // 获取订单号
+            $out_trade_no=I('get.out_trade_no',1,'intval');
+
+//            var_dump($out_trade_no);
+
+            // 返回的url
+            $redirect_uri=U('Home/Weixinpay/pay','','',true);
+//            var_dump($redirect_uri);die;
+//            $redirect_uri="http://www.12202.com.cn/diamond/index.php/Home/Ajax/index2";
+//            $redirect_uri="http://www.12202.com.cn/vue/#/CREATE_ORDER";
+            $redirect_uri="http://www.12202.com.cn/vue/#/PAY";
+            $redirect_uri=urlencode($redirect_uri);
+
+            $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$config['APPID'].'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_base&state='.$out_trade_no.'#wechat_redirect';
+
+            redirect($url);
+        }else{
+
+            // 如果有code参数；则表示获取到openid
+            $code=I('get.code');
+//            var_dump($code);die;
+            // 取出订单号
+            $out_trade_no=I('get.state',0,'intval');
+//            $order_id = I('get.out_trade_no');
+//            $order_id = substr($order_id, -1);
+
+
+            // 组合获取prepay_id的url
+            $url='https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$config['APPID'].'&secret='.$config['APPSECRET'].'&code='.$code.'&grant_type=authorization_code';
+
+            // curl获取prepay_id
+//            $result=$this->curl_get_contents($url);dump($result);die;
+            $result=$this->httpGet($url);
+            $result=json_decode($result,true);
+            $openid=$result['openid'];
+            // 订单数据  请根据订单号out_trade_no 从数据库中查出实际的body、total_fee、out_trade_no、product_id
+            $log = M('Express_pay')
+                ->alias("t1")
+                ->field("t2.body,t2.money,t2.id as order_id")
+                ->where("t1.out_trade_no = $out_trade_no")
+                ->join("left join `order` as t2 on t2.id = t1.order_id")
+                ->find();
+
+//            $order=array(
+//                'body'=>'test',// 商品描述（需要根据自己的业务修改）
+//                'total_fee'=>1,// 订单金额  以(分)为单位（需要根据自己的业务修改）
+//                'out_trade_no'=>$out_trade_no,// 订单号（需要根据自己的业务修改）
+//                'product_id'=>'1',// 商品id（需要根据自己的业务修改）
+//                'trade_type'=>'JSAPI',// JSAPI公众号支付
+//                'openid'=>$openid// 获取到的openid
+//            );
+            $order=array(
+                'body'=>$log['body'],// 商品描述（需要根据自己的业务修改）
+//                'total_fee'=>$log['money'],// 订 单金额  以(分)为单位（需要根据自己的业务修改）
+                'total_fee'=>10,// 订 单金额  以(分)为单位（需要根据自己的业务修改）
+                'out_trade_no'=>$out_trade_no,// 订单号（需要根据自己的业务修改）
+                'product_id'=>$log['order_id'],// 商品id（需要根据自己的业务修改）
+                'trade_type'=>'JSAPI',// JSAPI公众号支付
+                'openid'=>$openid// 获取到的openid
+            );
+            // 统一下单 获取prepay_id
+            $unified_order=$this->unifiedOrder($order);
+            // 获取当前时间戳
+            $time=time();
+            // 组合jssdk需要用到的数据
+            $data=array(
+                'appId'=>$config['APPID'], //appid
+                'timeStamp'=>strval($time), //时间戳
+                'nonceStr'=>$unified_order['nonce_str'],// 随机字符串
+                'package'=>'prepay_id='.$unified_order['prepay_id'],// 预支付交易会话标识
+                'signType'=>'MD5'//加密方式
+            );
+            // 生成签名
+            $data['paySign']=$this->makeSign($data);
+            //添加的返回数据
+            $data['amount'] = $order['product_id'];
+//            $data['amount'] = M('Order')->where(['id'=>$order['product_id']])->getField('amount');
+            return $data;
+//            $data = json_encode($data);
+//            var_dump($data);die;
+        }
+    }
+
+
     /**
      * 生成支付二维码
      * @param  array $order 订单 必须包含支付所需要的参数 body(产品描述)、total_fee(订单金额)、out_trade_no(订单号)、product_id(产品id)、trade_type(类型：JSAPI，NATIVE，APP)
@@ -218,6 +354,18 @@ class Weixinpay {
         $r=curl_exec($ch);
         curl_close($ch);
         return $r;
+    }
+
+    function httpGet($url) {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 500);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $res = curl_exec($curl);
+        curl_close($curl);
+        return $res;
     }
 
    

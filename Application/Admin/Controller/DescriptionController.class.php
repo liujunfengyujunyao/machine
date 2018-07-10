@@ -27,15 +27,34 @@ class DescriptionController extends CommonController{
 	}
 
 	public function comment(){
-		if (IS_POST) {
-			
-		}else{
-			$data = M('Comment')->alias('t1')->field("t1.id,t1.message,t1.create,t1.reply,t1.replydate,t2.nick")->join('left join all_user as t2 on t2.id = t1.userid')->select();
+		
+			$data = M('Comment')->alias('t1')->field("t1.id,t1.message,t1.create_time,t1.reply,t1.replydate,t2.nick")->join('left join all_user as t2 on t2.id = t1.userid')->select();
+			$this->assign('data',$data);
+			$this->display();
+	
+		
+	}
 
-			dump($data);die;
+	public function reply(){
+		if (IS_POST) {
+			$data = I('post.');
+		
+			$reply = $data['reply'];
+			$replydate = time();
+			$res = M('comment')->where(['id'=>$data['id']])->save(['reply'=>$reply,'replydate'=>$replydate]);
+			if ($res!==false) {
+				$this->redirect("Admin/Description/comment");
+			}else{
+				$this->error("回复失败");
+			}
+
+
+		}else{
+			$id = I('get.id');
+
+			$data = M('comment')->alias("t1")->field("t1.id,t1.message,t2.nick")->where(['t1.id'=>$id])->join("left join all_user as t2 on t2.id = t1.userid")->find();
 			$this->assign('data',$data);
 			$this->display();
 		}
-		
 	}
 }

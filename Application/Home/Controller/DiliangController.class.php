@@ -383,8 +383,9 @@ class DiliangController extends Controller{
         $params = json_decode($params,true);  
         $user = M('all_user')->where(['id'=>$params['userid']])->find();
         $test = json_encode($user,JSON_UNESCAPED_UNICODE);
-        file_put_contents("2222222222222222.txt",$test); 
+        
         $access_token = S($params['userid']);
+        file_put_contents("hehehhhhhhhhhhhhh.txt",$params);
         // $access_token = M('all_user')->where(['id'=>$params['userid']])->getField('token'); 
         $signature = array(
         'msgtype' => 'login_request',
@@ -471,15 +472,15 @@ class DiliangController extends Controller{
 
       if ($user['openid']) {
 
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
-        // $url = "http://192.168.1.164/Home/Sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
     
       }
       else{
  
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
-        // $url = "http://192.168.1.164/Home/Iwawa/iwawa"; 
+        // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+        $url = "http://192.168.1.164/Home/Iwawa/iwawa"; 
         $data = array(
         'msgtype' => 'payment_request',
         'params' => $params,
@@ -499,13 +500,13 @@ class DiliangController extends Controller{
        //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
-        // $url = "http://192.168.1.164/Home/Sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
       }
       else{
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
-        // $url = "http://192.168.1.164/Home/Iwawa/iwawa";
+        // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        $url = "http://192.168.1.164/Home/Iwawa/iwawa";
         $data = array(
         'msgtype' => 'payment_cancel',
         'params' => $params
@@ -526,8 +527,8 @@ class DiliangController extends Controller{
       //接收从游戏服务器发送过来的游戏结果
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
-        // $url = "http://192.168.1.164/Home/sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "http://192.168.1.164/Home/sever/payment";
         $return = json_curl($url,$params);
         return $return;
       }

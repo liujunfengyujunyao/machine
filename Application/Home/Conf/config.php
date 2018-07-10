@@ -18,14 +18,23 @@ return array(
     	'appSecret' =>  'e64bda5d1006894a4f3cfb1b908dca19'
     	),
 
+    // 'WEIXINPAY_CONFIG'       => array(
+    // 'APPID'              => 'wx7d93e0114cc3453a', // 微信支付APPID
+    // 'MCHID'              => '1457705302', // 微信支付MCHID 商户收款账号
+    // 'KEY'                => 'ede449b5c872ada3365d8f91563dd8b6', // 微信支付KEY
+    // 'APPSECRET'          => 'e64bda5d1006894a4f3cfb1b908dca19', // 公众帐号secert (公众号支付专用)
+    // // 'NOTIFY_URL'         => 'http://www.machine.com/Home/Weixinpay/notify/', // 接收支付状态的连接
+    // // 'NOTIFY_URL'         => 'http://liujunfeng.imwork.net:41413/Home/Weixinpay/notify',
+    // 'NOTIFY_URL'         => 'http://www.12202.com/machine',
+    // ),
     'WEIXINPAY_CONFIG'       => array(
-    'APPID'              => 'wx7d93e0114cc3453a', // 微信支付APPID
+    'APPID'              => 'wx9e8c63f03cbd36aa', // 微信支付APPID
     'MCHID'              => '1457705302', // 微信支付MCHID 商户收款账号
     'KEY'                => 'ede449b5c872ada3365d8f91563dd8b6', // 微信支付KEY
-    'APPSECRET'          => 'e64bda5d1006894a4f3cfb1b908dca19', // 公众帐号secert (公众号支付专用)
+    'APPSECRET'          => 'aa30b7860f3247a789fff62b08681b7e', // 公众帐号secert (公众号支付专用)
     // 'NOTIFY_URL'         => 'http://www.machine.com/Home/Weixinpay/notify/', // 接收支付状态的连接
     // 'NOTIFY_URL'         => 'http://liujunfeng.imwork.net:41413/Home/Weixinpay/notify',
-    'NOTIFY_URL'         => 'http://www.12202.com/machine',
+    'NOTIFY_URL'         => 'http://192.168.1.3/index.php/Home/Weixinpay/notify',
     ),
 
     'DB_TYPE' => 'mysql', // 数据库类型

@@ -1757,4 +1757,19 @@ public function ddg(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
+
+  public function shu(){
+    $data = array(
+      'userid' => 1,
+      'gamelogid' => 539,
+      'roomid' => 4,
+      'name' => "刘",
+      'tel' => 119,
+      'address' => "天",
+      'timestamp' => 1531205273,
+      );
+    $url = "http://192.168.1.3/index.php/Home/Useraccount/create_order";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
 }

@@ -5,7 +5,21 @@ header('Access-Control-Allow-Origin:*');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 class IndexController extends Controller {
     public function index(){
-       
+        $mem = new \Think\Cache\Driver\Memcache;
+dump($mem);die;
+$mem->set('key1', 'This is first value', 0, 60);
+
+$val = $mem->get('key1'); 
+
+echo "Get key1 value: " . $val ."<br />";
+
+$class = new \Think\Cache\Driver\Memcache();  
+
+$class->set('key','1234');  
+
+$data = $class->get('key');  
+
+echo $data;  die;
         // dump(phpinfo());die;
         //查询图片轮播部分商品信息
         // $goods3 = D('Goods')->where('id in (1,2,3)')->select();

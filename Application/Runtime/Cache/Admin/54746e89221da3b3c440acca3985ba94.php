@@ -161,6 +161,10 @@
 						<td>赔率:</td>
 						<td><?php echo ($equipment["odds"]); ?>:1</td>
 					</tr>
+                    <tr>
+                        <td>游戏服务器地址1:</td>
+                        <td><?php echo ($equipment["gamesever"]); ?></td>
+                    </tr>
 					<tr>
                         <td>视频推流地址1:</td>
                         <td><?php echo ($equipment["live_channel1"]); ?></td>
