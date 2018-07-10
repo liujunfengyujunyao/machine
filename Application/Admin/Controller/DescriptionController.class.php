@@ -51,10 +51,11 @@ class DescriptionController extends CommonController{
 
 		}else{
 			$id = I('get.id');
-
 			$data = M('comment')->alias("t1")->field("t1.id,t1.message,t2.nick")->where(['t1.id'=>$id])->join("left join all_user as t2 on t2.id = t1.userid")->find();
 			$this->assign('data',$data);
 			$this->display();
 		}
 	}
+
+	
 }
