@@ -51,8 +51,10 @@
 							<li><a href="/index.php/Admin/Manager/repass/id/<?php echo ($_SESSION['manager_info']['id']); ?>">修改密码</a></li>
 						</ul>
 					</li>
-<!-- 					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
- -->					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+					<li id="Hui-msg" title="消息" data-container="body" data-toggle="popover" data-placement="bottom"  data-trigger="hover" data-html="true"> 
+						<a href="#" title="消息"><?php if( $_SESSION['msg_count'] > 0 ): ?><span class="badge badge-danger"><?php echo ($_SESSION["msg_count"]); ?></span><?php endif; ?><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> 
+					</li>
+					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
 							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
 							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
@@ -67,6 +69,23 @@
 		</div>
 	</div>
 </header>
+<div id="modal-demo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content radius">
+			<div class="modal-header">
+				<h3 class="modal-title" ><i class="Hui-iconfont" style="">&#xe68a;</i>&nbsp;消息列表</h3>
+				<a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+			</div>
+			<div class="modal-body">
+				<ul style='padding:0 20px'></ul>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary">确定</button>
+				<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
 <!--头部-->
 
 <!--_menu 作为公共模版分离出去-->
@@ -200,6 +219,55 @@
 <script type="text/javascript" src="/Public/Admin/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="/Public/Admin/static/h-ui.admin/js/H-ui.admin.page.js"></script> 
 <script type="text/javascript" src="/Public/Admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+$(function(){
+        $('#Hui-msg').click(function(){
+                $("#modal-demo").modal("show");
+
+        });
+        $('#modal-demo').on('show.bs.modal', function () {
+                $.ajax({
+                        url:"/index.php/Admin/Common/allMsg",
+                        dataType:'json',
+                        success:function(res) {
+                           if(res.status==1001){
+                                $('#modal-demo .modal-body ul').html(res.html);
+                           }else{
+                                $('#modal-demo .modal-body ul').html('暂无消息');
+                           }
+                                
+                        }
+                });
+        });
+	var getting = {
+                url:'/index.php/Admin/Common/notReadMsg',
+                dataType:'json',
+                success:function(res) {
+                	if(res.status==1001){
+                                $('#Hui-msg').attr('data-content',res.msg);
+                		if(res.count > 99){
+                			$('#Hui-msg .badge').text('99+');
+                		}else{
+                			$('#Hui-msg .badge').text(res.count);
+                		}
+                                if(res.renew == 1){
+                                        $('#Hui-msg').popover('show');
+                                        setTimeout(function(){$('#Hui-msg').popover('hide')},7000);
+                                }
+                	}else{
+                		$('#Hui-msg .badge').text('');
+                                $('#Hui-msg').removeAttr('title');
+                                $('#Hui-msg').attr('data-content','暂无新消息');
+                	} 
+                }
+	};
+        $.ajax(getting);
+	//Ajax定时访问服务端，不断获取数据 ，10秒请求一次。
+	window.setInterval(function(){$.ajax(getting)},10000);
+
+       
+});
+</script>
 
  <!--/_footer 作为公共模版分离出去-->
 

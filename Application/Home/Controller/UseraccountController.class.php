@@ -105,9 +105,9 @@ class UseraccountController extends Controller{
 	public function create_order(){
 		$params = $GLOBALS['HTTP_RAW_POST_DATA'];  file_put_contents('order.txt',$params); 
 		$params = json_decode($params,true);
-        
-        if(count($params['gamelogid'])>1){//判断穿过来的gamelogid的长度
-            $gamelogid = implode(',',$params['gamelogid']);
+        $commodity = $params['gamelogid'];
+        $gamelogid = explode(',',$params['gamelogid']);
+        if(count($gamelogid)>1){//判断穿过来的gamelogid的长度
             //包邮
             $signature = array(
                 'userid' => $params['userid'],
@@ -123,7 +123,7 @@ class UseraccountController extends Controller{
             file_put_contents('order2.txt',$signature);
             $signature = sha1($signature);
             $log = M('tbl_game_log')
-            ->where("id in ($gamelogid)")
+            ->where("id in ($commodity)")
             ->where(['status'=>0,'userid'=>$params['userid']])
             ->find();
              if (time()-$params['timestamp']>12) {
@@ -145,24 +145,22 @@ class UseraccountController extends Controller{
                 );
         }else{
             //将传来的数据全部添加到tbl_order表中
-                M('tbl_game_log')->where("id in ($gamelogid)")->save(['status'=>1]);
-            foreach($params['gamelogid'] as $k=>$v){
-                $one['create_time'] = time();
-                $one['address'] = $params['addresss'];
-                $one['phone'] = $params['tel'];
-                $one['userid'] = $params['userid']; 
-                $one['name'] = $params['name']; 
-                $one['roomid'] = $params['roomid']; 
-                $one['log_id'] = $v;
-                $save[] = $one;
-            }
-            $order_id = M('tbl_order')->addAll($save);
+                  M('tbl_game_log')->where("id in ($commodity)")->save(['status'=>1]); 
+            $array = array(
+                    'create_time' => time(),
+                    'address'=>$params['addresss'],
+                    'phone' => $params['tel'],
+                    'userid' => $params['userid'],
+                    'name' => $params['name'],
+                    'roomid' => $params['roomid'],
+                    'log_id' => $params['gamelogid'],
+                );            
+                M('tbl_order')->add($array);
             $data = array(
                 'orderlogid' => $order_id,
                 );
         }
         }else{
-            // $gamelogid = implode(',',$params['gamelogid']);
             //不包邮
              //添加$signature
         $signature = array(
@@ -203,15 +201,15 @@ class UseraccountController extends Controller{
                         // $params['id'] = 10;
                         $out_trade_no = rand(10,999999);//生成订单编号
                         //将订单存入数据库,status为0(未支付)
-                         $repeat = $params['gamelogid'];
-                        $gamelogid = M('tbl_game_log')->where("id in ($repeat)")->distinct(true)->getField('id',true);
-                        $gamelogid = implode(',',$gamelogid);
+                        //  $repeat = $params['gamelogid'];
+                        // $gamelogid = M('tbl_game_log')->where("id in ($repeat)")->distinct(true)->getField('id',true);
+                        // $gamelogid = implode(',',$gamelogid);
                         $data = array(
                             'out_trade_no'=>$out_trade_no,
                             'create_time'=>time(),
                             'order_id' => 10,
                             'userid' => $params['userid'],
-                            'log_id' => $gamelogid,
+                            'log_id' => $params['gamelogid'],
                             'name' => $params['name'],
                             'address' => $params['addresss'],
                             'phone' => $params['tel'],

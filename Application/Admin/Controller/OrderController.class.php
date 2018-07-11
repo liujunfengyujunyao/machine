@@ -12,10 +12,31 @@ class OrderController extends CommonController{
 		//查询出抓取到娃娃的订单信息
 		if($owner){
 			
-		$data = M('tbl_order')->alias('t1')->field("t1.id,t1.address,t1.phone,t1.name,t3.name as goods_name,t1.status,t2.start_time,t2.end_time,t2.id as log_id,t1.name as address_name,t4.name as equipment_name,t4.id as equipment_id,t3.id as goods_id")->where("t1.status = 0 && (t4.pid = $id || t4.pid in ({$owner}))")->join("left join tbl_game_log as t2 on t1.log_id = t2.id")->join("left join goods as t3 on t3.id = t2.goods_id")->join("equipment as t4 on t4.id = t2.equipment_id")->select();
+		$data = M('tbl_order')
+		->alias('t1')
+		->distinct(true)
+		->field("t1.id,t1.address,t1.phone,t1.name,t1.create_time,t1.userid,t3.name as goods_name,t1.status,
+		t2.start_time,t2.end_time,t2.id as log_id,t1.name as address_name,t4.name as equipment_name,
+		t4.id as equipment_id,t3.id as goods_id")
+		->where("t1.status = 0 && (t4.pid = $id || t4.pid in ({$owner}))")
+		->join("left join tbl_game_log as t2 on t1.log_id = t2.id")
+		->join("left join goods as t3 on t3.id = t2.goods_id")
+		->join("equipment as t4 on t4.id = t2.equipment_id")
+		->select();
+		// foreach ($data as $key => &$value) {
+		// 	if($value['name'] == $value['name'] && $value['create_time'] == $value)
+		// }
+		//dump($data);die;
 	    }else{
 	    	
-	    $data = M('tbl_order')->alias('t1')->field("t1.id,t1.address,t1.phone,t1.name,t3.name as goods_name,t1.status,t2.start_time,t2.end_time,t2.id as log_id,t1.name as address_name,t4.name as equipment_name,t4.id as equipment_id,t3.id as goods_id")->where("t1.status = 0 && t4.pid = $id")->join("left join tbl_game_log as t2 on t1.log_id = t2.id")->join("left join goods as t3 on t3.id = t2.goods_id")->join("equipment as t4 on t4.id = t2.equipment_id")->select();	
+	    $data = M('tbl_order')
+	    ->distinct(true)
+	    ->alias('t1')
+	    ->field("t1.id,t1.address,t1.phone,t1.name,t3.name as goods_name,t1.status,t2.start_time,t2.end_time,t2.id as log_id,t1.name as address_name,t4.name as equipment_name,t4.id as equipment_id,t3.id as goods_id")
+	    ->where("t1.status = 0 && t4.pid = $id")
+	    ->join("left join tbl_game_log as t2 on t1.log_id = t2.id")
+	    ->join("left join goods as t3 on t3.id = t2.goods_id")
+	    ->join("equipment as t4 on t4.id = t2.equipment_id")->select();	
 	    }
 	   
 
