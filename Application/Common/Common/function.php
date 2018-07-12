@@ -290,4 +290,18 @@ function navigate_user()
          if($suffix) return $slice;  
          return $slice;
     }
+    //根据pid排序二维数组
+    function make_tree($arr, $pid = 0, $column_name = 'id|pid|erzi') {
+  list($idname, $pidname, $cldname) = explode('|', $column_name);
+  $ret = array();
+  foreach ($arr as $k => $v) {
+    if ($v [$pidname] == $pid) {
+      $tmp = $arr [$k];
+      unset($arr [$k]);
+      $tmp [$cldname] = $this->make_tree($arr, $v [$idname], $column_name);
+      $ret [] = $tmp;
+    }
+  }
+  return $ret;
+}
  ?>

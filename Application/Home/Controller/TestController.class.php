@@ -1779,5 +1779,73 @@ public function ddg(){
      dump($data);die;
   }
 
+  public function bl(){
+  //从数据库中取出的分类数据
+$original_array = array(
+  array(
+    'id' => 1,
+    'pid' => 0,
+    'name' => '新闻分类'
+  ),
+  array(
+    'id' => 2,
+    'pid' => 0,
+    'name' => '最新公告'
+  ),
+  array(
+    'id' => 3,
+    'pid' => 1,
+    'name' => '国内新闻'
+  ),
+  array(
+    'id' => 4,
+    'pid' => 1,
+    'name' => '国际新闻'
+  ),
+  array(
+    'id' => 5,
+    'pid' => 0,
+    'name' => '图片分类'
+  ),
+  array(
+    'id' => 6,
+    'pid' => 5,
+    'name' => '新闻图片'
+  ),
+  array(
+    'id' => 7,
+    'pid' => 5,
+    'name' => '其它图片'
+  )
+);
+$output_array = $this->make_tree($original_array);
+// foreach ($output_array as $key => $value) {
+//     echo "<h1>".$value['name']."<h1>";
+//     echo "<br/>";
+//     foreach ($value['children'] as $key1 => $value1) {
+//         echo "<h5>".$value1['name'];
+//         echo "<br/>";
+//     }
+
+// }
+
+  dump($output_array);
+
+}
+
+function make_tree($arr, $pid = 0, $column_name = 'id|pid|erzi') {
+  list($idname, $pidname, $cldname) = explode('|', $column_name);
+  $ret = array();
+  foreach ($arr as $k => $v) {
+    if ($v [$pidname] == $pid) {
+      $tmp = $arr [$k];
+      unset($arr [$k]);
+      $tmp [$cldname] = $this->make_tree($arr, $v [$idname], $column_name);
+      $ret [] = $tmp;
+    }
+  }
+  return $ret;
+}
+
 
 }
