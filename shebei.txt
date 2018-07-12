@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"wechat_code":"001y5VPD1A8vm30XCRQD1zNXPD1y5VPg","model":"IPHONE","vendor":"Apple","os":"iOS","version":"9.1"}
+=======
+{"wechat_code":"061lcHgf2rRwwC0h1Chf2d5vgf2lcHg3","model":"IPHONE","vendor":"Apple","os":"iOS","version":"9.1"}
+>>>>>>> ffa56b3e7c91618d971344c69500c6a71f171d91
