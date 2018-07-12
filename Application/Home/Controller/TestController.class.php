@@ -1772,4 +1772,12 @@ public function ddg(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
+
+  public function name(){
+    $value['log_id'] = 879;
+     $data = M('tbl_game_log')->alias('t1')->where(['t1.id'=>$value['log_id']])->join("left join goods as t2 on t2.id = t1.goods_id")->getField("t2.name");
+     dump($data);die;
+  }
+
+
 }

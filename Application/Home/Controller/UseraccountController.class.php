@@ -289,6 +289,7 @@ class UseraccountController extends Controller{
                                 $res[$key]['createdate'] = $value['create_time'];
                                 $res[$key]['gamelogid']  = $value['log_id'];
                                 $res[$key]['roomid']     = M('tbl_game_log')->where(['id'=>$value['log_id']])->getField('goods_id');
+                                $res[$key]['goodsname'] = M('tbl_game_log')->alias('t1')->where(['t1.id'=>$value['log_id']])->join("left join goods as t2 on t2.id = t1.goods_id")->getField("t2.name");
                                 $res[$key]['photo']      = M('tbl_game_log')->alias('t1')->where(['t1.id'=>$value['log_id']])->join("left join goods as t2 on t2.id = t1.goods_id")->join("left join goodspics as t3 on t3.goods_id = t2.id")->getField('pics_origin');
                                 $res[$key]['status']     = $value['status'];
                                 $res[$key]['name']       = $value['name'];
