@@ -118,7 +118,7 @@ function equipment_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
 		$.ajax({
 			type: 'POST',
-			url: '__CONTROLLER__/del/id/'+id,
+			url: '__CONTROLLER__/order_del/id/'+id,
 			dataType: 'json',
 			success: function(data){
 				$(obj).parents("tr").remove();
