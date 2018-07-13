@@ -34,7 +34,7 @@ class OrderController extends CommonController{
 		->join("equipment as t4 on t4.id = t1.equipment_id")
 		->select();
 	    }
-	    else{
+	    // else{
 	    	
 	    // $data = M('tbl_order')
 	    // ->distinct(true)
