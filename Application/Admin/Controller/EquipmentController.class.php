@@ -884,7 +884,12 @@ class EquipmentController extends CommonController{
 		$id = I('get.id');
 		$role_id = session('manager_info.role_id');
 		$equipment = M('equipment')->where(['id'=>$id])->find();
+
 		$data = M('version')->select();
+		foreach ($data as $key => &$value) {
+			$data[$key]['url'] = "http://".$_SERVER['HTTP_HOST'].$value['url'];
+		}
+		// dump($data);die;
 		$this->assign('equipment',$equipment);
 		$this->assign('role_id',$role_id);
 		$this->assign('data',$data);

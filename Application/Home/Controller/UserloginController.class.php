@@ -32,7 +32,7 @@ class UserloginController extends Controller{
 	public function login_auth(){
 		
 		$a = $GLOBALS['HTTP_RAW_POST_DATA']; 
-		file_put_contents('shebei.txt',$a);
+	
 		$a = json_decode($a,true); 
 		$code = $a['wechat_code'];
 		       
