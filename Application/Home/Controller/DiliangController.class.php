@@ -20,7 +20,7 @@ class DiliangController extends Controller{
 	    $return = json_curl($url,$data);
 
 	    $return = json_decode($return,true);
-	     var_dump($return);die;
+	   
 	    if ($return['useruuid']) {
 	    	$accesstoken = md5(time());
 	    	//成功
@@ -500,6 +500,7 @@ class DiliangController extends Controller{
        //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
+
         $url = "http://192.168.1.3/index.php/Home/Sever/payment";
         // $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
@@ -536,7 +537,7 @@ class DiliangController extends Controller{
       
       //发送给iwawa服务器
       // $goods = M('Goods')->where(['id'=>$params['roomid']])->find();
-      $goods_id = M('equipment')->where(['id'=>$params['machineid']])->gitField('goods_id');
+      $goods_id = M('equipment')->where(['id'=>$params['machineid']])->getField('goods_id');
       $res['equipment_id'] = $params['machineid'];
       $res['got_gift'] = $params['result'];
       $res['userid'] = $params['userid'];//区别 iwawa使用的是uuid

@@ -185,7 +185,7 @@
 							<td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["create_time"])); ?></span></td>
 							<td><?php echo ($v["version"]); ?></td>
 							<td class="f-14 td-manage">
-								<a style="text-decoration:none" class="ml-5" href="<?php echo ($version); ?>" title="机台升级"><i class="Hui-iconfont">&#xe6df;升级本版</i></a>
+								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/upload/id/<?php echo ($v["id"]); ?>" title="机台升级"><i class="Hui-iconfont">&#xe6df;升级本版</i></a>
 								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/edit/id/<?php echo ($v["id"]); ?>" title="机台编辑"><i class="Hui-iconfont">&#xe6df;编辑</i></a>
 								<?php if( $_SESSION['manager_info']['role_id']== 3 ): ?><a style="text-decoration:none" class="ml-5" onClick="equipment_del(this,'<?php echo ($v["id"]); ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;删除</i></a><?php endif; ?>
 								</td>

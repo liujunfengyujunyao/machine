@@ -1,1 +1,1 @@
-{"msgtype":"payment_request","userid":1,"machineid":14,"timestamp":1531192642}
+{"msgtype":"payment_cancel","userid":1,"paymentid":2096963080251,"machineid":14}

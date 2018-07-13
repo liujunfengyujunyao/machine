@@ -200,9 +200,10 @@ class OperatingController extends CommonController{
 			$id = session('manager_info.id');
 			$role_id = session('manager_info.role_id');
 			
-			if ($role_id == 3 || $role_id == 5) {
+			if ($role_id == 3 || $role_id == 5 || $id == 1) {
 				//超级管理员 查询所属所有的机台
 				$manager = D('Manager')->where(['pid'=>$id])->select();
+				
 				$manager_id = array();
 				foreach ($manager as $key => $value) {
 					$manager_id[] = $value['id'];

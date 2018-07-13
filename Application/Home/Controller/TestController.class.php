@@ -1847,5 +1847,18 @@ function make_tree($arr, $pid = 0, $column_name = 'id|pid|erzi') {
   return $ret;
 }
 
+  public function tuikuan22(){
+    $data = array(
+      'msgtype' => 'payment_cancel',
+      'userid' => 1,
+      'paymentid' => 2096963080251,
+      'machineid' => 14,
+      
+      );
+    $url = "http://192.168.1.164/Home/Diliang/payment";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+
 
 }

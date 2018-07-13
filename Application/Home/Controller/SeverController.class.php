@@ -219,6 +219,7 @@ class SeverController extends Controller{
 					'amount' => $amount,
 					'paymentid' => $paymentid,
 					'cancel' => 0,  //是否被撤销扣款
+					'create_time' => time(),
 					);
 				M('Record')->add($record);
 				$log = array(
@@ -250,9 +251,11 @@ class SeverController extends Controller{
 
 
 		public function payment_cancel($params){
+			// file_put_contents('tuikuan.txt',$params);
+
 			$user = M('all_user')->where(['id'=>$params['userid']])->find();
 			$params['type'] = M('tbl_game_log')->where(['paymentid'=>$params['paymentid']])->getField('type');
-			$params['amount'] = M('record')->where(['paymentid'=>$params['paymentid']])->gitField('amount');
+			$params['amount'] = M('record')->where(['paymentid'=>$params['paymentid']])->getField('amount');
 			if ($params['type'] == "silver") {
 				$user['silver'] = $user['silver'] + $params['amount'];
 			}else{

@@ -880,33 +880,54 @@ class EquipmentController extends CommonController{
 		}
 	}
 
+	public function upload(){
+		$id = I('get.id');
+		$role_id = session('manager_info.role_id');
+		$equipment = M('equipment')->where(['id'=>$id])->find();
+		$data = M('version')->select();
+		$this->assign('equipment',$equipment);
+		$this->assign('role_id',$role_id);
+		$this->assign('data',$data);
+		$this->display();
+	}
+
+
 	public function version(){
 		if (IS_POST) {
 			$data = I('post.');
-			dump($data);die;
-			$uplode= new \Think\Upload();//造实例化对象：造一个上传文件的类     
-		    $uplode->maxSize="31457280";//上传文件的大小
-		    $uplode->exts=array('jpg','gif','png','jpeg');//设置图片格式
-		    $uplode->autoSub=true;//自动使用子目录保存上传文件 默认为true    
-		    $uplode->subName=array('date','Ymd');//文件命名方式已时期时间戳命名
-		    $uplode->rootPath="./public/";//表示在public文件夹下
-		    $uplode->savePath="./Uploads/version";//设置附件上传目录:表示在public文件夹下自动建一个Uploads文件夹
-          // 上传文件
-               $info   =   $uplode->upload();  
-                 if(!$info)
-             {
-                // 上传错误提示错误信息     
-                $this->error($uplode->getError());   
-                 }else{
-                     // 上传成功 获取上传文件信息
-            foreach($info as $file)
-            echo $file['savepath'].$file['savename'];
-                }        
+			$config = array(
+				'maxSize'  =>  20 * 1024 * 1024,
+				'exts'     =>  array(
+					//上传文件的后缀
+						'zip',
+						'RAR',
+						'ISO',
+						'txt',
+					),
+				'rootPath' =>  VERSION_PATH,
+				'saveName' => $version_id,
+				);
+			$upload = new \Think\Upload($config);
+			$upload_res = $upload->uploadOne($_FILES['version']);
+			if (!$upload_res) {
+				//上传失败显示错误信息
+				$error = $upload->getError();
+				$this->error($error);
+			}
+			//上传成功
+			$version['url'] = VERSION_PATH . $upload_res['savepath'] . $upload_res['savename'];
+			$version['create_time'] = time();
+			$version['version_id'] = $data['type'];
+			$version['brief'] = $data['brief'];
+			$version['name'] = $data['name'];
+			M('version')->add($version);
+
 		}else{
+			// $url = "http://".$_SERVER['HTTP_HOST']."/public/Uploads/version";
+			// dump($url);die;
 			$this->display();
 		}
 	}
-
 
 
 	public function test(){

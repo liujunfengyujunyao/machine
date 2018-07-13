@@ -39,7 +39,7 @@ class GoodsController extends CommonController{
 			$user = session('manager_info');
 			$id = $user['id'];
 			$data = I('post.');
-			dump($data);die;
+			
 			$role_id = session('manager_info.role_id');
 			$model = D('Goods');
 			$files = $_FILES;
