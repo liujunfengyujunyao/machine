@@ -23,14 +23,14 @@
 <section class="Hui-article-box">
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i><a href="__MODULE__/Index/index">首页</a>
 		<span class="c-gray en">&gt;</span>
-		商品管理
+		机台管理
 		<span class="c-gray en">&gt;</span>
-		添加商品
+		新增版本
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 	</nav>
 	<div class="Hui-article">
 		<form class="form form-horizontal" id="tab" action="__SELF__" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="pid" value="{{$Think.session.manager_info.id}}">
+	
 		<!-- <input type="hidden" name="equipment_user" value="{{$Think.session.manager_info.nickname}}"> -->
 		<div class="row cl" align="center" >
 		<a href="__CONTROLLER__/index" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe67f;</i>&emsp;返回列表页&emsp;</a>
@@ -49,13 +49,13 @@
 			</div>
 		</div> -->
 			<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>商品名称：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>版本名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value=""  required="required" placeholder="请填写名称" name="name"  maxlength='32'>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>商品类型：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>版本编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value=""  required="required" placeholder="请填写类型" name="type"  maxlength='32'>
 			</div>
@@ -77,15 +77,15 @@
 		</div> -->
 		   <div class="tab-pane fade in" id="pics">
                 <div class="well">
-                        <div>[<a href="javascript:void(0);" class="add">图片+</a>]：<input type="file" name="goods_pics[]" value="" class="input-xlarge"></div>
+                        <div>[<a href="javascript:void(0);" class="add">文件+</a>]：<input type="file" name="version" class="input-xlarge"></div>
                 </div>
             </div>	
 		<!--商品相册图集-->
 		
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">商品备注：</label>
+			<label class="form-label col-xs-4 col-sm-2">版本备注：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<textarea id="" name='brief' style="width:800px;height:400px;"></textarea>
+				<textarea id="editor" name='brief' style="width:800px;height:400px;"></textarea>
 			</div>
 		</div>
 		<div class="row cl">
@@ -116,7 +116,7 @@ $(function(){
       var ue=UE.getEditor('editor');
 	
       $('.add').click(function(){
-      	var add_div = '<div>[<a href="javascript:void(0);" class="sub">图片-</a>]：<input type="file" name="goods_pics[]" value="" class="input-xlarge"></div>';
+      	var add_div = '<div>[<a href="javascript:void(0);" class="sub">版本-</a>]：<input type="file" name="goods_pics[]" value="" class="input-xlarge"></div>';
       	''
       	$(this).parent().after(add_div);
       	

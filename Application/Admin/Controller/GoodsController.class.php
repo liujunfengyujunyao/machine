@@ -35,11 +35,11 @@ class GoodsController extends CommonController{
 
 	public function add(){
 		if (IS_POST) {
-
+				
 			$user = session('manager_info');
 			$id = $user['id'];
 			$data = I('post.');
-			//dump($data);die;
+			dump($data);die;
 			$role_id = session('manager_info.role_id');
 			$model = D('Goods');
 			$files = $_FILES;

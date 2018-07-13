@@ -47,9 +47,9 @@
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
 				</if>
 				<a class="btn btn-primary radius" data-title="添加机台" _href="add.html" href="__CONTROLLER__/add"><i class="Hui-iconfont">&#xe600;</i> 添加机台</a>
-				<!-- <if condition = " Think.session.manager_info.id == 1 "> -->
+				<if condition = " $Think.session.manager_info.id == 1 ">
 				<a class="btn btn-primary radius" data-title="添加版本" _href="version.html" href="__CONTROLLER__/version"><i class="Hui-iconfont">&#xe600;</i> 添加版本</a>
-				<!-- </if> -->
+				</if>
 				</span>
 				<span class="r">共有数据：<strong>{{$row_count}}</strong> 条</span>
 			

@@ -142,9 +142,7 @@
 				<span class="l">
 				<?php if( $_SESSION['manager_info']['role_id']== 3 ): ?><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a><?php endif; ?>
 				<a class="btn btn-primary radius" data-title="添加机台" _href="add.html" href="/index.php/Admin/Equipment/add"><i class="Hui-iconfont">&#xe600;</i> 添加机台</a>
-				<!-- <?php if( Think.session.manager_info.id == 1 ): ?>-->
-				<a class="btn btn-primary radius" data-title="添加版本" _href="version.html" href="/index.php/Admin/Equipment/version"><i class="Hui-iconfont">&#xe600;</i> 添加版本</a>
-				<!--<?php endif; ?> -->
+				<?php if( $_SESSION['manager_info']['id']== 1 ): ?><a class="btn btn-primary radius" data-title="添加版本" _href="version.html" href="/index.php/Admin/Equipment/version"><i class="Hui-iconfont">&#xe600;</i> 添加版本</a><?php endif; ?>
 				</span>
 				<span class="r">共有数据：<strong><?php echo ($row_count); ?></strong> 条</span>
 			
