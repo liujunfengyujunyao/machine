@@ -281,24 +281,26 @@ class UseraccountController extends Controller{
                                 ),
                             );
                 }else{
-                        //通过验证
-                        
-                       // var_dump($order);die;
+                         //通过验证
                         foreach ($order as $key => &$value) {
                                 $res[$key]['orderlogid'] = $value['id'];
                                 $res[$key]['createdate'] = $value['create_time'];
-                                $res[$key]['gamelogid']  = $value['log_id'];
-                                $res[$key]['roomid']     = M('tbl_game_log')->where(['id'=>$value['log_id']])->getField('goods_id');
-                                $res[$key]['goodsname'] = M('tbl_game_log')->alias('t1')->where(['t1.id'=>$value['log_id']])->join("left join goods as t2 on t2.id = t1.goods_id")->getField("t2.name");
-                                $res[$key]['photo']      = M('tbl_game_log')->alias('t1')->where(['t1.id'=>$value['log_id']])->join("left join goods as t2 on t2.id = t1.goods_id")->join("left join goodspics as t3 on t3.goods_id = t2.id")->getField('pics_origin');
+                               $res[$key]['gamelogid']  = explode(',',$value['log_id']);
+                                $a = $value['log_id'];
+                                $res[$key]['items'] = array(                               
+                                    'roomid'=> M('tbl_game_log')->where(['id'=> ['in',$a]])->getField('goods_id',true),
+                                    'goodsname'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])->join("left join goods as t2 on t2.id = t1.goods_id")->getField('name',true),
+                                    'photo'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])->join("left join goods as t2 on t2.id = t1.goods_id")->join("left join goodspics as t3 on t3.goods_id = t2.id")->getField('pics_origin',true),                                  
+                                );
                                 $res[$key]['status']     = $value['status'];
                                 $res[$key]['name']       = $value['name'];
                                 $res[$key]['tel']        = $value['phone'];
                                 $res[$key]['addresss']   = $value['address'];
                                 $res[$key]['trackingid'] = $value['trace_number'];
-                                $res[$key]['carrier']    = M('tbl_order')->alias('t1')->where(['t1.log_id'=>$value['log_id']])->join("left join express as t2 on t2.express_id = t1.express_id")->getField('express_name');
-                                $res[$key]['delieverdate']= NULL;
-
+                                $res[$key]['carrier']    = M('tbl_order')->alias('t1')->where(['t1.log_id'=>$value['log_id']])
+                                ->join("left join express as t2 on t2.express_id = t1.express_id")->getField('express_name');
+                                $res[$key]['delieverdate']= NULL;     
+                            
                         }//$value['status']0为待发货 1为已发货 2为到货
                         // var_dump($res);die;
                         $data = array(
