@@ -52,13 +52,13 @@ class EquipmentController extends CommonController{
 			
 			// $manager = D('Manager')->where(['pid'=>$id])->select();
 			$manager = D('manager')->alias('t1')->field('t1.*,t2.*')->where(['t1.pid'=>$id])->join("left join equipment as t2 on t2.owner = t1.id ")->select();
-			
-			// dump($manager_id);die;
-			// $goods = D('Goods')->alias('t1')->field('t1.*,t2.*')->where("t1.pid = $id || t2")
-			// dump($manager);die;
+		
 			$nickname = session('manager_info.nickname');
-						// dump($manager);die;
-			// dump($data);die;
+
+			//寻找最新版本号
+			
+			$version = 'http://'.$_SERVER['HTTP_HOST']."/Public/uploads/version/test.zip";
+		 	$this->assign('version',$version);
 			//查询出所有普通管理员的信息
 			$this->assign('nickname',$nickname);
 			$this->assign('manager',$manager);
@@ -72,6 +72,8 @@ class EquipmentController extends CommonController{
 		 	// $pid = $model['pid'];
 		 	// $data = D('Equipment')->where(['equipment_user'=>$manager_id])->limit($page -> firstRow, $page -> listRows) ->select();
 		 	$data = D('Equipment')->alias('t1')->field("t1.*,t2.*,t3.nickname")->where(['owner'=>$manager_id])->join("left join type as t2 on t1.type = t2.type_id")->join("left join manager as t3 on t3.id = t1.owner")->select();
+		 	// $data['version'] = 'http://'.$_SERVER['HTTP_HOST']."/Public/uploads/test.zip";
+		 	// dump($data);die;
 		 	// dump($data);die;
 		 	// $nick = D('Manager')->where(['id'=>$pid])->find();
 		 	// $this->assign('nick',$nick);
@@ -877,6 +879,19 @@ class EquipmentController extends CommonController{
 			$this->display();
 		}
 	}
+
+	// public function upload(){
+	// 	// $id = I('get.id');
+	// 	// $equipment = M('equipment')->where(['id'=>$id])->find();
+	// 	// $data = 
+	// 	// dump($data);die;
+	// 	// $version = $data['version'];
+	// 	// 
+	// 	$upload = 
+
+	// }
+
+
 
 	public function test(){
 	$a = strtotime(date("Y-m-d"),time());  

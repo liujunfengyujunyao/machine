@@ -142,6 +142,9 @@
 				<span class="l">
 				<?php if( $_SESSION['manager_info']['role_id']== 3 ): ?><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a><?php endif; ?>
 				<a class="btn btn-primary radius" data-title="添加机台" _href="add.html" href="/index.php/Admin/Equipment/add"><i class="Hui-iconfont">&#xe600;</i> 添加机台</a>
+				<!-- <?php if( Think.session.manager_info.id == 1 ): ?>-->
+				<a class="btn btn-primary radius" data-title="添加版本" _href="version.html" href="/index.php/Admin/Equipment/version"><i class="Hui-iconfont">&#xe600;</i> 添加版本</a>
+				<!--<?php endif; ?> -->
 				</span>
 				<span class="r">共有数据：<strong><?php echo ($row_count); ?></strong> 条</span>
 			
@@ -162,6 +165,7 @@
 							<!-- <th width="150">机台大图</th> -->
 							<th width="80">运行状态</th>
 							<th width="60">添加时间</th>
+							<th width="60">机台版本</th>
 							<th width="120">操作</th>
 						</tr>
 					</thead>
@@ -181,7 +185,9 @@
 							<!-- <td><img src="<?php echo ($v["equipment_small_img"]); ?>" alt=""></td> -->
 							<!-- <td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["equipment_create_time"])); ?></span></td> -->
 							<td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["create_time"])); ?></span></td>
+							<td><?php echo ($v["version"]); ?></td>
 							<td class="f-14 td-manage">
+								<a style="text-decoration:none" class="ml-5" href="<?php echo ($version); ?>" title="机台升级"><i class="Hui-iconfont">&#xe6df;升级本版</i></a>
 								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/edit/id/<?php echo ($v["id"]); ?>" title="机台编辑"><i class="Hui-iconfont">&#xe6df;编辑</i></a>
 								<?php if( $_SESSION['manager_info']['role_id']== 3 ): ?><a style="text-decoration:none" class="ml-5" onClick="equipment_del(this,'<?php echo ($v["id"]); ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;删除</i></a><?php endif; ?>
 								</td>
