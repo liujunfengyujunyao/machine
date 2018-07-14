@@ -166,7 +166,7 @@
 						<?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><tr class="text-c">
 							<td><input type="checkbox" value="" name=""></td>
 							<td><?php echo ($v["id"]); ?></td>
-							<td class="text-l"><a href="/index.php/Admin/Goods/detail/id/<?php echo ($v["id"]); ?>"><?php echo ($v["name"]); ?></a></td>
+							<td class="text-l"><center><a href="/index.php/Admin/Goods/detail/id/<?php echo ($v["id"]); ?>"><?php echo ($v["name"]); ?></a></center></td>
 							<!-- <td><?php echo ($v["pics_mid"]); ?></td> -->
 							<td class="text-l" ><center><?php echo ($v["type_name"]); ?></center></td>
 							<td class="text-1"><center><?php echo ($v["price"]); ?></center></td>

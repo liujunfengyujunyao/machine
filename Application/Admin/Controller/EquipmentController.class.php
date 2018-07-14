@@ -886,10 +886,11 @@ class EquipmentController extends CommonController{
 		$equipment = M('equipment')->where(['id'=>$id])->find();
 
 		$data = M('version')->select();
+		//dump($data);die;
 		foreach ($data as $key => &$value) {
 			$data[$key]['url'] = "http://".$_SERVER['HTTP_HOST'].$value['url'];
 		}
-		// dump($data);die;
+		 //dump($data);die;
 		$this->assign('equipment',$equipment);
 		$this->assign('role_id',$role_id);
 		$this->assign('data',$data);

@@ -133,15 +133,15 @@ class UseraccountController extends Controller{
                 'errid' => 40002,
                 );
             }
-            elseif($params['signature']!=$signature){
-            $data = array(
-                'msgtype' => 'error',
-                'params' => array(
-                    'errid' => 10003,
-                    'errmsg' => 'signature error',
-                    ),
-                );
-        }
+        //     elseif($params['signature']!=$signature){
+        //     $data = array(
+        //         'msgtype' => 'error',
+        //         'params' => array(
+        //             'errid' => 10003,
+        //             'errmsg' => 'signature error',
+        //             ),
+        //         );
+        // }
         else{
             //将传来的数据全部添加到tbl_order表中
                 M('tbl_game_log')->where("id in ($gamelogid)")->save(['status'=>1]); 
@@ -187,15 +187,17 @@ class UseraccountController extends Controller{
             $data = array(
                 'errid' => 40002,
                 );
-        }elseif($params['signature']!=$signature){
-            $data = array(
-                'msgtype' => 'error',
-                'params' => array(
-                    'errid' => 10003,
-                    'errmsg' => 'signature error',
-                    ),
-                );
-        }else{
+        }
+        // elseif($params['signature']!=$signature){
+        //     $data = array(
+        //         'msgtype' => 'error',
+        //         'params' => array(
+        //             'errid' => 10003,
+        //             'errmsg' => 'signature error',
+        //             ),
+        //         );
+        // }
+        else{
 
                         //拉起支付页面
                         // $params['id'] = 10;
@@ -272,15 +274,17 @@ class UseraccountController extends Controller{
                                 'userid' => $params['userid'],
                                 'orderlogs' => NULL,
                                 );
-                }elseif($params['signature']!=$signature){
-                        $data = array(
-                            'msgtype' => 'error',
-                            'params' => array(
-                                'errid' => 10003,
-                                'errmsg' => 'signature error',
-                                ),
-                            );
-                }else{
+                }
+                // elseif($params['signature']!=$signature){
+                //         $data = array(
+                //             'msgtype' => 'error',
+                //             'params' => array(
+                //                 'errid' => 10003,
+                //                 'errmsg' => 'signature error',
+                //                 ),
+                //             );
+                // }
+                else{
                          //通过验证
                         foreach ($order as $key => &$value) {
                                 $res[$key]['orderlogid'] = $value['id'];
@@ -346,15 +350,17 @@ class UseraccountController extends Controller{
                         $data = array(
                                 'errid' => 40004,
                                 );
-                }elseif($params['signature']!=$signature){
-                        $data = array(
-                            'msgtype' => 'error',
-                            'params' => array(
-                                'errid' => 10003,
-                                'errmsg' => 'signature error',
-                                ),
-                            );
-                }else{
+                }
+                // elseif($params['signature']!=$signature){
+                //         $data = array(
+                //             'msgtype' => 'error',
+                //             'params' => array(
+                //                 'errid' => 10003,
+                //                 'errmsg' => 'signature error',
+                //                 ),
+                //             );
+                // }
+                else{
                         //可以修改
                         $res['name'] = $params['name'];
                         $res['phone'] = $params['tel'];
@@ -393,15 +399,17 @@ class UseraccountController extends Controller{
                 $data = array(
                     'errid' => 10003,
                     );
-            }elseif($params['signature']!=$signature){
-                $data = array(
-                    'msgtype' => 'error',
-                    'params' => array(
-                        'errid' => 10003,
-                        'errmsg' => 'signature error',
-                        ),
-                    );
-            }else{
+            }
+            // elseif($params['signature']!=$signature){
+            //     $data = array(
+            //         'msgtype' => 'error',
+            //         'params' => array(
+            //             'errid' => 10003,
+            //             'errmsg' => 'signature error',
+            //             ),
+            //         );
+            // }
+            else{
                  $record = M('record')->where(['userid'=>$params['userid']])->select();
                  foreach ($record as $key => $value) {
                      $logs[$key]['paymentid'] = $value['paymentid'];
@@ -445,15 +453,17 @@ class UseraccountController extends Controller{
                 $data = array(
                     'errid' => 10003,
                     );
-            }elseif ($params['signature']!=$signature) {
-                $data = array(
-                    'msgtype' => 'error',
-                    'params' => array(
-                        'errid' => 10003,
-                        'errmsg' => 'signature error',
-                        ),
-                    );
-            }else{
+            }
+            // elseif ($params['signature']!=$signature) {
+            //     $data = array(
+            //         'msgtype' => 'error',
+            //         'params' => array(
+            //             'errid' => 10003,
+            //             'errmsg' => 'signature error',
+            //             ),
+            //         );
+            // }
+            else{
                 $comment = array(
                     'userid' => $params['userid'],
                     'message' => $params['message'],
@@ -495,15 +505,17 @@ class UseraccountController extends Controller{
                 $data = array(
                     'errid' => 10003,
                     );
-            }elseif($params['signature']!=$signature){
-                $data = array(
-                    'msgtype' => 'error',
-                    'params' => array(
-                        'errid' => 10003,
-                        'errmsg' => 'signature error', 
-                        ),
-                    );
-            }else{
+            }
+            // elseif($params['signature']!=$signature){
+            //     $data = array(
+            //         'msgtype' => 'error',
+            //         'params' => array(
+            //             'errid' => 10003,
+            //             'errmsg' => 'signature error', 
+            //             ),
+            //         );
+            // }
+            else{
               
                 $commentlogs = M('Comment')->where(['userid'=>$params['userid']])->select();
                 
@@ -514,8 +526,7 @@ class UseraccountController extends Controller{
                     $data[$key]['reply'] = $value['reply'];
                     $data[$key]['replydate'] = $value['replydate'];
                 }
-              
-               
+                            
             }
 
              $data = json_encode($data,JSON_UNESCAPED_UNICODE);
