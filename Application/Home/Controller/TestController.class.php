@@ -1860,5 +1860,18 @@ function make_tree($arr, $pid = 0, $column_name = 'id|pid|erzi') {
     dump($return);die;
   }
 
-
+public function msg(){ 
+  $url ="https://www.goldenbrother.cn:5003/msg_broadcast";
+  $msg = array(
+    'msgtype' => 'game_winner',
+    'username' => "金鼎苹",
+    'useravatar' => "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJeQVzYNLVuOtBNpQmda1iceDFCTibdmDweuM8JZp4f9X3S679Lx5QUcia50nQkjvZMhQa3EBnMH1pqg/132",
+    'goodsname' => '测试商品',
+    'photo' => "/Public/Uploads/2018-06-06/5b178dc36f701.jpg",
+    );
+  $json = json_encode($msg,JSON_UNESCAPED_UNICODE);
+  // print_r($json);die;
+  $data = json_curl($url,$msg);
+  dump($data);die;
+}
 }

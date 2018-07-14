@@ -274,8 +274,8 @@ class SeverController extends Controller{
 
 		public function game_result($params){
 			// $good = M('Goods')->where(['id'=>$params['roomid']])->find();
-			$goods = M('Goods')->alias('t1')->field('t1.id as roomid')->where(['t2.id'=>$params['machineid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->find();
-
+			$goods = M('Goods')->alias('t1')->field('t1.id as roomid,t1.name as goods_name,t3.pics_origin')->where(['t2.id'=>$params['machineid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->join("left join goodspics as t3 on t3.goods_id = t1.id")->find();
+			$user = M('all_user')->where(['id'=>$params['userid']])->find();
 			$res['equipment_id'] = $params['machineid'];
 			$res['got_gift'] = $params['result'];
 			$res['userid'] = $params['userid'];
@@ -293,8 +293,23 @@ class SeverController extends Controller{
 					'userid'  => $params['userid'],
 					);
 			}
+			if ($params['result'] == 1) {
+				//将成功的抓取信息发送给聊天服务器
+				// $msg = array(
+				// 	'msgtype' => 'game_winner',
+				// 	);
+				$msg['msgtype'] = "game_winner";
+				$msg['username'] = $user['nick'];
+				$msg['useravatar'] = $user['head'];
+				$msg['goodsname'] = $goods['goods_name'];
+				$msg['photo'] = $goods['pics_origin'];
+				$url = "http://192.168.1.3:8080/msg_broadcast";
+				$broadcast = json_curl($url,$msg);
+			}
+			
+
 			$data = json_encode($data,JSON_UNESCAPED_UNICODE);
-			var_dump($data);die;
+			// var_dump($data);die;
 			return $data;
 
 		}
