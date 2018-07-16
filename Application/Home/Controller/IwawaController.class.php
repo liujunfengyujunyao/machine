@@ -108,7 +108,7 @@ class IwawaController extends Controller{
 		$data['paymentid'] = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);//消费记录流水号 111;
 		$data['roomid'] = M('Equipment')->where(['id'=>$result['machineid']])->getField('goods_id');
 		$data['machineid'] = $result['machineid'];
-		// $data['price'] = $result['amount'];
+		 $data['price'] = $result['amount'];
 		$data['price'] = M('Goods')->where(['id'=>$data['roomid']])->getField('price');
 		$user = M('all_user')->where(['uuid'=>$data['useruuid']])->find();
 		if($user==null){
@@ -177,21 +177,51 @@ class IwawaController extends Controller{
 	//取消扣款
 	public function payment_cancel($result){
 		
+		// $data['useruuid'] = M('all_user')->where(['id'=>$result['userid']])->getField('uuid');
+		// $data['paymentid'] = $result['paymentid'];
+		// $data['roomid'] = M('Equipment')->where(['id'=>$result['machineid']])->getField('goods_id');
+		// $data['machineid'] = $result['machineid'];
+		// $data['price'] = $result['amount'];
+		// // $data['timestamp'] = $result['timestamp'];
+		// // $data['signature'] = $result['signature'];
+		// $data['timestamp'] = time();
+		// $data['signature'] = "测试";
+		
+		// $url = "http://wwj.94zl.com/iwawa/payment_cancel";
+		// // var_dump($data);die;
+		// // $url = "http://www.machine.com/Home/Diliang/test3";
+		// $return = json_curl($url,$data);
+		// return $return;
 		$data['useruuid'] = M('all_user')->where(['id'=>$result['userid']])->getField('uuid');
-		$data['paymentid'] = $result['paymentid'];
+		$data['paymentid'] = $result['paymentid'];//消费记录流水号 111;
 		$data['roomid'] = M('Equipment')->where(['id'=>$result['machineid']])->getField('goods_id');
 		$data['machineid'] = $result['machineid'];
-		$data['price'] = $result['amount'];
-		// $data['timestamp'] = $result['timestamp'];
-		// $data['signature'] = $result['signature'];
-		$data['timestamp'] = time();
-		$data['signature'] = "测试";
+		 $data['price'] = $result['amount'];
+		$data['price'] = M('Goods')->where(['id'=>$data['roomid']])->getField('price');
+		$user = M('all_user')->where(['uuid'=>$data['useruuid']])->find();
+		if($user==null){
+			return '没有uuid值';
+		}else{
 		
+			if($result['type']==$user['gold']){
+				$user['gold'] = $user['gold']+$data['price'];
+			}else{
+				$user['silver'] = $user['silver']+$data['silver'];
+			}
+
+		}
+		
+		// $data['timestamp'] = $result['timestamp'];
+		$data['timestamp'] = time();
+		// $data['signature'] = $result['signature'];
+		$data['signature'] = "测试";
+		M('all_user')->save($user);
+		//var_dump($data);die;
+		// var_dump($result,JSON_UNESCAPED_UNICODE);die;
 		$url = "http://wwj.94zl.com/iwawa/payment_cancel";
-		// var_dump($data);die;
-		// $url = "http://www.machine.com/Home/Diliang/test3";
+		// $url = "http://www.machine.com/Home/Diliang/test2";
 		$return = json_curl($url,$data);
-		return $return;
+
 	}
 
 
