@@ -1874,4 +1874,16 @@ public function msg(){
   $data = json_curl($url,$msg);
   dump($data);die;
 }
+
+  public function gao(){
+      $data = array(
+        'userid'=>1,
+        'amount'=>10,
+        'type'=>'silver',
+        'timestamp'=>time(),
+        );
+      $url = "http://192.168.1.145/Home/Useraccount/recharge";
+      $return = json_curl($url,$data);
+      var_dump($return);die;
+  }
 }

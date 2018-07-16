@@ -22,12 +22,32 @@ class UseraccountController extends Controller{
          		'errmsg' => 'auth error',
          		);
          }else{
-         	//
-         	
-         	
-         }
+           if($params['type'] == "gold"){
+                if($params['amount'] >= 50){
+                     $win1 = floor((99*$params['amount'])/100);
+                    $other = $params['amount']-$win1;
+                    $awardtype = $params['type'];
+                }
+                $user['gold'] = $user['gold'] + $params['amount'] + $other;
+           }elseif($params['type']== "silver"){
+                if($params['amount'] >= 50){
+                    $win1 = floor((99*$params['amount'])/100);
+                    $other = $params['amount']-$win1;
+                    $awardtype = $params['type'];
+                }
+                $user['silver'] = $user['silver'] + $params['amount'] + $other;
+           }
+           M('all_user')->where(['id'=>$params['userid']])->save($user);
+           $user = M("all_user")->where(['id'=>$params['userid']])->getField('gold,silver');
+           $data = array(
+                'awardamount'=>$other,
+                'awardtype'=>$awardtype,
+                'user'=>$user,
+            );
+
+         }        
         $data = json_encode($data,JSON_UNESCAPED_UNICODE);
-        // return $data;
+         //return $data;
         echo $data;
        
 
