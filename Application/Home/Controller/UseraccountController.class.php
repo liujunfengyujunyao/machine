@@ -133,7 +133,7 @@ class UseraccountController extends Controller{
                 'roomid' => $params['roomid'],
                 'name' => $params['name'],
                 'tel' => $params['tel'],
-                'addresss' => $params['addresss'],
+                'address' => $params['addresss'],
                 'timestamp' => $params['timestamp'],
                 'access_token' => $_SESSION['accesstoken'],
                 );
@@ -188,7 +188,7 @@ class UseraccountController extends Controller{
             'roomid' => $params['roomid'],
             'name' => $params['name'],
             'tel' => $params['tel'],
-            'addresss' => $params['addresss'],
+            'address' => $params['addresss'],
             'timestamp' => $params['timestamp'],
             'access_token' => $_SESSION['accesstoken'],
             );
