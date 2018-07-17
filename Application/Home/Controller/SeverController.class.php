@@ -303,7 +303,7 @@ class SeverController extends Controller{
 				$msg['useravatar'] = $user['head'];
 				$msg['goodsname'] = $goods['goods_name'];
 				$msg['photo'] = $goods['pics_origin'];
-				$url = "http://192.168.1.3:8080/msg_broadcast";
+				$url = "https://www.goldenbrother.cn:5003/msg_broadcast";
 				$broadcast = json_curl($url,$msg);
 			}
 			

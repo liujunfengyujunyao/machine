@@ -406,6 +406,7 @@ class UserloginController extends Controller{
 			}
 		}elseif($now_start_time<$sign['time']&&$sign['time']<$now_end_time){//今天已经签到了
 			$data = array(
+				'day' => M('sign')->where(['userid'=>$params['userid']])->getField("count"),
 				'msgtype' => 'repeat',
 				);
 			$data = json_encode($data,JSON_UNESCAPED_UNICODE);
