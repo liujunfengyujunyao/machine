@@ -391,7 +391,7 @@ class DiliangController extends Controller{
         'msgtype' => 'login_request',
         // 'userid' => $params['userid'],
         'userid' => $params['userid'],
-        'machineid' => $params['machineid'],
+        // 'machineid' => $params['machineid'],
         'timestamp' => $params['timestamp'],
         // 'timestamp' => 1530784819,
         // 'access_token' => $_SESSION['accesstoken'],
@@ -400,8 +400,11 @@ class DiliangController extends Controller{
 
         $signature = json_encode($signature);file_put_contents("333333333333333.txt",$signature);
         $signature = sha1($signature);
-
-        if(time()-$params['timestamp']>10){
+        $time = time();
+        $post_time = $params['timestamp'];
+        file_put_contents('timetimetime.txt',$post_time);
+        file_put_contents("9999999999999999.txt",$time);
+        if(time()-$params['timestamp']>10 || $params['timestamp']-time()>10){
           $data = array(
             'errid' => 10001,
             'timestamp' => time(),

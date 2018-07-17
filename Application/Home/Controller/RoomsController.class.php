@@ -161,7 +161,7 @@ class RoomsController extends Controller{
     // $machines = M('Equipment')->where(['goods_id'=>$params['roomid']])->getField('id',true);
     $machines = M('Equipment')->where(['goods_id'=>$params['roomid'],'state'=>array('gt',0)])->getField('id',true);
     $machines_ids = implode(',',$machines);
-    $url = "http://192.168.1.148:7777/account_server";//游戏服务器地址
+    $url = "https://www.goldenbrother.com:5002/account_server";//游戏服务器地址
     $key = array(
       'msgtype' => 'get_machine_status',
       'machines' => $machines,
@@ -193,7 +193,7 @@ class RoomsController extends Controller{
     if ($free) {
       $data = array(
         // 'gameserver' => $free['gamesever'],
-        'gameserver' => "ws://192.168.1.148:7777/game_server",
+        'gameserver' => "wss://www.goldenbrother.cn:5002/game_server",
         'machineid'  => $free['id'],
         'camera0'    => $free['live_channel1'],
         'camera1'    => $free['live_channel2'],
@@ -205,7 +205,7 @@ class RoomsController extends Controller{
       $state = M('Equipment')->where(['id'=>$state['machineid']])->find();
       $data = array(
         // 'gamesever'  => $state['gamesever'],
-        'gameserver' => "ws://192.168.1.148:7777/game_server",
+        'gameserver' => "wss://www.goldenbrother.cn:5002/game_server",
         'machineid'  => $state['id'],
         'camera0'    => $state['live_channel1'],
         'camera1'    => $state['live_channel2'],

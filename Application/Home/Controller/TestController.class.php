@@ -1462,10 +1462,11 @@ public function equipment(){
       public function fuwu(){
         $data = array(
           'msgtype' => 'get_machine_status',
-          'machines' => array(2,8),
+          'machines' => array(1),
           'timestamp' => time(),
           'signature' => "测试",
           );
+        // dump()
         // dump(json_encode($data,JSON_UNESCAPED_UNICODE));die;
         $url = "http://192.168.1.148:7777/account_server";
         $return = json_curl($url,$data);
@@ -1874,4 +1875,19 @@ public function msg(){
   $data = json_curl($url,$msg);
   dump($data);die;
 }
+
+public function msg_sever(){  
+    $data = array(
+      'name' => "liu",
+      );
+    $url = "http://192.168.1.164/Home/Diliang/user_auth";
+    $return = json_curl($url,$data);
+    dump($return);die;
+
+}
+
+  public function time2(){
+   $time = time();
+   dump($time);
+  }
 }
