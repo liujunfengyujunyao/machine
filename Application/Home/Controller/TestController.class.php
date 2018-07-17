@@ -1876,18 +1876,12 @@ public function msg(){
   dump($data);die;
 }
 
-public function msg_sever(){  
-    $data = array(
-      'name' => "liu",
-      );
-    $url = "http://192.168.1.164/Home/Diliang/user_auth";
-    $return = json_curl($url,$data);
-    dump($return);die;
 
-}
 
   public function time2(){
    $time = time();
    dump($time);
-  }
+    }
+
+ 
 }
