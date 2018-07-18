@@ -3,32 +3,19 @@ namespace Home\Controller;
 // use Common\Controller\HomeBaseController;
 // use Common\Plugin\WeixinPay;
 use Think\Controller;
+header('Access-Control-Allow-Origin:*');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 /**
  * 微信支付
  */
 class WeixinpayController extends Controller{
+
+    public function test(){
+        echo 222;
+    }
     /**
      * notify_url接收页面
      */
-    // public function notify(){
-    //     //测试用 用完删除下
-    //     $xml=file_get_contents('php://input', 'r');
-    //     //转成php数组 禁止引用外部xml实体
-    //     libxml_disable_entity_loader(true);
-    //     $data= json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA));
-    //     file_put_contents('./notify.text', $data);
-    //     //测试用 用完删除上
-    //     // 导入微信支付sdk
-    //     Vendor('Weixinpay.Weixinpay');
-    //     $wxpay=new \Weixinpay();
-    //     $result=$wxpay->notify();
-    //     if ($result) {
-    //         // 验证成功 修改数据库的订单状态等 $result['out_trade_no']为订单号
-    //         dump($result);die;
-    //     }
-    // }
-
-
     public function notify(){
         //测试用 用完删除下
         $xml=file_get_contents('php://input', 'r');
@@ -73,37 +60,45 @@ class WeixinpayController extends Controller{
 //            $url = U('http://192.168.1.171/#/recharge',array('out_trade_no'=>$out_trade_no));
         }
     }
-
     /**
      * 公众号支付 必须以get形式传递 out_trade_no 参数
-     * 示例请看 /Application/Home/Controller/IndexController.class.php
+
      * 中的weixinpay_js方法
      */
     public function pay(){
+
         // 导入微信支付sdk
         Vendor('Weixinpay.Weixinpay');
-     
+
         $wxpay=new \Weixinpay();
-        // dump($wxpay);die;
+
         // 获取jssdk需要用到的数据
         $data=$wxpay->getParameters();
-        
+        $this->ajaxReturn($data);die;
         // 将数据分配到前台页面
+
         $assign=array(
             'data'=>json_encode($data)
             );
         var_dump($assign);die;
+//        echo $_GET['callback']."(".json_encode($data).")";
+//
         $this->assign($assign);
         $this->display();
     }
+    public function pay2(){
+        Vendor('Weixinpay.Weixinpay');
 
-    public function test(){
-        $data = array(
-            $userid => 1,
-            $amount => 1,
-            );
-        $url = "http://c869e4d0.ngrok.io/Home/userlogin/again";
-        $return = json_curl($url,$data);
-        dump($return);die;
+        $wxpay=new \Weixinpay();
+
+        // 获取jssdk需要用到的数据
+        $data=$wxpay->getParameters2();
+        $this->ajaxReturn($data);die;
     }
+
+    public function test2(){
+        dump(md5("goldbrother"));die;
+    }
+
+
 }

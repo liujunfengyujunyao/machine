@@ -17,8 +17,7 @@ class Weixinpay {
 //        );
     // 构造函数
     public function __construct(){
-        // 如果是在thinkphp中 那么需要补全/Application/Common/Conf/config.php中的配置
-        // 如果不是在thinkphp框架中使用；那么注释掉下面一行代码；直接补全 private $config 即可
+    
         $this->config=C('WEIXINPAY_CONFIG');
     }
     /**
