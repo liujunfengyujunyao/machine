@@ -22,28 +22,66 @@ class UseraccountController extends Controller{
          		'errmsg' => 'auth error',
          		);
          }else{
-           if($params['type'] == "gold"){
-                if($params['amount'] >= 50){
-                     $win1 = floor((99*$params['amount'])/100);
-                    $other = $params['amount']-$win1;
-                    $awardtype = $params['type'];
+            $order = M("order")->where(['amount'=>$params['amount']])->select();
+            foreach ($order as $key => $value) {
+                if($params['amount']==$value['amount']){
+                    if($params['amount'] == 1||$params['amount'] == 5){
+                        $user['gold'] = $user['gold'] + $params['amount'];
+
+                    }
+                    elseif($params['amount'] == 10 ){
+                        $user['gold'] = $user['gold'] + $params['amount']/2;
+                        $user['silver'] = $user['silver'] +0.5;
+                        $awardamount = 1;
+                        $awardtype = "silver";
+                    }
+                    elseif($params['amount'] ==20 ){
+                        $user['gold'] = $user['gold'] + $params['amount'];
+                        $user['silver'] = $user['silver'] +2;
+                        $awardamount = 2;
+                        $awardtype = "silver";
+                    }elseif ($params['amount'] == 50){
+                        $user['gold'] = $user['gold'] + $params['amount'];
+                        $user['silver'] = $user['silver'] + 3;
+                        $awardamount = 3;
+                        $awardtype = "silver";
+                    }elseif ($params['amount'] ==100) {
+                        $user['gold'] = $user['gold'] + $params['amount'];
+                        $user['silver'] = $user['silver'] +5;
+                        $awardamount = 5;
+                        $awardtype = "silver";
+                    }elseif ($params['amount'] ==500) {
+                        $user['gold'] = $user['gold'] + $params['amount'];
+                        $user['silver'] = $user['silver'] +15;
+                        $awardamount = 15;
+                        $awardtype = "silver";
+                    }elseif ($params['amount'] ==1000) {
+                        $user['gold'] = $user['gold'] + $params['amount']+100;
+                        //$user['silver'] = $user['silver'] + $params['amount']+5;
+                        $awardamount = 100;
+                        $awardtype = "gold";
+                    }
                 }
-                $user['gold'] = $user['gold'] + $params['amount'] + $other;
-           }elseif($params['type']== "silver"){
-                if($params['amount'] >= 50){
-                    $win1 = floor((99*$params['amount'])/100);
-                    $other = $params['amount']-$win1;
-                    $awardtype = $params['type'];
-                }
-                $user['silver'] = $user['silver'] + $params['amount'] + $other;
-           }
-           M('all_user')->where(['id'=>$params['userid']])->save($user);
+
+
+            }
+            M('all_user')->where(['id'=>$params['userid']])->save($user);
            $user = M("all_user")->where(['id'=>$params['userid']])->getField('gold,silver');
            $data = array(
-                'awardamount'=>$other,
+                'awardamount'=>$awardamount,
                 'awardtype'=>$awardtype,
                 'user'=>$user,
             );
+           //添加充值记录
+           $order_log = array(
+                'order_id'=>$value['id'],
+                'userid'=>$params['userid'],
+                'out_trade_no'=>strtotime( date("Y-m-d H:i:s",strtotime("+1 seconds"))),
+                'create_time'=>time(),
+                'status'=>0,
+            );
+           // //var_dump($order_log);die;
+           M("order_log")->add($order_log);
 
          }        
         $data = json_encode($data,JSON_UNESCAPED_UNICODE);
@@ -125,6 +163,7 @@ class UseraccountController extends Controller{
     public function create_order(){
         $params = $GLOBALS['HTTP_RAW_POST_DATA'];  //file_put_contents('order.txt',$params); 
         $params = json_decode($params,true);
+        //var_dump($params);die;
         if(count($params['gamelogid']>1)){//判断穿过来的gamelogid的长度
             $gamelogid = implode(',',$params['gamelogid']);
             $signature = array(
@@ -139,6 +178,7 @@ class UseraccountController extends Controller{
                 );
             $signature = json_encode($signature,JSON_UNESCAPED_UNICODE);
             $signature = sha1($signature);
+            //var_dump($signature);die;
             $log = M('tbl_game_log')
             ->where("id in ($gamelogid)")
             ->where(['status'=>0,'userid'=>$params['userid']])
@@ -164,6 +204,7 @@ class UseraccountController extends Controller{
         }
         else{
             //将传来的数据全部添加到tbl_order表中
+            //var_dump($data);die;
                 M('tbl_game_log')->where("id in ($gamelogid)")->save(['status'=>1]); 
             $array = array(
                     'create_time' => time(),
