@@ -5,8 +5,8 @@ return array(
     'TMPL_R_DELIM'          =>  '}}',            // 模板引擎普通标签结束标记
     'wx_open' => array(
     	//开放平台
-    	'appId'     =>  '',
-    	'appSecret' =>  ''
+    	'appId'     =>  'wx9e8c63f03cbd36aa',
+    	'appSecret' =>  'aa30b7860f3247a789fff62b08681b7e'
     	),
     'wx_oauth'=>array(
     	//公众平台
@@ -60,6 +60,7 @@ return array(
     // 'DATA_CACHE_TIME' => '5000',//设置缓存时间
 
    'DB_CONFIG2' => array(
+    //外网数据库链接地址
       'db_type'  => 'mysql',
       'db_user'  => 'ljf',
       'db_pwd'   => 'bjyxkf@2308',

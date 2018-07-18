@@ -11,7 +11,8 @@ class DiliangController extends Controller{
 	    $params = json_decode($params,true);
 	    // $url = "http://192.168.1.3/Home/Iwawa/iwawa";
       // $url = "http://192.168.1.164/Home/Iwawa/iwawa"; 
-      $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+      // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+      $url = "https://www.goldenbrother.cn/index.php/Home/Iwawa/iwawa";
 	    $data = array(
 	    	'msgtype' => "client_auth",
 	    	'params' => $params,
@@ -108,7 +109,8 @@ class DiliangController extends Controller{
 	    }else{
 	    	
 	    	 // $url = "http://192.168.1.164/Home/Iwawa/iwawa";
-         $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+         // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+         $url = "https://www.goldenbrother.cn/index.php/Home/Iwawa/iwawa"; 
 	    	 // $uuid = M('iwawa_user')->where("id"=>)
 			 $data = array(
 			    'msgtype' => "get_current_user_info",
@@ -475,14 +477,16 @@ class DiliangController extends Controller{
 
       if ($user['openid']) {
 
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "https://www.goldenbrother.cn/index.php/Home/Sever/payment";
         // $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
     
       }
       else{
  
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+        // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa"; 
+        $url = "https://www.goldenbrother.cn/index.php/Home/Iwawa/iwawa"; 
         // $url = "http://192.168.1.164/Home/Iwawa/iwawa"; 
         $data = array(
         'msgtype' => 'payment_request',
@@ -504,12 +508,14 @@ class DiliangController extends Controller{
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
 
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "https://www.goldenbrother.cn/index.php/Home/Sever/payment";
         // $url = "http://192.168.1.164/Home/Sever/payment";
         $return = json_curl($url,$params);
       }
       else{
-        $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+        $url = "https://www.goldenbrother.cn/Home/Iwawa/iwawa";
         // $url = "http://192.168.1.164/Home/Iwawa/iwawa";
         $data = array(
         'msgtype' => 'payment_cancel',
@@ -531,7 +537,8 @@ class DiliangController extends Controller{
       //接收从游戏服务器发送过来的游戏结果
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
       if ($user['openid']) {
-        $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
+        $url = "https://www.goldenbrother.cn/index.php/Home/Sever/payment";
         // $url = "http://192.168.1.164/Home/sever/payment";
         $return = json_curl($url,$params);
         return $return;
@@ -555,7 +562,8 @@ class DiliangController extends Controller{
       //将游戏记录存入数据库
       if ($result) {
          // $url = "http://192.168.1.164/Home/Iwawa/iwawa";
-         $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+         // $url = "http://192.168.1.3/index.php/Home/Iwawa/iwawa";
+         $url = "https://www.goldenbrother.cn/index.php/Home/Iwawa/iwawa";
          $data = array(
           'msgtype' => 'game_result',
           'params' =>array(

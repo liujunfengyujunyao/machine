@@ -30,7 +30,7 @@ class Weixinpay {
             'appid'=>$weixinpay_config['APPID'],
             'mch_id'=>$weixinpay_config['MCHID'],
             'nonce_str'=>'test',
-            'spbill_create_ip'=>'192.168.0.164',
+            'spbill_create_ip'=>'192.168.1.164',
             'notify_url'=>$weixinpay_config['NOTIFY_URL']
             );
         // 合并配置数据和订单数据
