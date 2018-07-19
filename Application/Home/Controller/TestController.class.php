@@ -1880,9 +1880,11 @@ public function msg(){
 
   public function time2(){
     $data = array(
-        'msgtype' => 'wowowowow',
+      'userid' => 346,
+      'timestamp' => time(),
       );
-    $url = "www.12202.com.cn/diamond/index.php/Home/test/jiekou222";
+    $url = "https://www.goldenbrother.cn:5003/index.php/Home/Userlogin/get_current_user_info";
+    // $url = "http://192.168.1.164/Home/Diliang/payment";
     $return = json_curl($url,$data);
     dump($return);die;
 

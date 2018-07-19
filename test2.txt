@@ -1,1 +1,1 @@
-{"msgtype":"payment_cancel","userid":1,"paymentid":2096963080251,"machineid":14}
+{"msgtype":"payment_cancel","userid":346,"paymentid":2101663019191,"machineid":14}
