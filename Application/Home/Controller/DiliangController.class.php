@@ -393,7 +393,7 @@ class DiliangController extends Controller{
         'msgtype' => 'login_request',
         // 'userid' => $params['userid'],
         'userid' => $params['userid'],
-        // 'machineid' => $params['machineid'],
+        'machineid' => $params['machineid'],
         'timestamp' => $params['timestamp'],
         // 'timestamp' => 1530784819,
         // 'access_token' => $_SESSION['accesstoken'],

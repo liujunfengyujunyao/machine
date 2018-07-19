@@ -1879,9 +1879,13 @@ public function msg(){
 
 
   public function time2(){
-   $time = time();
-   dump($time);
-    }
-    
+    $data = array(
+        'msgtype' => 'wowowowow',
+      );
+    $url = "www.12202.com.cn/diamond/index.php/Home/test/jiekou222";
+    $return = json_curl($url,$data);
+    dump($return);die;
+
+  }
  
 }
