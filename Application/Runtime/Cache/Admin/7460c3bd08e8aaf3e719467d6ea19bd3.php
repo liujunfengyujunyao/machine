@@ -154,7 +154,8 @@
 							<th width="80">商品名称</th>
 							<!-- <th width="80">商品图片</th> -->
 							<th width="80">存放机台种类</th>
-							<th width="80">价格</th>
+							<th width="80">金币价格</th>
+							<th width="80">银币价格</th>
 							
 							<th width="80">存放机台</th>
 							<!-- <th width="150">商品大图</th> -->
@@ -170,6 +171,7 @@
 							<!-- <td><?php echo ($v["pics_mid"]); ?></td> -->
 							<td class="text-l" ><center><?php echo ($v["type_name"]); ?></center></td>
 							<td class="text-1"><center><?php echo ($v["price"]); ?></center></td>
+							<td class="text-1"><center><?php echo ($v["money"]); ?></center></td>
 							
 							<td><?php echo ($v["equipment_name"]); ?></td>
 							<!-- <td><img src="<?php echo ($v["equipment_small_img"]); ?>" alt=""></td> -->

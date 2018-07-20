@@ -158,7 +158,8 @@
 							<th width="80">机台类型</th>
 							<th width="80">存放商品</th>
 							<th width="60">单次时长</th>
-							<th width="80">单次价格</th>
+							<th width="80">金币单次价格</th>
+							<th width="80">银币单次价格</th>
 							<th width="80">机台负责人</th>
 							<!-- <th width="150">机台大图</th> -->
 							<th width="80">运行状态</th>
@@ -177,6 +178,7 @@
 							<td class="text-1"><a href="/index.php/Admin/Goods/detail/id/<?php echo ($v["goods_id"]); ?>"><center><?php echo ($v["goods_name"]); ?></center></a></td>
 							<td><font color="blue"><?php echo ($v["time_limit"]); ?></font></td>
 							<td><font color="red"><b><?php echo ($v["price"]); ?></b></font></td>
+							<td><font color="red"><b><?php echo ($v["money"]); ?></b></font></td>
 							<td><?php echo ($v["nickname"]); ?></td>
 							
 							  <td>  <?php if( $v["state"] == 1): ?><img src="/Public/Admin/paihang/images/online.png" alt="在线" title="在线" ><?php endif; if( $v["state"] == 0): ?><img src="/Public/Admin/paihang/images/noline.png"  alt="离线" title="离线" ><?php endif; ?></td>
@@ -186,7 +188,7 @@
 							<td><?php echo ($v["version"]); ?></td>
 							<td class="f-14 td-manage">
 								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/off/id/<?php echo ($v["id"]); ?>" title="关机"><i class="Hui-iconfont">&#xe6df;关机</i></a>
-								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/on/id/<?php echo ($v["id"]); ?>" title="重启"><i class="Hui-iconfont">&#xe6df;重启</i></a>
+								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/restart/id/<?php echo ($v["id"]); ?>" title="重启"><i class="Hui-iconfont">&#xe6df;重启</i></a>
 								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/upload/id/<?php echo ($v["id"]); ?>" title="机台升级"><i class="Hui-iconfont">&#xe6df;升级本版</i></a>
 								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/edit/id/<?php echo ($v["id"]); ?>" title="机台编辑"><i class="Hui-iconfont">&#xe6df;编辑</i></a>
 								<?php if( $_SESSION['manager_info']['role_id']== 3 ): ?><a style="text-decoration:none" class="ml-5" onClick="equipment_del(this,'<?php echo ($v["id"]); ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;删除</i></a><?php endif; ?>

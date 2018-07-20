@@ -253,7 +253,7 @@ class RoomsController extends Controller{
       ->alias('t1')
       ->distinct(true)
       ->where("t1.type_id = 1 and t4.state!=0 and t4.pid = 1 and t4.state!=-1")//查询娃娃机的
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -266,7 +266,7 @@ class RoomsController extends Controller{
       ->alias('t1')
       ->distinct(true)
       ->where("t1.type_id = 2 and t4.state!=0 and t4.pid = 1 and t4.state!=-1")//查询彩票机的
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -278,7 +278,7 @@ class RoomsController extends Controller{
       ->alias('t1')
       ->distinct(true)
       ->where("t1.type_id = 3 and t4.state!=0 and t4.pid =1 and t4.state!=-1")
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -290,7 +290,7 @@ class RoomsController extends Controller{
       ->alias('t1')
       ->distinct(true)
       ->where("t4.state!=0 and t4.pid = 1 and t4.state!=-1")
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -306,8 +306,12 @@ class RoomsController extends Controller{
       }else{
         $value['available'] = 0;
       }
+      $value['price'] = array( 
+        '金币'=> M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.price'),
+        '银币'=> M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.money'),
+        );
     }
-    // var_dump($rooms);die;
+     //var_dump($rooms);die;
     return $rooms;
   }
   //封装查询出空闲的机台/人数最少机台的方法

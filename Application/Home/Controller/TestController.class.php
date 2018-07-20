@@ -1901,5 +1901,17 @@ public function msg(){
           );
         $gamelogid = M('tbl_game_log')->add($log);
   }
+
+  public function ffg(){
+
+    $data = array(
+        'type'=>1,
+        'userid'=>347,
+        'timestamp'=>time(),
+      );
+    $url = "http://192.168.1.145/Home/Rooms/get_room_list";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
  
 }
