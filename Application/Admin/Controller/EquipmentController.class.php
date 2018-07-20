@@ -936,12 +936,56 @@ class EquipmentController extends CommonController{
 	}
 
 
-	public function test(){
-	$a = strtotime(date("Y-m-d"),time());  
-	$b = $a+60*60*24-1;
+	//机台单独关机
+	public function off(){
+		$machineid = I('get.id');
+		$command = array(
+			'commandtype' => "关机",
+			'machineid' => $machineid,
+			'exectime' => time(),
+			);
+		$res = M('Command')->add($command);
+		$sn = M('Equipment')->alias("t1")->where(['t1.id'=>$machineid])->join("machine as t2 on t1.uuid = t2.uuid")->getField("t2.sn");
+		foreach ($command as $key => $value) {
+			$json[$machineid] = $sn;
+		}
 
-	$data = M('tbl_game_log')->where("end_time between $a and $b")->where(['equipment_id'=>2])->where(['got_gift'=>1])->select();
-	dump($data);die;
+ 		$data = array(
+			'msgtype' => 'exec_command',
+			'command' => $res,
+			'commandtype' => "关机",
+			'machines' => $json,
+			'timestamp' => time(),
+			); 
+
+ 		$url = 游戏服务器地址;
+ 		json_curl($url,$data);
+
+	}
+	//机台单独重启
+	public function restart(){
+		$machineid = I('get.id');
+		$command = array(
+			'commandtype' => "重启",
+			"machineid" => $machineid,
+			"exectime" => time(),
+			);
+		$res = M('Command')->add($coomand);
+		$sn = M('Equipment')->alias("t1")->where(['t1.id'=>$machineid])->join("machine as t2 on t1.uuid = t2.uuid")->getField("t2.sn");
+		foreach ($command as $key => $value) {
+			$json[$machineid] = $sn;
+		}
+		$data = array(
+			'msgtype' => "exec_command",
+			'command' => $res,
+			'commandtype' => "重启",
+			'machines' => $json,
+			'timestamp' => time(),
+			);
+
+		$url = 游戏服务器地址;
+		json_curl($url,$data);
+
 	}
 }
 
