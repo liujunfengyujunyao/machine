@@ -1889,5 +1889,17 @@ public function msg(){
     dump($return);die;
 
   }
+
+  public function start_time(){
+      $log = array(
+          'userid' => 100,
+          // 'type' => $params['type'],
+          'type' => 'silver',
+          'paymentid'=>199501294011,
+          'start_time' => date('Y-m-d H-i-s'),
+
+          );
+        $gamelogid = M('tbl_game_log')->add($log);
+  }
  
 }

@@ -227,6 +227,7 @@ class SeverController extends Controller{
 					// 'type' => $params['type'],
 					'type' => $type,
 					'paymentid'=>$paymentid,
+					'start_time' => date('Y-m-d H-i-s'),
 
 					);
 				$gamelogid = M('tbl_game_log')->add($log);
