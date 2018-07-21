@@ -109,6 +109,7 @@ $('.ml-5').click(function(){
 			"version_id":$(this).parents('tr').children().eq(1).text(),
 		};
           $.ajax({
+        
                     "type":"post",
                     "url":"__CONTROLLER__/upload",
                     "data": data,
@@ -122,6 +123,7 @@ $('.ml-5').click(function(){
                         }else{
                             //登录成功， 跳转到后台首页
                             location.href = "__MODULE__/Equipment/index";
+                            console.log(response);
                         }
                     }
                 });

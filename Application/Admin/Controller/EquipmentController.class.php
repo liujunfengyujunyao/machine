@@ -915,6 +915,7 @@ class EquipmentController extends CommonController{
 			$response = array(
 				'code' => 10000,
 				'msg' => 'success',
+				'dump' => $data,
 				);
 			$this->ajaxReturn($response);
 
@@ -1014,27 +1015,51 @@ class EquipmentController extends CommonController{
 	}
 	//机台单独重启
 	public function restart(){
+		//获取传送过来的机台ID
 		$machineid = I('get.id');
+		$machineid = 8;
 		$command = array(
 			'commandtype' => "重启",
 			"machineid" => $machineid,
 			"exectime" => time(),
 			);
 		$res = M('Command')->add($command);
-		$sn = M('Equipment')->alias("t1")->where(['t1.id'=>$machineid])->join("machine as t2 on t1.uuid = t2.uuid")->getField("t2.sn");
-		foreach ($command as $key => $value) {
-			$json[$machineid] = $sn;
-		}
+		$sn = M('Equipment')->alias("t1")->where(['t1.id'=>$machineid])->join("machine as t2 on t1.uuid = t2.uuid")->getField("t1.id,t2.sn");
+		// dump($sn);die;
+		// foreach ($command as $key => $value) {
+		// 	$json[$machineid] = $sn;
+		// }
 		$data = array(
 			'msgtype' => "exec_command",
 			'command' => $res,
 			'commandtype' => "重启",
-			'machines' => $json,
+			'machines' => $sn,
 			'timestamp' => time(),
 			);
 
 		$url = 游戏服务器地址;
-		json_curl($url,$data);
+		$json = json_curl($url,$data);
+		//如果连接游戏服务器失败
+		if ($json !== false) {
+			//成功
+			$res = array(
+				'code' => 10000,
+				'msg' => 'success',
+				);
+			$this->ajaxReturn($res);
+		}else{
+			//失败
+			$res = array(
+				'code' => 10001,
+				'msg' => 'error',
+				);
+			$this->ajaxReturn($res);
+		}
+
+	}
+
+	public function ajax_restart(){
+		$params = I('post.');
 
 	}
 }
