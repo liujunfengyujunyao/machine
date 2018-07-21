@@ -1901,5 +1901,17 @@ public function msg(){
           );
         $gamelogid = M('tbl_game_log')->add($log);
   }
+
+  public function ffg(){
+
+    $data = array(
+        // 'type'=>1,
+        'userid'=>348,
+        'timestamp'=>time(),
+      );
+    $url = "http://192.168.1.145/Home/Useraccount/get_game_logs";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
  
 }

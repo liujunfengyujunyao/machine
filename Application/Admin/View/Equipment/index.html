@@ -65,7 +65,8 @@
 							<th width="80">机台类型</th>
 							<th width="80">存放商品</th>
 							<th width="60">单次时长</th>
-							<th width="80">单次价格</th>
+							<th width="80">金币单次价格</th>
+							<th width="80">银币单次价格</th>
 							<th width="80">机台负责人</th>
 							<!-- <th width="150">机台大图</th> -->
 							<th width="80">运行状态</th>
@@ -85,6 +86,7 @@
 							<td class="text-1"><a href="__MODULE__/Goods/detail/id/{{$v.goods_id}}"><center>{{$v.goods_name}}</center></a></td>
 							<td><font color="blue">{{$v.time_limit}}</font></td>
 							<td><font color="red"><b>{{$v.price}}</b></font></td>
+							<td><font color="red"><b>{{$v.money}}</b></font></td>
 							<td>{{$v.nickname}}</td>
 							
 							  <td>  <if condition =" $v.state == 1"><img src="__PUBLIC__/Admin/paihang/images/online.png" alt="在线" title="在线" ></if><if condition =" $v.state == 0"><img src="__PUBLIC__/Admin/paihang/images/noline.png"  alt="离线" title="离线" ></if></td>

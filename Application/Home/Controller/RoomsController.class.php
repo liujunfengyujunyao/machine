@@ -55,7 +55,8 @@ class RoomsController extends Controller{
            else{
                $type = $params['type'];
                $limit = $params['limit'];
-               $room = $this->available($type,$limit);
+               $userid = $params['userid'];
+               $room = $this->available($type,$limit,$userid);
                //分页获取
             
 
@@ -246,14 +247,14 @@ class RoomsController extends Controller{
     dump($return);
   }
   //封装判断机器是否空闲以及种类的方法
-  public function available($type,$limit){
+  public function available($type,$limit,$userid){
 
     if ($type == 1) {
       $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
       ->where("t1.type_id = 1 and t4.state!=0 and t4.pid = 1 and t4.state!=-1")//查询娃娃机的
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -266,7 +267,7 @@ class RoomsController extends Controller{
       ->alias('t1')
       ->distinct(true)
       ->where("t1.type_id = 2 and t4.state!=0 and t4.pid = 1 and t4.state!=-1")//查询彩票机的
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -278,7 +279,7 @@ class RoomsController extends Controller{
       ->alias('t1')
       ->distinct(true)
       ->where("t1.type_id = 3 and t4.state!=0 and t4.pid =1 and t4.state!=-1")
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -290,7 +291,7 @@ class RoomsController extends Controller{
       ->alias('t1')
       ->distinct(true)
       ->where("t4.state!=0 and t4.pid = 1 and t4.state!=-1")
-      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t1.price,t3.type_name as type")
+      ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
       ->join("left join equipment as t4 on t4.goods_id = t1.id")
@@ -298,7 +299,7 @@ class RoomsController extends Controller{
       ->limit($limit*10,10)
       ->select();
     }
-    
+
     foreach ($rooms as $key => &$value) {
       $available = M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->find();
       if ($available) {
@@ -306,6 +307,10 @@ class RoomsController extends Controller{
       }else{
         $value['available'] = 0;
       }
+      $value['price'] = array( 
+        'type'=>'金币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.price').'游戏一次'.','.'银币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.money').'游戏一次',
+        'value'=>'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver'),
+        );
     }
     // var_dump($rooms);die;
     return $rooms;

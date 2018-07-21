@@ -116,23 +116,37 @@ class UseraccountController extends Controller{
          		'errid' => 10003,
          		'errmsg' => 'auth error',
          		);
-         }elseif($params['signature']!=$signature){
-            $data = array(
-                'msgtype' => 'error',
-                'params' => array(
-                    'errid' => 10003,
-                    'msgtype' => 'signature error',
-                    ),
-                );
-         }else{
+         }
+         // elseif($params['signature']!=$signature){
+         //    $data = array(
+         //        'msgtype' => 'error',
+         //        'params' => array(
+         //            'errid' => 10003,
+         //            'msgtype' => 'signature error',
+         //            ),
+         //        );
+         // }
+         else{
          	$log = M('tbl_game_log')->alias("t1")->field("t1.*,t2.pics_origin,t3.name as goods_name")->where(['t1.userid'=>$params['userid']])->join("left join goodspics as t2 on t2.goods_id = t1.goods_id")->join("left join goods as t3 on t3.id = t1.goods_id")->join("left join tbl_order as t4 on t4.log_id = t1.id")->select();
                 $success_count = count(M('tbl_game_log')->where(['userid'=>$params['userid'],'got_gift'=>1])->select());
                 $count = count(M('tbl_game_log')->where(['userid'=>$params['userid']])->select());
                 $stock_count = count(M('tbl_game_log')->where(['userid'=>$params['userid'],'got_gift'=>1,'status'=>0])->select());
+                $gold = M('equipment')->alias('t1')->where(['t2.userid'=>$params['userid']])->join('left join tbl_game_log as t2 on t2.equipment_id = t1.id')->getField('t1.price');
+                $silver = M('equipment')->alias('t1')->where(['t2.userid'=>$params['userid']])->join('left join tbl_game_log as t2 on t2.equipment_id = t1.id')->getField('t1.money');
+               //var_dump($dd);die;
                 //遍历修改数据
                 foreach ($log as $key => $value) {
                        $game_logs[$key]['gamelogid'] = $value['id'];
                        $game_logs[$key]['roomid'] = $value['goods_id'];
+                       $game_logs[$key]['paymenttype'] = $value['type'];
+                       if($value['type']=='gold'){
+
+                       $game_logs[$key]['value'] = $gold;
+
+                       }elseif($value['type']=='silver'){
+
+                       $game_logs[$key]['value'] = $silver;           
+                       }
                        $game_logs[$key]['photo'] = $value['pics_origin'];
                        $game_logs[$key]['machined'] = $value['equipment_id'];
                        $game_logs[$key]['goods_name'] = $value['goods_name'];
@@ -143,7 +157,7 @@ class UseraccountController extends Controller{
                        // $game_logs[$key]['status'] = $value['status'];
                        $game_logs[$key]['status'] = $value['status'];
                 }
-                // var_dump($game_logs);die;
+                 //var_dump($silver);die;
          	$data = array(
          		'gamelogs' => $game_logs,
          		'userid'   => $params['userid'],
@@ -153,6 +167,7 @@ class UseraccountController extends Controller{
          		);
          }
         $data = json_encode($data,JSON_UNESCAPED_UNICODE);
+         var_dump($data);die;
         // return $data;
         echo $data;
 	}
