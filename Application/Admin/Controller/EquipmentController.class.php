@@ -880,7 +880,30 @@ class EquipmentController extends CommonController{
 		}
 	}
 
+	//单独机台更新
 	public function upload(){
+		if (IS_POST) {
+			$params = I('post.');
+			$machineid = I('post.id');
+			$version = $params['version'];
+			$dladdr = M('update')->where(['version'=>$version])->getField("url");
+			// $version = M('equipment')->where(['id'=>$machineid])->getFiled("version");
+
+			$data = array(
+				'msgtype' => 'update_firmware',
+				// 'machines' => ,
+				'version' => $version,
+				// 'dladdr' => ,
+				// 'MD5' => ,
+				'timestamp' => time(),
+
+				);
+			$url = 游戏服务器地址;
+			json_curl($url,$data);
+
+
+		}
+		else{
 		$id = I('get.id');
 		$role_id = session('manager_info.role_id');
 		$equipment = M('equipment')->where(['id'=>$id])->find();
@@ -888,13 +911,17 @@ class EquipmentController extends CommonController{
 		$data = M('version')->select();
 		//dump($data);die;
 		foreach ($data as $key => &$value) {
-			$data[$key]['url'] = "http://".$_SERVER['HTTP_HOST'].$value['url'];
+			// $data[$key]['url'] = "http://".$_SERVER['HTTP_HOST'].$value['dladdr'];
+			$data[$key]['url'] = "https://www.goldenbrother.cn".$value['dladdr'];
 		}
+		
 		 //dump($data);die;
 		$this->assign('equipment',$equipment);
 		$this->assign('role_id',$role_id);
 		$this->assign('data',$data);
 		$this->display();
+		}
+		
 	}
 
 
@@ -911,9 +938,10 @@ class EquipmentController extends CommonController{
 						'txt',
 					),
 				'rootPath' =>  VERSION_PATH,
-				'saveName' => $version_id,
+				'saveName' => $data['version'],
 				);
 			$upload = new \Think\Upload($config);
+			// dump($upload);die;
 			$upload_res = $upload->uploadOne($_FILES['version']);
 			if (!$upload_res) {
 				//上传失败显示错误信息
@@ -921,13 +949,19 @@ class EquipmentController extends CommonController{
 				$this->error($error);
 			}
 			//上传成功
-			$version['url'] = VERSION_PATH . $upload_res['savepath'] . $upload_res['savename'];
+			$version['dladdr'] = VERSION_PATH . $upload_res['savepath'] . $upload_res['savename'];
+			// $version['dladdr'] = "https://www.goldenbrother.cn" . VERSION_PATH . $upload_res['savepath'] . $upload_res['savename'];
 			$version['create_time'] = time();
-			$version['version_id'] = $data['type'];
+			$version['version'] = $data['version'];
 			$version['brief'] = $data['brief'];
-			$version['name'] = $data['name'];
-			M('version')->add($version);
+			$version['MD5'] = md5($version['version']);
 
+			$res = M('version')->add($version);
+			if ($res) {
+				$this->redirect("Admin/Equipment/index");
+			}else{
+				$this->error("添加失败");
+			}
 		}else{
 			// $url = "http://".$_SERVER['HTTP_HOST']."/public/Uploads/version";
 			// dump($url);die;
@@ -970,7 +1004,7 @@ class EquipmentController extends CommonController{
 			"machineid" => $machineid,
 			"exectime" => time(),
 			);
-		$res = M('Command')->add($coomand);
+		$res = M('Command')->add($command);
 		$sn = M('Equipment')->alias("t1")->where(['t1.id'=>$machineid])->join("machine as t2 on t1.uuid = t2.uuid")->getField("t2.sn");
 		foreach ($command as $key => $value) {
 			$json[$machineid] = $sn;

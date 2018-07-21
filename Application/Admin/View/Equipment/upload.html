@@ -32,7 +32,7 @@
 					<tr class="text-c">
 						<th width="25"><input type="checkbox" name="" value=""></th>
 						<th>ID</th>
-						<th>版本名称</th>
+						<!-- <th>版本名称</th> -->
 						<th>版本编号</th>
 						<th>版本描述</th>
 						<!-- <th>地址</th> -->
@@ -52,8 +52,8 @@
 					<tr class="text-c">
 						<td><input type="checkbox" value="{{$v.id}}" name="del_one" class="del_one"></td>
 						<td>{{$v.id}}</td>
-						<td>{{$v.name}}</td>
-						<td>{{$v.version_id}}</td>
+						<!-- <td>{{$v.name}}</td> -->
+						<td>{{$v.version}}</td>
 						<td>{{$v.brief}}</td>
 
 						<!-- <td>{{$v.url}}</td> -->
@@ -61,7 +61,7 @@
 						<td>{{$v.create_time|date="Y-m-d",###}}</td>
 						<!-- <td>{{$v.last_login_time|date="Y-m-d H:i:s",###}}</td> -->
 						<td class="td-status">
-						<if condition="$v.version_id == $equipment['version'] ">
+						<if condition="$v.version == $equipment['version'] ">
 						<span class="label label-success radius">正在使用</span>
 						<else />
 						<span class="label radius"></span>
@@ -71,7 +71,11 @@
 						<td class="td-manage">
 						
 
-						<a title="点击下载" href="{{$v.url}}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe640;</i></a> </td></if>
+						<a title="点击更新" href="{{$v.url}}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe640;</i></a> 
+							
+						</td>
+
+						</if>
 					</tr>
 					</volist>
 					

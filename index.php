@@ -33,7 +33,7 @@ define('ROOT_PATH',__DIR__);
 
 //自定义文件上传 数据库保存路径
 define('UPLOAD_PATH','/Public/Uploads/');
-define('VERSION_PATH','/Public/Uploads/version/');
+define('VERSION_PATH','./Public/Uploads/version/');
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';
 
