@@ -71,7 +71,7 @@
 						<td class="td-manage">
 						
 
-						<a title="点击更新" href="{{$v.url}}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe640;</i></a> 
+						<a title="点击更新" id = "upload" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe640;</i></a> 
 							
 						</td>
 
@@ -102,6 +102,31 @@ $('.table-sort').dataTable({
 		// {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
 	]
 });
+
+$('.ml-5').click(function(){
+		var data = {
+			"machineid":{{$equipment.id}},
+			"version_id":$(this).parents('tr').children().eq(1).text(),
+		};
+          $.ajax({
+                    "type":"post",
+                    "url":"__CONTROLLER__/upload",
+                    "data": data,
+                    "dataType":"json",
+                    "success":function(response){
+                        console.log(response);
+                        if(response.code != 10000){
+                            //登录失败 code != 10000都表示失败，直接提示错误信息
+                            console.log(response);
+                            // alert(response.msg);
+                        }else{
+                            //登录成功， 跳转到后台首页
+                            location.href = "__MODULE__/Equipment/index";
+                        }
+                    }
+                });
+		});
+        // });
 /*
 	参数解释：
 	title	标题

@@ -884,23 +884,39 @@ class EquipmentController extends CommonController{
 	public function upload(){
 		if (IS_POST) {
 			$params = I('post.');
-			$machineid = I('post.id');
-			$version = $params['version'];
-			$dladdr = M('update')->where(['version'=>$version])->getField("url");
-			// $version = M('equipment')->where(['id'=>$machineid])->getFiled("version");
-
+			$now_version = M('equipment')->where(['id'=>$params['machineid']])->getField("version");
+			$version = M('version')->where(['id'=>$params['version_id']])->find();
+			//判断版本号
+			if ($version <= $now_version) {
+				$response = array(
+					'code' => 10001,
+					'msg' => "仅能升级高于当前版本系统"
+					);
+				$this->ajaxReturn($response);
+			}
+			// $dladdr = M('version')->where(['version'=>$version])->getField("url");
+			$machineid = $params['machineid'];
+			$sn = M('equipment')
+			->alias('t1')
+			->where(['t1.id'=>$machineid])
+			->join("left join machine as t2 on t2.uuid = t1.uuid")
+			->getField("t1.id,t2.sn");
 			$data = array(
 				'msgtype' => 'update_firmware',
-				// 'machines' => ,
-				'version' => $version,
-				// 'dladdr' => ,
-				// 'MD5' => ,
+				'machines' => $sn,
+				'version' => $version['version'],
+				'dladdr' => "https://www.goldenbrother.cn" . $version['dladdr'],
+				'MD5' => $version['md5'],
 				'timestamp' => time(),
 
 				);
 			$url = 游戏服务器地址;
 			json_curl($url,$data);
-
+			$response = array(
+				'code' => 10000,
+				'msg' => 'success',
+				);
+			$this->ajaxReturn($response);
 
 		}
 		else{
