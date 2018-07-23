@@ -517,7 +517,7 @@ class UseraccountController extends Controller{
                            $rrid= $value['rid'] = '您还没有消费记录!';
                         }else{
                             $rid=$value['rid'];
-                            $rrid=$value['rid']='您的积分购买消费!';
+                            $rrid=$value['rid']='您的购买消费!';
                         }
                       $logs[$key]['activityid']= array(
                         'rid'=>$rid,
@@ -546,6 +546,7 @@ class UseraccountController extends Controller{
                             );//支付数量
                         $logs[$key]['cancel'] = $value['cancel'];
                   }
+                  //var_dump($logs);die;
                 //  foreach ($record as $key => $value) {
                 //      $logs[$key]['paymentid'] = $value['paymentid'];
                 //      $logs[$key]['activityid'] = $value['id'];
