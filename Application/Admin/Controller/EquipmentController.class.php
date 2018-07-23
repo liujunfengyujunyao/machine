@@ -978,7 +978,7 @@ class EquipmentController extends CommonController{
 		$this->display();
 		}
 		
-	}
+	
 
 
 	//上传机台升级新版本
