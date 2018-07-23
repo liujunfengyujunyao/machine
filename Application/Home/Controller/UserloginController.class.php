@@ -182,15 +182,17 @@ class UserloginController extends Controller{
 					'errmsg' => 'params error',
 					),
 				);
-		}elseif($params['signature'] != $signature){
-			$data = array(
-				'msgtype' => 'error',
-				'params' => array(
-					'errid' => 10003,
-					'errmsg' => 'signature error',
-					),
-				);
-		}elseif(time()-$params['timestamp']>30){
+		}
+		// elseif($params['signature'] != $signature){
+		// 	$data = array(
+		// 		'msgtype' => 'error',
+		// 		'params' => array(
+		// 			'errid' => 10003,
+		// 			'errmsg' => 'signature error',
+		// 			),
+		// 		);
+		// }
+		elseif(time()-$params['timestamp']>30){
 			//超时
 			$data = array(
 				'errid' => 10001,
@@ -199,6 +201,15 @@ class UserloginController extends Controller{
 		}else{
 			// $user = M('wx_user')->where(['id'=>$params['userid']])->find();
 			$user = M('all_user')->where(['id'=>$params['userid']])->find();
+			// $value = array(
+			// 			'金币'=>$user['gold'],
+   //              		'银币'=>$user['silver'],
+   //              	);
+   //           $ddd =array(
+			// 				'type'=>array_keys($value),
+			// 				'value'=>array_values($value),
+			// 				);
+			
 			if (!$user) {
 				//用户id不存在
 				$data = array(
@@ -214,6 +225,7 @@ class UserloginController extends Controller{
 				$success_count = count(M('tbl_game_log')->where(['userid'=>$params['userid'],'got_gift'=>1])->select());
                 $count = count(M('tbl_game_log')->where(['userid'=>$params['userid']])->select());
                 $stock_count = count(M('tbl_game_log')->where(['userid'=>$params['userid'],'got_gift'=>1,'status'=>0])->select());
+             
 				$data = array(
 					'msgtype' => 'current_user_info',
 					'success_count' => $success_count,//游戏成功次数
@@ -223,8 +235,12 @@ class UserloginController extends Controller{
 						'userid' => $user['id'],//id
 						'username'=> $user['nick'],//昵称
 						'avatar' => $user['head'],//头像地址
-						'silver' => $user['silver'],//银币
-						'gold'	=> $user['gold'],//金币
+						'asset'=>array(
+						    ['type'=>'金币','value'=>$user['gold']],
+						    ['type'=>'银币','value'=>$user['silver']],
+							),
+						// 'silver' => $user['silver'],//银币
+						// 'gold'	=> $user['gold'],//金币
 						'rank' => $user['rank'],//用户等级
 						'referee' => $user['referee'],//被谁推荐过来的
 						'referrals'=> $user['referrals'], //推荐的人数
@@ -238,7 +254,10 @@ class UserloginController extends Controller{
 					);
 			}
 		}
+		//var_dump($ddd);die;
+		//var_dump($data);die;
 		$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+
         // return $data;
         echo $data;
 		// $this->ajaxreturn($data);

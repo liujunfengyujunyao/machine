@@ -1909,7 +1909,7 @@ public function msg(){
         'userid'=>348,
         'timestamp'=>time(),
       );
-    $url = "http://192.168.1.145/Home/Useraccount/get_payment_logs";
+    $url = "http://192.168.1.145/Home/Userlogin/get_current_user_info";
     $return = json_curl($url,$data);
     dump($return);die;
   }
