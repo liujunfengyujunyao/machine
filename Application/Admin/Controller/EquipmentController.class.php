@@ -882,6 +882,7 @@ class EquipmentController extends CommonController{
 
 	//单独机台更新
 	public function upload(){
+		//接收前端ajax数据
 		if (IS_POST) {
 			$params = I('post.');
 			$now_version = M('equipment')->where(['id'=>$params['machineid']])->getField("version");
@@ -910,13 +911,24 @@ class EquipmentController extends CommonController{
 				'timestamp' => time(),
 
 				);
+			//将更新请求发送给游戏服务器
 			$url = 游戏服务器地址;
-			json_curl($url,$data);
-			$response = array(
+			$sever = json_curl($url,$data);
+			if ($sever !== false) {
+				$response = array(
+				//成功返回10000
 				'code' => 10000,
 				'msg' => 'success',
 				'dump' => $data,
 				);
+			}else{
+				//失败返回10001
+				$response = array(
+				'code' => 10001,
+				'msg' => "服务器繁忙",
+					);
+			}
+			
 			$this->ajaxReturn($response);
 
 		}

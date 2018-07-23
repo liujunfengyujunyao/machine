@@ -103,10 +103,11 @@ $('.table-sort').dataTable({
 	]
 });
 
-$('.ml-5').click(function(){
+//
+$('.ml-5').click(function(){//将机台ID和此机台的版本发送到后台
 		var data = {
-			"machineid":{{$equipment.id}},
-			"version_id":$(this).parents('tr').children().eq(1).text(),
+			"machineid":{{$equipment.id}},//选中机台的id
+			"version_id":$(this).parents('tr').children().eq(1).text(),//tr子元素下的第二个DOM中的值
 		};
           $.ajax({
         
