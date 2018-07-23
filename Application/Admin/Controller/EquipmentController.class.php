@@ -886,10 +886,11 @@ class EquipmentController extends CommonController{
 		if (IS_POST) {
 			$params = I('post.');
 			$now_version = M('equipment')->where(['id'=>$params['machineid']])->getField("version");
+			$create_time = M('version')->where(['version'=>$now_version])->getField('create_time');
 			$version = M('version')->where(['id'=>$params['version_id']])->find();
 
 			//判断版本号
-			if ($version <= $now_version) {
+			if ($version['create_time'] <= $create_time) {
 				$response = array(
 					'code' => 10001,
 					'msg' => "仅能升级高于当前版本系统"
@@ -938,16 +939,17 @@ class EquipmentController extends CommonController{
 		$id = I('get.id');
 		$role_id = session('manager_info.role_id');
 		$equipment = M('equipment')->where(['id'=>$id])->find();
+		$now_version = M('version')->where(['version'=>$equipment['version']])->getField('create_time');
 		$data = M('version')->select();
 		//添加更新状态upload_status
 		// foreach ($equipment as $key => $value) {
 				foreach ($data as $k => &$v) {
-					if ($v['version']<$equipment['version']) {
+					if ($v['create_time']<$now_version) {
 						$v['upload_status'] = 1;//比当前使用的版本低
 					}elseif($equipment['update_id']){
-						$v['upload_status'] = 0;//已经提交申请等待更新
+						$v['upload_status'] = 2;//已经提交申请等待更新
 					}
-					}
+				}
 			
 			
 		// }
@@ -955,7 +957,7 @@ class EquipmentController extends CommonController{
 				
 
 		// dump($equipment);
-		// dump($data);
+		 //dump($data);die;
 		// die;
 		
 		//dump($data);die;
@@ -964,7 +966,7 @@ class EquipmentController extends CommonController{
 			$data[$key]['url'] = "https://www.goldenbrother.cn".$value['dladdr'];
 		}
 		
-		 //dump($data);die;
+		//dump($data);die;
 		$this->assign('equipment',$equipment);
 		$this->assign('role_id',$role_id);
 		$this->assign('data',$data);
