@@ -187,9 +187,11 @@
 							<td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["create_time"])); ?></span></td>
 							<td><?php echo ($v["version"]); ?></td>
 							<td class="f-14 td-manage">
-							<?php if( $v["state"] == 1 ): ?><a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/off/id/<?php echo ($v["id"]); ?>" title="关机"><i class="Hui-iconfont">&#xe726;关机</i></a><?php endif; ?>
-								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/restart/id/<?php echo ($v["id"]); ?>" title="重启"><i class="Hui-iconfont">&#xe6f7;重启</i></a>
-								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/upload/id/<?php echo ($v["id"]); ?>" title="机台升级"><i class="Hui-iconfont">&#xe61d;升级本版</i></a>
+							<?php if( $v["state"] == 1 ): ?><!-- <a style="text-decoration:none" class="ml-5-off" href="/index.php/Admin/Equipment/off/id/<?php echo ($v["id"]); ?>" title="关机"><i class="Hui-iconfont">&#xe726;关机</i></a> -->
+									<a style="text-decoration:none" class="ml-5-off" title="关机"><i class="Hui-iconfont">&#xe726;关机</i></a><?php endif; ?>
+								<!-- <a style="text-decoration:none" class="ml-5-restart" href="/index.php/Admin/Equipment/restart/id/<?php echo ($v["id"]); ?>" title="重启"><i class="Hui-iconfont">&#xe6f7;重启</i></a> -->
+								<a style="text-decoration:none" class="ml-5-restart" title="重启"><i class="Hui-iconfont">&#xe6f7;重启</i></a>
+								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/upload/id/<?php echo ($v["id"]); ?>" title="机台升级"><i class="Hui-iconfont">&#xe61d;升级版本</i></a>
 								<a style="text-decoration:none" class="ml-5" href="/index.php/Admin/Equipment/edit/id/<?php echo ($v["id"]); ?>" title="机台编辑"><i class="Hui-iconfont">&#xe6df;编辑</i></a>
 								<?php if( $_SESSION['manager_info']['role_id']== 3 ): ?><a style="text-decoration:none" class="ml-5" onClick="equipment_del(this,'<?php echo ($v["id"]); ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;删除</i></a><?php endif; ?>
 								</td>
@@ -306,6 +308,62 @@ function equipment_del(obj,id){
 		});		
 	});
 }
+
+//ajax发送关机请求
+$('.ml-5-off').click(function(){
+		var data = {
+			"machineid":$(this).parents('tr').children().eq(1).text(),
+			// "version_id":$(this).parents('tr').children().eq(1).text(),
+		};
+          $.ajax({
+        
+                    "type":"post",
+                    "url":"/index.php/Admin/Equipment/off",
+                    "data": data,
+                    "dataType":"json",
+                    "success":function(response){
+                        console.log(response);
+                        if(response.code != 10000){
+                            //失败 code != 10000都表示失败，直接提示错误信息
+                            console.log(response);
+                            // alert(response.msg);
+                        }else{
+                            //成功， 跳转到后台首页
+                            location.href = "/index.php/Admin/Equipment/index";
+                            console.log(response);
+                        }
+                    }
+                });
+		});
+
+
+
+//ajax发送重启请求
+$('.ml-5-restart').click(function(){
+		var data = {
+			"machineid":$(this).parents('tr').children().eq(1).text(),
+			// "version_id":$(this).parents('tr').children().eq(1).text(),
+		};
+          $.ajax({
+        
+                    "type":"post",
+                    "url":"/index.php/Admin/Equipment/restart",
+                    "data": data,
+                    "dataType":"json",
+                    "success":function(response){
+                        console.log(response);
+                        if(response.code != 10000){
+                            //登录失败 code != 10000都表示失败，直接提示错误信息
+                            console.log(response);
+                            // alert(response.msg);
+                        }else{
+                            //登录成功， 跳转到后台首页
+                            location.href = "/index.php/Admin/Equipment/index";
+                            console.log(response);
+                        }
+                    }
+                });
+		});
 
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

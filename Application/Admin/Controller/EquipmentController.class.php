@@ -57,8 +57,8 @@ class EquipmentController extends CommonController{
 
 			//寻找最新版本号
 			
-			$version = 'http://'.$_SERVER['HTTP_HOST']."/Public/uploads/version/test.zip";
-		 	$this->assign('version',$version);
+			// $version = 'http://'.$_SERVER['HTTP_HOST']."/Public/uploads/version/test.zip";
+		 // 	$this->assign('version',$version);
 			//查询出所有普通管理员的信息
 			$this->assign('nickname',$nickname);
 			$this->assign('manager',$manager);
@@ -942,6 +942,7 @@ class EquipmentController extends CommonController{
 	}
 
 
+	//上传机台升级新版本
 	public function version(){
 		if (IS_POST) {
 			$data = I('post.');
@@ -952,7 +953,7 @@ class EquipmentController extends CommonController{
 						'zip',
 						'RAR',
 						'ISO',
-						'txt',
+						'txt',  
 					),
 				'rootPath' =>  VERSION_PATH,
 				'saveName' => $data['version'],
@@ -966,13 +967,13 @@ class EquipmentController extends CommonController{
 				$this->error($error);
 			}
 			//上传成功
-			$version['dladdr'] = VERSION_PATH . $upload_res['savepath'] . $upload_res['savename'];
+			$version['dladdr'] = VERSION_PATH . $upload_res['savepath'] . $upload_res['savename'];//新固件下载地址
 			// $version['dladdr'] = "https://www.goldenbrother.cn" . VERSION_PATH . $upload_res['savepath'] . $upload_res['savename'];
-			$version['create_time'] = time();
-			$version['version'] = $data['version'];
-			$version['brief'] = $data['brief'];
-			$version['MD5'] = md5($version['version']);
-
+			$version['create_time'] = time();//创建时间
+			$version['version'] = $data['version'];//新的固件版本
+			$version['brief'] = $data['brief'];//版本描述
+			$version['MD5'] = md5($version['version']);//新固件MD5值
+			//存储到version表中(update)
 			$res = M('version')->add($version);
 			if ($res) {
 				$this->redirect("Admin/Equipment/index");
@@ -989,13 +990,15 @@ class EquipmentController extends CommonController{
 
 	//机台单独关机
 	public function off(){
-		$machineid = I('get.id');
+		//
+		$machineid = I('post.machineid');
+		
 		$command = array(
 			'commandtype' => "关机",
 			'machineid' => $machineid,
 			'exectime' => time(),
 			);
-		$res = M('Command')->add($command);
+		// $res = M('Command')->add($command);
 		$sn = M('Equipment')->alias("t1")->where(['t1.id'=>$machineid])->join("machine as t2 on t1.uuid = t2.uuid")->getField("t2.sn");
 		foreach ($command as $key => $value) {
 			$json[$machineid] = $sn;
@@ -1008,16 +1011,31 @@ class EquipmentController extends CommonController{
 			'machines' => $json,
 			'timestamp' => time(),
 			); 
-
+ 		
  		$url = 游戏服务器地址;
- 		json_curl($url,$data);
+ 		$res = json_curl($url,$data);//将请求发送给游戏服务器
+ 		if($res !== false){
+ 			$code = array(
+ 				'code' => 10000,
+ 				'msg' => 'success',
+ 				);
+ 		}else{
+ 			$code = array(
+ 				'code' => 10001,
+ 				'msg' => "服务器繁忙",
+ 				);
+
+ 		}
+ 		$this->ajaxReturn($code);//返回给前端
+
 
 	}
 	//机台单独重启
 	public function restart(){
 		//获取传送过来的机台ID
-		$machineid = I('get.id');
-		$machineid = 8;
+	
+		$machineid = I('post.machineid');
+		
 		$command = array(
 			'commandtype' => "重启",
 			"machineid" => $machineid,
@@ -1051,7 +1069,7 @@ class EquipmentController extends CommonController{
 			//失败
 			$res = array(
 				'code' => 10001,
-				'msg' => 'error',
+				'msg' => '服务器繁忙',
 				);
 			$this->ajaxReturn($res);
 		}
