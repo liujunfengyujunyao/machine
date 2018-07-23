@@ -887,6 +887,7 @@ class EquipmentController extends CommonController{
 			$params = I('post.');
 			$now_version = M('equipment')->where(['id'=>$params['machineid']])->getField("version");
 			$version = M('version')->where(['id'=>$params['version_id']])->find();
+
 			//判断版本号
 			if ($version <= $now_version) {
 				$response = array(
@@ -915,6 +916,7 @@ class EquipmentController extends CommonController{
 			$url = 游戏服务器地址;
 			$sever = json_curl($url,$data);
 			if ($sever !== false) {
+				M('equipment')->where(['id'=>$params['machineid']])->save(['update'=>$params['version_id']]);
 				$response = array(
 				//成功返回10000
 				'code' => 10000,
@@ -936,8 +938,26 @@ class EquipmentController extends CommonController{
 		$id = I('get.id');
 		$role_id = session('manager_info.role_id');
 		$equipment = M('equipment')->where(['id'=>$id])->find();
-
 		$data = M('version')->select();
+		//添加更新状态upload_status
+		// foreach ($equipment as $key => $value) {
+				foreach ($data as $k => &$v) {
+					if ($v['version']<$equipment['version']) {
+						$v['upload_status'] = 1;//比当前使用的版本低
+					}elseif($equipment['update_id']){
+						$v['upload_status'] = 0;//已经提交申请等待更新
+					}
+					}
+			
+			
+		// }
+		
+				
+
+		// dump($equipment);
+		// dump($data);
+		// die;
+		
 		//dump($data);die;
 		foreach ($data as $key => &$value) {
 			// $data[$key]['url'] = "http://".$_SERVER['HTTP_HOST'].$value['dladdr'];
@@ -1088,9 +1108,6 @@ class EquipmentController extends CommonController{
 
 	}
 
-	public function ajax_restart(){
-		$params = I('post.');
-
-	}
+	
 }
 
