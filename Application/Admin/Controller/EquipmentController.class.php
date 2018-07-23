@@ -939,11 +939,9 @@ class EquipmentController extends CommonController{
 		$id = I('get.id');
 		$role_id = session('manager_info.role_id');
 		$equipment = M('equipment')->where(['id'=>$id])->find();
-<<<<<<< HEAD
-		// dump($equipment);
-=======
+
 		$now_version = M('version')->where(['version'=>$equipment['version']])->getField('create_time');
->>>>>>> a6e0d4512f837c5535e51a72f354dfdd335a9ddc
+
 		$data = M('version')->select();
 		//添加更新状态upload_status
 		// foreach ($equipment as $key => $value) {
@@ -952,10 +950,9 @@ class EquipmentController extends CommonController{
 						$v['upload_status'] = 1;//比当前使用的版本低
 					}elseif($equipment['update_id']){
 						$v['upload_status'] = 2;//已经提交申请等待更新
-<<<<<<< HEAD
+
 					}
-=======
->>>>>>> a6e0d4512f837c5535e51a72f354dfdd335a9ddc
+
 					}
 				}
 			
