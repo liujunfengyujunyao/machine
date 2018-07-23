@@ -938,6 +938,7 @@ class EquipmentController extends CommonController{
 		$id = I('get.id');
 		$role_id = session('manager_info.role_id');
 		$equipment = M('equipment')->where(['id'=>$id])->find();
+		// dump($equipment);
 		$data = M('version')->select();
 		//添加更新状态upload_status
 		// foreach ($equipment as $key => $value) {
@@ -945,7 +946,7 @@ class EquipmentController extends CommonController{
 					if ($v['version']<$equipment['version']) {
 						$v['upload_status'] = 1;//比当前使用的版本低
 					}elseif($equipment['update_id']){
-						$v['upload_status'] = 0;//已经提交申请等待更新
+						$v['upload_status'] = 2;//已经提交申请等待更新
 					}
 					}
 			
