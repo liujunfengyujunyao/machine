@@ -117,15 +117,15 @@ class UseraccountController extends Controller{
          		'errmsg' => 'auth error',
          		);
          }
-         // elseif($params['signature']!=$signature){
-         //    $data = array(
-         //        'msgtype' => 'error',
-         //        'params' => array(
-         //            'errid' => 10003,
-         //            'msgtype' => 'signature error',
-         //            ),
-         //        );
-         // }
+         elseif($params['signature']!=$signature){
+            $data = array(
+                'msgtype' => 'error',
+                'params' => array(
+                    'errid' => 10003,
+                    'msgtype' => 'signature error',
+                    ),
+                );
+         }
          else{
          	$log = M('tbl_game_log')->alias("t1")->field("t1.*,t2.pics_origin,t3.name as goods_name")->where(['t1.userid'=>$params['userid']])->join("left join goodspics as t2 on t2.goods_id = t1.goods_id")->join("left join goods as t3 on t3.id = t1.goods_id")->join("left join tbl_order as t4 on t4.log_id = t1.id")->select();
                 $success_count = count(M('tbl_game_log')->where(['userid'=>$params['userid'],'got_gift'=>1])->select());
@@ -476,32 +476,90 @@ class UseraccountController extends Controller{
                     'errid' => 10003,
                     );
             }
-            elseif($params['signature']!=$signature){
-                $data = array(
-                    'msgtype' => 'error',
-                    'params' => array(
-                        'errid' => 10003,
-                        'errmsg' => 'signature error',
-                        ),
-                    );
-            }
+            // elseif($params['signature']!=$signature){
+            //     $data = array(
+            //         'msgtype' => 'error',
+            //         'params' => array(
+            //             'errid' => 10003,
+            //             'errmsg' => 'signature error',
+            //             ),
+            //         );
+            // }
             else{
-                 $record = M('record')->where(['userid'=>$params['userid']])->select();
-                 foreach ($record as $key => $value) {
-                     $logs[$key]['paymentid'] = $value['paymentid'];
-                     $logs[$key]['roomid'] = $value['roomid'];
-                     $logs[$key]['goodsname'] = $value['goodsname'];
-                     $logs[$key]['photo'] = $value['photo'];
-                     $logs[$key]['machineid'] = $value['equipment_id'];
-                     $logs[$key]['amount'] = $value['amount'];
-                     $logs[$key]['cancel'] = $value['cancel'];
-                 }
+                 //$record = M('record')->where(['userid'=>$params['userid']])->select();
+                  $tbl_game_log = M('tbl_game_log')
+                  ->alias('t1')
+                  ->field('t1.id as tid,t3.id as rid,t4.id as e_id,t3.userid,t1.type,t2.price,t2.money,t3.paymentid,t3.amount,t3.cancel,t3.type as type2,t4.order_id')
+                  ->where(['t1.userid'=>$params['userid']])
+                  ->join('left join equipment as t2 on t2.id = t1.equipment_id')
+                  ->join('left join record as t3 on t3.paymentid = t1.paymentid')
+                  ->join('left join express_pay as t4 on t4.log_id = t1.id')
+                  //->join('order as t5 on t4.order_id = t5.id')
+                  ->select();
+                  foreach ($tbl_game_log as $key => $value) {
+                      $logs[$key]['paymentid'] = $value['paymentid'];
+                      if($value['e_id']==null){
+                           $e_id= $value['e_id'] = '您没有订单记录!';
+                           $ee_id= $value['e_id'] = '您没有订单消费!';
+                        }else{
+                            $e_id=$value['e_id'];
+                            $ee_id=$value['e_id'] ='您的订单消费!';
+                        }
+                        if($value['tid']==null){
+                           $tid= $value['tid'] = '您还没有游戏记录!';
+                           $ttid= $value['tid'] = '您还没有游戏消费!';
+                        }else{
+                            $tid=$value['tid'];
+                            $ttid=$value['tid']='您的游戏消费!';
+                        }
+                        if($value['rid']==null){
+                           $rid= $value['rid'] = '您还没有消费记录!';
+                           $rrid= $value['rid'] = '您还没有消费记录!';
+                        }else{
+                            $rid=$value['rid'];
+                            $rrid=$value['rid']='您的积分购买消费!';
+                        }
+                      $logs[$key]['activityid']= array(
+                        'rid'=>$rid,
+                        'tid'=>$tid,
+                        'e_id'=>$e_id,
+                        );//消费ID游戏ID订单ID
+                      $logs[$key]['activitytype'] =array(
+                        'rid'=>$rrid,
+                        'tid'=>$ttid,
+                        'e_id'=>$ee_id,
+                        );//消费类型 (游戏、邮费等);
+                        $logs[$key]['paymenttype'] =array(
+                                'rid'=>$value['type2'],
+                                'tid'=>$value['type'],
+                                'e_id'=>'邮费!', 
+                            );//支付类型
+                        if($value['type']=='gold'){
+                            $gold = M("tbl_game_log")->alias('t1')->where(['t1.userid'=>$params['userid']])->join('left join equipment as t2 on t2.id = t1.equipment_id')->getField('price');
+                        }else{
+                            $gold = M("tbl_game_log")->alias('t1')->join('left join equipment as t2 on t2.id = t1.equipment_id')->getField('money');
+                        }
+                        $logs[$key]['value'] = array(
+                                'rid'=>$value['amount'],
+                                'tid'=>$gold,
+                                'e_id'=> M('order')->where(['id'=>$value['order_id']])->getField('amount'),
+                            );//支付数量
+                        $logs[$key]['cancel'] = $value['cancel'];
+                  }
+                //  foreach ($record as $key => $value) {
+                //      $logs[$key]['paymentid'] = $value['paymentid'];
+                //      $logs[$key]['activityid'] = $value['id'];
+                //      $logs[$key]['activitytype'] = '消费';
+                //      $logs[$key]['type'] = $value['type'];
+                //      $logs[$key]['value'] = $value['amount'];
+                //      $logs[$key]['cancel'] = $value['cancel'];
+                // }
                  $data = array(
                     'userid' => $params['userid'],
                     'paymentlogs' => $logs,
                     );
             }
-           
+           //var_dump($data);die;
             $data = json_encode($data,JSON_UNESCAPED_UNICODE);
             echo $data;
         }
