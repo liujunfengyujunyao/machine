@@ -201,15 +201,6 @@ class UserloginController extends Controller{
 		}else{
 			// $user = M('wx_user')->where(['id'=>$params['userid']])->find();
 			$user = M('all_user')->where(['id'=>$params['userid']])->find();
-			// $value = array(
-			// 			'金币'=>$user['gold'],
-   //              		'银币'=>$user['silver'],
-   //              	);
-   //           $ddd =array(
-			// 				'type'=>array_keys($value),
-			// 				'value'=>array_values($value),
-			// 				);
-			
 			if (!$user) {
 				//用户id不存在
 				$data = array(
