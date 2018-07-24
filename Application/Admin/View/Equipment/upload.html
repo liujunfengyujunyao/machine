@@ -142,6 +142,7 @@ $('.ml-5').click(function(){//将机台ID和此机台的版本发送到后台
 
 //正在更新
 $('.ml-5-wait').click(function(){
+	//当这台机器有正在更新版本时禁用ajax接口
 	alert('正在更新 请稍后');
 	window.location.reload();//刷新页面更新状态
 });

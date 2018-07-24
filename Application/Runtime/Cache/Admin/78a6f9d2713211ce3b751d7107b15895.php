@@ -325,7 +325,7 @@ $('.ml-5-off').click(function(){
                         console.log(response);
                         if(response.code != 10000){
                             //失败 code != 10000都表示失败，直接提示错误信息
-                            console.log(response);
+                            alert("服务器繁忙,请稍后再试");
                             // alert(response.msg);
                         }else{
                             //成功， 跳转到后台首页
