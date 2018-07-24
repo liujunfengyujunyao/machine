@@ -913,8 +913,11 @@ class EquipmentController extends CommonController{
 				'timestamp' => time(),
 
 				);
+
+			//修改equipment表的update_id字段
+			M('Equipment')->where(['id'=>$params['machineid']])->save([['update_id'=>$params['version_id']]]);
 			//将更新请求发送给游戏服务器
-			$url = 游戏服务器地址;
+			$url = "https://www.goldenbrother.cn:5003/";
 			$sever = json_curl($url,$data);
 			if ($sever !== false) {
 				M('equipment')->where(['id'=>$params['machineid']])->save(['update'=>$params['version_id']]);
@@ -1037,7 +1040,7 @@ class EquipmentController extends CommonController{
 			'machineid' => $machineid,
 			'exectime' => time(),
 			);
-		// $res = M('Command')->add($command);
+		$res = M('Command')->add($command);//新增执行命令commandid
 		$sn = M('Equipment')->alias("t1")->where(['t1.id'=>$machineid])->join("machine as t2 on t1.uuid = t2.uuid")->getField("t2.sn");
 		foreach ($command as $key => $value) {
 			$json[$machineid] = $sn;
@@ -1051,7 +1054,7 @@ class EquipmentController extends CommonController{
 			'timestamp' => time(),
 			); 
  		
- 		$url = 游戏服务器地址;
+ 		$url = "https://www.goldenbrother.cn:5003/";
  		$res = json_curl($url,$data);//将请求发送给游戏服务器
  		if($res !== false){
  			$code = array(
@@ -1094,7 +1097,7 @@ class EquipmentController extends CommonController{
 			'timestamp' => time(),
 			);
 
-		$url = 游戏服务器地址;
+		$url = "https://www.goldenbrother.cn:5003/";
 		$json = json_curl($url,$data);
 		//如果连接游戏服务器失败
 		if ($json !== false) {

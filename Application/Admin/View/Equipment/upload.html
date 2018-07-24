@@ -113,14 +113,14 @@ $('.table-sort').dataTable({
 	]
 });
 
-//
+//点击更新
 $('.ml-5').click(function(){//将机台ID和此机台的版本发送到后台
 		var data = {
 			"machineid":{{$equipment.id}},//选中机台的id
 			"version_id":$(this).parents('tr').children().eq(1).text(),//tr子元素下的第二个DOM中的值
 		};
           $.ajax({
-        
+        			//发送ajax请求
                     "type":"post",
                     "url":"__CONTROLLER__/upload",
                     "data": data,
@@ -139,6 +139,20 @@ $('.ml-5').click(function(){//将机台ID和此机台的版本发送到后台
                     }
                 });
 		});
+
+//正在更新
+$('.ml-5-wait').click(function(){
+	alert('正在更新 请稍后');
+	window.location.reload();//刷新页面更新状态
+});
+
+
+//历史版本
+$('.ml-5-low').click(function(){
+	//低于当前版本不发送ajax请求
+	alert('版本过低');
+	window.location.reload();//刷新页面更新状态
+})
         // });
 /*
 	参数解释：
