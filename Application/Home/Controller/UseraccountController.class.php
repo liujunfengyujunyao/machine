@@ -81,12 +81,16 @@ class UseraccountController extends Controller{
                         $user['gold'] = $user['gold']-100;
                     }
             $purchase = array(
-                        'type'=>'您刚充值了'.','.M("order")->where(['money'=>$params['value']])->getField('money').'元',
-                        'value'=>'您现在的资产'.','.'金币'.$user['gold'].'银币'.$user['silver'],
+                ['type'=>'金币','value'=>$user['gold']],
+                ['type'=>'银币','value'=>$user['silver']],
+                        // 'type'=>'您充值了'.','.M("order")->where(['money'=>$params['value']])->getField('money').'元',
+                        // 'value'=>'您现在的资产'.','.'金币'.$user['gold'].'银币'.$user['silver'],
                     );
             $award = array(
-                'type'=>'恭喜您,您刚才充值了'.','.M("order")->where(['money'=>$params['value']])->getField('money').'元'.','.'奖励您'.$value.','.$type.'元',
-                'value'=>'您现在的资产'.','.'金币'.M("all_user")->where(['id'=>$params['userid']])->getField('gold').','.'银币'.M("all_user")->where(['id'=>$params['userid']])->getField('silver'),
+                ['type'=>'金币','value'=>M("all_user")->where(['id'=>$params['userid']])->getField('gold')],
+                ['type'=>'银币',M("all_user")->where(['id'=>$params['userid']])->getField('silver')],
+                // 'type'=>'恭喜您,您充值了'.','.M("order")->where(['money'=>$params['value']])->getField('money').'元'.','.'奖励您'.$value.','.$type.'元',
+                // 'value'=>'您现在的资产'.','.'金币'.M("all_user")->where(['id'=>$params['userid']])->getField('gold').','.'银币'.M("all_user")->where(['id'=>$params['userid']])->getField('silver'),
                 );
            $data = array(
                 'msgtype'=>'recharge_success',
@@ -190,7 +194,7 @@ class UseraccountController extends Controller{
          		);
          }
         $data = json_encode($data,JSON_UNESCAPED_UNICODE);
-         var_dump($data);die;
+         //var_dump($data);die;
         // return $data;
         echo $data;
 	}
@@ -405,27 +409,32 @@ class UseraccountController extends Controller{
                                 $res[$key]['delieverdate']= NULL;     
                             
                         }//$value['status']0为待发货 1为已发货 2为到货
-                      // $arr = $res;
-                      // $arr_new = array();
-                      //   foreach($arr[$key]['items'] as $item){
-                      //       foreach($item as $key=>$val){
-                      //           $arr_new[$key][] = $val;
-                      //       }
-                      //   }
-                      //    $key = ['roomid','goodsname','photo'];
-                      //   $new_array = array();
-                      //   foreach($arr_new as $k=>$v) {
-                      //       $new_array[$k] = array_combine($key,$v);
+                      //$arr = $json;
+                //       $arr_new = array();
+                //         foreach($res[$key]['items'] as $item){
+                //             foreach($item as $key=>$val){
+                //                 $arr_new[$key][] = $val;
+                //             }
+                //         }
+                //          $key = ['roomid','goodsname','photo'];
+                //         $new_array = array();
+                //         foreach($arr_new as $k=>$v) {
+                //             $new_array[$k] = array_combine($key,$v);
 
-                      //   }
-                      //   $new_array = json_encode($new_array,JSON_UNESCAPED_UNICODE);
-                      //   var_dump($new_array);die;
-                     var_dump($res);die;
+                //         }
+                //         // $new_array = json_encode($new_array,JSON_UNESCAPED_UNICODE);
+                //         var_dump($new_array);
+                //         $array= array(
+                //                 'res'=>$res,
+                //                 'json'=>$new_array,
+                //             );
+                //      var_dump($arr);die;
                         $data = array(
                                 'orderlogs' => $res,
                                 'userid'    => $params['userid'],
                                 );
                 }
+                //var_dump($data);die;
                 $data = json_encode($data,JSON_UNESCAPED_UNICODE);
                 echo $data;
 
@@ -754,7 +763,7 @@ class UseraccountController extends Controller{
             // }
             else{
                 // $rechargelogs = M('order_log')->where("userid = $userid && status = 1")->select();
-                $rechargelogs = M()->db(2,"DB_CONFIG2")->table("order_log")->where("userid = $userid && status = 1")->select();
+                $rechargelogs = M()->db(2,"DB_CONFIG2")->table("order_log")->where("userid = $userid")->select();
                 if($rechargelogs['status'] == 1){
                       //链接远程数据库 查询支付信息(nugh)
                 foreach ($rechargelogs as $key => $value) {
@@ -763,8 +772,11 @@ class UseraccountController extends Controller{
                     // $data[$key]['amount'] = M('order')->where(['id'=>$value['order_id']])->getField('money');
                     //$data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
                     // $data[$key]['awardamount'] = M('order')->where(['id'=>$value['order_id']])->getField('amount');
+                    // $data[$key]['purchase']=array(
+                    //     ['type'=>'充值记录'.M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'),'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                    //     );
                     $data[$key]['purchase']=array(
-                        ['type'=>'充值记录'.M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'),'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                        ['type'=>'金币','value'=>M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money')],
                         );
                     if($value['award']<100){
                         $goldsilver = "金币";
@@ -772,13 +784,13 @@ class UseraccountController extends Controller{
                         $goldsilver = "银币";
                     }
                     $data[$key]['award']=array(
-                        ['type'=>$goldsilver.$value['award'],'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                        ['type'=>$goldsilver,'value'=>$value['award']],
                         );
                    // $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
                     //$data[$key]['awardtype'] = 'gold';
                     $data[$key]['date'] = $value['create_time'];
                 }
-            }else{
+            }elseif($rechargelogs['status'] == 0){
                 //链接远程数据库 查询支付信息(nugh)
                 foreach ($rechargelogs as $key => $value) {
                     $data[$key]['rechargelogsid'] = $value['id'];
@@ -786,16 +798,16 @@ class UseraccountController extends Controller{
                     // $data[$key]['amount'] = M('order')->where(['id'=>$value['order_id']])->getField('money');
                     //$data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
                     // $data[$key]['awardamount'] = M('order')->where(['id'=>$value['order_id']])->getField('amount');
-                    $data[$key]['purchase']=array(
-                        ['type'=>'充值记录'.M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'),'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                 $data[$key]['purchase']=array(
+                        ['type'=>'金币','value'=>M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money')],
                         );
                     if($value['award']<100){
-                        $goldsilver = "金币";
-                    }else{
                         $goldsilver = "银币";
+                    }if($value['award']>=100){
+                        $goldsilver = "金币";
                     }
                     $data[$key]['award']=array(
-                        ['type'=>$goldsilver.$value['award'],'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                        ['type'=>$goldsilver,'value'=>$value['award']],
                         );
                    // $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
                     //$data[$key]['awardtype'] = 'gold';

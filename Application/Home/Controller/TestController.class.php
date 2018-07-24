@@ -1906,22 +1906,22 @@ public function msg(){
 
     $data = array(
          //'type'=>1,
-        'userid'=>348,
+        'userid'=>347,
         'timestamp'=>time(),
       );
-    $url = "http://192.168.1.145/Home/Useraccount/get_payment_logs";
+    $url = "http://192.168.1.145/Home/Useraccount/get_recharge_logs";
     $return = json_curl($url,$data);
     dump($return);die;
   }
   public function ff(){
 
     $data = array(
-         //'type'=>1,
+         // 'type'=>1,
         'userid'=>347,
-        //'value'=>500,
+        'value'=>10,
         'timestamp'=>time(),
       );
-    $url = "http://192.168.1.145/Home/Useraccount/get_recharge_logs";
+    $url = "http://192.168.1.145/Home/Useraccount/recharge";
     $return = json_curl($url,$data);
     dump($return);die;
   }

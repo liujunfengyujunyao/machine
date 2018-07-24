@@ -34,7 +34,8 @@ class RoomsController extends Controller{
            
            $signature = json_encode($signature);
            $signature = sha1($signature);
-          
+          // $userid = M('all_user')->where(['id'=>$params['userid']])->select();
+          // var_dump($userid);die;
            if (time()-$params['timestamp']>30) {
              $data = array(
               'msgtype' => 'error',
@@ -308,9 +309,15 @@ class RoomsController extends Controller{
       }else{
         $value['available'] = 0;
       }
+      $all_user = M('all_user')->where(['id'=>$userid])->getField('gold');
+      $all_user =  intval($all_user);
+      $all = M('all_user')->where(['id'=>$userid])->getField('silver');
+      $all =  intval($all);
       $value['price'] = array( 
-        'type'=>'金币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.price').'游戏一次'.','.'银币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.money').'游戏一次',
-        'value'=>'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver'),
+        ['type'=>'金币','value'=>$all_user],
+        ['type'=>'银币','value'=>$all],
+        // 'type'=>'金币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.price').'游戏一次'.','.'银币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.money').'游戏一次',
+        // 'value'=>'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver'),
         );
     }
      //var_dump($rooms);die;
