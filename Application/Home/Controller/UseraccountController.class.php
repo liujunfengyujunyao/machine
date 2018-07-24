@@ -22,56 +22,80 @@ class UseraccountController extends Controller{
          		'errmsg' => 'auth error',
          		);
          }else{
-            $order = M("order")->where(['amount'=>$params['amount']])->select();
+            $order = M("order")->where(['amount'=>$params['value']])->getField('id');
+            $order = M("order")->where(['id'=>$order])->select();
+            //var_dump($order);die;
             foreach ($order as $key => $value) {
-                if($params['amount']==$value['amount']){
-                    if($params['amount'] == 1||$params['amount'] == 5){
-                        $user['gold'] = $user['gold'] + $params['amount'];
+                //var_dump($value);die;
+                if($params['value']==$value['amount']){
+                    if($params['value'] == 1||$params['value'] == 5){
+                        $user['gold'] = $user['gold'] + $params['value'];
 
                     }
-                    elseif($params['amount'] == 10 ){
-                        $user['gold'] = $user['gold'] + $params['amount']/2;
-                        $user['silver'] = $user['silver'] +0.5;
-                        $awardamount = 1;
-                        $awardtype = "silver";
+                    elseif($params['value'] == 10 ){
+                        $user['gold'] = $user['gold'] + $params['value'];
+                        $user['silver'] = $user['silver'] +1;
+                        $type = 1;
+                        $value = "银币";
                     }
-                    elseif($params['amount'] ==20 ){
-                        $user['gold'] = $user['gold'] + $params['amount'];
+                    elseif($params['value'] ==20 ){
+                        $user['gold'] = $user['gold'] + $params['value'];
                         $user['silver'] = $user['silver'] +2;
-                        $awardamount = 2;
-                        $awardtype = "silver";
-                    }elseif ($params['amount'] == 50){
-                        $user['gold'] = $user['gold'] + $params['amount'];
+                        $type = 2;
+                        $value = "银币";
+                    }elseif ($params['value'] == 50){
+                        $user['gold'] = $user['gold'] + $params['value'];
                         $user['silver'] = $user['silver'] + 3;
-                        $awardamount = 3;
-                        $awardtype = "silver";
-                    }elseif ($params['amount'] ==100) {
-                        $user['gold'] = $user['gold'] + $params['amount'];
+                        $type = 3;
+                        $value = "银币";
+                    }elseif ($params['value'] ==100) {
+                        $user['gold'] = $user['gold'] + $params['value'];
                         $user['silver'] = $user['silver'] +5;
-                        $awardamount = 5;
-                        $awardtype = "silver";
-                    }elseif ($params['amount'] ==500) {
-                        $user['gold'] = $user['gold'] + $params['amount'];
+                        $type = 5;
+                        $value = "银币";
+                    }elseif ($params['value'] ==500) {
+                        $user['gold'] = $user['gold'] + $params['value'];
                         $user['silver'] = $user['silver'] +15;
-                        $awardamount = 15;
-                        $awardtype = "silver";
-                    }elseif ($params['amount'] ==1000) {
-                        $user['gold'] = $user['gold'] + $params['amount']+100;
+                        $type = 15;
+                        $value = "银币";
+                    }elseif ($params['value'] ==1000) {
+                        $user['gold'] = $user['gold'] + $params['value']+100;
                         //$user['silver'] = $user['silver'] + $params['amount']+5;
-                        $awardamount = 100;
-                        $awardtype = "gold";
+                        $type = 100;
+                        $value = "金币";
                     }
                 }
 
 
             }
-            M('all_user')->where(['id'=>$params['userid']])->save($user);
-           $user = M("all_user")->where(['id'=>$params['userid']])->getField('gold,silver');
+             M('all_user')->where(['id'=>$params['userid']])->save($user);
+                if($params['value'] == 10 ){
+                        $user['silver'] = $user['silver'] -1;
+                    }elseif($params['value'] ==20 ){
+                        $user['silver'] = $user['silver'] -2;
+                    }elseif ($params['value'] == 50){
+                        $user['silver'] = $user['silver'] - 3;
+                    }elseif ($params['value'] ==100) {
+                        $user['silver'] = $user['silver'] -5;
+                    }elseif ($params['value'] ==500) {
+                        $user['silver'] = $user['silver'] -15;
+                    }elseif ($params['value'] ==1000) {
+                        $user['gold'] = $user['gold']-100;
+                    }
+            $purchase = array(
+                        'type'=>'您刚充值了'.','.M("order")->where(['amount'=>$params['value']])->getField('amount').'元',
+                        'value'=>'您现在的资产'.','.'金币'.$user['gold'].'银币'.$user['silver'],
+                    );
+            $award = array(
+                'type'=>'恭喜您,您刚才充值了'.','.M("order")->where(['amount'=>$params['value']])->getField('amount').'元'.','.'奖励您'.$value.','.$type.'元',
+                'value'=>'您现在的资产'.','.'金币'.M("all_user")->where(['id'=>$params['userid']])->getField('gold').','.'银币'.M("all_user")->where(['id'=>$params['userid']])->getField('silver'),
+                );
            $data = array(
-                'awardamount'=>$awardamount,
-                'awardtype'=>$awardtype,
-                'user'=>$user,
+                'msgtype'=>'recharge_success',
+                'purchase'=>$purchase,
+                 'award'=>$award,
             );
+
            //添加充值记录
            $order_log = array(
                 'order_id'=>$value['id'],
@@ -80,7 +104,7 @@ class UseraccountController extends Controller{
                 'create_time'=>time(),
                 'status'=>0,
             );
-           // //var_dump($order_log);die;
+           //var_dump($order_log);die;
            M("order_log")->add($order_log);
 
          }        
@@ -333,7 +357,6 @@ class UseraccountController extends Controller{
                 $signature = sha1($signature);
                 $user = M('all_user')->where(['id'=>$params['userid']])->find();
                 $order = M('tbl_order')->where(['userid'=>$params['userid']])->select();
-
                 //获取tbl_order表中属于这个用户的订单id
                 // $log_id = M('tbl_game_log')->where(['userid'=>$params['userid'],'status'=>1])->getField('id',true);
                 if (time()-$params['timestamp']>12) {
@@ -351,15 +374,15 @@ class UseraccountController extends Controller{
                                 'orderlogs' => NULL,
                                 );
                 }
-                elseif($params['signature']!=$signature){
-                        $data = array(
-                            'msgtype' => 'error',
-                            'params' => array(
-                                'errid' => 10003,
-                                'errmsg' => 'signature error',
-                                ),
-                            );
-                }
+                // elseif($params['signature']!=$signature){
+                //         $data = array(
+                //             'msgtype' => 'error',
+                //             'params' => array(
+                //                 'errid' => 10003,
+                //                 'errmsg' => 'signature error',
+                //                 ),
+                //             );
+                // }
                 else{
                          //通过验证
                         foreach ($order as $key => &$value) {
@@ -367,11 +390,12 @@ class UseraccountController extends Controller{
                                 $res[$key]['createdate'] = $value['create_time'];
                                $res[$key]['gamelogid']  = explode(',',$value['log_id']);
                                 $a = $value['log_id'];
-                                $res[$key]['items'] = array(                               
+                                $res[$key]['items'] = array(
                                     'roomid'=> M('tbl_game_log')->where(['id'=> ['in',$a]])->getField('goods_id',true),
                                     'goodsname'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])->join("left join goods as t2 on t2.id = t1.goods_id")->getField('name',true),
                                     'photo'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])->join("left join goods as t2 on t2.id = t1.goods_id")->join("left join goodspics as t3 on t3.goods_id = t2.id")->getField('pics_origin',true),                                  
                                 );
+                                 
                                 $res[$key]['status']     = $value['status'];
                                 $res[$key]['name']       = $value['name'];
                                 $res[$key]['tel']        = $value['phone'];
@@ -382,7 +406,22 @@ class UseraccountController extends Controller{
                                 $res[$key]['delieverdate']= NULL;     
                             
                         }//$value['status']0为待发货 1为已发货 2为到货
-                        // var_dump($res);die;
+                      // $arr = $res;
+                      // $arr_new = array();
+                      //   foreach($arr[$key]['items'] as $item){
+                      //       foreach($item as $key=>$val){
+                      //           $arr_new[$key][] = $val;
+                      //       }
+                      //   }
+                      //    $key = ['roomid','goodsname','photo'];
+                      //   $new_array = array();
+                      //   foreach($arr_new as $k=>$v) {
+                      //       $new_array[$k] = array_combine($key,$v);
+
+                      //   }
+                      //   $new_array = json_encode($new_array,JSON_UNESCAPED_UNICODE);
+                      //   var_dump($new_array);die;
+                     var_dump($res);die;
                         $data = array(
                                 'orderlogs' => $res,
                                 'userid'    => $params['userid'],
@@ -499,25 +538,25 @@ class UseraccountController extends Controller{
                   foreach ($tbl_game_log as $key => $value) {
                       $logs[$key]['paymentid'] = $value['paymentid'];
                       if($value['e_id']==null){
-                           $e_id= $value['e_id'] = '您没有订单记录!';
+                           $e_id= $value['e_id'] ='您没有订单记录ID!';
                            $ee_id= $value['e_id'] = '您没有订单消费!';
                         }else{
-                            $e_id=$value['e_id'];
-                            $ee_id=$value['e_id'] ='您的订单消费!';
+                            $e_id=$value['e_id'].','.'您的订单记录ID!';
+                            $ee_id=$value['e_id'] .','.'您的订单消费!';
                         }
                         if($value['tid']==null){
                            $tid= $value['tid'] = '您还没有游戏记录!';
                            $ttid= $value['tid'] = '您还没有游戏消费!';
                         }else{
-                            $tid=$value['tid'];
-                            $ttid=$value['tid']='您的游戏消费!';
+                            $tid=$value['tid'].','.'您还游戏记录ID!';
+                            $ttid=$value['tid'].','.'您的游戏消费!';
                         }
                         if($value['rid']==null){
                            $rid= $value['rid'] = '您还没有消费记录!';
                            $rrid= $value['rid'] = '您还没有消费记录!';
                         }else{
-                            $rid=$value['rid'];
-                            $rrid=$value['rid']='您的购买消费!';
+                            $rid=$value['rid'].','.'您消费记录ID!';
+                            $rrid=$value['rid'].','.'您的购买消费!';
                         }
                       $logs[$key]['activityid']= array(
                         'rid'=>$rid,
@@ -532,7 +571,7 @@ class UseraccountController extends Controller{
                         $logs[$key]['paymenttype'] =array(
                                 'rid'=>$value['type2'],
                                 'tid'=>$value['type'],
-                                'e_id'=>'邮费!', 
+                                'e_id'=>M('order')->where(['id'=>$value['order_id']])->getField('body'),
                             );//支付类型
                         if($value['type']=='gold'){
                             $gold = M("tbl_game_log")->alias('t1')->where(['t1.userid'=>$params['userid']])->join('left join equipment as t2 on t2.id = t1.equipment_id')->getField('price');
@@ -546,7 +585,7 @@ class UseraccountController extends Controller{
                             );//支付数量
                         $logs[$key]['cancel'] = $value['cancel'];
                   }
-                  //var_dump($logs);die;
+                  var_dump($logs);die;
                 //  foreach ($record as $key => $value) {
                 //      $logs[$key]['paymentid'] = $value['paymentid'];
                 //      $logs[$key]['activityid'] = $value['id'];
@@ -562,6 +601,7 @@ class UseraccountController extends Controller{
             }
            //var_dump($data);die;
             $data = json_encode($data,JSON_UNESCAPED_UNICODE);
+            var_dump($data);die;
             echo $data;
         }
 

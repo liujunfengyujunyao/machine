@@ -24,6 +24,7 @@ class RoomsController extends Controller{
 
            $params = $GLOBALS['HTTP_RAW_POST_DATA'];         
            $params = json_decode($params,true);
+           //var_dump($params);die;
            $signature = array(
             'type' => $params['type'],
             'userid' => $params['userid'],
@@ -312,7 +313,7 @@ class RoomsController extends Controller{
         'value'=>'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver'),
         );
     }
-    // var_dump($rooms);die;
+     //var_dump($rooms);die;
     return $rooms;
   }
   //封装查询出空闲的机台/人数最少机台的方法
