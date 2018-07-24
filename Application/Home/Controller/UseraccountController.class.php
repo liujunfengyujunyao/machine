@@ -22,12 +22,12 @@ class UseraccountController extends Controller{
          		'errmsg' => 'auth error',
          		);
          }else{
-            $order = M("order")->where(['amount'=>$params['value']])->getField('id');
-            $order = M("order")->where(['id'=>$order])->select();
+            $order_id = M("order")->where(['money'=>$params['value']])->getField('id');
+            $order = M("order")->where(['id'=>$order_id])->select();
             //var_dump($order);die;
             foreach ($order as $key => $value) {
                 //var_dump($value);die;
-                if($params['value']==$value['amount']){
+                if($params['value']==$value['money']){
                     if($params['value'] == 1||$params['value'] == 5){
                         $user['gold'] = $user['gold'] + $params['value'];
 
@@ -65,8 +65,6 @@ class UseraccountController extends Controller{
                         $value = "金币";
                     }
                 }
-
-
             }
              M('all_user')->where(['id'=>$params['userid']])->save($user);
                 if($params['value'] == 10 ){
@@ -83,11 +81,11 @@ class UseraccountController extends Controller{
                         $user['gold'] = $user['gold']-100;
                     }
             $purchase = array(
-                        'type'=>'您刚充值了'.','.M("order")->where(['amount'=>$params['value']])->getField('amount').'元',
+                        'type'=>'您刚充值了'.','.M("order")->where(['money'=>$params['value']])->getField('money').'元',
                         'value'=>'您现在的资产'.','.'金币'.$user['gold'].'银币'.$user['silver'],
                     );
             $award = array(
-                'type'=>'恭喜您,您刚才充值了'.','.M("order")->where(['amount'=>$params['value']])->getField('amount').'元'.','.'奖励您'.$value.','.$type.'元',
+                'type'=>'恭喜您,您刚才充值了'.','.M("order")->where(['money'=>$params['value']])->getField('money').'元'.','.'奖励您'.$value.','.$type.'元',
                 'value'=>'您现在的资产'.','.'金币'.M("all_user")->where(['id'=>$params['userid']])->getField('gold').','.'银币'.M("all_user")->where(['id'=>$params['userid']])->getField('silver'),
                 );
            $data = array(
@@ -98,8 +96,9 @@ class UseraccountController extends Controller{
 
            //添加充值记录
            $order_log = array(
-                'order_id'=>$value['id'],
+                'order_id'=>$order_id['id'],
                 'userid'=>$params['userid'],
+                'award'=>$type,
                 'out_trade_no'=>strtotime( date("Y-m-d H:i:s",strtotime("+1 seconds"))),
                 'create_time'=>time(),
                 'status'=>0,
@@ -535,6 +534,7 @@ class UseraccountController extends Controller{
                   ->join('left join express_pay as t4 on t4.log_id = t1.id')
                   //->join('order as t5 on t4.order_id = t5.id')
                   ->select();
+                  //var_dump($tbl_game_log);die;
                   foreach ($tbl_game_log as $key => $value) {
                       $logs[$key]['paymentid'] = $value['paymentid'];
                       if($value['e_id']==null){
@@ -579,13 +579,13 @@ class UseraccountController extends Controller{
                             $gold = M("tbl_game_log")->alias('t1')->join('left join equipment as t2 on t2.id = t1.equipment_id')->getField('money');
                         }
                         $logs[$key]['value'] = array(
-                                'rid'=>$value['amount'],
+                                'rid'=>$value['money'],
                                 'tid'=>$gold,
-                                'e_id'=> M('order')->where(['id'=>$value['order_id']])->getField('amount'),
+                                'e_id'=> M('order')->where(['id'=>$value['order_id']])->getField('money'),
                             );//支付数量
                         $logs[$key]['cancel'] = $value['cancel'];
                   }
-                  var_dump($logs);die;
+                  //var_dump($logs);die;
                 //  foreach ($record as $key => $value) {
                 //      $logs[$key]['paymentid'] = $value['paymentid'];
                 //      $logs[$key]['activityid'] = $value['id'];
@@ -599,7 +599,7 @@ class UseraccountController extends Controller{
                     'paymentlogs' => $logs,
                     );
             }
-           //var_dump($data);die;
+           var_dump($data);die;
             $data = json_encode($data,JSON_UNESCAPED_UNICODE);
             var_dump($data);die;
             echo $data;
@@ -742,32 +742,73 @@ class UseraccountController extends Controller{
                     'errid' => 10001,
                     'timestamp' => time(),
                     );
-            }elseif($params['signature']!=$signature){
-                $data = array(
-                    'msgtype' => 'error',
-                    'params' => array(
-                        'errid' => 10003,
-                        'errmsg' => 'signature error',
-                        ),
-                    );
-            }else{
-
+            }
+            // elseif($params['signature']!=$signature){
+            //     $data = array(
+            //         'msgtype' => 'error',
+            //         'params' => array(
+            //             'errid' => 10003,
+            //             'errmsg' => 'signature error',
+            //             ),
+            //         );
+            // }
+            else{
                 // $rechargelogs = M('order_log')->where("userid = $userid && status = 1")->select();
                 $rechargelogs = M()->db(2,"DB_CONFIG2")->table("order_log")->where("userid = $userid && status = 1")->select();
+                if($rechargelogs['status'] == 1){
+                      //链接远程数据库 查询支付信息(nugh)
+                foreach ($rechargelogs as $key => $value) {
+                    $data[$key]['rechargelogsid'] = $value['id'];
+                    $data[$key]['value'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
+                    // $data[$key]['amount'] = M('order')->where(['id'=>$value['order_id']])->getField('money');
+                    //$data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
+                    // $data[$key]['awardamount'] = M('order')->where(['id'=>$value['order_id']])->getField('amount');
+                    $data[$key]['purchase']=array(
+                        ['type'=>'充值记录'.M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'),'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                        );
+                    if($value['award']<100){
+                        $goldsilver = "金币";
+                    }else{
+                        $goldsilver = "银币";
+                    }
+                    $data[$key]['award']=array(
+                        ['type'=>$goldsilver.$value['award'],'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                        );
+                   // $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
+                    //$data[$key]['awardtype'] = 'gold';
+                    $data[$key]['date'] = $value['create_time'];
+                }
+            }else{
                 //链接远程数据库 查询支付信息(nugh)
                 foreach ($rechargelogs as $key => $value) {
                     $data[$key]['rechargelogsid'] = $value['id'];
+                    $data[$key]['value'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
                     // $data[$key]['amount'] = M('order')->where(['id'=>$value['order_id']])->getField('money');
-                    $data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
+                    //$data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
                     // $data[$key]['awardamount'] = M('order')->where(['id'=>$value['order_id']])->getField('amount');
-                    $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
-                    $data[$key]['awardtype'] = 'gold';
+                    $data[$key]['purchase']=array(
+                        ['type'=>'充值记录'.M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'),'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                        );
+                    if($value['award']<100){
+                        $goldsilver = "金币";
+                    }else{
+                        $goldsilver = "银币";
+                    }
+                    $data[$key]['award']=array(
+                        ['type'=>$goldsilver.$value['award'],'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
+                        );
+                   // $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
+                    //$data[$key]['awardtype'] = 'gold';
                     $data[$key]['date'] = $value['create_time'];
                 }
-                
-
             }
-            
+              $data = array(
+                        'msgtype'=>'recharge_success',
+                        'rechargelogs'=>$data,
+                        'userid'=>$userid,
+                    );
+            }
+
             $data = json_encode($data,JSON_UNESCAPED_UNICODE);
             echo $data;
         }
