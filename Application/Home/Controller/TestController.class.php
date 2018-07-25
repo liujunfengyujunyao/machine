@@ -1906,10 +1906,10 @@ public function msg(){
 
     $data = array(
          //'type'=>1,
-        'userid'=>348,
+        'userid'=>1,
         'timestamp'=>time(),
       );
-    $url = "http://192.168.1.145/Home/Useraccount/get_game_logs";
+    $url = "http://192.168.1.145/Home/Useraccount/get_order_logs";
     $return = json_curl($url,$data);
     dump($return);die;
   }

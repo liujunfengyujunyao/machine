@@ -362,7 +362,7 @@ class UseraccountController extends Controller{
                 $order = M('tbl_order')->where(['userid'=>$params['userid']])->select();
                 //获取tbl_order表中属于这个用户的订单id
                 // $log_id = M('tbl_game_log')->where(['userid'=>$params['userid'],'status'=>1])->getField('id',true);
-                if (time()-$params['timestamp']>12) {
+                if (time()-$params['timestamp']>30) {
                         $data = array(
                                 'errid' => 10001,
                                 'timestamp' => time(),
@@ -388,17 +388,24 @@ class UseraccountController extends Controller{
                 // }
                 else{
                          //通过验证
+                    //$res = array();
                         foreach ($order as $key => &$value) {
-                                $res[$key]['orderlogid'] = $value['id'];
-                                $res[$key]['createdate'] = $value['create_time'];
-                               $res[$key]['gamelogid']  = explode(',',$value['log_id']);
                                 $a = $value['log_id'];
                                 $res[$key]['items'] = array(
+                                    'gamelogid'  => explode(',',$value['log_id']),
                                     'roomid'=> M('tbl_game_log')->where(['id'=> ['in',$a]])->getField('goods_id',true),
-                                    'goodsname'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])->join("left join goods as t2 on t2.id = t1.goods_id")->getField('name',true),
-                                    'photo'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])->join("left join goods as t2 on t2.id = t1.goods_id")->join("left join goodspics as t3 on t3.goods_id = t2.id")->getField('pics_origin',true),                                  
+
+                                    'goodsname'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])
+                                    ->join("left join goods as t2 on t2.id = t1.goods_id")
+                                    ->getField('name',true),
+
+                                    'photo'=> M('tbl_game_log')->alias('t1')->where(['t1.id'=>['in',$a]])->join("left join goods as t2 on t2.id = t1.goods_id")
+                                    ->join("left join goodspics as t3 on t3.goods_id = t2.id")->getField('pics_origin',true),                                  
                                 );
-                                 
+                               
+                                $res[$key]['orderlogid'] = $value['id'];
+                                $res[$key]['createdate'] = $value['create_time'];
+                               // $res[$key]['gamelogid']  = explode(',',$value['log_id']);
                                 $res[$key]['status']     = $value['status'];
                                 $res[$key]['name']       = $value['name'];
                                 $res[$key]['tel']        = $value['phone'];
@@ -408,32 +415,47 @@ class UseraccountController extends Controller{
                                 ->join("left join express as t2 on t2.express_id = t1.express_id")->getField('express_name');
                                 $res[$key]['delieverdate']= NULL;     
                             
-                        }//$value['status']0为待发货 1为已发货 2为到货
-                      //$arr = $json;
-                //       $arr_new = array();
-                //         foreach($res[$key]['items'] as $item){
-                //             foreach($item as $key=>$val){
-                //                 $arr_new[$key][] = $val;
-                //             }
-                //         }
-                //          $key = ['roomid','goodsname','photo'];
-                //         $new_array = array();
-                //         foreach($arr_new as $k=>$v) {
-                //             $new_array[$k] = array_combine($key,$v);
+                        }
+                       foreach ($res as $k => &$v) {
+                                $tep = [];
+                                foreach ($v['items']as $k1 => $v1) {
+                                    //echo "aa";
+                                    for ($i=0; $i<count($v['items']['gamelogid']); $i++) {
+                                        $tep[$i][$k1] = $v1[$i];
+                                    }
+                                }
+                                $v['items'] = $tep;
+                            }//转换items里面的数组顺序。
+                        //$value['status']0为待发货 1为已发货 2为到货
+                        // $arrStr = serialize($res);
+                        // file_put_contents('arr.txt', $arrStr);
+                      // $arr = $json;
+                      // $arr_new = array();
+                      //   foreach($res[$key]['items'] as &$item){
+                      //       foreach($item as $key=> &$val){
+                      //           $arr_new[$key][] = $val;
+                      //       }
+                      //   }
+                      //    $key = ['gamelogid','roomid','goodsname','photo'];
+                      //   $new_array = array();
+                      //   foreach($arr_new as $k=> &$v) {
+                      //       $new_array[$k] = array_combine($key,$v);
 
-                //         }
-                //         // $new_array = json_encode($new_array,JSON_UNESCAPED_UNICODE);
-                //         var_dump($new_array);
-                //         $array= array(
-                //                 'res'=>$res,
-                //                 'json'=>$new_array,
-                //             );
-                //      var_dump($arr);die;
+                      //   }
+                      //   // $new_array = json_encode($new_array,JSON_UNESCAPED_UNICODE);
+                      //   var_dump($new_array);die;
+                     //    $array= array(
+                     //            'res'=>$res,
+                     //            'json'=>$new_array,
+                     //        );
+                     // var_dump($arr);die;
+
                         $data = array(
                                 'orderlogs' => $res,
                                 'userid'    => $params['userid'],
                                 );
                 }
+
                 //var_dump($data);die;
                 $data = json_encode($data,JSON_UNESCAPED_UNICODE);
                 echo $data;
