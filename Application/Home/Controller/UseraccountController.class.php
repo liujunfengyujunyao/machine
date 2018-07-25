@@ -88,7 +88,7 @@ class UseraccountController extends Controller{
                     );
             $award = array(
                 ['type'=>'金币','value'=>M("all_user")->where(['id'=>$params['userid']])->getField('gold')],
-                ['type'=>'银币',M("all_user")->where(['id'=>$params['userid']])->getField('silver')],
+                ['type'=>'银币','value'=>M("all_user")->where(['id'=>$params['userid']])->getField('silver')],
                 // 'type'=>'恭喜您,您充值了'.','.M("order")->where(['money'=>$params['value']])->getField('money').'元'.','.'奖励您'.$value.','.$type.'元',
                 // 'value'=>'您现在的资产'.','.'金币'.M("all_user")->where(['id'=>$params['userid']])->getField('gold').','.'银币'.M("all_user")->where(['id'=>$params['userid']])->getField('silver'),
                 );
@@ -133,7 +133,7 @@ class UseraccountController extends Controller{
          $signature = json_encode($signature);
          $signature = sha1($signature);
          $user = M('all_user')->where(['id'=>$params['userid']])->find();
-         if (time()-$params['timestamp']>12) {
+         if (time()-$params['timestamp']>30) {
          	$data = array(
          		'errid' => 10001,
          		'timestamp' => time(),
@@ -144,15 +144,15 @@ class UseraccountController extends Controller{
          		'errmsg' => 'auth error',
          		);
          }
-         elseif($params['signature']!=$signature){
-            $data = array(
-                'msgtype' => 'error',
-                'params' => array(
-                    'errid' => 10003,
-                    'msgtype' => 'signature error',
-                    ),
-                );
-         }
+         // elseif($params['signature']!=$signature){
+         //    $data = array(
+         //        'msgtype' => 'error',
+         //        'params' => array(
+         //            'errid' => 10003,
+         //            'msgtype' => 'signature error',
+         //            ),
+         //        );
+         // }
          else{
          	$log = M('tbl_game_log')->alias("t1")->field("t1.*,t2.pics_origin,t3.name as goods_name")->where(['t1.userid'=>$params['userid']])->join("left join goodspics as t2 on t2.goods_id = t1.goods_id")->join("left join goods as t3 on t3.id = t1.goods_id")->join("left join tbl_order as t4 on t4.log_id = t1.id")->select();
                 $success_count = count(M('tbl_game_log')->where(['userid'=>$params['userid'],'got_gift'=>1])->select());
@@ -165,14 +165,14 @@ class UseraccountController extends Controller{
                 foreach ($log as $key => $value) {
                        $game_logs[$key]['gamelogid'] = $value['id'];
                        $game_logs[$key]['roomid'] = $value['goods_id'];
-                       $game_logs[$key]['paymenttype'] = $value['type'];
+                       
                        if($value['type']=='gold'){
-
-                       $game_logs[$key]['value'] = $gold;
+                        $game_logs[$key]['paymenttype'] = $value['type']='金币';
+                        $game_logs[$key]['value'] = intval($gold);
 
                        }elseif($value['type']=='silver'){
-
-                       $game_logs[$key]['value'] = $silver;           
+                       $game_logs[$key]['paymenttype'] = $value['type']='银币';
+                       $game_logs[$key]['value'] = intval($silver);           
                        }
                        $game_logs[$key]['photo'] = $value['pics_origin'];
                        $game_logs[$key]['machined'] = $value['equipment_id'];
@@ -184,7 +184,7 @@ class UseraccountController extends Controller{
                        // $game_logs[$key]['status'] = $value['status'];
                        $game_logs[$key]['status'] = $value['status'];
                 }
-                 //var_dump($silver);die;
+                 //var_dump($game_logs);die;
          	$data = array(
          		'gamelogs' => $game_logs,
          		'userid'   => $params['userid'],
@@ -513,7 +513,7 @@ class UseraccountController extends Controller{
             $signature = json_encode($signature);
             $signature = sha1($signature);
             $user = M('all_user')->where(['id'=>$params['userid']])->find();
-            if (time()-$params['timestamp'] > 12) {
+            if (time()-$params['timestamp'] > 30) {
                 $data = array(
                     'errid' => 10001,
                     'timestamp' => time(),
@@ -533,86 +533,61 @@ class UseraccountController extends Controller{
             //         );
             // }
             else{
-                 //$record = M('record')->where(['userid'=>$params['userid']])->select();
-                  $tbl_game_log = M('tbl_game_log')
-                  ->alias('t1')
-                  ->field('t1.id as tid,t3.id as rid,t4.id as e_id,t3.userid,t1.type,t2.price,t2.money,t3.paymentid,t3.amount,t3.cancel,t3.type as type2,t4.order_id')
-                  ->where(['t1.userid'=>$params['userid']])
-                  ->join('left join equipment as t2 on t2.id = t1.equipment_id')
-                  ->join('left join record as t3 on t3.paymentid = t1.paymentid')
-                  ->join('left join express_pay as t4 on t4.log_id = t1.id')
-                  //->join('order as t5 on t4.order_id = t5.id')
-                  ->select();
-                  //var_dump($tbl_game_log);die;
-                  foreach ($tbl_game_log as $key => $value) {
-                      $logs[$key]['paymentid'] = $value['paymentid'];
-                      if($value['e_id']==null){
-                           $e_id= $value['e_id'] ='您没有订单记录ID!';
-                           $ee_id= $value['e_id'] = '您没有订单消费!';
+                //游戏//
+                 $tbl_game_log = M('tbl_game_log')->alias('t1')->field('t1.id,t1.paymentid,t1.type,t2.price,t2.money,t3.name,t4.pics_origin')->join('left join equipment as t2 on t2.id = t1.equipment_id')->join('left join goods as t3 on t3.id = t1.goods_id')->join('left join goodspics as t4 on t4.goods_id = t3.id')->where(['t1.userid'=>$params['userid']])->select();
+                   //var_dump($tbl_game_log);die;
+                    foreach ($tbl_game_log as $key => $v) {
+                        if($v['type']=='gold'){
+                                $goldsilver = '金币';
+                                $oscar = $v['price'];
                         }else{
-                            $e_id=$value['e_id'].','.'您的订单记录ID!';
-                            $ee_id=$value['e_id'] .','.'您的订单消费!';
-                        }
-                        if($value['tid']==null){
-                           $tid= $value['tid'] = '您还没有游戏记录!';
-                           $ttid= $value['tid'] = '您还没有游戏消费!';
-                        }else{
-                            $tid=$value['tid'].','.'您还游戏记录ID!';
-                            $ttid=$value['tid'].','.'您的游戏消费!';
-                        }
-                        if($value['rid']==null){
-                           $rid= $value['rid'] = '您还没有消费记录!';
-                           $rrid= $value['rid'] = '您还没有消费记录!';
-                        }else{
-                            $rid=$value['rid'].','.'您消费记录ID!';
-                            $rrid=$value['rid'].','.'您的购买消费!';
-                        }
-                      $logs[$key]['activityid']= array(
-                        'rid'=>$rid,
-                        'tid'=>$tid,
-                        'e_id'=>$e_id,
-                        );//消费ID游戏ID订单ID
-                      $logs[$key]['activitytype'] =array(
-                        'rid'=>$rrid,
-                        'tid'=>$ttid,
-                        'e_id'=>$ee_id,
-                        );//消费类型 (游戏、邮费等);
-                        $logs[$key]['paymenttype'] =array(
-                                'rid'=>$value['type2'],
-                                'tid'=>$value['type'],
-                                'e_id'=>M('order')->where(['id'=>$value['order_id']])->getField('body'),
-                            );//支付类型
-                        if($value['type']=='gold'){
-                            $gold = M("tbl_game_log")->alias('t1')->where(['t1.userid'=>$params['userid']])->join('left join equipment as t2 on t2.id = t1.equipment_id')->getField('price');
-                        }else{
-                            $gold = M("tbl_game_log")->alias('t1')->join('left join equipment as t2 on t2.id = t1.equipment_id')->getField('money');
-                        }
-                        $logs[$key]['value'] = array(
-                                'rid'=>$value['money'],
-                                'tid'=>$gold,
-                                'e_id'=> M('order')->where(['id'=>$value['order_id']])->getField('money'),
-                            );//支付数量
-                        $logs[$key]['cancel'] = $value['cancel'];
+                               $goldsilver = '银币';
+                               $oscar = $v['money'];
+                        }  
+                        $los[$key] = ['activityid'=>intval($v['id']),'activitytype'=>'游戏','paymenttype'=>$goldsilver,'value'=>intval($oscar)];
+                        $los[$key]['paymentid'] = intval($v['paymentid']);
+                        $los[$key]['goodsname'] = $v['name'];
+                        $los[$key]['photo'] = $v['pics_origin'];
+                        $los[$key]['cancel'] = intval($v['cancel']);
                   }
-                  //var_dump($logs);die;
-                //  foreach ($record as $key => $value) {
-                //      $logs[$key]['paymentid'] = $value['paymentid'];
-                //      $logs[$key]['activityid'] = $value['id'];
-                //      $logs[$key]['activitytype'] = '消费';
-                //      $logs[$key]['type'] = $value['type'];
-                //      $logs[$key]['value'] = $value['amount'];
-                //      $logs[$key]['cancel'] = $value['cancel'];
-                // }
-                 $data = array(
-                    'userid' => $params['userid'],
-                    'paymentlogs' => $logs,
-                    );
-            }
-           var_dump($data);die;
-            $data = json_encode($data,JSON_UNESCAPED_UNICODE);
-            var_dump($data);die;
-            echo $data;
+                  //订单//
+            $express_pay = M('express_pay')->alias('t1')->field("t1.id,t1.userid,t1.log_id,t1.order_id,t2.paymentid,t3.name,t4.pics_origin")->join("left join tbl_game_log as t2 on t2.id = t1.log_id")->join('left join goods as t3 on t3.id = t2.goods_id')->join("left join goodspics as t4 on t4.goods_id = t3.id")->where(['t1.userid'=>$params['userid']])->select();
+                //var_dump($express_pay);die;
+                foreach ($express_pay as $key => $value) {
+                        $log[$key] = ['activityid'=>intval($value['id']),'activitytype'=>'邮费','paymenttype'=>'人民币','value'=>intval(M('order')->where(['id'=>$value['order_id']])->getField('money'))];
+                        $log[$key]['paymentid'] = intval($value['paymentid']);
+                        $log[$key]['goodsname'] = $value['name'];
+                        $log[$key]['photo'] = $value['pics_origin'];
+                        $log[$key]['cancel'] = intval($value['cancel']);
+                  }
+                  //购买//
+                $record = M('record')->where(['userid'=>$params['userid']])->select();
+                        foreach ($record as $key => $value) {
+                            if($value['type']=='gold'){
+                                    $goldsilver = '金币';
+                            }else{
+                                   $goldsilver = '银币';
+                            }  
+                            $logs[$key] = ['activityid'=>intval($value['id']),'activitytype'=>'购买','paymenttype'=>$goldsilver,'value'=>intval($value['amount'])];
+                            $logs[$key]['goodsname'] = $value['goodsname'];
+                            $logs[$key]['photo'] = $value['photo'];
+                            $logs[$key]['paymentid'] = intval($value['paymentid']);
+                            $logs[$key]['cancel'] = intval($value['cancel']);
+                      }
+                  $data = array(
+                  'userid' => $params['userid'],
+                  'paymentlogs' => array(
+                        $los,
+                        $log,
+                        $logs,
+                    ),
+                  );
+                  //var_dump($data);die;
         }
+         $data = json_encode($data,JSON_UNESCAPED_UNICODE);
+        echo $data;
+            
+  }
 
 
         //留言
@@ -746,7 +721,7 @@ class UseraccountController extends Controller{
             $userid = $params['userid'];
             // $user = M('all_user')->where(['id'=>$params['userid']])->find();
             // $userid = $user['id'];
-            if (time()-$params['timestamp']>12) {
+            if (time()-$params['timestamp']>30) {
                 $data = array(
                     'errid' => 10001,
                     'timestamp' => time(),
@@ -768,7 +743,7 @@ class UseraccountController extends Controller{
                       //链接远程数据库 查询支付信息(nugh)
                 foreach ($rechargelogs as $key => $value) {
                     $data[$key]['rechargelogsid'] = $value['id'];
-                    $data[$key]['value'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
+                    $data[$key]['value'] = intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'));
                     // $data[$key]['amount'] = M('order')->where(['id'=>$value['order_id']])->getField('money');
                     //$data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
                     // $data[$key]['awardamount'] = M('order')->where(['id'=>$value['order_id']])->getField('amount');
@@ -776,7 +751,7 @@ class UseraccountController extends Controller{
                     //     ['type'=>'充值记录'.M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'),'value'=>'个人资产'.','.'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver')],
                     //     );
                     $data[$key]['purchase']=array(
-                        ['type'=>'金币','value'=>M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money')],
+                        ['type'=>'金币','value'=>intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'))],
                         );
                     if($value['award']<100){
                         $goldsilver = "金币";
@@ -784,22 +759,23 @@ class UseraccountController extends Controller{
                         $goldsilver = "银币";
                     }
                     $data[$key]['award']=array(
-                        ['type'=>$goldsilver,'value'=>$value['award']],
+                        ['type'=>$goldsilver,'value'=>intval($value['award'])],
                         );
                    // $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
                     //$data[$key]['awardtype'] = 'gold';
                     $data[$key]['date'] = $value['create_time'];
                 }
-            }elseif($rechargelogs['status'] == 0){
+            }
+            elseif($rechargelogs['status'] == 0){
                 //链接远程数据库 查询支付信息(nugh)
                 foreach ($rechargelogs as $key => $value) {
                     $data[$key]['rechargelogsid'] = $value['id'];
-                    $data[$key]['value'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
+                    $data[$key]['value'] = intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'));
                     // $data[$key]['amount'] = M('order')->where(['id'=>$value['order_id']])->getField('money');
                     //$data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
                     // $data[$key]['awardamount'] = M('order')->where(['id'=>$value['order_id']])->getField('amount');
                  $data[$key]['purchase']=array(
-                        ['type'=>'金币','value'=>M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money')],
+                        ['type'=>'金币','value'=>intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'))],
                         );
                     if($value['award']<100){
                         $goldsilver = "银币";
@@ -807,7 +783,7 @@ class UseraccountController extends Controller{
                         $goldsilver = "金币";
                     }
                     $data[$key]['award']=array(
-                        ['type'=>$goldsilver,'value'=>$value['award']],
+                        ['type'=>$goldsilver,'value'=>intval($value['award'])],
                         );
                    // $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
                     //$data[$key]['awardtype'] = 'gold';
@@ -820,7 +796,7 @@ class UseraccountController extends Controller{
                         'userid'=>$userid,
                     );
             }
-
+            //var_dump($data);die;
             $data = json_encode($data,JSON_UNESCAPED_UNICODE);
             echo $data;
         }

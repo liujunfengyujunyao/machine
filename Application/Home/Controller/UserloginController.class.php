@@ -246,6 +246,7 @@ class UserloginController extends Controller{
 			}
 		}
 		$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+
         // return $data;
         echo $data;
 		// $this->ajaxreturn($data);
