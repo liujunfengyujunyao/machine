@@ -28,57 +28,50 @@ class UseraccountController extends Controller{
             foreach ($order as $key => $value) {
                 //var_dump($value);die;
                 if($params['value']==$value['money']){
-                    if($params['value'] == 1||$params['value'] == 5){
+                    if($params['value'] == 1||$params['value'] == 5 || $params['value'] == 10){
                         $user['gold'] = $user['gold'] + $params['value'];
 
                     }
-                    elseif($params['value'] == 10 ){
-                        $user['gold'] = $user['gold'] + $params['value'];
-                        $user['silver'] = $user['silver'] +1;
-                        $type = 1;
-                        $value = "银币";
-                    }
                     elseif($params['value'] ==20 ){
                         $user['gold'] = $user['gold'] + $params['value'];
-                        $user['silver'] = $user['silver'] +2;
-                        $type = 2;
+                        $user['silver'] = $user['silver'] +10;
+                        $type = 10;
                         $value = "银币";
                     }elseif ($params['value'] == 50){
                         $user['gold'] = $user['gold'] + $params['value'];
-                        $user['silver'] = $user['silver'] + 3;
-                        $type = 3;
+                        $user['silver'] = $user['silver'] + 30;
+                        $type = 30;
                         $value = "银币";
                     }elseif ($params['value'] ==100) {
                         $user['gold'] = $user['gold'] + $params['value'];
-                        $user['silver'] = $user['silver'] +5;
-                        $type = 5;
+                        $user['silver'] = $user['silver'] +100;
+                        $type = 100;
                         $value = "银币";
                     }elseif ($params['value'] ==500) {
                         $user['gold'] = $user['gold'] + $params['value'];
-                        $user['silver'] = $user['silver'] +15;
-                        $type = 15;
+                        $user['silver'] = $user['silver'] +500;
+                        $type = 500;
                         $value = "银币";
                     }elseif ($params['value'] ==1000) {
-                        $user['gold'] = $user['gold'] + $params['value']+100;
-                        //$user['silver'] = $user['silver'] + $params['amount']+5;
-                        $type = 100;
-                        $value = "金币";
+                        $user['gold'] = $user['gold'] + $params['value'];
+                        $user['silver'] = $user['silver'] + $params['amount']+1000;
+                        $type = 1000;
+                        $value = "银币";
                     }
                 }
             }
              M('all_user')->where(['id'=>$params['userid']])->save($user);
-                if($params['value'] == 10 ){
-                        $user['silver'] = $user['silver'] -1;
-                    }elseif($params['value'] ==20 ){
-                        $user['silver'] = $user['silver'] -2;
+                
+                    if($params['value'] ==20 ){
+                        $user['silver'] = $user['silver'] -10;
                     }elseif ($params['value'] == 50){
-                        $user['silver'] = $user['silver'] - 3;
+                        $user['silver'] = $user['silver'] - 30;
                     }elseif ($params['value'] ==100) {
-                        $user['silver'] = $user['silver'] -5;
+                        $user['silver'] = $user['silver'] -100;
                     }elseif ($params['value'] ==500) {
-                        $user['silver'] = $user['silver'] -15;
+                        $user['silver'] = $user['silver'] -500;
                     }elseif ($params['value'] ==1000) {
-                        $user['gold'] = $user['gold']-100;
+                        $user['silver'] = $user['silver']-1000;
                     }
             $purchase = array(
                 ['type'=>'金币','value'=>$user['gold']],
@@ -775,11 +768,7 @@ class UseraccountController extends Controller{
                     $data[$key]['purchase']=array(
                         ['type'=>'金币','value'=>intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'))],
                         );
-                    if($value['award']<100){
-                        $goldsilver = "金币";
-                    }else{
                         $goldsilver = "银币";
-                    }
                     $data[$key]['award']=array(
                         ['type'=>$goldsilver,'value'=>intval($value['award'])],
                         );
@@ -799,11 +788,7 @@ class UseraccountController extends Controller{
                  $data[$key]['purchase']=array(
                         ['type'=>'金币','value'=>intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'))],
                         );
-                    if($value['award']<100){
                         $goldsilver = "银币";
-                    }if($value['award']>=100){
-                        $goldsilver = "金币";
-                    }
                     $data[$key]['award']=array(
                         ['type'=>$goldsilver,'value'=>intval($value['award'])],
                         );
