@@ -164,7 +164,7 @@ function equipment_del(obj,id){
 
 //ajax发送关机请求
 $('.ml-5-off').click(function(){
-		var data = {
+		var data = {//machineid机台ID
 			"machineid":$(this).parents('tr').children().eq(1).text(),
 			// "version_id":$(this).parents('tr').children().eq(1).text(),
 		};

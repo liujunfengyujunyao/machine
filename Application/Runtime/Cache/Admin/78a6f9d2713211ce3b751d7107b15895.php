@@ -311,7 +311,7 @@ function equipment_del(obj,id){
 
 //ajax发送关机请求
 $('.ml-5-off').click(function(){
-		var data = {
+		var data = {//machineid机台ID
 			"machineid":$(this).parents('tr').children().eq(1).text(),
 			// "version_id":$(this).parents('tr').children().eq(1).text(),
 		};
@@ -326,10 +326,11 @@ $('.ml-5-off').click(function(){
                         if(response.code != 10000){
                             //失败 code != 10000都表示失败，直接提示错误信息
                             alert("服务器繁忙,请稍后再试");
-                            // alert(response.msg);
+                            // console(response.msg);
                         }else{
                             //成功， 跳转到后台首页
-                            location.href = "/index.php/Admin/Equipment/index";
+                            // location.href = "/index.php/Admin/Equipment/index";
+                             window.location.reload();
                             console.log(response);
                         }
                     }
@@ -354,11 +355,12 @@ $('.ml-5-restart').click(function(){
                         console.log(response);
                         if(response.code != 10000){
                             //登录失败 code != 10000都表示失败，直接提示错误信息
-                            console.log(response);
-                            // alert(response.msg);
+                            // console.log(response);
+                            alert("服务器繁忙,请稍后再试");
                         }else{
                             //登录成功， 跳转到后台首页
-                            location.href = "/index.php/Admin/Equipment/index";
+                            // location.href = "/index.php/Admin/Equipment/index";
+                             window.location.reload();
                             console.log(response);
                         }
                     }

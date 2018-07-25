@@ -133,7 +133,8 @@ $('.ml-5').click(function(){//将机台ID和此机台的版本发送到后台
                             // alert(response.msg);
                         }else{
                             //登录成功， 跳转到后台首页
-                            location.href = "__MODULE__/Equipment/index";
+                            // location.href = "__MODULE__/Equipment/index";
+                            window.location.reload();
                             console.log(response);
                         }
                     }

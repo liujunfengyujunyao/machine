@@ -884,7 +884,7 @@ class EquipmentController extends CommonController{
 	public function upload(){
 		//接收前端ajax数据
 		if (IS_POST) {
-			$params = I('post.');
+			$params = I('post.');//machineid/version_id
 			$now_version = M('equipment')->where(['id'=>$params['machineid']])->getField("version");
 			$create_time = M('version')->where(['version'=>$now_version])->getField('create_time');
 			$version = M('version')->where(['id'=>$params['version_id']])->find();
@@ -919,8 +919,9 @@ class EquipmentController extends CommonController{
 			//将更新请求发送给游戏服务器
 			$url = "https://www.goldenbrother.cn:5003/";
 			$sever = json_curl($url,$data);
+			$sever = "success";
 			if ($sever !== false) {
-				M('equipment')->where(['id'=>$params['machineid']])->save(['update'=>$params['version_id']]);
+				M('equipment')->where(['id'=>$params['machineid']])->save(['update_id'=>$params['version_id']]);
 				$response = array(
 				//成功返回10000
 				'code' => 10000,
