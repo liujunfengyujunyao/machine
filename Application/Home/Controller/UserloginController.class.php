@@ -15,9 +15,9 @@ class UserloginController extends Controller{
 		
 		//前端接收code的地址
 		// $redirect_url = "http://www.12202.com.cn/vue/#roomList/list1";
-		// $redirect_url =  "http://192.168.1.171/#/roomList";
+		$redirect_url =  "http://192.168.1.171/#/roomList";
 		// $redirect_url =  "https://www.goldenbrother.cn/app/index.html/#/roomList";
-		$redirect_url =  "https://www.goldenbrother.cn/app/#/roomList";
+		// $redirect_url =  "https://www.goldenbrother.cn/app/#/roomList";
 		// $redirect_url = 'https://'.$_SERVER['HTTP_HOST'].'/app/index.html/#/roomlist';
 		// $redirect_url = 'https://'.$_SERVER['HTTP_HOST'].'/app/#/roomlist';
 
