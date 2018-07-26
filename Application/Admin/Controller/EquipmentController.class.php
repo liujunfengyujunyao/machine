@@ -706,8 +706,10 @@ class EquipmentController extends CommonController{
 	public function leader(){
 			$role_id = session('manager_info.role_id');
 			$id = session('manager_info.id');
-			
-			if ($role_id == 3 || $role_id == 5) {
+			if ($id == 1) {
+				$data = [];
+			}
+			elseif ($role_id == 3 || $role_id == 5) {
 				// $group = D('Group')->where(['pid'=>$id])->find();//管理员列表
 			$manager = D('Manager')->where(['pid'=>$id])->select();//员工的信息
 			// $manager['equipment_names'] = M('Equipment')->alias('t1')->field()->where("t2.pid = $id")->join("left join manager as t2 on t1.equipment_user = t2.id")->select();
@@ -948,7 +950,7 @@ class EquipmentController extends CommonController{
 
 		$data = M('version')->select();
 		//添加更新状态upload_status
-		// foreach ($equipment as $key => $value) {
+		//四类状态 可以更新版本/ 当前版本 / 正在更新版本 / 过低版本
 				foreach ($data as $k => &$v) {
 					if ($v['create_time']<$now_version) {
 						$v['upload_status'] = 1;//比当前使用的版本低
@@ -961,16 +963,14 @@ class EquipmentController extends CommonController{
 				}
 			
 			
-		// }
+
 		
 				
 
-		// dump($equipment);
-		 //dump($data);die;
-		// die;
+	
 		
-		//dump($data);die;
-		foreach ($data as $key => &$value) {
+		
+		foreach ($data as $key => &$value) {//修改下载地址
 			// $data[$key]['url'] = "http://".$_SERVER['HTTP_HOST'].$value['dladdr'];
 			$data[$key]['url'] = "https://www.goldenbrother.cn".$value['dladdr'];
 		}

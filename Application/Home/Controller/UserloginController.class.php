@@ -10,7 +10,7 @@ class UserloginController extends Controller{
 
 	public function get_code(){
 		
-		$config = C('wx_open');
+		$config = C('wx_oauth');
 		$obj = new Wxlogin($config);
 		
 		//前端接收code的地址
@@ -45,7 +45,7 @@ class UserloginController extends Controller{
        	$referee = $a['referee'];
        	$model = $a['model'];
 		// $config = C('wx_test');
-		$config = C('wx_open');
+		$config = C('wx_oauth');
         $obj = new Wxlogin($config);
 		if (!$code) {
 			$data = array(

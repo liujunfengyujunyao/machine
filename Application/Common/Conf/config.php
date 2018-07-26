@@ -5,13 +5,13 @@ return array(
     'TMPL_R_DELIM'          =>  '}}',            // 模板引擎普通标签结束标记
     'wx_open' => array(
         //开放平台
-        'appId'     =>  'wx9e8c63f03cbd36aa',
-        'appSecret' =>  'aa30b7860f3247a789fff62b08681b7e'
+        'appId'     =>  '',
+        'appSecret' =>  ''
         ),
     'wx_oauth'=>array(
         //公众平台
-        'appId'     =>  '',
-        'appSecret' =>  '',
+        'appId'     =>  'wx9e8c63f03cbd36aa',
+        'appSecret' =>  'aa30b7860f3247a789fff62b08681b7e',
         ),
     'wx_test' =>array(
         'appId'     =>  'wx7d93e0114cc3453a',

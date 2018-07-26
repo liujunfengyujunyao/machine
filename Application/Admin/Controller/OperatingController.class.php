@@ -536,6 +536,47 @@ class OperatingController extends CommonController{
 		}
 	}
 
-	
+	public function pay(){
+		$userid = session('manager_info.id');
+		if ($userid == 1) {
+			$data = M('order')->where(['store'=>1,'id'=>array(lt,10)])->select();//北京
+			$express = M('order')->where(['id'=>10])->find();
+		}else{
+			$data = M('order')->where(['store'=>2,'id'=>array(lt,20)])->select();//广东
+			$express = M('Order')->where(['id'=>20])->find();
+		}
+		$this->assign('express',$express);
+		$this->assign('data',$data);
+		$this->display();
+	}
+
+	public function pay_update(){
+		if(IS_POST){
+			$data = I('post.');
+			$id = $data['id'];
+			$order = M('order')->where(['id'=>$id])->save(['money'=>$data['money'],'amount'=>$data['silver']]);
+			if ($order !== false) {
+				$response = array(
+					'code' => 10000,
+					);
+				
+			}else{
+				$response = array(
+					'code' => 10001,
+					);
+
+			}
+			$this->ajaxReturn($response);
+			
+			
+
+		}else{
+			$id = I('get.id');
+			$data = M('order')->where(['id'=>$id])->find();
+			$this->assign("data",$data);
+			$this->display();
+		}
+		
+	}
 
 }	

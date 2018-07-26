@@ -18,7 +18,7 @@ class LoginController extends Controller{
             Header("Location: $url");
             exit();
 	 	}else{
-	 		$config = C('wx_open');
+	 		$config = C('wx_oauth');
 			$obj = new WxLogin($config);
 			$wx = 'http://'.$_SERVER['HTTP_HOST'].'/home/login/wx?type=open';
 			$wx_url = $obj->get_authorize_url($wx);
@@ -35,7 +35,7 @@ class LoginController extends Controller{
 		if(isset($code)){
 			if($type == 'open'){
 				//微信开放平台
-				$config = C('wx_open');
+				$config = C('wx_oauth');
 			}else{
 				//微信公众平台
 				$config = C('wx_test');
