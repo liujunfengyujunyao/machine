@@ -1921,7 +1921,7 @@ public function msg(){
         // 'value'=>100,
         'timestamp'=>time(),
       );
-    $url = "http://192.168.1.145/Home/Useraccount/get_recharge_logs";
+    $url = "http://192.168.1.145/Home/Useraccount/get_payment_logs";
     $return = json_curl($url,$data);
     dump($return);die;
   }

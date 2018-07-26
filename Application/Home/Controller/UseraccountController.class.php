@@ -408,47 +408,24 @@ class UseraccountController extends Controller{
                                 ->join("left join express as t2 on t2.express_id = t1.express_id")->getField('express_name');
                                 $res[$key]['delieverdate']= NULL;     
                             
-                        }
+                        }//$value['status']0为待发货 1为已发货 2为到货
+                        // var_dump($res);die;
                        foreach ($res as $k => &$v) {
+                        // var_dump($v);die;
                                 $tep = [];
                                 foreach ($v['items']as $k1 => $v1) {
-                                    //echo "aa";
                                     for ($i=0; $i<count($v['items']['gamelogid']); $i++) {
                                         $tep[$i][$k1] = $v1[$i];
                                     }
                                 }
-                                $v['items'] = $tep;
-                            }//转换items里面的数组顺序。
-                        //$value['status']0为待发货 1为已发货 2为到货
-                        // $arrStr = serialize($res);
-                        // file_put_contents('arr.txt', $arrStr);
-                      // $arr = $json;
-                      // $arr_new = array();
-                      //   foreach($res[$key]['items'] as &$item){
-                      //       foreach($item as $key=> &$val){
-                      //           $arr_new[$key][] = $val;
-                      //       }
-                      //   }
-                      //    $key = ['gamelogid','roomid','goodsname','photo'];
-                      //   $new_array = array();
-                      //   foreach($arr_new as $k=> &$v) {
-                      //       $new_array[$k] = array_combine($key,$v);
-
-                      //   }
-                      //   // $new_array = json_encode($new_array,JSON_UNESCAPED_UNICODE);
-                      //   var_dump($new_array);die;
-                     //    $array= array(
-                     //            'res'=>$res,
-                     //            'json'=>$new_array,
-                     //        );
-                     // var_dump($arr);die;
-
+                            $v['items'] = $tep;
+                        }//转换items里面的数组顺序。
+                        //var_dump($v);die;
                         $data = array(
                                 'orderlogs' => $res,
                                 'userid'    => $params['userid'],
                                 );
                 }
-
                 //var_dump($data);die;
                 $data = json_encode($data,JSON_UNESCAPED_UNICODE);
                 echo $data;
@@ -589,16 +566,14 @@ class UseraccountController extends Controller{
                             $logs[$key]['paymentid'] = intval($value['paymentid']);
                             $logs[$key]['cancel'] = intval($value['cancel']);
                       }
-                  $data = array(
-                  'userid' => $params['userid'],
-                  'paymentlogs' => array(
-                        $los,
-                        $log,
-                        $logs,
-                    ),
-                  );
-                  //var_dump($data);die;
+                      $Record = array_merge($logs,$los,$log);
+                      $data = array(
+                      'userid' => $params['userid'],
+                      'paymentlogs' =>$Record,                   
+                      );
+
         }
+        //var_dump($data);die;
          $data = json_encode($data,JSON_UNESCAPED_UNICODE);
         echo $data;
             
