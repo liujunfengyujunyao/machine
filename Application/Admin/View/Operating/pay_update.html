@@ -101,10 +101,10 @@
 <include file="Common/footer" /><!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本--> 
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<!-- <script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script> -->
 <script type="text/javascript">
 // $(function(){
 // 	$('.skin-minimal input').iCheck({
@@ -147,35 +147,35 @@
 // 		}
 // 	});
 // });
-// 
-$('.btn btn-primary radius').click(function(){//将机台ID和此机台的版本发送到后台
-		var data = {
-			"id":{{$data.id}},//选中机台的id
-			"money":$.("#money").val(),
-			"silver":$.("#silver").val(),
-		};
-          $.ajax({
-        			//发送ajax请求
-                    "type":"post",
-                    "url":"__CONTROLLER__/pay_update",
-                    "data": data,
-                    "dataType":"json",
-                    "success":function(response){
+// // 
+// $('.btn btn-primary radius').click(function(){//将机台ID和此机台的版本发送到后台
+// 		var data = {
+// 			"id":{{$data.id}},//选中机台的id
+// 			"money":$("#money").val(),
+// 			"silver":$("#silver").val(),
+// 		};
+//           $.ajax({
+//         			//发送ajax请求
+//                     "type":"post",
+//                     "url":"__CONTROLLER__/pay_update",
+//                     "data": data,
+//                     "dataType":"json",
+//                     "success":function(response){
                         
-                        if(response.code != 10000){
-                        	
-                            //修改失败 code != 10000都表示失败，直接提示错误信息
-                            // console.log(response);
-                            // alert(response.msg);
-                        }else{
-                            //修改成功， 跳转到后台首页
-                            // location.href = "__MODULE__/Equipment/index";
-                            // window.location.reload();
-                            window.close();
-                        }
-                    }
-                });
-		});
+//                         if(response.code != 10000){
+
+//                             //修改失败 code != 10000都表示失败，直接提示错误信息
+//                             // console.log(response);
+//                             // alert(response.msg);
+//                         }else{
+//                             //修改成功， 跳转到后台首页
+//                             // location.href = "__MODULE__/Equipment/index";
+//                             // window.location.reload();
+//                             window.close();
+//                         }
+//                     }
+//                 });
+// 		});
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

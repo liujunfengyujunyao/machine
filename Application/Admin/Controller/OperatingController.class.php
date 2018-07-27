@@ -556,17 +556,15 @@ class OperatingController extends CommonController{
 			$id = $data['id'];
 			$order = M('order')->where(['id'=>$id])->save(['money'=>$data['money'],'amount'=>$data['silver']]);
 			if ($order !== false) {
-				$response = array(
-					'code' => 10000,
-					);
+				// header('location: '.$_SERVER['HTTP_REFERER']);
+				// echo "<script>alert('退出成功!');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
+				$this->success('修改完成',U('Admin/Operating/pay'));
 				
 			}else{
-				$response = array(
-					'code' => 10001,
-					);
+				$this->error("修改失败");
 
 			}
-			$this->ajaxReturn($response);
+	
 			
 			
 
