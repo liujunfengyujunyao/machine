@@ -40,7 +40,7 @@ class WeixinpayController extends Controller{
                 $order_log = M('order_log')->where(['out_trade_no' => $result['out_trade_no']])->find();//查询出对应的订单
                 $order = M('Order')->where(['id' => $order_log['order_id']])->find();//查询出订单对应的充值金额
                 $user = M('all_user')->where(['id' => $order_log['userid']])->find();//查询出付款的用户
-                $gold = $user['gold'] + $order['money'];//原有金币+充值获取到的金币总额
+                $gold = $user['gold'] + $order['gold'];//原有金币+充值获取到的金币总额
                 $silver = $user['silver'] + $order['amount'];//原有银币+充值获取到的银币数量
                 M('all_user')->where(['id' => $user['id']])->save(['gold' => $gold, 'silver' => $silver]);//修改用户的金币数量
             }else{

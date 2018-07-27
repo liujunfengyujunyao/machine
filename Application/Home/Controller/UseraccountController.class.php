@@ -111,7 +111,27 @@ class UseraccountController extends Controller{
 
 	}
 
-
+    //价格(奖励)列表
+    public function detail(){
+        $params = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $params = json_decode($params,true);
+        $data = M('order')->where(['id'=>array("lt",10)])->select();
+        foreach ($data as $key => $value) {
+            $res[$key]['value'] = $value['money'];
+            $res[$key]['purchase'] = array(
+                'type' => "金币",
+                'value' => $value['gold'],
+                );
+            $res[$key]['award'] = array(
+                'type' => "银币",
+                'value' => $value['amount'],
+                );
+        }
+       
+        $res = json_encode($res,JSON_UNESCAPED_UNICODE);
+      
+        echo $res;
+    }
 	//游戏记录
 	public function get_game_logs(){
         
