@@ -165,7 +165,8 @@ class Weixinpay {
 //            var_dump($redirect_uri);die;
 //            $redirect_uri="http://www.12202.com.cn/diamond/index.php/Home/Ajax/index2";
 //            $redirect_uri="http://www.12202.com.cn/vue/index.html#/recharge";//拉起支付SDK的页面
-            $redirect_uri="http://www.12202.com.cn/vue/#/PAY";//拉起支付SDK的页面
+            // $redirect_uri="http://www.12202.com.cn/vue/#/PAY";//拉起支付SDK的页面
+            $redirect_uri = "https://www.goldenbrother.cn/app/#/PAY";
             $redirect_uri=urlencode($redirect_uri);
 
             $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$config['APPID'].'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_base&state='.$out_trade_no.'#wechat_redirect';
@@ -255,7 +256,8 @@ class Weixinpay {
 //            var_dump($redirect_uri);die;
 //            $redirect_uri="http://www.12202.com.cn/diamond/index.php/Home/Ajax/index2";
 //            $redirect_uri="http://www.12202.com.cn/vue/#/CREATE_ORDER";
-            $redirect_uri="http://www.12202.com.cn/vue/#/PAY";
+            // $redirect_uri="http://www.12202.com.cn/vue/#/PAY";
+            $redirect_uri="https://www.goldenbrother.cn/app/#/PAY";
             $redirect_uri=urlencode($redirect_uri);
 
             $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$config['APPID'].'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_base&state='.$out_trade_no.'#wechat_redirect';
