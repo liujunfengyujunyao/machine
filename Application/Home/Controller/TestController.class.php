@@ -1925,3 +1925,49 @@ public function msg(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
+
+  public function fff(){
+    $data = array(
+      'userid'=>347,
+      // 'gamelogid'=>'1044',
+      // 'roomid'=>14,
+      // 'name'=>zhongg,
+      // 'tel'=>'18101276492',
+      // 'addresss'=>'测试',
+      'timestamp'=>time(),
+      );
+    $url = "http://192.168.1.145/Home/Userlogin/get_current_user_info";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+ public function hhh(){
+
+    echo phpinfo();
+    die;
+  }
+   public function sess(){
+   $url = "http://192.168.1.145/Home/Kuaidi/logistics";
+   $data = array(
+    // 'userid'=>'35',
+    'trackingid'=>'12345678',
+    // 'carrier'=>'顺丰',
+    );
+   $return = json_curl($url,$data);
+   dump($return);
+  }
+  public function kou(){
+   
+   $data = array(
+    // 'msgtype'=>'payment_request',
+    // 'userid'=>'348',
+    // 'machineid'=>'14',
+    // 'paymenttype'=>'silver',
+    'trackingid'=>'12345678',
+    // 'carrier'=>'顺丰',
+    'timestamp'=>time(),
+    );
+   $url = "http://192.168.1.145/Home/Kuaidi/logistics";
+   $return = json_curl($url,$data);
+   dump($return);
+  }
+}
