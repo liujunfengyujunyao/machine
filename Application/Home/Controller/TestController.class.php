@@ -142,7 +142,7 @@ class TestController extends Controller{
    	}
    	//模拟获取回调地址页面
    public function a(){
-   		$url = "http://192.168.1.164/Home/Api/user_login";
+   		$url = "http://192.168.1.145/Home/Api/user_login";
    		$data = array(
    			'msgtype'=>'get_code',
    			// 'timestamp'=>1522292040,
@@ -189,7 +189,7 @@ class TestController extends Controller{
 }
   //测试显示授权页面
   public function wx(){
-    $url = 'http://192.168.1.164/Home/Api/user_login';
+    $url = 'http://192.168.1.145/Home/Api/user_login';
     $data = array(
       'msgtype'=>'get_code',
       );
@@ -250,9 +250,9 @@ class TestController extends Controller{
  public function uselogin(){
    
     $url = 'http://www.machine.com/Home/Userlogin/get_code';
-    $return = json_curl($url);
+    // $return = json_curl($url);
    
-    // $return = curl_request($url);
+    $return = curl_request($url);
    
     $return = json_decode($return,1);
     dump($return);die;
@@ -1916,14 +1916,58 @@ public function msg(){
   public function ff(){
 
     $data = array(
-         // 'type'=>1,
+         'type'=>1,
         'userid'=>348,
         // 'value'=>100,
         'timestamp'=>time(),
       );
-    $url = "http://192.168.1.145/Home/Useraccount/get_payment_logs";
+    $url = "http://192.168.1.145/Home/Rooms/get_room_list";
     $return = json_curl($url,$data);
     dump($return);die;
   }
- 
+
+  public function fff(){
+    $data = array(
+      'userid'=>347,
+      // 'gamelogid'=>'1044',
+      // 'roomid'=>14,
+      // 'name'=>zhongg,
+      // 'tel'=>'18101276492',
+      // 'addresss'=>'测试',
+      'timestamp'=>time(),
+      );
+    $url = "http://192.168.1.145/Home/Userlogin/get_current_user_info";
+    $return = json_curl($url,$data);
+    dump($return);die;
+  }
+ public function hhh(){
+
+    echo phpinfo();
+    die;
+  }
+   public function sess(){
+   $url = "http://192.168.1.145/Home/Kuaidi/logistics";
+   $data = array(
+    // 'userid'=>'35',
+    'trackingid'=>'12345678',
+    // 'carrier'=>'顺丰',
+    );
+   $return = json_curl($url,$data);
+   dump($return);
+  }
+  public function kou(){
+   
+   $data = array(
+    'msgtype'=>'payment_request',
+    'userid'=>'348',
+    'machineid'=>'14',
+    'paymenttype'=>'silver',
+    // 'trackingid'=>'12345678',
+    // 'carrier'=>'顺丰',
+    'timestamp'=>time(),
+    );
+   $url = "http://192.168.1.145/Home/Diliang/Payment";
+   $return = json_curl($url,$data);
+   dump($return);
+  }
 }
