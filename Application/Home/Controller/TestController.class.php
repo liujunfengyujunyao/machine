@@ -1925,3 +1925,5 @@ public function msg(){
     $return = json_curl($url,$data);
     dump($return);die;
   }
+
+}
