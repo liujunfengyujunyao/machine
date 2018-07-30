@@ -36,6 +36,7 @@ class SeverController extends Controller{
 		public function payment(){
 			$params = $GLOBALS['HTTP_RAW_POST_DATA'];         
             $params = json_decode($params,true);
+            //var_dump($params);die;
             $type = $params['msgtype'] ? $params['msgtype'] : "";
             //dump($type);die;
             switch ($type) {
@@ -148,7 +149,10 @@ class SeverController extends Controller{
 		//第二版
 		public function payment_request($params){
 				$user = M('all_user')->where(['id'=>$params['userid']])->find();
-				$amount = M('equipment')->where(['id'=>$params['machineid']])->getField('price');
+				// if()
+					$amount = M('equipment')->where(['id'=>$params['machineid']])->getField('price');
+			
+					$money = M('equipment')->where(['id'=>$params['machineid']])->getField('money');
 				
 			if (time()-$params['timestamp']>30) {
 				$data = array(
@@ -157,49 +161,49 @@ class SeverController extends Controller{
 					);
 			}else{
 
-				// $type = $params['type'];
+				$paymenttype = $params['paymenttype'];
 
-				// if ($type == "silver") {
-				// 	$silver = $user['silver'] - $params['amount'];
-				// 	if ($silver<0) {
-				// 		$data = array(
-				// 			'errid' => 40001,
-				// 			'errmsg' => 'The balance of account is insufficient',
-				// 			);
-				// 		$data = json_encode($data,JSON_UNESCAPED_UNICODE);
-				// 		return $data;
-				// 	}else{
-				// 		$user['sliver'] = $user['silver'] - $params['amount'];
-				// 	}
-				// }else{
-				// 	//$type == "gold"
-				// 	$gold = $user['gold'] - $params['amount'];
-				// 	if ($gold<0) {
-				// 		$data = array(
-				// 			'errid' => 40001,
-				// 			'errmsg' => 'The balance of account is insufficient',
-				// 			);
-				// 		$data = json_encode($data,JSON_UNESCAPED_UNICODE);
-				// 		return $data;
-				// 	}else{
-				// 		$user['gold'] = $user['gold'] - $params['amount'];
-				// 	}
-				// }
-				// 
-				if ($user['gold']-$amount < 0 && $user['silver']-$amount < 0) {
-					$data = array(
+				if ($paymenttype == "silver") {
+					$silver = $user['silver'] - $money;
+					if ($silver<0) {
+						$data = array(
 							'errid' => 40001,
 							'errmsg' => 'The balance of account is insufficient',
 							);
-					$data = json_encode($data,JSON_UNESCAPED_UNICODE);
-					return $data;
-				}elseif($user['gold'] >= 0){
-					$user['gold'] = $user['gold'] - $amount;
-					$type = 'gold';
+						$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+						return $data;
+					}else{
+						$user['silver'] = $user['silver'] - $money;
+					}
 				}else{
-					$user['silver'] = $user['silver'] - $amount;
-					$type = 'silver';
+					//$type == "gold"
+					$gold = $user['gold'] - $amount;
+					if ($gold<0) {
+						$data = array(
+							'errid' => 40001,
+							'errmsg' => 'The balance of account is insufficient',
+							);
+						$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+						return $data;
+					}else{
+						$user['gold'] = $user['gold'] - $amount;
+					}
 				}
+				
+				// if ($user['gold']-$amount < 0 && $user['silver']-$amount < 0) {
+				// 	$data = array(
+				// 			'errid' => 40001,
+				// 			'errmsg' => 'The balance of account is insufficient',
+				// 			);
+				// 	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+				// 	return $data;
+				// }elseif($user['gold'] >= 0){
+				// 	$user['gold'] = $user['gold'] - $amount;
+				// 	$type = 'gold';
+				// }else{
+				// 	$user['silver'] = $user['silver'] - $amount;
+				// 	$type = 'silver';
+				// }
 				//可以扣款
 				// $user['"$type"'] = $user['"$type"'] - $params['amount'];
 				//添加消费记录
@@ -208,15 +212,20 @@ class SeverController extends Controller{
 				$equipment = M('Equipment')->alias("t1")->field("t3.pics_origin,t2.name as goods_name,t2.id as roomid,t1.id as machineid")->where(['t1.id'=>$params['machineid']])->join("left join goods as t2 on t2.id = t1.goods_id")->join("left join goodspics as t3 on t3.goods_id = t2.id")->find();
 				M('all_user')->save($user);//修改用户的金币余额
 				// 添加这个userid的消费记录到record表中
+				if($paymenttype=='gold'){
+					$goldsilver = $amount;
+				}else{
+					$goldsilver = $money;
+				}
 				$record = array(
 					'userid' => $user['id'],
 					'roomid' => $equipment['roomid'],
 					'goodsname' =>  $equipment['goods_name'],
 					'photo' => $equipment['pics_origin'],
 					'equipment_id' => $equipment['machineid'],
-					'type' => $type,//消费的币种类型
+					'type' => $paymenttype,//消费的币种类型
 					// 'amount' => $params['amount'],
-					'amount' => $amount,
+					'amount' => $goldsilver,
 					'paymentid' => $paymentid,
 					'cancel' => 0,  //是否被撤销扣款
 					'create_time' => time(),
@@ -225,7 +234,7 @@ class SeverController extends Controller{
 				$log = array(
 					'userid' => $user['id'],
 					// 'type' => $params['type'],
-					'type' => $type,
+					'type' => $paymenttype,
 					'paymentid'=>$paymentid,
 					'start_time' => date('Y-m-d H-i-s'),
 

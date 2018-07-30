@@ -80,7 +80,7 @@ class DiliangController extends Controller{
 		$params = $GLOBALS['HTTP_RAW_POST_DATA'];
 	    $params = json_decode($params,true);
 
-	    if (time()-$params['timestamp']>10) {
+	    if (time()-$params['timestamp']>30) {
 	   
 	    	$data = array(
 	    		'errid' => 10001,
@@ -217,7 +217,7 @@ class DiliangController extends Controller{
   		$params = $GLOBALS['HTTP_RAW_POST_DATA'];
   		$params = json_decode($params,true);
   		$user = M('all_user')->where(['id'=>$params['userid']])->find();
-  		if (time()-$params['timestamp']>10) {
+  		if (time()-$params['timestamp']>30) {
   			$data = array(
   				'errid' => 10001,
   				'timestamp' => time(),
@@ -262,7 +262,7 @@ class DiliangController extends Controller{
   		$uuid = M('all_user')->where(['id'=>$params['userid']])->getField('uuid');
   		//查询发送过来的订单号是否满足邮寄标准(tbl_game_logs中的)status=0
   		$log = M('tbl_game_log')->where(['id'=>$params['gamelogid'],'status'=>0,'useruuid'=>$uuid,'got_gift'=>1])->find();
-  		if (time()-$params['timestamp']>10) {
+  		if (time()-$params['timestamp']>30) {
   			$data = array(
   				'errid' => 10001,
   				'timestamp' => time(),
@@ -295,7 +295,7 @@ class DiliangController extends Controller{
   		$params = $GLOBALS['HTTP_RAW_POST_DATA'];
   		$params = json_decode($params,true);
   		$order = M("tbl_order")->where(['id'=>$params['orderlogid']])->find();
-  		if (time()-$params['timestamp']>10) {
+  		if (time()-$params['timestamp']>30) {
   				$data = array(
   					'errid' => 10001,
   					'timestamp' => time(),
@@ -338,7 +338,7 @@ class DiliangController extends Controller{
   		$uuid = $user['uuid'];
   		$order = M('tbl_order')->where(['uuid'=>$uuid])->select();
   		//获取tbl_order表中属于这个用户的订单id
-  		if (time()-$params['timestamp']>10) {
+  		if (time()-$params['timestamp']>30) {
   			$data = array(
   				'errid' => 10001,
   				'timestamp' => time(),
@@ -383,6 +383,7 @@ class DiliangController extends Controller{
       //获取到从服务器接收到的数据,转换成数组
         $params = $GLOBALS['HTTP_RAW_POST_DATA'];   file_put_contents("11111111111111.txt",$params);
         $params = json_decode($params,true);  
+        //var_dump($params);die;
         $user = M('all_user')->where(['id'=>$params['userid']])->find();
         $test = json_encode($user,JSON_UNESCAPED_UNICODE);
         
@@ -406,7 +407,7 @@ class DiliangController extends Controller{
         $post_time = $params['timestamp'];
         file_put_contents('timetimetime.txt',$post_time);
         file_put_contents("9999999999999999.txt",$time);
-        if(time()-$params['timestamp']>10 || $params['timestamp']-time()>10){
+        if(time()-$params['timestamp']>30 || $params['timestamp']-time()>30){
           $data = array(
             'errid' => 10001,
             'timestamp' => time(),
@@ -417,12 +418,12 @@ class DiliangController extends Controller{
             'errmsg' => 'auth error',
             );
         }
-        elseif($params['signature'] != $signature){
-          $data = array(
-            'errid' => 10005,
-            'errmsg' => 'signature error',
-            );
-        }
+        // elseif($params['signature'] != $signature){
+        //   $data = array(
+        //     'errid' => 10005,
+        //     'errmsg' => 'signature error',
+        //     );
+        // }
         else{
           //验证成功,返回用户数组ID,用户昵称,头像地址
           $data = array(
@@ -438,13 +439,10 @@ class DiliangController extends Controller{
 
   //用来接收游戏服务器传输的数据
   public function payment(){
-
     $params = $GLOBALS['HTTP_RAW_POST_DATA'];
-    file_put_contents("test2.txt",$params);
+    //file_put_contents("test2.txt",$params);
     $params = json_decode($params,true);
     $type = $params['msgtype'] ? $params['msgtype'] : "";
-    // $params = $params['params'];
-    //var_dump($params);die;
     switch ($type) {
       case 'payment_request':
         echo $this->payment_request($params);
@@ -473,13 +471,13 @@ class DiliangController extends Controller{
 	public function payment_request($params){
       //判断属于谁的用户
       $user = M('all_user')->where(['id'=>$params['userid']])->find();
-      
+      //var_dump($user);die;
 
       if ($user['openid']) {
 
         // $url = "http://192.168.1.3/index.php/Home/Sever/payment";
         $url = "https://www.goldenbrother.cn/index.php/Home/Sever/payment";
-        // $url = "http://192.168.1.164/Home/Sever/payment";
+        // $url = "http://192.168.1.145/Home/Sever/payment";
         $return = json_curl($url,$params);
     
       }
@@ -496,6 +494,7 @@ class DiliangController extends Controller{
       $return = json_curl($url,$data);
      
       }
+      //var_dump($return);die;
 	     return $return;
 	}
 

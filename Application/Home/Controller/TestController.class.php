@@ -142,7 +142,7 @@ class TestController extends Controller{
    	}
    	//模拟获取回调地址页面
    public function a(){
-   		$url = "http://192.168.1.164/Home/Api/user_login";
+   		$url = "http://192.168.1.145/Home/Api/user_login";
    		$data = array(
    			'msgtype'=>'get_code',
    			// 'timestamp'=>1522292040,
@@ -189,7 +189,7 @@ class TestController extends Controller{
 }
   //测试显示授权页面
   public function wx(){
-    $url = 'http://192.168.1.164/Home/Api/user_login';
+    $url = 'http://192.168.1.145/Home/Api/user_login';
     $data = array(
       'msgtype'=>'get_code',
       );
@@ -250,9 +250,9 @@ class TestController extends Controller{
  public function uselogin(){
    
     $url = 'http://www.machine.com/Home/Userlogin/get_code';
-    $return = json_curl($url);
+    // $return = json_curl($url);
    
-    // $return = curl_request($url);
+    $return = curl_request($url);
    
     $return = json_decode($return,1);
     dump($return);die;
@@ -1916,37 +1916,12 @@ public function msg(){
   public function ff(){
 
     $data = array(
-         // 'type'=>1,
+         'type'=>1,
         'userid'=>348,
         // 'value'=>100,
         'timestamp'=>time(),
       );
-    $url = "http://192.168.1.145/Home/Useraccount/get_payment_logs";
+    $url = "http://192.168.1.145/Home/Rooms/get_room_list";
     $return = json_curl($url,$data);
     dump($return);die;
   }
- 
- public function fw(){
-  $data = array(
-    'type' => "price",
-    // 'limit' => 10,
-    'userid' => 1,
-    'timestamp' => time(),
-    );
-  $url = "192.168.1.164/Home/rooms/get_room_list";
-  $return = json_curl($url,$data);
-  $return = json_decode($return);
-  dump($return);
- }
-
- public function fw2(){
-  $data = array(
-    'userid' => 1,
-    'timestamp' => time(),
-    );
-  $url = "192.168.1.164/Home/Useraccount/get_payment_logs";
-  $return = json_curl($url,$data);
-  $return = json_decode($return);
-  dump($return);die;
- }
-}

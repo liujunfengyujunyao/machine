@@ -11,7 +11,7 @@ class UseraccountController extends Controller{
 		 $params = $GLOBALS['HTTP_RAW_POST_DATA'];         
          $params = json_decode($params,true);
          $user = M('all_user')->where(['id'=>$params['userid']])->find();
-         if (time()-$params['timestamp']>10) {
+         if (time()-$params['timestamp']>30) {
          	$data = array(
          		'errid' => 10001,
          		'timestamp' => time(),
@@ -96,7 +96,7 @@ class UseraccountController extends Controller{
                 'order_id'=>$order_id['id'],
                 'userid'=>$params['userid'],
                 'award'=>$type,
-                'out_trade_no'=>strtotime( date("Y-m-d H:i:s",strtotime("+1 seconds"))),
+                'out_trade_no'=>strtotime(date("Y-m-d H:i:s",strtotime("+1 seconds"))),
                 'create_time'=>time(),
                 'status'=>0,
             );
@@ -111,27 +111,7 @@ class UseraccountController extends Controller{
 
 	}
 
-    //价格(奖励)列表
-    public function detail(){
-        $params = $GLOBALS['HTTP_RAW_POST_DATA'];
-        $params = json_decode($params,true);
-        $data = M('order')->where(['id'=>array("lt",10)])->select();
-        foreach ($data as $key => $value) {
-            $res[$key]['value'] = $value['money'];
-            $res[$key]['purchase'] = array(
-                'type' => "金币",
-                'value' => $value['gold'],
-                );
-            $res[$key]['award'] = array(
-                'type' => "银币",
-                'value' => $value['amount'],
-                );
-        }
-       
-        $res = json_encode($res,JSON_UNESCAPED_UNICODE);
-      
-        echo $res;
-    }
+
 	//游戏记录
 	public function get_game_logs(){
         
@@ -206,6 +186,7 @@ class UseraccountController extends Controller{
                         'stock_count' => $stock_count,//抓中娃娃,还没有申请发货的数量
          		);
          }
+         //var_dump($data);die;
         $data = json_encode($data,JSON_UNESCAPED_UNICODE);
          //var_dump($data);die;
         // return $data;
@@ -218,9 +199,11 @@ class UseraccountController extends Controller{
     public function create_order(){
         $params = $GLOBALS['HTTP_RAW_POST_DATA'];  //file_put_contents('order.txt',$params); 
         $params = json_decode($params,true);
-        //var_dump($params);die;
-        if(count($params['gamelogid']>1)){//判断穿过来的gamelogid的长度
+        //$dd = count($params['gamelogid']);
+         //var_dump($dd);die;
+        if(count($params['gamelogid'])>1){//判断穿过来的gamelogid的长度
             $gamelogid = implode(',',$params['gamelogid']);
+            var_dump($gamelogid);die;
             $signature = array(
                 'userid' => $params['userid'],
                 'gamelogid' => $gamelogid,
@@ -238,7 +221,8 @@ class UseraccountController extends Controller{
             ->where("id in ($gamelogid)")
             ->where(['status'=>0,'userid'=>$params['userid']])
             ->select();
-             if (time()-$params['timestamp']>12) {
+           // var_dump($log);die;
+             if (time()-$params['timestamp']>30) {
             $data = array(
                 'errid' => 10001,
                 'timestamp' => time(),
@@ -259,7 +243,7 @@ class UseraccountController extends Controller{
         }
         else{
             //将传来的数据全部添加到tbl_order表中
-            //var_dump($data);die;
+            ///var_dump($data);die;
                 M('tbl_game_log')->where("id in ($gamelogid)")->save(['status'=>1]); 
             $array = array(
                     'create_time' => time(),
@@ -288,13 +272,16 @@ class UseraccountController extends Controller{
             'timestamp' => $params['timestamp'],
             'access_token' => $_SESSION['accesstoken'],
             );
+        
         $signature = json_encode($signature,JSON_UNESCAPED_UNICODE);
         $signature = sha1($signature);
+        // var_dump($signature);die;
                 //查询发送过来的订单号是否满足邮寄标准(tbl_game_logs中的)status=0
                 $log = M('tbl_game_log')->where(['id'=>$params['gamelogid'],'status'=>0,'userid'=>$params['userid'],'got_gift'=>1])->find();
                 //var_dump($log);die;
                 $user = M('all_user')->where(['id'=>$params['userid']])->find();
-        if (time()-$params['timestamp']>12) {
+                //var_dump($user);die;
+        if (time()-$params['timestamp']>30) {
             $data = array(
                 'errid' => 10001,
                 'timestamp' => time(),
@@ -304,15 +291,15 @@ class UseraccountController extends Controller{
                 'errid' => 40002,
                 );
         }
-        elseif($params['signature']!=$signature){
-            $data = array(
-                'msgtype' => 'error',
-                'params' => array(
-                    'errid' => 10003,
-                    'errmsg' => 'signature error',
-                    ),
-                );
-        }
+        // elseif($params['signature']!=$signature){
+        //     $data = array(
+        //         'msgtype' => 'error',
+        //         'params' => array(
+        //             'errid' => 10003,
+        //             'errmsg' => 'signature error',
+        //             ),
+        //         );
+        // }
         else{
 
                         //拉起支付页面
@@ -320,9 +307,9 @@ class UseraccountController extends Controller{
                         $out_trade_no = rand(10,999999);//生成订单编号
                         //var_dump($out_trade_no);die;
                         //将订单存入数据库,status为0(未支付)
-                        $repeat = $params['gamelogid'];
-                        $gamelogid = M('tbl_game_log')->where("id in ($repeat)")->distinct(true)->getField('id',true);
-                        $gamelogid = implode(',',$gamelogid);
+                        // $repeat = $params['gamelogid'];
+                        // $gamelogid = M('tbl_game_log')->where("id in ($repeat)")->distinct(true)->getField('id',true);
+                        // $gamelogid = implode(',',$gamelogid);
                         $data = array(
                             'out_trade_no'=>$out_trade_no,
                             'create_time'=>time(),
@@ -472,7 +459,7 @@ class UseraccountController extends Controller{
                 // $order = M('tbl_game_log')->where(['id'=>$params['orderlogid']])->find();
                 // 查询出order表中要修改的这条数据
                 $order = M('tbl_order')->where(['id'=>$params['orderlogid']])->find();
-                if (time()-$params['timestamp']>12) {
+                if (time()-$params['timestamp']>30) {
                         $data = array(
                                 'errid' => 10001,
                                 'timestamp' => time(),
@@ -562,6 +549,7 @@ class UseraccountController extends Controller{
                         $los[$key]['photo'] = $v['pics_origin'];
                         $los[$key]['cancel'] = intval($v['cancel']);
                   }
+                  //var_dump($los);die;
                   //订单//
             $express_pay = M('express_pay')->alias('t1')->field("t1.id,t1.userid,t1.log_id,t1.order_id,t2.paymentid,t3.name,t4.pics_origin")->join("left join tbl_game_log as t2 on t2.id = t1.log_id")->join('left join goods as t3 on t3.id = t2.goods_id')->join("left join goodspics as t4 on t4.goods_id = t3.id")->where(['t1.userid'=>$params['userid']])->select();
                 //var_dump($express_pay);die;
@@ -586,14 +574,22 @@ class UseraccountController extends Controller{
                             $logs[$key]['paymentid'] = intval($value['paymentid']);
                             $logs[$key]['cancel'] = intval($value['cancel']);
                       }
-                      $Record = array_merge($logs,$los,$log);
+                    if($log == null){
+                        $Record = array_merge($logs,$los);
+                    }elseif($logs == null){
+                        $Record = array_merge($log,$los);
+                    }elseif($logs == null && $log == null){
+                        $Record = $los;
+                    }else{
+                        $Record = array_merge($log,$logs,$los);
+                    }
                       $data = array(
                       'userid' => $params['userid'],
                       'paymentlogs' =>$Record,                   
                       );
 
         }
-        //var_dump($data);die;
+        // var_dump($data);die;
          $data = json_encode($data,JSON_UNESCAPED_UNICODE);
         echo $data;
             
@@ -613,7 +609,7 @@ class UseraccountController extends Controller{
             $signature = json_encode($signature,JSON_UNESCAPED_UNICODE);
             $signature = sha1($signature);
             $user = M('all_user')->where(['id'=>$params['userid']])->find();
-            if (time() - $params['timestamp'] > 12) {
+            if (time() - $params['timestamp'] > 30) {
                 $data = array(
                     'errid' => 10001,
                     'timestamp' => time(),
@@ -663,7 +659,7 @@ class UseraccountController extends Controller{
             $signature = sha1($signature);
             $user = M('all_user')->where(['id'=>$params['userid']])->find();
 
-            if (time() - $params['timestamp'] > 12) {
+            if (time() - $params['timestamp'] > 30) {
 
                 $data = array(
                     'errid' => 10001,
@@ -748,8 +744,7 @@ class UseraccountController extends Controller{
             // }
             else{
                 // $rechargelogs = M('order_log')->where("userid = $userid && status = 1")->select();
-                $rechargelogs = M()->db(2,"DB_CONFIG2")->table("order_log")->where("userid = $userid")->select();
-                if($rechargelogs['status'] == 1){
+                $rechargelogs = M()->db(2,"DB_CONFIG2")->table("order_log")->where("userid = $userid && status =1 ")->select();
                       //链接远程数据库 查询支付信息(nugh)
                 foreach ($rechargelogs as $key => $value) {
                     $data[$key]['rechargelogsid'] = $value['id'];
@@ -771,27 +766,7 @@ class UseraccountController extends Controller{
                     //$data[$key]['awardtype'] = 'gold';
                     $data[$key]['date'] = $value['create_time'];
                 }
-            }
-            elseif($rechargelogs['status'] == 0){
-                //链接远程数据库 查询支付信息(nugh)
-                foreach ($rechargelogs as $key => $value) {
-                    $data[$key]['rechargelogsid'] = $value['id'];
-                    $data[$key]['value'] = intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'));
-                    // $data[$key]['amount'] = M('order')->where(['id'=>$value['order_id']])->getField('money');
-                    //$data[$key]['amount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money');
-                    // $data[$key]['awardamount'] = M('order')->where(['id'=>$value['order_id']])->getField('amount');
-                 $data[$key]['purchase']=array(
-                        ['type'=>'金币','value'=>intval(M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('money'))],
-                        );
-                        $goldsilver = "银币";
-                    $data[$key]['award']=array(
-                        ['type'=>$goldsilver,'value'=>intval($value['award'])],
-                        );
-                   // $data[$key]['awardamount'] = M()->db(2,"DB_CONFIG2")->table("order")->where(['id'=>$value['order_id']])->getField('amount');
-                    //$data[$key]['awardtype'] = 'gold';
-                    $data[$key]['date'] = $value['create_time'];
-                }
-            }
+            
               $data = array(
                         'msgtype'=>'recharge_success',
                         'rechargelogs'=>$data,

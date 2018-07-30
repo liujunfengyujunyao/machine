@@ -57,8 +57,8 @@ class RoomsController extends Controller{
            else{
                $type = $params['type'];
                $limit = $params['limit'];
-               $userid = $params['userid'];
-               $room = $this->available($type,$limit,$userid);
+               //$userid = $params['userid'];
+               $room = $this->available($type,$limit);
                //分页获取
             
 
@@ -249,7 +249,7 @@ class RoomsController extends Controller{
     dump($return);
   }
   //封装判断机器是否空闲以及种类的方法
-  public function available($type,$limit,$userid){
+  public function available($type,$limit){
 
     if ($type == 1) {
       $rooms = M('Goods')
@@ -309,18 +309,18 @@ class RoomsController extends Controller{
       }else{
         $value['available'] = 0;
       }
-      $all_user = M('all_user')->where(['id'=>$userid])->getField('gold');
-      $all_user =  intval($all_user);
-      $all = M('all_user')->where(['id'=>$userid])->getField('silver');
-      $all =  intval($all);
+      // $all_user = M('all_user')->where(['id'=>$userid])->getField('gold');
+      // $all_user =  intval($all_user);
+      // $all = M('all_user')->where(['id'=>$userid])->getField('silver');
+      // $all =  intval($all);
       $value['price'] = array( 
-        ['type'=>'金币','value'=>$all_user],
-        ['type'=>'银币','value'=>$all],
+        ['type'=>'金币','value'=>$available['price']],
+        ['type'=>'银币','value'=>$available['money']],
         // 'type'=>'金币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.price').'游戏一次'.','.'银币'.M('Goods')->alias('t1')->where(['t2.state'=>1,'t2.goods_id'=>$value['roomid']])->join("left join equipment as t2 on t2.goods_id = t1.id")->getField('t1.money').'游戏一次',
         // 'value'=>'金币'.M('all_user')->where(['id'=>$userid])->getField('gold').','.'银币'.M('all_user')->where(['id'=>$userid])->getField('silver'),
         );
     }
-     //var_dump($rooms);die;
+     // var_dump($rooms);die;
     return $rooms;
   }
   //封装查询出空闲的机台/人数最少机台的方法
