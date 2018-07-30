@@ -81,7 +81,6 @@ class EquipmentController extends CommonController{
 
 		 }
 
-		
 		$this -> display();
 	}
 	//新增页面
@@ -1116,6 +1115,21 @@ class EquipmentController extends CommonController{
 				);
 			$this->ajaxReturn($res);
 		}
+
+	}
+
+	public function lock(){
+		$machineid = I('post.machineid');
+		$lock = M('equipment')->where(['id'=>$machineid])->getField("lock");
+		if ($lock == 1) {
+			M('equipment')->where(['id'=>$machineid])->save(['lock'=>0]);
+		}else{
+			M('equipment')->where(['id'=>$machineid])->save(['lock'=>1]);
+		}
+		$data = array(
+			'code' => 10000,
+			);
+		$this->ajaxReturn($data);
 
 	}
 

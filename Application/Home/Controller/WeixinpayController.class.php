@@ -34,8 +34,9 @@ class WeixinpayController extends Controller{
         if ($result) {
             //修改这条充值预订单的status
             // 验证成功 修改数据库的订单状态等 $result['out_trade_no']为订单号
-            $pay = M('order_log')->where(['out_trade_no'=>$result['out_trade_no']])->find();
+            $pay = M('order_log')->where(['out_trade_no'=>$result['out_trade_no']])->find();//查询订单 如果有证明为充值 如果没有证明为支付邮费
             if ($pay) {
+                //充值
                 M('order_log')->where(['out_trade_no' => $result['out_trade_no']])->save(['status' => 1]);//将订单的状态改为1已经支付
                 $order_log = M('order_log')->where(['out_trade_no' => $result['out_trade_no']])->find();//查询出对应的订单
                 $order = M('Order')->where(['id' => $order_log['order_id']])->find();//查询出订单对应的充值金额
@@ -44,6 +45,7 @@ class WeixinpayController extends Controller{
                 $silver = $user['silver'] + $order['amount'];//原有银币+充值获取到的银币数量
                 M('all_user')->where(['id' => $user['id']])->save(['gold' => $gold, 'silver' => $silver]);//修改用户的金币数量
             }else{
+                //邮费
                 M('express_pay')->where(['out_trade_no'=>$result['out_trade_no']])->save(['status' => 1]);//将快递订单的状态改为1已经支付
                 $express = M('express_pay')->where(['out_trade_no'=>$result['out_trade_no']])->find();
                 M('tbl_game_log')->where(['id'=>$express['log_id']])->save(['status'=>1]);

@@ -163,6 +163,7 @@
 							<th width="80">机台负责人</th>
 							<!-- <th width="150">机台大图</th> -->
 							<th width="80">运行状态</th>
+							<th width="80">锁</th>
 							<th width="60">添加时间</th>
 							<th width="60">机台版本</th>
 							<th width="120">操作</th>
@@ -182,6 +183,14 @@
 							<td><?php echo ($v["nickname"]); ?></td>
 							
 							  <td>  <?php if( $v["state"] == 1): ?><img src="/Public/Admin/paihang/images/online.png" alt="在线" title="在线" ><?php endif; if( $v["state"] == 0): ?><img src="/Public/Admin/paihang/images/noline.png"  alt="离线" title="离线" ><?php endif; ?></td>
+
+
+							<td class="f-14 td-manage">
+							<?php if( $v["lock"] == 1 ): ?><!-- <a style="text-decoration:none" class="ml-5-off" href="/index.php/Admin/Equipment/off/id/<?php echo ($v["id"]); ?>" title="关机"><i class="Hui-iconfont">&#xe726;关机</i></a> -->
+									<a style="text-decoration:none" class="ml-5-lock" title="解锁"><i class="Hui-iconfont">&#xe63f;解锁</i></a><?php endif; ?>
+								<?php if( $v["lock"] == 0 ): ?><!-- <a style="text-decoration:none" class="ml-5-off" href="/index.php/Admin/Equipment/off/id/<?php echo ($v["id"]); ?>" title="关机"><i class="Hui-iconfont">&#xe726;关机</i></a> -->
+									<a style="text-decoration:none" class="ml-5-lock" title="锁定"><i class="Hui-iconfont">&#xe60e;锁定</i></a><?php endif; ?>
+							</td>
 							<!-- <td><img src="<?php echo ($v["equipment_small_img"]); ?>" alt=""></td> -->
 							<!-- <td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["equipment_create_time"])); ?></span></td> -->
 							<td class="td-status"><span class="label label-success radius"><?php echo (date("Y-m-d",$v["create_time"])); ?></span></td>
@@ -367,6 +376,27 @@ $('.ml-5-restart').click(function(){
                 });
 		});
 
+
+$('.ml-5-lock').click(function(){
+	var data = {
+		"machineid":$(this).parents('tr').children().eq(1).text(),
+	};
+	$.ajax({
+		'type' : "post",
+		'url' : "/index.php/Admin/Equipment/lock",
+		'data' : data,
+		'dataType' : "json",
+		"success":function(response){
+			console.log(response);
+			if (response.code != 10000) {
+				alert("服务器繁忙,请稍后再试");
+			}else{
+				window.location.reload();
+				console.log(response);
+			}
+		}
+	});
+});
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

@@ -1926,4 +1926,27 @@ public function msg(){
     dump($return);die;
   }
  
+ public function fw(){
+  $data = array(
+    'type' => "price",
+    // 'limit' => 10,
+    'userid' => 1,
+    'timestamp' => time(),
+    );
+  $url = "192.168.1.164/Home/rooms/get_room_list";
+  $return = json_curl($url,$data);
+  $return = json_decode($return);
+  dump($return);
+ }
+
+ public function fw2(){
+  $data = array(
+    'userid' => 1,
+    'timestamp' => time(),
+    );
+  $url = "192.168.1.164/Home/Useraccount/get_payment_logs";
+  $return = json_curl($url,$data);
+  $return = json_decode($return);
+  dump($return);die;
+ }
 }
