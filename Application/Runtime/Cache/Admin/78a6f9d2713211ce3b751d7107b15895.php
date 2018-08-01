@@ -182,7 +182,12 @@
 							<td><font color="red"><b><?php echo ($v["money"]); ?></b></font></td>
 							<td><?php echo ($v["nickname"]); ?></td>
 							
-							  <td>  <?php if( $v["state"] == 1): ?><img src="/Public/Admin/paihang/images/online.png" alt="在线" title="在线" ><?php endif; if( $v["state"] == 0): ?><img src="/Public/Admin/paihang/images/noline.png"  alt="离线" title="离线" ><?php endif; ?></td>
+							  <td>
+							    <?php if( $v["state"] == 1): ?><img src="/Public/Admin/paihang/images/online.png" alt="在线" title="在线" ><?php endif; ?>
+							    <?php if( $v["state"] == 0): ?><img src="/Public/Admin/paihang/images/noline.png"  alt="离线" title="离线" ><?php endif; ?>
+							    <?php if( $v["state"] == -1 ): ?><img src="/Public/Admin/paihang/images/fault.png"  alt="故障" title="故障" ><?php endif; ?>
+								<?php if( $v["state"] == -2 ): ?><img src="/Public/Admin/paihang/images/lock.png"  alt="锁定" title="锁定" ><?php endif; ?>
+							  </td>
 
 
 							<td class="f-14 td-manage">
@@ -376,7 +381,7 @@ $('.ml-5-restart').click(function(){
                 });
 		});
 
-
+//锁住机台
 $('.ml-5-lock').click(function(){
 	var data = {
 		"machineid":$(this).parents('tr').children().eq(1).text(),

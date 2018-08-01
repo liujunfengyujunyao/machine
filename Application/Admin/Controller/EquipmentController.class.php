@@ -60,6 +60,12 @@ class EquipmentController extends CommonController{
 			// $version = 'http://'.$_SERVER['HTTP_HOST']."/Public/uploads/version/test.zip";
 		 // 	$this->assign('version',$version);
 			//查询出所有普通管理员的信息
+			foreach ($data as $key => &$value) {
+				if ($value['lock'] == 1) {
+					$value['state'] = "-2";
+				}
+			}
+			
 			$this->assign('nickname',$nickname);
 			$this->assign('manager',$manager);
 			$this->assign('data',$data);

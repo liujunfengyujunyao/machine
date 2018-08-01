@@ -90,7 +90,20 @@
 							<td><font color="red"><b>{{$v.money}}</b></font></td>
 							<td>{{$v.nickname}}</td>
 							
-							  <td>  <if condition =" $v.state == 1"><img src="__PUBLIC__/Admin/paihang/images/online.png" alt="在线" title="在线" ></if><if condition =" $v.state == 0"><img src="__PUBLIC__/Admin/paihang/images/noline.png"  alt="离线" title="离线" ></if></td>
+							  <td>
+							    <if condition =" $v.state == 1">
+							    <img src="__PUBLIC__/Admin/paihang/images/online.png" alt="在线" title="在线" >
+							    </if>
+							    <if condition =" $v.state == 0">
+							    <img src="__PUBLIC__/Admin/paihang/images/noline.png"  alt="离线" title="离线" >
+							    </if>
+							    <if condition =" $v.state == -1 ">
+								<img src="__PUBLIC__/Admin/paihang/images/fault.png"  alt="故障" title="故障" >
+								</if>
+								<if condition =" $v.state == -2 ">
+								<img src="__PUBLIC__/Admin/paihang/images/lock.png"  alt="锁定" title="锁定" >
+								</if>
+							  </td>
 
 
 							<td class="f-14 td-manage">
