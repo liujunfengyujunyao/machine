@@ -61,6 +61,7 @@ class EquipmentController extends CommonController{
 		 // 	$this->assign('version',$version);
 			//查询出所有普通管理员的信息
 			foreach ($data as $key => &$value) {
+				//新增锁定状态
 				if ($value['lock'] == 1) {
 					$value['state'] = "-2";
 				}

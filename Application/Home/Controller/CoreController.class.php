@@ -518,7 +518,7 @@ public function days(){
 
               }
             }
-            dump($equipment_all);die;
+           
             $statistics = M('equipment_month_statistics')->addAll($equipment_all);
              echo "操作已完成 请关闭页面";
              flush();

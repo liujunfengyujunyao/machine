@@ -11,6 +11,7 @@ class StatisticsController extends CommonController{
 			 ->where(['t2.pid'=>$manager])
 			 ->join("left join equipment as t2 on t2.id = t1.equipment_id")
 			 ->select();
+			 // dump($days);die;
 			 $this->assign("day",$days);
 			$this->display();
 		}

@@ -402,6 +402,20 @@ $('.ml-5-lock').click(function(){
 		}
 	});
 });
+
+
+
+
+
+$("test").click(function(){
+	var data = {
+		"machineid" : $(this).parents('tr').children().eq(1).text(),
+	};
+	$.ajax({
+		"type" : "post",
+	})
+})
+
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

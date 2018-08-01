@@ -144,7 +144,7 @@ class StatisticsController extends Controller{
 
               }
             }
-
+          
             $statistics = M('equipment_month_statistics')->addAll($equipment_all);
 
        
