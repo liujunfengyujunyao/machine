@@ -186,7 +186,8 @@
 							    <?php if( $v["state"] == 1): ?><img src="/Public/Admin/paihang/images/online.png" alt="在线" title="在线" ><?php endif; ?>
 							    <?php if( $v["state"] == 0): ?><img src="/Public/Admin/paihang/images/noline.png"  alt="离线" title="离线" ><?php endif; ?>
 							    <?php if( $v["state"] == -1 ): ?><img src="/Public/Admin/paihang/images/fault.png"  alt="故障" title="故障" ><?php endif; ?>
-								<?php if( $v["state"] == -2 ): ?><img src="/Public/Admin/paihang/images/lock.png"  alt="锁定" title="锁定" ><?php endif; ?>
+								<?php if( $v["state"] == -2 ): ?><!--lock==1 后台转换成-2-->
+								<img src="/Public/Admin/paihang/images/lock.png"  alt="锁定" title="锁定" ><?php endif; ?>
 							  </td>
 
 
@@ -402,20 +403,6 @@ $('.ml-5-lock').click(function(){
 		}
 	});
 });
-
-
-
-
-
-$("test").click(function(){
-	var data = {
-		"machineid" : $(this).parents('tr').children().eq(1).text(),
-	};
-	$.ajax({
-		"type" : "post",
-	})
-})
-
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

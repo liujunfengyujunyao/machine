@@ -250,12 +250,12 @@ class RoomsController extends Controller{
   }
   //封装判断机器是否空闲以及种类的方法
   public function available($type,$limit){
-
+    //离线,故障,锁定的机台不发送
     if ($type == 1) {
       $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 1 and t4.state!=0 and t4.pid = 1 and t4.state!=-1")//查询娃娃机的
+      ->where("t1.type_id = 1 and t4.state!=0 and t4.pid = 1 and t4.state!=-1 and t4.lock = 0")//查询娃娃机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -268,7 +268,7 @@ class RoomsController extends Controller{
    
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 2 and t4.state!=0 and t4.pid = 1 and t4.state!=-1")//查询彩票机的
+      ->where("t1.type_id = 2 and t4.state!=0 and t4.pid = 1 and t4.state!=-1 and t4.lock = 0")//查询彩票机的
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -280,7 +280,7 @@ class RoomsController extends Controller{
         $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t1.type_id = 3 and t4.state!=0 and t4.pid =1 and t4.state!=-1")
+      ->where("t1.type_id = 3 and t4.state!=0 and t4.pid =1 and t4.state!=-1 and t4.lock = 0")
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
@@ -292,7 +292,7 @@ class RoomsController extends Controller{
         $rooms = M('Goods')
       ->alias('t1')
       ->distinct(true)
-      ->where("t4.state!=0 and t4.pid = 1 and t4.state!=-1")
+      ->where("t4.state!=0 and t4.pid = 1 and t4.state!=-1 and t4.lock = 0")
       ->field("t1.id as roomid,t1.name,t2.pics_origin as photo,t3.type_name as type")
       ->join("left join goodspics as t2 on t2.goods_id = t1.id")
       ->join("left join type as t3 on t3.type_id = t1.type_id")
