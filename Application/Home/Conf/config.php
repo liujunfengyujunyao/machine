@@ -35,7 +35,7 @@ return array(
     // 'NOTIFY_URL'         => 'http://www.machine.com/Home/Weixinpay/notify/', // 接收支付状态的连接
     // 'NOTIFY_URL'         => 'http://liujunfeng.imwork.net:41413/Home/Weixinpay/notify',
     // 'NOTIFY_URL'         => 'http://192.168.1.3/index.php/Home/Weixinpay/notify',
-    'NOTIFY_URL'         => 'https://www.goldenbrother.com/index.php/Home/Weixinpay/notify',
+    'NOTIFY_URL'         => 'https://www.goldenbrother.cn/index.php/Home/Weixinpay/notify',
     ),
 
     'DB_TYPE' => 'mysql', // 数据库类型

@@ -1926,6 +1926,44 @@ public function msg(){
     dump($return);die;
   }
 
+ public function koukuan(){
+  $data = array(
+    "userid" => 1,
+    "timestamp" => time(),
+    );
+  $url =  "192.168.1.164/Home/userlogin/get_current_user_info";
+  $return = json_curl($url,$data);
+  dump($return);die;
 
+ }
+
+public function gitlog(){
+  $data = array(
+    'msgtype' => "payment_request",
+    "userid" => 1,
+    "timestamp" => time(),
+    );
+  $return = json_curl($url,$data);
+  dump($return);
+}
+
+public function laogao(){
+    $data = array(
+      
+      "userid" => 1,
+      "timestamp" => time(),
+      );
+    $url = "192.168.1.164/home/userlogin/again";
+    $return = json_curl($url,$data);
+    dump($return);die;
+}
+
+public function laogaoanain(){
+  $id = 1995;
+  $data = S("token",$id);
+  $res = S("token");
+  dump($res);die;
+  
+}
 
 }
